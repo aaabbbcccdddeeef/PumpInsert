@@ -42,6 +42,7 @@
 #include "touchpad.h"
 #include "compress.h"
 #include "power.h"
+#include "system.h"
 
 #include "eeprom_flash.h"
 #include "eeprom_default.h"

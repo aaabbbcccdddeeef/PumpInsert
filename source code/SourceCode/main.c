@@ -51,6 +51,32 @@ void CMainUserInitial(void)
     ResetPulseNum=4000;
     MinFreqFactor=10;
     MaxFreqFactor=50;
+
+    g_u8DetectOptSelect=0xff;
+    g_u8DetectOptStart=0;
+    g_u32OptLevel=0xff;
+}
+void CDisplayLogo(void)
+{
+    
+    RXLCD_EditCurrent();
+    displaypicture(4);//–¥»ÎÕº≤„2
+    
+    RXLCD_EditNext();
+    displaypicture(3);//–¥»ÎÕº≤„1
+
+    RXLCD_ScrollWindow_Next(0,0,479,271,10);
+    Delay10ms(200);
+    //MenuPageIndex = 1;
+}
+void CFlashLCDFrame(void)
+{
+    RXLCD_EditCurrent();
+    displaypicture(20);//–¥»ÎÕº≤„2
+    RXLCD_EditNext();
+    displaypicture(20);//–¥»ÎÕº≤„2
+    //RXLCD_ScrollWindow_Next(0,0,479,271,1);
+
 }
 
 void CDeviceInit(void)
@@ -71,40 +97,20 @@ void CDeviceInit(void)
     GPIOInit();
     
     RXLCD_init();
+    
+    CDisplayLogo();
 
     SPIFlashMasterInit();
 
     CFlashStartupCheck();
-
+    
+    CFlashLCDFrame();
+    
     Layer1_Visible();
 
     PumpInit();
         
     return;
-}
-void CDisplayLogo(void)
-{
-    u8 i=0;
-    
-    RXLCD_EditCurrent();
-    for(i=30;i<37;i++)
-    {
-        displaypicture(i);//–¥»ÎÕº≤„2
-        Delay10ms(8);
-    }
-    //Delay10ms(150);
-    //displaypicture(37);//–¥»ÎÕº≤„2
-    //RXLCD_EditNext();
-    //displaypicture(4);//–¥»ÎÕº≤„1
-
-    //RXLCD_ScrollWindow_Next(0,175,479,271,80);
-    
-    RXLCD_EditCurrent();
-    displaypicture(20);//–¥»ÎÕº≤„2
-    RXLCD_EditNext();
-    displaypicture(20);//–¥»ÎÕº≤„2
-    RXLCD_ScrollWindow_Next(0,0,479,271,1);
-    //MenuPageIndex = 1;
 }
 void delay(unsigned int nCount)	
 {
@@ -114,7 +120,6 @@ void delay(unsigned int nCount)
 int main (void) 
 {     
     CDeviceInit(); //÷˜øÿ–æ∆¨ LPC1768≥ı ºªØ
-    CDisplayLogo();
 
     CDrawMainPage();
 
@@ -122,6 +127,7 @@ int main (void)
     {
         CTPHandle();
         CUIHandler();
+        CSystemEventHandler();
     }
 
 }

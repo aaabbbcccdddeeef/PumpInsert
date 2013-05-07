@@ -120,7 +120,6 @@ void CFlashTPCheck(void);
 
 void CFlashPasswordCheck(void);
 
-u8 CPasswordVerify(void);
 void CFlashClearFlashBuff(void);
 void CFlashClearFlashMoveBuff(void);
 void CEepromClearFlashIDBuff(void);
@@ -155,7 +154,6 @@ extern u8 g_u8InitSector;
 //--------------------------------------------------
 extern void CFlashStartupCheck(void);
 extern void CFlashRTCCheck(void);
-extern u8 CPasswordVerify(void);
 extern void CFlashClearFlashBuff(void);
 extern void CFlashClearFlashMoveBuff(void);
 extern void CFlashSaveUISetting(void);

@@ -88,7 +88,8 @@ typedef struct
     fpExecFunc SelPicFunction;//选中时执行函数
     fpExecFunc_u8 UnselPicFunction;//未选中时执行函数
     fpExecFunc ExecFunction;//点击时执行，一般为页面跳转
-    fpExecFunc DoFunction;//点击时执行，优先级在ExecFunction之前，一般为所要实现的功能
+    fpExecFunc DoBeforeExec;//点击时执行，优先级在ExecFunction之前，一般为所要实现的功能
+    fpExecFunc DoAfterExec;//点击时执行，优先级在ExecFunction之后，一般为第四级菜单的绘制
     unsigned short Flags; //0928
 } MenuItemType;
 

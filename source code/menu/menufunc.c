@@ -818,6 +818,23 @@ void CDrawResultCurve(void)
         }
     }
 }
+void CDebugOpt1Start(void)
+{
+    g_u8DetectOptSelect=1;
+    g_u8DetectOptStart=1;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt1PageStyle(void)
+{
+    WriteString("光耦调试( 序号 : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
+}
+void CDebugOpt1Stop(void)
+{
+    g_u8DetectOptSelect=0xff;
+    g_u8DetectOptStart=0;
+    g_u32OptLevel = 0xff; 
+}
 
 //******************************end of line***************************************
 

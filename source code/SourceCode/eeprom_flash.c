@@ -202,20 +202,6 @@ void CFlashTPCheck(void)
         CFlashLoadTouchPoint();
     }
 }
-u8 CPasswordVerify(void)
-{
-    int i;
-    CFlashGetCell(_FLASH_NUM0, PAGE_PASSWORD);
-    
-    SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PASSWORD+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-    
-    for(i=0;i<8;i++)
-    {
-        if(flash_buf[(CELL_SIZE*g_u8CellLast)+i] != g_aPasswordTemp[i])
-            return 0x00;
-    }
-    return 0x01;
-}
 void CFlashClearFlashBuff(void)
 {
     int j;

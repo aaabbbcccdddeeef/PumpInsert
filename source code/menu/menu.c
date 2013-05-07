@@ -130,8 +130,9 @@ void CUIHandler(void)
                     //if(CurrentMenuItems[g_u8DrawedItemIndex].Flags!=menu_level_1)
                         //CurrentMenuItems[g_u8DrawedItemIndex].UnselPicFunction(g_u8DrawedItemIndex);
                     //g_u8DrawedItemIndex=MenuItemIndex;
+                    CurrentMenuItem.DoBeforeExec();
                     CurrentMenuItem.ExecFunction();
-                    CurrentMenuItem.DoFunction();
+                    CurrentMenuItem.DoAfterExec();
                     switch(CurrentMenuItem.Flags)
                     {
                         case edit_line:

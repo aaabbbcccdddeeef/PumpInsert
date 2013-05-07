@@ -34,7 +34,9 @@ extern void CGetInputBit(void);
 extern void CPopUpInputResult(void);
 extern void CInputBackSpace(void);
 extern void CDrawResultCurve(void);
-
+extern void CDebugOpt1Start(void);
+extern void CDebugOpt1PageStyle(void);
+extern void CDebugOpt1Stop(void);
 
 #endif
 

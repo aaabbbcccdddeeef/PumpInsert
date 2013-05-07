@@ -81,7 +81,7 @@ void RXLCD_init(void)
     Write_Dir(0x52,0xc1);//设置为缓冲卷动模式
     Write_Dir(0x40,0x80);//设置为文字模式
     Write_Dir(0x41,0x01);
-
+Layer1_Visible();
     Write_Dir(0xf0,0x04);//开启中断
     Write_Dir(0x71,0x04);//设置为4线触摸屏
     Write_Dir(0x70,0xB2);//开启触摸功能，设置触摸参数
@@ -980,16 +980,14 @@ void RXLCD_EditCurrent(void)
 {
     Write_Dir(0x41,g_u8LcdLayer);
 }
-
-
-void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size)
+void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transperent )
 {
     Size = Size<<6;
     Write_Dir(0x21,0x20);//??????
     Write_Dir(0x06,0x03);//??FLASH??
     Write_Dir(0x2F,0x81);//????IC
     Write_Dir(0x05,0xA8);//????IC
-    Write_Dir(0x22,0xc0);//????IC
+    Write_Dir(0x22,0x80|(transperent<<6));//????IC
     Write_Dir(0x2E,Size);//??????16x16/??1
     Text_Foreground_Color1(Color);//??????
 
@@ -999,5 +997,3 @@ void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size)
     Write_Dir(0x21,0x00);//?????
     Write_Dir(0x2F,0x00);//?????
 }
-
-

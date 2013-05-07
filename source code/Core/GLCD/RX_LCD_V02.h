@@ -13,6 +13,23 @@
 
 #define PWM_REG                          0x8d
 
+#define _TANSPERENT_ON              1
+#define _TANSPERENT_OFF              0
+
+#define _FONT_SIZE_MIN              0
+#define _FONT_SIZE_NORMAL              1
+#define _FONT_SIZE_MAX              2
+
+#define color_brown   0x40c0
+#define color_black   0x0000
+#define color_white   0xffff
+#define color_red     0xf800
+#define color_green   0x07e0
+#define color_blue    0x001f
+#define color_yellow  color_red|color_green
+#define color_cyan    color_green|color_blue
+#define color_purple  color_red|color_blue
+
 #if(PCB_LCD_VERSION == 002)
 #define DATA_BUS_WR_MASK1   0x00ffc000
 #define DATA_BUS_WR_MASK2   0x00000700
@@ -129,6 +146,6 @@ extern void RXLCD_ScrollWindow_Down(unsigned short x1,unsigned short y1 ,unsigne
 
 extern void RXLCD_EditNext(void);
 extern void RXLCD_EditCurrent(void);
-
+extern void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transperent );
 #endif
 
