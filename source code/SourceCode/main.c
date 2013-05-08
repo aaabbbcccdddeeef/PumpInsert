@@ -65,7 +65,7 @@ void CDisplayLogo(void)
     RXLCD_EditNext();
     displaypicture(3);//–¥»ÎÕº≤„1
 
-    RXLCD_ScrollWindow_Next(0,0,479,271,10);
+    RXLCD_ScrollWindow_Next(0,0,479,271,6);
     Delay10ms(200);
     //MenuPageIndex = 1;
 }

@@ -490,7 +490,7 @@ MenuItemType DebugOptMenuItems[]=
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CDebugOpt2Start,			// DoBeforeExec
         CNull,			// DoAfterExec
         0  // Flags
     },
@@ -503,7 +503,7 @@ MenuItemType DebugOptMenuItems[]=
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CDebugOpt3Start,			// DoBeforeExec
         CNull,			// DoAfterExec
         0  // Flags
     },
@@ -512,11 +512,11 @@ MenuItemType DebugOptMenuItems[]=
         333, 99, 475, 127,// x1,y1,x2,y2;
         333, 236,// x, y;
         23, 24, // UnSelPic, SelPic;
-        DebugOpt3Menu, //NextMenuPage;
+        DebugOpt4Menu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CDebugOpt4Start,			// DoBeforeExec
         CNull,			// DoAfterExec
         0  // Flags
     },
@@ -539,10 +539,10 @@ MenuItemType DebugOpt1MenuItems[]=
         0  // Flags
     },
 
-    //1 1 Exit
+    //1 2 Enter
     { 
-        304, 11, 386, 45,// x1,y1,x2,y2;
-        304, 11,// x, y;
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
         19, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
@@ -552,16 +552,102 @@ MenuItemType DebugOpt1MenuItems[]=
         CNull,			// DoAfterExec
         0  // Flags
     },
+};
+
+//==========================DebugOpt2MenuItems============================================
+MenuItemType DebugOpt2MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CDebugOpt2PageStyle,			// DoAfterExec
+        0  // Flags
+    },
+
+
     //1 2 Enter
     { 
-        389, 11, 471, 45,// x1,y1,x2,y2;
-        389, 11,// x, y;
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
         19, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CNull_u8,			// UnselPicFunction
         CDrawPrevPage,			// ExecFunction
-        CDebugOpt1Stop,			// DoBeforeExec
+        CDebugOpt2Stop,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        0  // Flags
+    },
+};
+
+//==========================DebugOpt3MenuItems============================================
+MenuItemType DebugOpt3MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CDebugOpt3PageStyle,			// DoAfterExec
+        0  // Flags
+    },
+
+
+    //1 2 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CDebugOpt3Stop,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        0  // Flags
+    },
+};
+
+//==========================DebugOpt4MenuItems============================================
+MenuItemType DebugOpt4MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CDebugOpt4PageStyle,			// DoAfterExec
+        0  // Flags
+    },
+
+
+    //1 2 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CDebugOpt4Stop,			// DoBeforeExec
         CNull,			// DoAfterExec
         0  // Flags
     },
@@ -610,6 +696,148 @@ MenuItemType DebugPumpMenuItems[]=
         0  // Flags
     },
 };
+
+//==========================DebugPump1MenuItems============================================
+MenuItemType DebugPump1MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CDebugPump1PageStyle,			// DoAfterExec
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        menu_level_4  // Flags
+    },
+};
+
+//==========================DebugPump2MenuItems============================================
+MenuItemType DebugPump2MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CDebugPump2PageStyle,			// DoAfterExec
+        0  // Flags
+    },
+
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump2RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump2RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        menu_level_4  // Flags
+    },
+};
+
 //==========================DebugValveMenuItems============================================
 MenuItemType DebugValveMenuItems[]=
 {
@@ -767,6 +995,7 @@ MenuItemType TestPumpResetMenuItems[]=
     },
 
 };
+
 //==========================TestValveResetMenuItems============================================
 MenuItemType TestValveResetMenuItems[]=
 {
@@ -1730,8 +1959,8 @@ MenuItemType InputMenuItems[]=
         11, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
 
         CNull,			// DoBeforeExec
@@ -1744,8 +1973,8 @@ MenuItemType InputMenuItems[]=
         47, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1757,8 +1986,8 @@ MenuItemType InputMenuItems[]=
         83, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1770,8 +1999,8 @@ MenuItemType InputMenuItems[]=
         119, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1783,8 +2012,8 @@ MenuItemType InputMenuItems[]=
         155, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1796,8 +2025,8 @@ MenuItemType InputMenuItems[]=
         191, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1809,8 +2038,8 @@ MenuItemType InputMenuItems[]=
         227, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1822,8 +2051,8 @@ MenuItemType InputMenuItems[]=
         263, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1835,8 +2064,8 @@ MenuItemType InputMenuItems[]=
         299, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1848,8 +2077,8 @@ MenuItemType InputMenuItems[]=
         335, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -1861,8 +2090,8 @@ MenuItemType InputMenuItems[]=
         376, 188,// x, y;
         11, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelInputPicture,			// SelPicFunction
-        CDrawUnselInputPicture,			// UnselPicFunction
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
         CInputBackSpace,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
@@ -2219,8 +2448,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         DebugMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        DebugOpt2MenuItems, // MenuItems;
+        sizeof(DebugOpt2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 28 DebugOpt3Menu
@@ -2231,8 +2460,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         DebugMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        DebugOpt3MenuItems, // MenuItems;
+        sizeof(DebugOpt3MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 29 DebugOpt4Menu
@@ -2243,8 +2472,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         DebugMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        DebugOpt4MenuItems, // MenuItems;
+        sizeof(DebugOpt4MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 30 DebugPump1Menu
@@ -2255,8 +2484,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         DebugMenu,// PrevMenuPage;
         2,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        DebugPump1MenuItems, // MenuItems;
+        sizeof(DebugPump1MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 31 DebugPump2Menu
@@ -2267,8 +2496,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         DebugMenu,// PrevMenuPage;
         2,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        DebugPump2MenuItems, // MenuItems;
+        sizeof(DebugPump2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 32 DebugValve1Menu

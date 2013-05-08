@@ -127,18 +127,19 @@ void CUIHandler(void)
                     g_u8Down_Done=0;
                     g_u32TP_U_x=0;
                     g_u32TP_U_y=0;
-                    //if(CurrentMenuItems[g_u8DrawedItemIndex].Flags!=menu_level_1)
-                        //CurrentMenuItems[g_u8DrawedItemIndex].UnselPicFunction(g_u8DrawedItemIndex);
                     //g_u8DrawedItemIndex=MenuItemIndex;
                     CurrentMenuItem.DoBeforeExec();
                     CurrentMenuItem.ExecFunction();
-                    CurrentMenuItem.DoAfterExec();
+                    CurrentMenuItem.DoAfterExec();                        
                     switch(CurrentMenuItem.Flags)
                     {
                         case edit_line:
                             CDrawInputMenu();
                             break;
                         case input_num_button:
+                            CurrentMenuItem.UnselPicFunction(MenuItemIndex);
+                            break;
+                        case menu_level_4:
                             CurrentMenuItem.UnselPicFunction(MenuItemIndex);
                             break;
                     }

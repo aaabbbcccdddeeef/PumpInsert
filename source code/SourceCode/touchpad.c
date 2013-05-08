@@ -4,10 +4,10 @@
 #include "include.h"
 #define __TP__
 
-#define _TP_SAM_NUM            8
+#define _TP_SAM_NUM            5
 #define _TP_DET_START         0
-#define _TP_DET_NUM             8
-#define _TP_MARGIN                8
+#define _TP_DET_NUM             5
+#define _TP_MARGIN                5
 
 u16 CSystemAverageFilter(u16 ArrSize, u16 *Arr)
 {

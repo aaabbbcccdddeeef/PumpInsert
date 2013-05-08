@@ -1,0 +1,6 @@
+---- TempPageIndex Matches (5 in 3 files) ----
+Main.h (source code\sourcecode):u8 TempPageIndex=0;
+Main.h (source code\sourcecode):extern u8 TempPageIndex;
+Menufunc.c (source code\menu):    TempPageIndex = MenuPageIndex;
+Menufunc.c (source code\menu):    MenuPageIndex = TempPageIndex;
+Menutbl.h (source code\menu):#define TempMenu		tblMenus[TempPageIndex]

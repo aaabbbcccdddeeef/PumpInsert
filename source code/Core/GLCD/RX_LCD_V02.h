@@ -147,5 +147,7 @@ extern void RXLCD_ScrollWindow_Down(unsigned short x1,unsigned short y1 ,unsigne
 extern void RXLCD_EditNext(void);
 extern void RXLCD_EditCurrent(void);
 extern void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transperent );
+extern void RXLCD_DrawLine(unsigned short XS,unsigned short YS,unsigned short XE ,unsigned short YE,unsigned short color);
+
 #endif
 

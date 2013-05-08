@@ -193,17 +193,32 @@
           <WinNumber>1</WinNumber>
           <ItemText>g_u8DrawedItemIndex</ItemText>
         </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TempPageIndex,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TempItemIndex</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>g_t8MenuStack</ItemText>
+          <ItemText>g_u8NumberBit</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>PageStackStartPoint</ItemText>
+          <ItemText>g_u32InputResult,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>g_t8InputNumber</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -407,7 +422,7 @@
 
   <Group>
     <GroupName>Source Code</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -419,7 +434,7 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>116</TopLine>
-      <CurrentLine>124</CurrentLine>
+      <CurrentLine>122</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -502,8 +517,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>25</TopLine>
+      <CurrentLine>25</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
       <FilenameWithoutPath>system.c</FilenameWithoutPath>
@@ -523,8 +538,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>567</TopLine>
-      <CurrentLine>575</CurrentLine>
+      <TopLine>774</TopLine>
+      <CurrentLine>774</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -533,7 +548,7 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>19</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -718,7 +733,7 @@
   <AlienFiles>
     <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>14</TopLine>
-    <CurrentLine>22</CurrentLine>
+    <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -746,19 +761,25 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
         <Doc>
+          <Name>.\SourceCode\system.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>25</TopLine>
+          <CurrentLine>25</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>menu\menutbl.h</Name>
-          <ColumnNumber>60</ColumnNumber>
+          <ColumnNumber>54</ColumnNumber>
           <TopLine>14</TopLine>
-          <CurrentLine>22</CurrentLine>
+          <CurrentLine>28</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>567</TopLine>
-          <CurrentLine>575</CurrentLine>
+          <TopLine>774</TopLine>
+          <CurrentLine>774</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menutbl.c</Name>
@@ -770,7 +791,7 @@
           <Name>.\SourceCode\main.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>116</TopLine>
-          <CurrentLine>124</CurrentLine>
+          <CurrentLine>122</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\GLCD\RX_LCD_V02.c</Name>

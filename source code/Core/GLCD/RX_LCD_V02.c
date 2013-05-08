@@ -997,3 +997,12 @@ void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transpe
     Write_Dir(0x21,0x00);//?????
     Write_Dir(0x2F,0x00);//?????
 }
+void RXLCD_DrawLine(unsigned short XS,unsigned short YS,unsigned short XE ,unsigned short YE,unsigned short color)
+{
+Draw_Line(XS,XE,YS,YE);//画矩形
+    Text_Foreground_Color1(color);//颜色设定
+	Write_Dir(0X90,0X30);//设定参数
+    Write_Dir(0X90,0XB0);//开始画
+}
+
+

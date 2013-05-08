@@ -386,9 +386,9 @@ void CDrawSelPicture(void)
 void CDrawUnselPicture(u8 Index)
 {
     RXLCD_EditCurrent();
-    CutPicture(CurrentMenuItems[Index].UnSelPic , CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1, CurrentMenuItems[Index].x2, CurrentMenuItems[Index].y2, CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1);
+    CutPicture(CurrentMenuItems[Index].UnSelPic , CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1, CurrentMenuItems[Index].x2, CurrentMenuItems[Index].y2, CurrentMenuItems[Index].x, CurrentMenuItems[Index].y);
     RXLCD_EditNext();
-    CutPicture(CurrentMenuItems[Index].UnSelPic , CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1, CurrentMenuItems[Index].x2, CurrentMenuItems[Index].y2, CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1);
+    CutPicture(CurrentMenuItems[Index].UnSelPic , CurrentMenuItems[Index].x1, CurrentMenuItems[Index].y1, CurrentMenuItems[Index].x2, CurrentMenuItems[Index].y2, CurrentMenuItems[Index].x, CurrentMenuItems[Index].y);
 }
 void CDrawUnselMenuLevel1(u8 Index)
 {
@@ -734,18 +734,19 @@ void CGetInputBit(void)
             Write_Dir(0x21,0x20);//选择外部字库
             Write_Dir(0x06,0x03);//设置FLASH频率
             Write_Dir(0x05,0xA8);//设置字符IC	
-            Write_Dir(0x2E,0x00);//设置字符模式32x32/间距0
+            Write_Dir(0x2E,0x80);//设置字符模式32x32/间距0
             Write_Dir(0x2F,0x81);//设置字符IC
             Write_Dir(0x22,0x40);//设置为通透模式
 
-            if(g_u8NumberBit==0)
-                FontWrite_Position(TempMenuItem.x1+5, TempMenuItem.y1+10);   //設定顯示位置
-            Write_Command(0x02);
+            //if(g_u8NumberBit==0)
+                //FontWrite_Position(TempMenuItem.x1, TempMenuItem.y1-4);   //設定顯示位置
+            WriteString(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
+            //Write_Command(0x02);
             //String(&g_t8InputNumber[g_u8NumberBit]);
-            Delay10ms(1);
+            //Delay10ms(1);
 
-            Write_Data(g_t8InputNumber[g_u8NumberBit]);
-            Delay10ms(1);
+            //Write_Data(g_t8InputNumber[g_u8NumberBit]);
+            //Delay10ms(1);
 
             //Write_Dir(0x40,0xc0);//设置文字模式光标
             //Write_Dir(0x2e,0x40);//设置文字模式光标
@@ -768,6 +769,7 @@ void CInputBackSpace(void)
     {
         g_u8NumberBit--;
         g_t8InputNumber[g_u8NumberBit]=0;
+        g_u32InputResult = g_u32InputResult/10;
         RXLCD_EditNext();
         CutPicture(TempMenuItem.UnSelPic , TempMenuItem.x1, TempMenuItem.y1, TempMenuItem.x2, TempMenuItem.y2, TempMenuItem.x1, TempMenuItem.y1);
         //Delay10ms(1);
@@ -778,17 +780,19 @@ void CInputBackSpace(void)
         Write_Dir(0x21,0x20);//选择外部字库
         Write_Dir(0x06,0x03);//设置FLASH频率
         Write_Dir(0x05,0xA8);//设置字符IC	
-        Write_Dir(0x2E,0x00);//设置字符模式32x32/间距0
+        Write_Dir(0x2E,0x80);//设置字符模式32x32/间距0
         Write_Dir(0x2F,0x81);//设置字符IC
         Write_Dir(0x22,0x40);//设置为通透模式
-        FontWrite_Position(TempMenuItem.x1+5, TempMenuItem.y1+10);   //設定顯示位置
+        WriteString(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
+        /*
+        FontWrite_Position(TempMenuItem.x1, TempMenuItem.y1-4);   //設定顯示位置
         Write_Command(0x02);
         Delay10ms(1);
-        String(&g_t8InputNumber[0]);
+        String(" ");
 
         //Write_Data(g_t8InputNumber[g_u8NumberBit]);
         Delay10ms(1);
-
+*/
         //Write_Dir(0x40,0xc0);//设置文字模式光标
         //Write_Dir(0x2e,0x40);//设置文字模式光标
         //Write_Dir(0x41,0x00);//关闭图形光标
@@ -818,6 +822,10 @@ void CDrawResultCurve(void)
         }
     }
 }
+void CDrawButton(unsigned short x1, unsigned short y1, unsigned short x2, unsigned short y2, u8 Row, u8 col)
+{
+    CutPicture(5, x1, y1, x2, y2, col*90, Row*35);
+}
 void CDebugOpt1Start(void)
 {
     g_u8DetectOptSelect=1;
@@ -835,7 +843,89 @@ void CDebugOpt1Stop(void)
     g_u8DetectOptStart=0;
     g_u32OptLevel = 0xff; 
 }
-
+void CDebugOpt2Start(void)
+{
+    g_u8DetectOptSelect=2;
+    g_u8DetectOptStart=1;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt2PageStyle(void)
+{
+    WriteString("光耦调试( 序号 : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
+}
+void CDebugOpt2Stop(void)
+{
+    g_u8DetectOptSelect=0xff;
+    g_u8DetectOptStart=0;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt3Start(void)
+{
+    g_u8DetectOptSelect=3;
+    g_u8DetectOptStart=1;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt3PageStyle(void)
+{
+    WriteString("光耦调试( 序号 : 3 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
+}
+void CDebugOpt3Stop(void)
+{
+    g_u8DetectOptSelect=0xff;
+    g_u8DetectOptStart=0;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt4Start(void)
+{
+    g_u8DetectOptSelect=4;
+    g_u8DetectOptStart=1;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugOpt4PageStyle(void)
+{
+    WriteString("光耦调试( 序号 : 4 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
+}
+void CDebugOpt4Stop(void)
+{
+    g_u8DetectOptSelect=0xff;
+    g_u8DetectOptStart=0;
+    g_u32OptLevel = 0xff; 
+}
+void CDebugPump1PageStyle(void)
+{
+    WriteString("电机调试( 序号 : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,147,400,149,color_black);
+    CDrawButton(130,220,215,255,0,1);
+    CDrawButton(265,220,350,255,0,0);
+}
+void CDebugPump1RunPositive(void)
+{
+    PumpFreeRun(1,1,g_u32InputResult);
+}
+void CDebugPump1RunNegative(void)
+{
+    PumpFreeRun(1,0,g_u32InputResult);
+}
+void CDebugPump2PageStyle(void)
+{
+    WriteString("电机调试( 序号 : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,147,400,149,color_black);
+    CDrawButton(130,220,215,255,0,1);
+    CDrawButton(265,220,350,255,0,0);
+}
+void CDebugPump2RunPositive(void)
+{
+    PumpFreeRun(2,1,g_u32InputResult);
+}
+void CDebugPump2RunNegative(void)
+{
+    PumpFreeRun(2,0,g_u32InputResult);
+}
 //******************************end of line***************************************
 
 

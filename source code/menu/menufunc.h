@@ -37,7 +37,21 @@ extern void CDrawResultCurve(void);
 extern void CDebugOpt1Start(void);
 extern void CDebugOpt1PageStyle(void);
 extern void CDebugOpt1Stop(void);
-
+extern void CDebugOpt2Start(void);
+extern void CDebugOpt2PageStyle(void);
+extern void CDebugOpt2Stop(void);
+extern void CDebugOpt3Start(void);
+extern void CDebugOpt3PageStyle(void);
+extern void CDebugOpt3Stop(void);
+extern void CDebugOpt4Start(void);
+extern void CDebugOpt4PageStyle(void);
+extern void CDebugOpt4Stop(void);
+extern void CDebugPump1PageStyle(void);
+extern void CDebugPump1RunPositive(void);
+extern void CDebugPump1RunNegative(void);
+extern void CDebugPump2PageStyle(void);
+extern void CDebugPump2RunPositive(void);
+extern void CDebugPump2RunNegative(void);
 #endif
 
 
