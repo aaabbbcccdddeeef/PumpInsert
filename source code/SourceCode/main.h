@@ -60,6 +60,7 @@ u8 g_u8MenuLevel2Selected=0;
     u8 g_u8DetectOptSelect=0xff;
     u8 g_u8DetectOptStart=0;
     u8 g_u32OptLevel=0;
+    u8 g_u8RunningPause=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -110,11 +111,13 @@ extern u8 g_u8StackTop;
 extern u8 g_u8CurrentPageLevel;
 extern u8 g_u8MenuLevel1Selected;
 extern u8 g_u8MenuLevel2Selected;
-    extern u32 t_HPoint[300];
-   extern  u32 t_AValue[300];
-   extern u8 g_u8DetectOptSelect;
-   extern     u8 g_u8DetectOptStart;
-   extern u8 g_u32OptLevel;
+extern u32 t_HPoint[300];
+extern  u32 t_AValue[300];
+extern u8 g_u8DetectOptSelect;
+extern     u8 g_u8DetectOptStart;
+extern u8 g_u32OptLevel;
+extern   u8 g_u8RunningPause;
+
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

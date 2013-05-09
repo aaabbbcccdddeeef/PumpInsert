@@ -12,7 +12,9 @@
 
 #ifdef __SYSTEM__
 void CMonitorOptEvent(u8 OptSel);
+void CBurnInEvent(void);
 #else
 extern void CSystemEventHandler(void);
+
 #endif
 

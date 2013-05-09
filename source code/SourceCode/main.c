@@ -95,8 +95,10 @@ void CDeviceInit(void)
 
 
     GPIOInit();
+
     
     RXLCD_init();
+EINTInit();
     
     CDisplayLogo();
 

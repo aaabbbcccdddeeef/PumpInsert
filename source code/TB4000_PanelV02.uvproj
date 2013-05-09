@@ -346,7 +346,7 @@
               <MiscControls></MiscControls>
               <Define>_PANEL_VERSION = _RX_V02,_SAMPLE_FREQ = 500</Define>
               <Undefine></Undefine>
-              <IncludePath>.\SourceCode;.\Core\GLCD;.\Core\SysTick;.\Core\RTC;.\GUI\Config;.\GUI\Core;.\Core\common\inc;.\Core\ADC;.\Core\DAC;.\Core\SD;.\Core\SPI;.\Core\Serial;.\Core\USB;.\Core\HID;.\Core\FLASH;.\Core\I2C;.\Core\TIMER;.\Core\PWM;.\UI_V01;.\menu</IncludePath>
+              <IncludePath>.\SourceCode;.\Core\GLCD;.\Core\SysTick;.\Core\RTC;.\GUI\Config;.\GUI\Core;.\Core\common\inc;.\Core\ADC;.\Core\DAC;.\Core\SD;.\Core\SPI;.\Core\Serial;.\Core\USB;.\Core\HID;.\Core\FLASH;.\Core\I2C;.\Core\TIMER;.\Core\PWM;.\UI_V01;.\menu;.\Core\EINT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -445,6 +445,11 @@
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Core\RTC\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>extint.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Core\EINT\extint.c</FilePath>
             </File>
           </Files>
         </Group>

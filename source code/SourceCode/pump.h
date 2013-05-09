@@ -66,6 +66,8 @@ extern void PumpIn( u8 PumpSel, u16  cntRun);
 extern void PumpOut(u8 PumpSel,  u16 cntRun);
 extern void PumpReset(u8 PumpSel );
 extern void PumpTest(void);
+extern void PumpBurnIn(u8 PumpSel, u8 VolTest);
+
 #endif
 
 

@@ -23,6 +23,7 @@ unsigned char  *tOptLevel_TABLE[]=
 void CSystemEventHandler(void)
 {
     CMonitorOptEvent(g_u8DetectOptSelect);
+    CBurnInEvent();
 }
 
 void CMonitorOptEvent(u8 OptSel)
@@ -70,7 +71,10 @@ void CMonitorOptEvent(u8 OptSel)
 }
 void CBurnInEvent(void)
 {
-    
+    if(g_u8RunningPause==0)
+    {
+        PumpBurnIn(2, 100);
+    }
 }
 
 

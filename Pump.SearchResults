@@ -1,6 +1,13 @@
----- TempPageIndex Matches (5 in 3 files) ----
-Main.h (source code\sourcecode):u8 TempPageIndex=0;
-Main.h (source code\sourcecode):extern u8 TempPageIndex;
-Menufunc.c (source code\menu):    TempPageIndex = MenuPageIndex;
-Menufunc.c (source code\menu):    MenuPageIndex = TempPageIndex;
-Menutbl.h (source code\menu):#define TempMenu		tblMenus[TempPageIndex]
+---- EnableIRQ Matches (9 in 7 files) ----
+I2c.c (source code\core\i2c):  NVIC_EnableIRQ(I2C0_IRQn);
+Pwm.c (source code\core\pwm):  //NVIC_EnableIRQ(PWM1_IRQn);
+Rtc.c (source code\core\rtc):  //NVIC_EnableIRQ(RTC_IRQn);
+TB4000_PanelV02.htm (source code\output_panelv02):<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+TB4000_PanelV02.htm (source code\output_panelv02):<P><STRONG><a name="[9f]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, timer.o(.text))
+Timer.c (source code\core\timer):	NVIC_EnableIRQ(TIMER0_IRQn);
+Timer.c (source code\core\timer):	NVIC_EnableIRQ(TIMER1_IRQn);
+Uart.c (source code\core\serial):    NVIC_EnableIRQ(UART3_IRQn);
+Usbhw.c (source code\core\usb):  NVIC_EnableIRQ(USB_IRQn);               /* enable USB interrupt */
+---- EnableIRQ Search Errors Encountered (1) ----
+The following 1 files could not be processed:
+E:\GitHub\PumpInsert\source code\JLinkLog.txt : File could not be opened.
