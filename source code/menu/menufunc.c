@@ -692,14 +692,14 @@ void CDrawInputMenu(void)
     g_u8NumberBit=0;
     RXLCD_EditNext();
     displaypicture(CurrentMenu.PicNum);
-    RXLCD_ScrollWindow_Up(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,30);
+    RXLCD_ScrollWindow_Up(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,10);
 
 }
 void CHideInputMenu(void)
 {
     RXLCD_EditNext();
     //displaypicture(CurrentMenu.PicNum);
-    RXLCD_ScrollWindow_Down(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,30);
+    RXLCD_ScrollWindow_Down(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,10);
     MenuPageIndex = TempPageIndex;
     MenuItemIndex = TempItemIndex;
 }
@@ -925,6 +925,46 @@ void CDebugPump2RunPositive(void)
 void CDebugPump2RunNegative(void)
 {
     PumpFreeRun(2,0,g_u32InputResult);
+}
+void CDebugValve1PageStyle(void)
+{
+    WriteString("·§µ÷ÊÔ( ÐòºÅ : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CDebugValve2PageStyle(void)
+{
+    WriteString("·§µ÷ÊÔ( ÐòºÅ : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CDebugValve3PageStyle(void)
+{
+    WriteString("·§µ÷ÊÔ( ÐòºÅ : 3 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CDebugValve4PageStyle(void)
+{
+    WriteString("·§µ÷ÊÔ( ÐòºÅ : 4 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CTestPump1Reset(void)
+{
+    PumpReset(1);    
+}
+void CTestPump2Reset(void)
+{
+    PumpReset(2);    
+}
+void CTestValve1Reset(void)
+{
+    PumpSetValveState(1, _VALVE_OFF);
+}
+void CTestValve2Reset(void)
+{
+    PumpSetValveState(2, _VALVE_OFF);
+}
+void CTestValve3Reset(void)
+{
+    PumpSetValveState(3, _VALVE_OFF);
+}
+void CTestValve4Reset(void)
+{
+    PumpSetValveState(4, _VALVE_OFF);
 }
 //******************************end of line***************************************
 

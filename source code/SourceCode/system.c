@@ -68,3 +68,9 @@ void CMonitorOptEvent(u8 OptSel)
     }
 
 }
+void CBurnInEvent(void)
+{
+    
+}
+
+

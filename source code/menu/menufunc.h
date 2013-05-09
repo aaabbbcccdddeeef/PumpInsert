@@ -52,6 +52,16 @@ extern void CDebugPump1RunNegative(void);
 extern void CDebugPump2PageStyle(void);
 extern void CDebugPump2RunPositive(void);
 extern void CDebugPump2RunNegative(void);
+extern void CDebugValve1PageStyle(void);
+extern void CDebugValve2PageStyle(void);
+extern void CDebugValve3PageStyle(void);
+extern void CDebugValve4PageStyle(void);
+extern void CTestPump1Reset(void);
+extern void CTestPump2Reset(void);
+extern void CTestValve1Reset(void);
+extern void CTestValve2Reset(void);
+extern void CTestValve3Reset(void);
+extern void CTestValve4Reset(void);
 #endif
 
 
