@@ -43,18 +43,12 @@ void CMainUserInitial(void)
 
     PumpNum[0]=0;
     PumpNum[1]=0;
-    MaxStepCount=40;		//台阶数
-    FullStepPerClass = 1;  //每个台阶的整步数 ,加速度
     nMaxEffClass=0;    //最大可用台阶
-    nBackLash=40;
-    nStep2Pulse=2;
-    ResetPulseNum=4000;
-    MinFreqFactor=10;
-    MaxFreqFactor=50;
 
     g_u8DetectOptSelect=0xff;
     g_u8DetectOptStart=0;
     g_u32OptLevel=0xff;
+    g_u8RunningPause=1;
 }
 void CDisplayLogo(void)
 {
@@ -87,10 +81,10 @@ void CDeviceInit(void)
 	 
     CMainUserInitial();
     
-    init_timer( 0, TIME_10MS_INTERVAL/MaxFreqFactor);
+    init_timer( 0, TIME_10MS_INTERVAL/50);
     disable_timer(0);
 
-    init_timer( 1, TIME_10MS_INTERVAL/MaxFreqFactor);
+    init_timer( 1, TIME_10MS_INTERVAL/50);
     disable_timer(1);
 
 
@@ -98,7 +92,8 @@ void CDeviceInit(void)
 
     
     RXLCD_init();
-EINTInit();
+    
+    EINTInit();
     
     CDisplayLogo();
 
@@ -121,6 +116,7 @@ void delay(unsigned int nCount)
 
 int main (void) 
 {     
+
     CDeviceInit(); //主控芯片 LPC1768初始化
 
     CDrawMainPage();

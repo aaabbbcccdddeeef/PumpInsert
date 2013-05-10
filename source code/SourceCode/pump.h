@@ -40,15 +40,7 @@
 #define _STEP_MODE_QUARTER          2
 #define _STEP_MODE_SIXTEENTH       3
 
-extern u8 MaxStepCount;		//台阶数
-extern u8 FullStepPerClass;  //每个台阶的整步数 ,加速度
-extern u8 nMaxEffClass;    //最大可用台阶
-extern u16 nBackLash;
-extern u8 nStep2Pulse;
-extern u16 ResetPulseNum;
-extern u8 MinFreqFactor;
-extern u8 MaxFreqFactor;
-
+extern u8 nMaxEffClass;
 
 extern void PumpInit(void);
 extern void PumpSetEnable(u8 PumpSel, u32 enable);

@@ -8,8 +8,11 @@
 /* development tools. Nothing else gives you the right to use this software.  */
 /******************************************************************************/
 
-
+#define _LEVEL4_TITLE_x     15
+#define _LEVEL4_TITLE_y     18
 #ifdef __MENUFUNC__
+
+
 
 #else
 extern void CNull(void);
@@ -62,6 +65,13 @@ extern void CTestValve1Reset(void);
 extern void CTestValve2Reset(void);
 extern void CTestValve3Reset(void);
 extern void CTestValve4Reset(void);
+extern void CTestBurnInPageStyle(void);
+extern void CTestWaterWeighPageStyle(void);
+extern void CTestBacklashPageStyle(void);
+extern void CTestLeakagePageStyle(void);
+extern void CSettingAccelerationPageStyle(void);
+extern void CSettingBalancePageStyle(void);
+extern void CSettingMicrometerPageStyle(void);
 #endif
 
 

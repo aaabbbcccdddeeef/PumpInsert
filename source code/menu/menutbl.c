@@ -33,6 +33,9 @@ MenuItemType BlankMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 MenuActive
@@ -46,6 +49,9 @@ MenuItemType BlankMenuItems[]=
         CDrawMainPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -65,6 +71,9 @@ MenuItemType MainMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 DebugMenu
@@ -78,6 +87,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 2 TestMenu
@@ -91,6 +103,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 3 SettingMenu
@@ -104,6 +119,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 4 StatusMenu
@@ -117,6 +135,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 5 InfoMenu
@@ -130,6 +151,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 6 WarningMenu
@@ -143,6 +167,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     },
     //1 7 AboutMenu
@@ -156,6 +183,9 @@ MenuItemType MainMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_1  // Flags
     }
 };
@@ -174,6 +204,9 @@ MenuItemType DebugMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 DebugOptMenu
@@ -187,6 +220,9 @@ MenuItemType DebugMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 2 DebugPumpMenu
@@ -200,6 +236,9 @@ MenuItemType DebugMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 3 DebugValveMenu
@@ -213,6 +252,9 @@ MenuItemType DebugMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 4 DebugMeasureDevMenu
@@ -226,6 +268,9 @@ MenuItemType DebugMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 5 DebugSetFreqMenu
@@ -239,6 +284,9 @@ MenuItemType DebugMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
 };
@@ -257,6 +305,9 @@ MenuItemType TestMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 TestPumpResetMenu
@@ -270,6 +321,9 @@ MenuItemType TestMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 2 TestValveResetMenu
@@ -283,6 +337,9 @@ MenuItemType TestMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 3 TestBurnInMenu
@@ -296,6 +353,9 @@ MenuItemType TestMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 4 TestWaterWeighMenu
@@ -305,10 +365,13 @@ MenuItemType TestMenuItems[]=
         25, 26, // UnSelPic, SelPic;
         TestWaterWeighMenu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
-        CDrawUnselMenuLevel2,			// UnselPicFunction
-        CDrawNextPage,			// ExecFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 5 TestBacklashMenu
@@ -322,6 +385,9 @@ MenuItemType TestMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 6 TestLeakageMenu
@@ -335,6 +401,9 @@ MenuItemType TestMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
 };
@@ -353,6 +422,9 @@ MenuItemType SettingMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 SettingOptMenu
@@ -366,6 +438,9 @@ MenuItemType SettingMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 2 SettingPumpMenu
@@ -379,6 +454,9 @@ MenuItemType SettingMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 3 SettingDividerMenu
@@ -392,6 +470,9 @@ MenuItemType SettingMenuItems[]=
         CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 4 SettingAccelerationMenu
@@ -401,10 +482,13 @@ MenuItemType SettingMenuItems[]=
         27, 28, // UnSelPic, SelPic;
         SettingAccelerationMenu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
-        CDrawUnselMenuLevel2,			// UnselPicFunction
-        CDrawNextPage,			// ExecFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 5 SettingBalanceMenu
@@ -418,6 +502,9 @@ MenuItemType SettingMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
     //1 6 SettingMicroMeterMenu
@@ -431,6 +518,9 @@ MenuItemType SettingMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_2  // Flags
     },
 };
@@ -449,6 +539,9 @@ MenuItemType AboutMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -466,6 +559,9 @@ MenuItemType DebugOptMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Opt1
@@ -479,6 +575,9 @@ MenuItemType DebugOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CDebugOpt1Start,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Opt2
@@ -492,6 +591,9 @@ MenuItemType DebugOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CDebugOpt2Start,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 3 Opt3
@@ -505,6 +607,9 @@ MenuItemType DebugOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CDebugOpt3Start,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 4 Opt4
@@ -518,6 +623,9 @@ MenuItemType DebugOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CDebugOpt4Start,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -536,6 +644,9 @@ MenuItemType DebugOpt1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugOpt1PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -550,6 +661,9 @@ MenuItemType DebugOpt1MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CDebugOpt1Stop,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -568,6 +682,9 @@ MenuItemType DebugOpt2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugOpt2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -583,6 +700,9 @@ MenuItemType DebugOpt2MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CDebugOpt2Stop,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -601,6 +721,9 @@ MenuItemType DebugOpt3MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugOpt3PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -616,6 +739,9 @@ MenuItemType DebugOpt3MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CDebugOpt3Stop,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -634,6 +760,9 @@ MenuItemType DebugOpt4MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugOpt4PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -649,6 +778,9 @@ MenuItemType DebugOpt4MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CDebugOpt4Stop,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -667,6 +799,9 @@ MenuItemType DebugPumpMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Pump1
@@ -680,6 +815,9 @@ MenuItemType DebugPumpMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Pump2
@@ -693,6 +831,9 @@ MenuItemType DebugPumpMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -711,6 +852,9 @@ MenuItemType DebugPump1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugPump1PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Enter
@@ -724,6 +868,9 @@ MenuItemType DebugPump1MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Pulse Number
@@ -737,6 +884,9 @@ MenuItemType DebugPump1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         edit_line  // Flags
     },
     //1 3 P
@@ -750,6 +900,9 @@ MenuItemType DebugPump1MenuItems[]=
         CNull,			// ExecFunction
         CDebugPump1RunPositive,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_4  // Flags
     },
     //1 4 N
@@ -763,6 +916,9 @@ MenuItemType DebugPump1MenuItems[]=
         CNull,			// ExecFunction
         CDebugPump1RunNegative,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_4  // Flags
     },
 };
@@ -781,6 +937,9 @@ MenuItemType DebugPump2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugPump2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -795,6 +954,9 @@ MenuItemType DebugPump2MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Pulse Number
@@ -808,6 +970,9 @@ MenuItemType DebugPump2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         edit_line  // Flags
     },
     //1 3 P
@@ -821,6 +986,9 @@ MenuItemType DebugPump2MenuItems[]=
         CNull,			// ExecFunction
         CDebugPump2RunPositive,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_4  // Flags
     },
     //1 4 N
@@ -834,6 +1002,9 @@ MenuItemType DebugPump2MenuItems[]=
         CNull,			// ExecFunction
         CDebugPump2RunNegative,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         menu_level_4  // Flags
     },
 };
@@ -852,6 +1023,9 @@ MenuItemType DebugValveMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Valve1
@@ -859,12 +1033,15 @@ MenuItemType DebugValveMenuItems[]=
         333, 69, 475, 97,// x1,y1,x2,y2;
         168, 9,// x, y;
         23, 24, // UnSelPic, SelPic;
-        SquareWaveMenu, //NextMenuPage;
+        DebugValve1Menu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Valve2
@@ -872,12 +1049,15 @@ MenuItemType DebugValveMenuItems[]=
         333, 99, 475, 127,// x1,y1,x2,y2;
         168, 39,// x, y;
         23, 24, // UnSelPic, SelPic;
-        DifferentialPulseMenu, //NextMenuPage;
+        DebugValve2Menu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 3 Valve3
@@ -885,12 +1065,15 @@ MenuItemType DebugValveMenuItems[]=
         333, 129, 475, 157,// x1,y1,x2,y2;
         168, 69,// x, y;
         23, 24, // UnSelPic, SelPic;
-        SquareWaveMenu, //NextMenuPage;
+        DebugValve3Menu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 4 Valve4
@@ -898,12 +1081,15 @@ MenuItemType DebugValveMenuItems[]=
         333, 159, 475, 187,// x1,y1,x2,y2;
         168, 99,// x, y;
         23, 24, // UnSelPic, SelPic;
-        DifferentialPulseMenu, //NextMenuPage;
+        DebugValve4Menu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -922,6 +1108,9 @@ MenuItemType DebugValve1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugValve1PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -936,6 +1125,9 @@ MenuItemType DebugValve1MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -954,6 +1146,9 @@ MenuItemType DebugValve2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugValve2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -969,6 +1164,9 @@ MenuItemType DebugValve2MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -987,6 +1185,9 @@ MenuItemType DebugValve3MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugValve3PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -1002,6 +1203,9 @@ MenuItemType DebugValve3MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1020,6 +1224,9 @@ MenuItemType DebugValve4MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CDebugValve4PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -1035,6 +1242,9 @@ MenuItemType DebugValve4MenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1052,6 +1262,9 @@ MenuItemType DebugMeasureDevMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 DebugBalanceMenu
@@ -1065,6 +1278,9 @@ MenuItemType DebugMeasureDevMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 DebugMicrometerMenu
@@ -1078,6 +1294,9 @@ MenuItemType DebugMeasureDevMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -1096,6 +1315,9 @@ MenuItemType TestPumpResetMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Pump1
@@ -1109,6 +1331,9 @@ MenuItemType TestPumpResetMenuItems[]=
         CNull,			// ExecFunction
         CTestPump1Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Pump2
@@ -1122,6 +1347,9 @@ MenuItemType TestPumpResetMenuItems[]=
         CNull,			// ExecFunction
         CTestPump2Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -1141,6 +1369,9 @@ MenuItemType TestValveResetMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Valve1
@@ -1154,6 +1385,9 @@ MenuItemType TestValveResetMenuItems[]=
         CNull,			// ExecFunction
         CTestValve1Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Valve2
@@ -1167,6 +1401,9 @@ MenuItemType TestValveResetMenuItems[]=
         CNull,			// ExecFunction
         CTestValve1Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 3 Valve3
@@ -1180,6 +1417,9 @@ MenuItemType TestValveResetMenuItems[]=
         CNull,			// ExecFunction
         CTestValve1Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 4 Valve4
@@ -1193,9 +1433,353 @@ MenuItemType TestValveResetMenuItems[]=
         CNull,			// ExecFunction
         CTestValve1Reset,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
+
+//==========================TestBurnInMenuItems============================================
+MenuItemType TestBurnInMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBurnInPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
+//==========================TestWaterWeighMenuItems============================================
+MenuItemType TestWaterWeighMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestWaterWeighPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
+//==========================TestBacklashMenuItems============================================
+MenuItemType TestBacklashMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBacklashPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
+//==========================TestLeakageMenuItems============================================
+MenuItemType TestLeakageMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestLeakagePageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
 //==========================SettingOptMenuItems============================================
 MenuItemType SettingOptMenuItems[]=
 {
@@ -1210,6 +1794,9 @@ MenuItemType SettingOptMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Opt1
@@ -1223,6 +1810,9 @@ MenuItemType SettingOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Opt2
@@ -1236,6 +1826,9 @@ MenuItemType SettingOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 3 Opt3
@@ -1249,6 +1842,9 @@ MenuItemType SettingOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 4 Opt4
@@ -1262,6 +1858,9 @@ MenuItemType SettingOptMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1279,6 +1878,9 @@ MenuItemType SettingPumpMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Pump1
@@ -1292,6 +1894,9 @@ MenuItemType SettingPumpMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Pump2
@@ -1305,6 +1910,9 @@ MenuItemType SettingPumpMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1322,6 +1930,9 @@ MenuItemType SettingDividerMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 Divider1
@@ -1335,6 +1946,9 @@ MenuItemType SettingDividerMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 2 Divider2
@@ -1348,6 +1962,9 @@ MenuItemType SettingDividerMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 3 Divider4
@@ -1361,6 +1978,9 @@ MenuItemType SettingDividerMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 4 Divider16
@@ -1374,9 +1994,268 @@ MenuItemType SettingDividerMenuItems[]=
         CDrawPageLevel4,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
+
+//==========================SettingAccelerationMenuItems============================================
+MenuItemType SettingAccelerationMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingAccelerationPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
+//==========================SettingBalanceMenuItems============================================
+MenuItemType SettingBalanceMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingBalancePageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
+//==========================SettingMicrometerMenuItems============================================
+MenuItemType SettingMicrometerMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingMicrometerPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Enter
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Pulse Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 P
+    { 
+        130,220,215,255,// x1,y1,x2,y2;
+        90,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunPositive,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 4 N
+    { 
+        265,220,350,255,// x1,y1,x2,y2;
+        0,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
 //==========================PoleActiveMenuItems============================================
 MenuItemType PoleActiveMenuItems[]=
 {
@@ -1391,72 +2270,10 @@ MenuItemType PoleActiveMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
-    },
-    //1 1 MaxVoltage
-    { 
-        118, 74, 225, 102,// x1,y1,x2,y2;
-        118, 74,// x, y;
-        16, 16, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 2 MinVoltage
-    { 
-        118, 104, 225, 132,// x1,y1,x2,y2;
-        118, 104,// x, y;
-        16, 16, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 3 ScanNumber
-    { 
-        118, 134, 225, 162,// x1,y1,x2,y2;
-        118, 134,// x, y;
-        16, 16, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 4 ScanSpeed
-    { 
-        118, 164, 225, 192,// x1,y1,x2,y2;
-        118, 164,// x, y;
-        16, 16, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 5 SampleTime
-    { 
-        118, 194, 225, 222,// x1,y1,x2,y2;
-        118, 194,// x, y;
-        16, 16, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
     },
     //1 6 Exit
     { 
@@ -1469,6 +2286,9 @@ MenuItemType PoleActiveMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 7 Enter
@@ -1482,6 +2302,9 @@ MenuItemType PoleActiveMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1500,72 +2323,10 @@ MenuItemType PoleCleanMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
-    },
-    //1 1 CleanVoltage
-    { 
-        118, 74, 225, 102,// x1,y1,x2,y2;
-        118, 74,// x, y;
-        19, 19, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 2 CleanTime
-    { 
-        118, 104, 225, 132,// x1,y1,x2,y2;
-        118, 104,// x, y;
-        19, 19, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 3 SampleTime
-    { 
-        118, 134, 225, 162,// x1,y1,x2,y2;
-        118, 134,// x, y;
-        19, 19, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 4 MixSpeed
-    { 
-        118, 164, 225, 192,// x1,y1,x2,y2;
-        118, 164,// x, y;
-        19, 19, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 5 MixTime
-    { 
-        118, 194, 225, 222,// x1,y1,x2,y2;
-        118, 194,// x, y;
-        19, 19, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
     },
     //1 6 Exit
     { 
@@ -1578,6 +2339,9 @@ MenuItemType PoleCleanMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 7 Enter
@@ -1591,6 +2355,9 @@ MenuItemType PoleCleanMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1608,163 +2375,10 @@ MenuItemType SquareWaveMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
-    },
-    //1 1 GatheringVoltage
-    { 
-        105, 71, 212, 96,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 2 GatheringTime
-    { 
-        105, 98, 212, 123,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 3 MixSpeed
-    { 
-        105, 125, 212, 150,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 4 MixTime
-    { 
-        105, 152, 212, 177,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 5 BalanceVoltage
-    { 
-        105, 179, 212, 204,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 6 BalanceTime
-    { 
-        105, 206, 212, 231,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 7 StartVoltage
-    { 
-        340, 71, 447, 96,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 8 EndVoltage
-    { 
-        340, 98, 447, 123,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 9 Amplitude
-    { 
-        340, 125, 447, 150,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 10 Period
-    { 
-        340, 152, 447, 177,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 11 StepVoltage
-    { 
-        340, 179, 447, 204,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 12 SampleWidth
-    { 
-        340, 206, 447, 231,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
     },
     //1 13 Exit
     { 
@@ -1777,6 +2391,9 @@ MenuItemType SquareWaveMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 14 Enter
@@ -1790,6 +2407,9 @@ MenuItemType SquareWaveMenuItems[]=
         CDrawResultCurve,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -1807,177 +2427,12 @@ MenuItemType DifferentialPulseMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
-    //1 1 GatheringVoltage
-    { 
-        105, 71, 212, 96,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 2 GatheringTime
-    { 
-        105, 98, 212, 123,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 3 MixSpeed
-    { 
-        105, 125, 212, 150,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 4 MixTime
-    { 
-        105, 152, 212, 177,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 5 BalanceVoltage
-    { 
-        105, 179, 212, 204,// x1,y1,x2,y2;
-        48, 82,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 6 BalanceTime
-    { 
-        105, 206, 212, 231,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 7 StartVoltage
-    { 
-        340, 71, 447, 96,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 8 EndVoltage
-    { 
-        340, 98, 447, 123,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 9 PulseAmplitude
-    { 
-        340, 125, 447, 150,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 10 PulsePeriod
-    { 
-        340, 152, 447, 177,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 11 StepVoltage
-    { 
-        340, 179, 447, 204,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 12 SampleWidth
-    { 
-        340, 206, 447, 231,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
-    //1 13 PulseWidth
-    { 
-        340, 233, 447, 258,// x1,y1,x2,y2;
-        380, 220,// x, y;
-        17, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        edit_line  // Flags
-    },
+
     //1 14 Exit
     { 
         304, 35, 386, 69,// x1,y1,x2,y2;
@@ -1989,6 +2444,9 @@ MenuItemType DifferentialPulseMenuItems[]=
         CDrawPrevPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 15 Enter
@@ -2002,6 +2460,9 @@ MenuItemType DifferentialPulseMenuItems[]=
         CDrawResultCurve,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 };
@@ -2019,6 +2480,9 @@ MenuItemType SquareWaveTestMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -2033,6 +2497,9 @@ MenuItemType SquareWaveTestMenuItems[]=
         CDrawPrevPage5,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     }
 };
@@ -2050,6 +2517,9 @@ MenuItemType DifferentialPulseTestMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
 
@@ -2064,6 +2534,9 @@ MenuItemType DifferentialPulseTestMenuItems[]=
         CDrawPrevPage5,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     }
 };
@@ -2082,6 +2555,9 @@ MenuItemType InputMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         0  // Flags
     },
     //1 1 
@@ -2093,9 +2569,11 @@ MenuItemType InputMenuItems[]=
         CNull,			// SelPicFunction
         CNull_u8,			// UnselPicFunction
         CGetInputBit,			// ExecFunction
-
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 2 
@@ -2109,6 +2587,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 3
@@ -2122,6 +2603,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 4
@@ -2135,6 +2619,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 5
@@ -2148,6 +2635,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 6
@@ -2161,6 +2651,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 7
@@ -2174,6 +2667,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 8
@@ -2187,6 +2683,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 9
@@ -2200,6 +2699,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 0
@@ -2213,6 +2715,9 @@ MenuItemType InputMenuItems[]=
         CGetInputBit,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_num_button  // Flags
     },
     //1 Cancle
@@ -2226,6 +2731,9 @@ MenuItemType InputMenuItems[]=
         CInputBackSpace,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_func_button  // Flags
     },
     //1 Enter
@@ -2239,6 +2747,9 @@ MenuItemType InputMenuItems[]=
         CPopUpInputResult,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
         input_func_button  // Flags
     },
 
@@ -2446,21 +2957,21 @@ MenuPageType tblMenus[]=
         4,//PageLevel
         19,//PicNum;
         TestMenu,// PrevMenuPage;
-        0,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        3,// FatherItemNum;
+        TestBurnInMenuItems, // MenuItems;
+        sizeof(TestBurnInMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 17 TestWaterWeighMenu
     { 
-        331, 41, 479, 105,// 	x1, y1, x2, y2;
-        331, 41,//x ,y
-        3,//PageLevel
-        23,//PicNum;
+        0, 0, 479, 271,// 	x1, y1, x2, y2;
+        0, 0,//x ,y
+        4,//PageLevel
+        19,//PicNum;
         TestMenu,// PrevMenuPage;
         4,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        TestWaterWeighMenuItems, // MenuItems;
+        sizeof(TestWaterWeighMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 18 TestBacklashMenu
@@ -2471,8 +2982,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         TestMenu,// PrevMenuPage;
         5,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        TestBacklashMenuItems, // MenuItems;
+        sizeof(TestBacklashMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 19 TestLeakageMenu
@@ -2483,8 +2994,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         TestMenu,// PrevMenuPage;
         6,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        TestLeakageMenuItems, // MenuItems;
+        sizeof(TestLeakageMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 20 SettingOptMenu
@@ -2518,21 +3029,21 @@ MenuPageType tblMenus[]=
         3,//PageLevel
         23,//PicNum;
         SettingMenu,// PrevMenuPage;
-        0,// FatherItemNum;
+        3,// FatherItemNum;
         SettingDividerMenuItems, // MenuItems;
         sizeof(SettingDividerMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 23 SettingAccelerationMenu
     { 
-        331, 41, 479, 105,// 	x1, y1, x2, y2;
-        331, 41,//x ,y
+        0, 0, 479, 271,// 	x1, y1, x2, y2;
+        0, 0,//x ,y
         4,//PageLevel
-        23,//PicNum;
+        19,//PicNum;
         SettingMenu,// PrevMenuPage;
         4,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingAccelerationMenuItems, // MenuItems;
+        sizeof(SettingAccelerationMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 24 SettingBalanceMenu
@@ -2543,8 +3054,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         5,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingBalanceMenuItems, // MenuItems;
+        sizeof(SettingBalanceMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 25 SettingMicroMeterMenu
@@ -2555,8 +3066,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         6,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingMicrometerMenuItems, // MenuItems;
+        sizeof(SettingMicrometerMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 26 DebugOpt1Menu

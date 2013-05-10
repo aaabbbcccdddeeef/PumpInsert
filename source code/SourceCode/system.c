@@ -73,6 +73,8 @@ void CBurnInEvent(void)
 {
     if(g_u8RunningPause==0)
     {
+
+    PumpBurnIn(1, 100);
         PumpBurnIn(2, 100);
     }
 }

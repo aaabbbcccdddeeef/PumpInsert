@@ -17,5 +17,5 @@
 
 StructUISetting g_stUISetting;
 StructTouchPoint g_stTouchPoint;
-
+StructPumpSetting g_stPumpSetting[2];
 

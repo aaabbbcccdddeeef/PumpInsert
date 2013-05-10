@@ -11,18 +11,20 @@
 
 #define RTC_CKS                                                 0x12
 #define UI_CKS                                                   0x21
-#define PASSWORD_CKS                                     0x32
+#define PUMP1_CKS                                            0x32
+#define PUMP2_CKS                                            0x42
 #define TP_CKS                                                     0x74
 
-#define SPI_FLASH_CKS                                       0x91
+#define SPI_FLASH_CKS                                       0x92
 
 
 
 #define INDEX_RTC_CKS                                                   0
 #define INDEX_UI_CKS                                                     1
-#define INDEX_PASSWORD_CKS                                       2
+#define INDEX_PUMP1_CKS                                       2
 #define INDEX_TP_CKS                                                    3
-#define INDEX_CKS_NUM                                                   4
+#define INDEX_PUMP2_CKS                                       4
+#define INDEX_CKS_NUM                                                   5
 
 
 
@@ -34,54 +36,22 @@
 #define CELL_SIZE                                 32
 #define SAVE_NUM_OF_PAGE                (PAGE_SIZE/CELL_SIZE)  ////////代表每个page能存多少个区块
 
-#if(_SAMPLE_RELEASE == TRUE)
-#define RECORD_SIZE                                              32//0x100 
-#else
-#define RECORD_SIZE                                              64 
-#endif
-#define RECORD_NUM                                              (PAGE_SIZE/RECORD_SIZE)  //4///4
 
-#define CALI_SIZE                                               256
-#define CALI_NUM                                            (PAGE_SIZE/CALI_SIZE)
-
-
-#define SECTOR_RECORD                                               0
-#define PAGE_RECORD         (SECTOR_RECORD*PAGE_NUM)
-#define SECTOR_RECORD_NUM                                       1
-
-#define SECTOR_RECORD_BUFF                                      (SECTOR_RECORD+SECTOR_RECORD_NUM)
-#define PAGE_RECORD_BUFF         (SECTOR_RECORD_BUFF*PAGE_NUM)
-#define SECTOR_RECORD_BUFF_NUM                                       1
-
-#define SECTOR_RECORD_DETAIL                      (SECTOR_RECORD_BUFF+SECTOR_RECORD_BUFF_NUM)                         
-#define PAGE_RECORD_DETAIL                          (SECTOR_RECORD_DETAIL*PAGE_NUM)
-#define SECTOR_RECORD_DETAIL_NUM                                                  1
-
-#define SECTOR_CALI                                               3
-#define PAGE_CALI                                         (SECTOR_CALI*PAGE_NUM)
-#define SECTOR_CALI_NUM                                       1
-
-#define SECTOR_CALI_BUFF                                               (SECTOR_CALI+SECTOR_CALI_NUM)
-#define PAGE_CALI_BUFF                                         (SECTOR_CALI_BUFF*PAGE_NUM)
-#define SECTOR_CALI_BUFF_NUM                                       1
-
-#define SECTOR_CALI_DETAIL                                               (SECTOR_CALI_BUFF+SECTOR_CALI_BUFF_NUM)
-#define PAGE_CALI_DETAIL                                         (SECTOR_CALI_DETAIL*PAGE_NUM)
-#define SECTOR_CALI_DETAIL_NUM                                       1
-
-
-#define SECTOR_TP_VALUE      32                                                                                             //32
+#define SECTOR_TP_VALUE      0                                                                                             // 0
 #define PAGE_TP_VALUE          (SECTOR_TP_VALUE*PAGE_NUM)
 #define SECTOR_TP_VALUE_NUM                                  1
 
-#define SECTOR_UI_SETTING       (SECTOR_TP_VALUE+SECTOR_TP_VALUE_NUM)                         //33
+#define SECTOR_UI_SETTING       (SECTOR_TP_VALUE+SECTOR_TP_VALUE_NUM)                         // 1
 #define PAGE_UI_SETTING           (SECTOR_UI_SETTING*PAGE_NUM)
 #define SECTOR_UI_SETTING_NUM                               1                
 
-#define SECTOR_PASSWORD       (SECTOR_UI_SETTING+SECTOR_UI_SETTING_NUM)                         //34
-#define PAGE_PASSWORD           (SECTOR_PASSWORD*PAGE_NUM)
-#define SECTOR_PASSWORD_NUM                               1             
+#define SECTOR_PUMP1_SETTING       (SECTOR_UI_SETTING+SECTOR_UI_SETTING_NUM)                         // 2
+#define PAGE_PUMP1_SETTING           (SECTOR_PUMP1_SETTING*PAGE_NUM)
+#define SECTOR_PUMP1_SETTING_NUM                               1             
 
+#define SECTOR_PUMP2_SETTING       (SECTOR_PUMP1_SETTING+SECTOR_PUMP1_SETTING_NUM)                         // 2
+#define PAGE_PUMP2_SETTING           (SECTOR_PUMP2_SETTING*PAGE_NUM)
+#define SECTOR_PUMP2_SETTING_NUM                               1             
 
 #define SECTOR_CKS                                                           62                         
 #define PAGE_CKS                          (SECTOR_CKS*PAGE_NUM)
@@ -116,9 +86,9 @@ void CFlashStartupCheck(void);
 void CFlashCheck(void);
 void CFlashRTCCheck(void);
 void CFlashUICheck(void);
+void CFlashPump1Check(void);
+void CFlashPump2Check(void);
 void CFlashTPCheck(void);
-
-void CFlashPasswordCheck(void);
 
 void CFlashClearFlashBuff(void);
 void CFlashClearFlashMoveBuff(void);
@@ -129,13 +99,12 @@ void CFlashLoadUISettingDefault(void);
 void CFlashSaveTouchPoint(void);
 void CFlashLoadTouchPoint(void);
 void CFlashLoadTouchPointDefault(void);
-
-
-
-
-void CFlashSavePassword(void);
-void CFlashLoadPasswordDefault(void);
-void CFlashLoadDefault(void);
+void CFlashSavePump1Setting(void);
+void CFlashLoadPump1Setting(void);
+void CFlashLoadPump1SettingDefault(void);
+void CFlashSavePump2Setting(void);
+void CFlashLoadPump2Setting(void);
+void CFlashLoadPump2SettingDefault(void);
 #else
 //--------------------------------------------------
 // Extern Global Variables
@@ -162,13 +131,12 @@ extern void CFlashLoadUISettingDefault(void);
 extern void CFlashSaveTouchPoint(void);
 extern void CFlashLoadTouchPoint(void);
 extern void CFlashLoadTouchPointDefault(void);
+extern void CFlashSavePump1Setting(void);
+extern void CFlashLoadPump1Setting(void);
+extern void CFlashLoadPump1SettingDefault(void);
+extern void CFlashSavePump2Setting(void);
+extern void CFlashLoadPump2Setting(void);
+extern void CFlashLoadPump2SettingDefault(void);
 
-
-
-
-
-extern void CFlashSavePassword(void);
-extern void CFlashLoadPasswordDefault(void);
-extern void CFlashLoadDefault(void);
 #endif
 

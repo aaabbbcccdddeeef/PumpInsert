@@ -39,7 +39,15 @@ typedef struct {
     u8 Language;    /* Language setting - [0,1] */
     
 } StructUISetting;
-
+typedef struct {
+    u16 nBackLash;
+    u8 MinFreqFactor;   /* DT Format value - [0,5] */
+    u8 MaxFreqFactor;     /* Backlight off value - [0,5] */
+    u8 FullStepPerClass;    /* Auto power off value - [0,5] */
+    u8 nuL2Step;    /* Audio key setting - [0,1] */
+    u8 nStep2Pulse;     /* Audio read setting - [0,1] */    
+    u8 MaxStepCount;
+} StructPumpSetting;
 typedef struct {
     u16 xMin;
     u16 xMax;
@@ -49,6 +57,5 @@ typedef struct {
 
 extern StructUISetting g_stUISetting;
 extern StructTouchPoint g_stTouchPoint;
-
-
+extern StructPumpSetting g_stPumpSetting[2];
 

@@ -15,7 +15,7 @@
 #define TIME0_INTERVAL	(18000000/1000 - 200)//1500)
 #define TIME_10MS_INTERVAL         (180000)// 10ms
 
-extern volatile uint32_t PumpNum[2];
+extern volatile uint32_t PumpNum[3];
 
 extern void Delay1ms(uint32_t delayInMs);
 extern uint32_t init_timer( uint8_t timer_num, uint32_t timerInterval );

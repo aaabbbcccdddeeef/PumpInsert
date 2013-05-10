@@ -13,7 +13,7 @@
 #include "timer.h"
 
 
-volatile uint32_t PumpNum[2] = {0,0};
+volatile uint32_t PumpNum[3] = {0,0,0};
 /*****************************************************************************
 ** Function name:		delayMs
 **
@@ -65,6 +65,12 @@ void TIMER0_IRQHandler (void)
     if(PumpNum[1]!=0)
     {
          PumpNum[1]--;
+         GPIO0->FIOPIN ^= (1<<6);
+    }
+    if(PumpNum[2]!=0)
+    {
+         PumpNum[2]--;
+         GPIO0->FIOPIN ^= (1<<2);
          GPIO0->FIOPIN ^= (1<<6);
     }
 }

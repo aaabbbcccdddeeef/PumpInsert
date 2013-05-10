@@ -834,7 +834,7 @@ void CDebugOpt1Start(void)
 }
 void CDebugOpt1PageStyle(void)
 {
-    WriteString("光耦调试( 序号 : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦调试( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
 }
 void CDebugOpt1Stop(void)
@@ -851,7 +851,7 @@ void CDebugOpt2Start(void)
 }
 void CDebugOpt2PageStyle(void)
 {
-    WriteString("光耦调试( 序号 : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦调试( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
 }
 void CDebugOpt2Stop(void)
@@ -868,7 +868,7 @@ void CDebugOpt3Start(void)
 }
 void CDebugOpt3PageStyle(void)
 {
-    WriteString("光耦调试( 序号 : 3 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦调试( 序号 : 3 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
 }
 void CDebugOpt3Stop(void)
@@ -885,7 +885,7 @@ void CDebugOpt4Start(void)
 }
 void CDebugOpt4PageStyle(void)
 {
-    WriteString("光耦调试( 序号 : 4 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦调试( 序号 : 4 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("提示: 此电位代表光耦在当前状态下,MCU读取到的电位水平", 15, 240, color_brown, _FONT_SIZE_MIN,_TANSPERENT_ON);
 }
 void CDebugOpt4Stop(void)
@@ -896,7 +896,7 @@ void CDebugOpt4Stop(void)
 }
 void CDebugPump1PageStyle(void)
 {
-    WriteString("电机调试( 序号 : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("电机调试( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     RXLCD_DrawLine(240,147,400,149,color_black);
     CDrawButton(130,220,215,255,0,1);
@@ -912,7 +912,7 @@ void CDebugPump1RunNegative(void)
 }
 void CDebugPump2PageStyle(void)
 {
-    WriteString("电机调试( 序号 : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("电机调试( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     RXLCD_DrawLine(240,147,400,149,color_black);
     CDrawButton(130,220,215,255,0,1);
@@ -928,19 +928,19 @@ void CDebugPump2RunNegative(void)
 }
 void CDebugValve1PageStyle(void)
 {
-    WriteString("阀调试( 序号 : 1 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("阀调试( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
 void CDebugValve2PageStyle(void)
 {
-    WriteString("阀调试( 序号 : 2 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("阀调试( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
 void CDebugValve3PageStyle(void)
 {
-    WriteString("阀调试( 序号 : 3 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("阀调试( 序号 : 3 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
 void CDebugValve4PageStyle(void)
 {
-    WriteString("阀调试( 序号 : 4 )", 15, 15, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("阀调试( 序号 : 4 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
 void CTestPump1Reset(void)
 {
@@ -965,6 +965,34 @@ void CTestValve3Reset(void)
 void CTestValve4Reset(void)
 {
     PumpSetValveState(4, _VALVE_OFF);
+}
+void CTestBurnInPageStyle(void)
+{
+    WriteString("老化测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CTestWaterWeighPageStyle(void)
+{
+    WriteString("称水测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CTestBacklashPageStyle(void)
+{
+    WriteString("背隙测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CTestLeakagePageStyle(void)
+{
+    WriteString("泄漏测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CSettingAccelerationPageStyle(void)
+{
+    WriteString("启止台阶设定", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CSettingBalancePageStyle(void)
+{
+    WriteString("电子天平设定", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+}
+void CSettingMicrometerPageStyle(void)
+{
+    WriteString("千分尺设定", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
 //******************************end of line***************************************
 

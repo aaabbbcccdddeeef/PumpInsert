@@ -143,6 +143,8 @@ void CFlashStartupCheck(void)
     CFlashLoadCheckSum();
     //CFlashRTCCheck();
     CFlashUICheck();
+    CFlashPump1Check();
+    CFlashPump2Check();
     CFlashTPCheck();
     CFlashSaveCheckSum();
     //g_uiBacklightOffCounter = BacklightOffTime[g_stUISetting.BacklightOff];
@@ -188,6 +190,30 @@ void CFlashUICheck(void)
     else
     {
         CFlashLoadUISetting();
+    }
+}
+void CFlashPump1Check(void)
+{
+    if(CheckSumData[INDEX_PUMP1_CKS]!= PUMP1_CKS)
+    {
+        CFlashLoadPump1SettingDefault();
+        CheckSumData[INDEX_PUMP1_CKS] = PUMP1_CKS;
+    }
+    else
+    {
+        CFlashLoadPump1Setting();
+    }
+}
+void CFlashPump2Check(void)
+{
+    if(CheckSumData[INDEX_PUMP2_CKS]!= PUMP2_CKS)
+    {
+        CFlashLoadPump2SettingDefault();
+        CheckSumData[INDEX_PUMP2_CKS] = PUMP2_CKS;
+    }
+    else
+    {
+        CFlashLoadPump2Setting();
     }
 }
 void CFlashTPCheck(void)
@@ -288,6 +314,137 @@ void CFlashLoadUISettingDefault(void)
     SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_UI_SETTING*SECTOR_SIZE);
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_UI_SETTING*PAGE_SIZE, PAGE_SIZE);
     CFlashSaveIndex(_FLASH_NUM0, PAGE_UI_SETTING, 0);
+}
+void CFlashSavePump1Setting(void)
+{
+    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP1_SETTING);
+    if(g_u8CellNew == 0)
+    {
+        CFlashClearFlashBuff();
+        flash_buf[0] = g_stPumpSetting[0].nBackLash>>8;
+        flash_buf[1] = g_stPumpSetting[0].nBackLash&0x00ff;
+        flash_buf[2] = g_stPumpSetting[0].MinFreqFactor;
+        flash_buf[3] = g_stPumpSetting[0].MaxFreqFactor;
+        flash_buf[4] = g_stPumpSetting[0].FullStepPerClass;
+        flash_buf[5] = g_stPumpSetting[0].nuL2Step;
+        flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
+        flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
+
+    }
+    else
+    {
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stPumpSetting[0].nBackLash>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stPumpSetting[0].nBackLash&0x00ff;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+2] = g_stPumpSetting[0].MinFreqFactor;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+3] = g_stPumpSetting[0].MaxFreqFactor;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+4] = g_stPumpSetting[0].FullStepPerClass;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[0].nuL2Step;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[0].nStep2Pulse;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[0].MaxStepCount;
+
+    }
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP1_SETTING, g_u32CellIndex);
+}
+void CFlashLoadPump1Setting(void)
+{
+    u16 tempValue=0;
+    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP1_SETTING);
+    
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
+    g_stPumpSetting[0].nBackLash = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+1];
+    g_stPumpSetting[0].MinFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+2];
+    g_stPumpSetting[0].MaxFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+3];
+    g_stPumpSetting[0].FullStepPerClass = flash_buf[(CELL_SIZE*g_u8CellLast)+4];
+    g_stPumpSetting[0].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
+    g_stPumpSetting[0].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
+    g_stPumpSetting[0].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
+
+}
+void CFlashLoadPump1SettingDefault(void)
+{
+    g_stPumpSetting[0] = tEEPROM_PumpSetting_DEFAULT;
+    CFlashClearFlashBuff();
+    flash_buf[0] = g_stPumpSetting[0].nBackLash>>8;
+    flash_buf[1] = g_stPumpSetting[0].nBackLash&0x00ff;
+    flash_buf[2] = g_stPumpSetting[0].MinFreqFactor;
+    flash_buf[3] = g_stPumpSetting[0].MaxFreqFactor;
+    flash_buf[4] = g_stPumpSetting[0].FullStepPerClass;
+    flash_buf[5] = g_stPumpSetting[0].nuL2Step;
+    flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
+    flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
+
+    
+    SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP1_SETTING*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP1_SETTING*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP1_SETTING, 0);
+}
+void CFlashSavePump2Setting(void)
+{
+    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP2_SETTING);
+    if(g_u8CellNew == 0)
+    {
+        CFlashClearFlashBuff();
+        flash_buf[0] = g_stPumpSetting[1].nBackLash>>8;
+        flash_buf[1] = g_stPumpSetting[1].nBackLash&0x00ff;
+        flash_buf[2] = g_stPumpSetting[1].MinFreqFactor;
+        flash_buf[3] = g_stPumpSetting[1].MaxFreqFactor;
+        flash_buf[4] = g_stPumpSetting[1].FullStepPerClass;
+        flash_buf[5] = g_stPumpSetting[1].nuL2Step;
+        flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
+        flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
+
+    }
+    else
+    {
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stPumpSetting[1].nBackLash>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stPumpSetting[1].nBackLash&0x00ff;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+2] = g_stPumpSetting[1].MinFreqFactor;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+3] = g_stPumpSetting[1].MaxFreqFactor;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+4] = g_stPumpSetting[1].FullStepPerClass;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[1].nuL2Step;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[1].nStep2Pulse;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[1].MaxStepCount;
+
+    }
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP2_SETTING, g_u32CellIndex);
+}
+void CFlashLoadPump2Setting(void)
+{
+    u16 tempValue=0;
+    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP2_SETTING);
+    
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
+    g_stPumpSetting[1].nBackLash = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+1];
+    g_stPumpSetting[1].MinFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+2];
+    g_stPumpSetting[1].MaxFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+3];
+    g_stPumpSetting[1].FullStepPerClass = flash_buf[(CELL_SIZE*g_u8CellLast)+4];
+    g_stPumpSetting[1].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
+    g_stPumpSetting[1].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
+    g_stPumpSetting[1].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
+
+}
+void CFlashLoadPump2SettingDefault(void)
+{
+    g_stPumpSetting[1] = tEEPROM_PumpSetting_DEFAULT;
+    CFlashClearFlashBuff();
+    flash_buf[0] = g_stPumpSetting[1].nBackLash>>8;
+    flash_buf[1] = g_stPumpSetting[1].nBackLash&0x00ff;
+    flash_buf[2] = g_stPumpSetting[1].MinFreqFactor;
+    flash_buf[3] = g_stPumpSetting[1].MaxFreqFactor;
+    flash_buf[4] = g_stPumpSetting[1].FullStepPerClass;
+    flash_buf[5] = g_stPumpSetting[1].nuL2Step;
+    flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
+    flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
+    
+    SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP2_SETTING*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP2_SETTING*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP2_SETTING, 0);
 }
 void CFlashSaveTouchPoint(void)
 {

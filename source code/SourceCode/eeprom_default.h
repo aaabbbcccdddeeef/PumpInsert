@@ -43,6 +43,22 @@ StructTouchPoint tEEPROM_TouchPoint_DEFAULT =
     _TP_YMIN_DEF,              
     _TP_YMAX_DEF,                         
 };
+#define _BACKLASH_DEF                              40
+#define _MIN_FREQ_DEF                          10
+#define _MAX_FREQ_DEF                     50    
+#define _FULL_STEP_PER_CLASS_DEF                                  1
+#define _NUL2STEP_DEF                            2
+#define _STEP2PULSE_DEF                                    2
+
+StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
+{
+    _BACKLASH_DEF,
+    _MIN_FREQ_DEF,                  
+    _MAX_FREQ_DEF,              
+    _FULL_STEP_PER_CLASS_DEF,                         
+    _NUL2STEP_DEF,                      
+    _STEP2PULSE_DEF,                   
+};
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -52,6 +68,7 @@ StructTouchPoint tEEPROM_TouchPoint_DEFAULT =
 //--------------------------------------------------
 extern StructUISetting tEEPROM_UISetting_DEFAULT;
 extern StructTouchPoint tEEPROM_TouchPoint_DEFAULT;
+extern StructPumpSetting tEEPROM_PumpSetting_DEFAULT;
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------
