@@ -221,7 +221,7 @@ void PumpNormal(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //指定方向以某个
     enable_timer(0);
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
-    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
+    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 
@@ -245,7 +245,7 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //以某个固定倍频
 
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
-    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
+    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 

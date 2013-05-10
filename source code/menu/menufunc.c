@@ -706,6 +706,18 @@ void CHideInputMenu(void)
 void CPopUpInputResult(void)
 {
     //u8 i=0;
+    if(TempMenuItem.VariableMaxValue==0xffff)
+    {
+        if(g_u32InputResult>0xffff)
+            g_u32InputResult=0xffff;
+        *TempMenuItem.pU16value = g_u32InputResult;
+    }
+    else if(TempMenuItem.VariableMaxValue==0x00ff)
+    {
+        if(g_u32InputResult>0x00ff)
+            g_u32InputResult=0x00ff;
+        *TempMenuItem.pU8value = g_u32InputResult;
+    }
     CHideInputMenu();
 
     Write_Dir(0x21,0x00);//¸´Ô­¼Ä´æÆ÷
@@ -904,11 +916,16 @@ void CDebugPump1PageStyle(void)
 }
 void CDebugPump1RunPositive(void)
 {
-    PumpFreeRun(1,1,g_u32InputResult);
+    PumpDetectRun(1,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump1RunNegative(void)
 {
-    PumpFreeRun(1,0,g_u32InputResult);
+    PumpDetectRun(1,0,g_stUISetting.DebugPumpStep);
+}
+void CDebugPump1SetValue(void)
+{
+    if(CurrentMenuItem.VariableMaxValue==0xffff)
+        CurrentMenuItem.pU16value = &g_stUISetting.DebugPumpStep;
 }
 void CDebugPump2PageStyle(void)
 {
@@ -920,11 +937,11 @@ void CDebugPump2PageStyle(void)
 }
 void CDebugPump2RunPositive(void)
 {
-    PumpFreeRun(2,1,g_u32InputResult);
+    PumpDetectRun(2,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump2RunNegative(void)
 {
-    PumpFreeRun(2,0,g_u32InputResult);
+    PumpDetectRun(2,0,g_stUISetting.DebugPumpStep);
 }
 void CDebugValve1PageStyle(void)
 {

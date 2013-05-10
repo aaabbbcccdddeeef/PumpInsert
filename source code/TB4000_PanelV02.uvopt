@@ -144,7 +144,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>JL2CM3</Key>
-          <Name>-U20100213 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO31 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
+          <Name>-U270676280 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO31 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -167,23 +167,6 @@
           <Name>-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>77</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>16852</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\TB4000_PanelV02\system\77</Expression>
-        </Bp>
-      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -231,6 +214,11 @@
           <count>0</count>
           <WinNumber>2</WinNumber>
           <ItemText>g_stPumpSetting,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>g_stUISetting,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -284,8 +272,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>235</TopLine>
-      <CurrentLine>241</CurrentLine>
+      <TopLine>129</TopLine>
+      <CurrentLine>136</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\common\src\startup_LPC17xx.s</PathWithFileName>
       <FilenameWithoutPath>startup_LPC17xx.s</FilenameWithoutPath>
@@ -459,8 +447,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>108</TopLine>
-      <CurrentLine>120</CurrentLine>
+      <TopLine>76</TopLine>
+      <CurrentLine>84</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -473,7 +461,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>311</TopLine>
+      <TopLine>326</TopLine>
       <CurrentLine>336</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\eeprom_flash.c</PathWithFileName>
@@ -527,9 +515,9 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>41</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>16</TopLine>
+      <TopLine>21</TopLine>
       <CurrentLine>31</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\pump.c</PathWithFileName>
@@ -543,7 +531,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>50</TopLine>
+      <TopLine>67</TopLine>
       <CurrentLine>77</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
@@ -553,7 +541,7 @@
 
   <Group>
     <GroupName>Menu</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -564,8 +552,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>774</TopLine>
-      <CurrentLine>774</CurrentLine>
+      <TopLine>909</TopLine>
+      <CurrentLine>928</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -601,7 +589,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
     <TopLine>43</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -627,7 +615,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
@@ -653,7 +641,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
     <TopLine>41</TopLine>
     <CurrentLine>45</CurrentLine>
     <Constant>0</Constant>
@@ -679,7 +667,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
     <TopLine>35</TopLine>
     <CurrentLine>43</CurrentLine>
     <Constant>0</Constant>
@@ -705,7 +693,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>20</TopLine>
     <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
@@ -731,7 +719,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
     <TopLine>143</TopLine>
     <CurrentLine>143</CurrentLine>
     <Constant>0</Constant>
@@ -757,7 +745,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
     <TopLine>57</TopLine>
     <CurrentLine>57</CurrentLine>
     <Constant>0</Constant>
@@ -787,19 +775,25 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\menu\menufunc.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>909</TopLine>
+          <CurrentLine>928</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\SourceCode\eeprom_flash.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>311</TopLine>
+          <TopLine>326</TopLine>
           <CurrentLine>336</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\main.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>108</TopLine>
-          <CurrentLine>120</CurrentLine>
+          <TopLine>76</TopLine>
+          <CurrentLine>84</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\EINT\extint.c</Name>
@@ -822,8 +816,8 @@
         <Doc>
           <Name>.\Core\common\src\startup_LPC17xx.s</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>235</TopLine>
-          <CurrentLine>241</CurrentLine>
+          <TopLine>129</TopLine>
+          <CurrentLine>136</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\RTC\rtc.c</Name>
@@ -833,14 +827,14 @@
         </Doc>
         <Doc>
           <Name>.\SourceCode\pump.c</Name>
-          <ColumnNumber>41</ColumnNumber>
-          <TopLine>16</TopLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>21</TopLine>
           <CurrentLine>31</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\system.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>50</TopLine>
+          <TopLine>67</TopLine>
           <CurrentLine>77</CurrentLine>
         </Doc>
         <Doc>
@@ -848,12 +842,6 @@
           <ColumnNumber>54</ColumnNumber>
           <TopLine>20</TopLine>
           <CurrentLine>28</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\menu\menufunc.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>774</TopLine>
-          <CurrentLine>774</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menutbl.c</Name>

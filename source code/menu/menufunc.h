@@ -52,6 +52,8 @@ extern void CDebugOpt4Stop(void);
 extern void CDebugPump1PageStyle(void);
 extern void CDebugPump1RunPositive(void);
 extern void CDebugPump1RunNegative(void);
+extern void CDebugPump1SetValue(void);
+
 extern void CDebugPump2PageStyle(void);
 extern void CDebugPump2RunPositive(void);
 extern void CDebugPump2RunNegative(void);

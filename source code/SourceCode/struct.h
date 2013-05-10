@@ -30,13 +30,7 @@ typedef struct {
 } RecordDate;
 
 typedef struct {
-    u8 DTFormat;   /* DT Format value - [0,5] */
-    u8 BacklightOff;     /* Backlight off value - [0,5] */
-    u8 AutoPowerOff;    /* Auto power off value - [0,5] */
-    u8 AudioKey;    /* Audio key setting - [0,1] */
-    u8 AudioTip;     /* Audio read setting - [0,1] */
-    u8 PasswordOn;    /* password setting - [0,1] */
-    u8 Language;    /* Language setting - [0,1] */
+    u16 DebugPumpStep;   /* DT Format value - [0,5] */
     
 } StructUISetting;
 typedef struct {

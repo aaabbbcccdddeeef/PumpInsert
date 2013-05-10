@@ -1,5 +1,5 @@
----- SettingAccelerationMenuItems Matches (4 in 1 files) ----
-Menutbl.c (source code\menu)://==========================SettingAccelerationMenuItems============================================
-Menutbl.c (source code\menu):MenuItemType SettingAccelerationMenuItems[]=
-Menutbl.c (source code\menu):        SettingAccelerationMenuItems, // MenuItems;
-Menutbl.c (source code\menu):        sizeof(SettingAccelerationMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+---- PumpSetStepMode Matches (4 in 2 files) ----
+Pump.c (source code\sourcecode):void PumpSetStepMode(u8 PumpSel, u32 SetBit)
+Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
+Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
+Pump.h (source code\sourcecode):extern void PumpSetStepMode(u8 PumpSel, u32 SetBit);

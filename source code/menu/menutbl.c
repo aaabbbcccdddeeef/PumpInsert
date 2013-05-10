@@ -882,7 +882,7 @@ MenuItemType DebugPump1MenuItems[]=
         CNull,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CDebugPump1SetValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
@@ -968,7 +968,7 @@ MenuItemType DebugPump2MenuItems[]=
         CNull,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CDebugPump1SetValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
