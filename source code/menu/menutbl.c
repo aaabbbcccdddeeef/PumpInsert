@@ -14,6 +14,7 @@
 #include "LPC17xx.h"                    
 #include "type.h"
 #include "define.h"
+#include "struct.h"
 #include "menudef.h"
 #include "menutbl.h"
 #include "menu.h"
@@ -2001,6 +2002,277 @@ MenuItemType SettingDividerMenuItems[]=
     },
 };
 
+//==========================SettingOpt1MenuItems============================================
+MenuItemType SettingOpt1MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingOpt1PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stOptSetting[0].OptLineNum,                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CSettingOpt1ShieldValue,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+//==========================SettingOpt2MenuItems============================================
+MenuItemType SettingOpt2MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingOpt2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stOptSetting[1].OptLineNum,                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CSettingOpt2ShieldValue,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },};
+//==========================SettingOpt3MenuItems============================================
+MenuItemType SettingOpt3MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingOpt3PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stOptSetting[2].OptLineNum,                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CSettingOpt3ShieldValue,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+//==========================SettingOpt4MenuItems============================================
+MenuItemType SettingOpt4MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingOpt4PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,120,400,146,// x1,y1,x2,y2;
+        240,120,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stOptSetting[3].OptLineNum,                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CSettingOpt4ShieldValue,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
 //==========================SettingAccelerationMenuItems============================================
 MenuItemType SettingAccelerationMenuItems[]=
 {
@@ -3294,8 +3566,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingOpt1MenuItems, // MenuItems;
+        sizeof(SettingOpt1MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 45 SettingOpt2Menu
@@ -3306,8 +3578,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingOpt2MenuItems, // MenuItems;
+        sizeof(SettingOpt2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 46 SettingOpt3Menu
@@ -3318,8 +3590,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingOpt3MenuItems, // MenuItems;
+        sizeof(SettingOpt3MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 47 SettingOpt4Menu
@@ -3330,8 +3602,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         1,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingOpt4MenuItems, // MenuItems;
+        sizeof(SettingOpt4MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 48 SettingPump1Menu

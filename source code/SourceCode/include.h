@@ -49,6 +49,6 @@
 #include "eeprom_default.h"
 
 #include "menu.h"
-#include "menufunc.h"
 #include "pump.h"
+#include "menufunc.h"
 

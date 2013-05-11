@@ -146,6 +146,10 @@ void CFlashStartupCheck(void)
     CFlashPump1Check();
     CFlashPump2Check();
     CFlashTPCheck();
+    CFlashOptCheck(0);
+    CFlashOptCheck(1);
+    CFlashOptCheck(2);
+    CFlashOptCheck(3);
     CFlashSaveCheckSum();
     //g_uiBacklightOffCounter = BacklightOffTime[g_stUISetting.BacklightOff];
     //g_uiAutoPowerOffCounter = AutoPowerOffTime[g_stUISetting.AutoPowerOff];
@@ -154,6 +158,11 @@ void CFlashStartupCheck(void)
     return;
    
 }
+void CFlashLoadDefault(void)
+{
+    CFlashLoadUISettingDefault();
+}
+
 void CFlashCheck(void)
 {
     
@@ -216,6 +225,19 @@ void CFlashPump2Check(void)
         CFlashLoadPump2Setting();
     }
 }
+void CFlashOptCheck(u8 Index)
+{
+    if(CheckSumData[INDEX_OPT1_CKS+Index]!= OPT_CKS)
+    {
+        CFlashLoadOptSettingDefault(Index);
+        CheckSumData[INDEX_OPT1_CKS+Index] = OPT_CKS;
+    }
+    else
+    {
+        CFlashLoadOptSetting(Index);
+    }
+}
+
 void CFlashTPCheck(void)
 {
     if(CheckSumData[INDEX_TP_CKS]!= TP_CKS)
@@ -493,10 +515,45 @@ void CFlashLoadTouchPointDefault(void)
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_TP_VALUE*PAGE_SIZE, PAGE_SIZE);
     CFlashSaveIndex(_FLASH_NUM0, PAGE_TP_VALUE, 0);
 }
-
-void CFlashLoadDefault(void)
+void CFlashSaveOptSetting(u8 Index)
 {
-    CFlashLoadUISettingDefault();
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM));
+    if(g_u8CellNew == 0)
+    {
+        CFlashClearFlashBuff();
+        flash_buf[0] = g_stOptSetting[Index].OptLineNum;
+        flash_buf[1] = g_stOptSetting[Index].OptShieldLevel;
+    }
+    else
+    {
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stOptSetting[Index].OptLineNum;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stOptSetting[Index].OptShieldLevel;
+
+    }
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM), g_u32CellIndex);
+}
+void CFlashLoadOptSetting(u8 Index)
+{
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM));
+    
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    g_stOptSetting[Index].OptLineNum = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
+    g_stOptSetting[Index].OptShieldLevel = flash_buf[(CELL_SIZE*g_u8CellLast)+1];
+
+}
+void CFlashLoadOptSettingDefault(u8 Index)
+{
+    g_stOptSetting[Index] = tEEPROM_OptSetting_DEFAULT;
+    CFlashClearFlashBuff();
+    flash_buf[0] = g_stOptSetting[Index].OptLineNum;
+    flash_buf[1] = g_stOptSetting[Index].OptShieldLevel;
+
+    
+    SPIFlash_EraseSector(_FLASH_NUM0, (SECTOR_OPT_SETTING+Index)*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM), 0);
 }
 
 

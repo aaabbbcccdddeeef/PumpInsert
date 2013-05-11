@@ -30,18 +30,22 @@ typedef struct {
 } RecordDate;
 
 typedef struct {
-    u16 DebugPumpStep;   /* DT Format value - [0,5] */
+    u16 DebugPumpStep;   
     
 } StructUISetting;
 typedef struct {
     u16 nBackLash;
-    u8 MinFreqFactor;   /* DT Format value - [0,5] */
-    u8 MaxFreqFactor;     /* Backlight off value - [0,5] */
-    u8 FullStepPerClass;    /* Auto power off value - [0,5] */
-    u8 nuL2Step;    /* Audio key setting - [0,1] */
-    u8 nStep2Pulse;     /* Audio read setting - [0,1] */    
+    u8 MinFreqFactor;   
+    u8 MaxFreqFactor;     
+    u8 FullStepPerClass;    
+    u8 nuL2Step;    
+    u8 nStep2Pulse;     
     u8 MaxStepCount;
 } StructPumpSetting;
+typedef struct {
+    u8 OptLineNum;  
+    u8 OptShieldLevel;
+} StructOptSetting;
 typedef struct {
     u16 xMin;
     u16 xMax;
@@ -52,4 +56,5 @@ typedef struct {
 extern StructUISetting g_stUISetting;
 extern StructTouchPoint g_stTouchPoint;
 extern StructPumpSetting g_stPumpSetting[2];
+extern StructOptSetting g_stOptSetting[4];
 

@@ -46,6 +46,14 @@ StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
     _NUL2STEP_DEF,                      
     _STEP2PULSE_DEF,                   
 };
+#define _DEBUG_OPT_LINE_DEF                              5
+#define _DEBUG_OPT_SHIELD_DEF                              0
+
+StructOptSetting tEEPROM_OptSetting_DEFAULT =
+{
+    _DEBUG_OPT_LINE_DEF,
+    _DEBUG_OPT_SHIELD_DEF,
+};
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -56,6 +64,7 @@ StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
 extern StructUISetting tEEPROM_UISetting_DEFAULT;
 extern StructTouchPoint tEEPROM_TouchPoint_DEFAULT;
 extern StructPumpSetting tEEPROM_PumpSetting_DEFAULT;
+extern StructOptSetting tEEPROM_OptSetting_DEFAULT;
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

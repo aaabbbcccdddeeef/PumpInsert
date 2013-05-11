@@ -16,6 +16,13 @@
 #include "menu.h"
 #include "rx_lcd_v02.h"
 #include "pump.h"
+#include <stdio.h>				   	 
+#include <ctype.h>				    
+#include <stdlib.h>
+#include <setjmp.h>
+#include <rt_misc.h>
+#include <string.h>
+#include <math.h>
 
 u32  test[350]=
     {
@@ -838,6 +845,88 @@ void CDrawButton(unsigned short x1, unsigned short y1, unsigned short x2, unsign
 {
     CutPicture(5, x1, y1, x2, y2, col*90, Row*35);
 }
+void CDrawIconDone(u8 Sel)
+{
+    RXLCD_EditCurrent();
+    CutPicture(19-(8*Sel), 410, 106, 454, 147, 410, 106);
+}
+#define   CharDot 0x2E;
+const u32 Pow10[10] = {
+  1 , 10, 100, 1000, 10000,
+  100000, 1000000, 10000000, 100000000, 1000000000
+};
+static int _Check_NegLong(signed long *pv, unsigned char**ps) 
+{
+    if (*pv < 0) 
+    {
+        *(*ps)++ = '-';
+        *pv = -*pv;
+        return 1;
+    }
+    return 0;
+}
+int Long2Len(signed long vSign) 
+{
+    int Len = 1;
+    signed long v = (vSign > 0) ? vSign : -vSign;
+    while (( ((u32)v) >= Pow10[Len]) && (Len < 9)) 
+    {
+        Len++;
+    }
+    if (vSign < 0) 
+    {
+    	Len++;
+    }
+    return Len;
+}
+void CAddDecShift(signed long v, u8 Len, u8 Shift, unsigned char**ps) 
+{
+    char c;
+    long d;
+
+    Len -= _Check_NegLong(&v, ps); /* TASKING: Tool internal error S003: asertion failed - please report */
+    if (Shift) 
+    {
+        Len--;
+    }
+
+    if ((u32)v >= Pow10[Len])
+        v = Pow10[Len] - 1;
+    while (Len) 
+    {
+        if (Len-- == Shift)
+            *(*ps)++ = CharDot;
+        d = Pow10[Len];
+        c = (char) (v / d);
+        v -= c * d;
+        *(*ps)++ = c + '0';
+    }
+    **ps = 0;
+}
+static void CDispFloatFix(float f, char Fract,  unsigned char* s) 
+{
+    char Len;
+    Len = Long2Len((long)f);
+    if ((f < 0) && (f > -1)) 
+    { 
+        Len++;
+    }
+    Len = (char)(Len + Fract + (Fract ? 1 : 0));
+
+    f *= Pow10[(unsigned)Fract];
+    f = (float) floor (f);
+    CAddDecShift(f, Len, Fract, &s);
+}
+void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent)
+{
+    unsigned char ac[12];
+    unsigned char* s = ac;
+
+    CDispFloatFix(f, Fract, s);
+
+    WriteString(ac, x, y, Color, Size, transperent);
+}
+
 void CDebugOpt1Start(void)
 {
     g_u8DetectOptSelect=1;
@@ -916,11 +1005,11 @@ void CDebugPump1PageStyle(void)
 }
 void CDebugPump1RunPositive(void)
 {
-    PumpDetectRun(1,1,g_stUISetting.DebugPumpStep);
+    PumpFreeRun(1,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump1RunNegative(void)
 {
-    PumpDetectRun(1,0,g_stUISetting.DebugPumpStep);
+    PumpFreeRun(1,0,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump1SetValue(void)
 {
@@ -1011,6 +1100,64 @@ void CSettingMicrometerPageStyle(void)
 {
     WriteString("千分尺设定", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
+void CSettingOpt1PageStyle(void)
+{
+    WriteString("光耦设定( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting[0].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingOpt2PageStyle(void)
+{
+    WriteString("光耦设定( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting[1].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingOpt3PageStyle(void)
+{
+    WriteString("光耦设定( 序号 : 3 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting[2].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingOpt4PageStyle(void)
+{
+    WriteString("光耦设定( 序号 : 4 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting[3].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingOpt1ShieldValue(void)
+{
+    CDrawIconDone(1);
+    g_stOptSetting[0].OptShieldLevel = PumpGetOpticStatus(1);
+    //CFlashSaveUISetting();
+}
+void CSettingOpt2ShieldValue(void)
+{
+    CDrawIconDone(1);
+    g_stOptSetting[1].OptShieldLevel = PumpGetOpticStatus(2);
+}
+void CSettingOpt3ShieldValue(void)
+{
+    CDrawIconDone(1);
+    g_stOptSetting[2].OptShieldLevel = PumpGetOpticStatus(3);
+}
+void CSettingOpt4ShieldValue(void)
+{
+    CDrawIconDone(1);
+    g_stOptSetting[3].OptShieldLevel = PumpGetOpticStatus(4);
+}
+
 //******************************end of line***************************************
 
 

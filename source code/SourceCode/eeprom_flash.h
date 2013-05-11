@@ -13,9 +13,10 @@
 #define UI_CKS                                                   0x22
 #define PUMP1_CKS                                            0x32
 #define PUMP2_CKS                                            0x42
+#define OPT_CKS                                            0x52
 #define TP_CKS                                                     0x74
 
-#define SPI_FLASH_CKS                                       0x92
+#define SPI_FLASH_CKS                                       0x93
 
 
 
@@ -24,7 +25,11 @@
 #define INDEX_PUMP1_CKS                                       2
 #define INDEX_TP_CKS                                                    3
 #define INDEX_PUMP2_CKS                                       4
-#define INDEX_CKS_NUM                                                   5
+#define INDEX_OPT1_CKS                                          5
+#define INDEX_OPT2_CKS                                          6
+#define INDEX_OPT3_CKS                                          7
+#define INDEX_OPT4_CKS                                          8
+#define INDEX_CKS_NUM                                                   9
 
 
 
@@ -41,17 +46,23 @@
 #define PAGE_TP_VALUE          (SECTOR_TP_VALUE*PAGE_NUM)
 #define SECTOR_TP_VALUE_NUM                                  1
 
-#define SECTOR_UI_SETTING       (SECTOR_TP_VALUE+SECTOR_TP_VALUE_NUM)                         // 1
+#define SECTOR_UI_SETTING       1                         // 1
 #define PAGE_UI_SETTING           (SECTOR_UI_SETTING*PAGE_NUM)
 #define SECTOR_UI_SETTING_NUM                               1                
 
-#define SECTOR_PUMP1_SETTING       (SECTOR_UI_SETTING+SECTOR_UI_SETTING_NUM)                         // 2
+#define SECTOR_PUMP1_SETTING       2                         // 2
 #define PAGE_PUMP1_SETTING           (SECTOR_PUMP1_SETTING*PAGE_NUM)
 #define SECTOR_PUMP1_SETTING_NUM                               1             
 
-#define SECTOR_PUMP2_SETTING       (SECTOR_PUMP1_SETTING+SECTOR_PUMP1_SETTING_NUM)                         // 2
+#define SECTOR_PUMP2_SETTING       3                         // 3
 #define PAGE_PUMP2_SETTING           (SECTOR_PUMP2_SETTING*PAGE_NUM)
 #define SECTOR_PUMP2_SETTING_NUM                               1             
+
+#define SECTOR_OPT_SETTING       3                         // 3
+#define PAGE_OPT_SETTING           (SECTOR_OPT_SETTING*PAGE_NUM)
+#define SECTOR_OPT_SETTING_NUM                               4    
+
+
 
 #define SECTOR_CKS                                                           62                         
 #define PAGE_CKS                          (SECTOR_CKS*PAGE_NUM)
@@ -89,6 +100,7 @@ void CFlashUICheck(void);
 void CFlashPump1Check(void);
 void CFlashPump2Check(void);
 void CFlashTPCheck(void);
+void CFlashOptCheck(u8 Index);
 
 void CFlashClearFlashBuff(void);
 void CFlashClearFlashMoveBuff(void);
@@ -105,6 +117,9 @@ void CFlashLoadPump1SettingDefault(void);
 void CFlashSavePump2Setting(void);
 void CFlashLoadPump2Setting(void);
 void CFlashLoadPump2SettingDefault(void);
+void CFlashSaveOptSetting(u8 Index);
+void CFlashLoadOptSetting(u8 Index);
+void CFlashLoadOptSettingDefault(u8 Index);
 #else
 //--------------------------------------------------
 // Extern Global Variables
@@ -137,6 +152,8 @@ extern void CFlashLoadPump1SettingDefault(void);
 extern void CFlashSavePump2Setting(void);
 extern void CFlashLoadPump2Setting(void);
 extern void CFlashLoadPump2SettingDefault(void);
-
+extern void CFlashSaveOptSetting(u8 Index);
+extern void CFlashLoadOptSetting(u8 Index);
+extern void CFlashLoadOptSettingDefault(u8 Index);
 #endif
 

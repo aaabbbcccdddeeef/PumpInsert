@@ -167,6 +167,23 @@
           <Name>-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>534</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>12192</Address>
+          <ByteObject>0</ByteObject>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename></Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\TB4000_PanelV02\eeprom_flash\534</Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -219,6 +236,11 @@
           <count>1</count>
           <WinNumber>2</WinNumber>
           <ItemText>g_stUISetting,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>g_stOptSetting</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -326,10 +348,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>43</TopLine>
-      <CurrentLine>47</CurrentLine>
+      <TopLine>49</TopLine>
+      <CurrentLine>71</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\FLASH\spi_flash.c</PathWithFileName>
       <FilenameWithoutPath>spi_flash.c</FilenameWithoutPath>
@@ -396,10 +418,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>50</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>105</TopLine>
+      <CurrentLine>120</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\SPI\SPI.c</PathWithFileName>
       <FilenameWithoutPath>SPI.c</FilenameWithoutPath>
@@ -445,10 +467,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>45</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>76</TopLine>
-      <CurrentLine>84</CurrentLine>
+      <TopLine>113</TopLine>
+      <CurrentLine>132</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -459,10 +481,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>31</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>326</TopLine>
-      <CurrentLine>336</CurrentLine>
+      <TopLine>477</TopLine>
+      <CurrentLine>477</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\eeprom_flash.c</PathWithFileName>
       <FilenameWithoutPath>eeprom_flash.c</FilenameWithoutPath>
@@ -517,8 +539,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>21</TopLine>
-      <CurrentLine>31</CurrentLine>
+      <TopLine>310</TopLine>
+      <CurrentLine>319</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\pump.c</PathWithFileName>
       <FilenameWithoutPath>pump.c</FilenameWithoutPath>
@@ -552,8 +574,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>909</TopLine>
-      <CurrentLine>928</CurrentLine>
+      <TopLine>917</TopLine>
+      <CurrentLine>919</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -566,8 +588,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1588</TopLine>
-      <CurrentLine>1596</CurrentLine>
+      <TopLine>2042</TopLine>
+      <CurrentLine>2051</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menutbl.c</PathWithFileName>
       <FilenameWithoutPath>menutbl.c</FilenameWithoutPath>
@@ -616,7 +638,7 @@
 
   <AlienFiles>
     <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>1</TopLine>
+    <TopLine>4</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -775,25 +797,43 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>5</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\Core\SPI\SPI.c</Name>
+          <ColumnNumber>50</ColumnNumber>
+          <TopLine>105</TopLine>
+          <CurrentLine>120</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\FLASH\spi_flash.c</Name>
+          <ColumnNumber>34</ColumnNumber>
+          <TopLine>49</TopLine>
+          <CurrentLine>71</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\menu\menutbl.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>2042</TopLine>
+          <CurrentLine>2051</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>909</TopLine>
-          <CurrentLine>928</CurrentLine>
+          <TopLine>917</TopLine>
+          <CurrentLine>919</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\eeprom_flash.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>326</TopLine>
-          <CurrentLine>336</CurrentLine>
+          <ColumnNumber>31</ColumnNumber>
+          <TopLine>477</TopLine>
+          <CurrentLine>477</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>76</TopLine>
-          <CurrentLine>84</CurrentLine>
+          <ColumnNumber>45</ColumnNumber>
+          <TopLine>113</TopLine>
+          <CurrentLine>132</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\EINT\extint.c</Name>
@@ -828,8 +868,8 @@
         <Doc>
           <Name>.\SourceCode\pump.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>21</TopLine>
-          <CurrentLine>31</CurrentLine>
+          <TopLine>310</TopLine>
+          <CurrentLine>319</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\system.c</Name>
@@ -842,12 +882,6 @@
           <ColumnNumber>54</ColumnNumber>
           <TopLine>20</TopLine>
           <CurrentLine>28</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\menu\menutbl.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1588</TopLine>
-          <CurrentLine>1596</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\GLCD\RX_LCD_V02.c</Name>
@@ -906,14 +940,8 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
+          <TopLine>4</TopLine>
           <CurrentLine>14</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\FLASH\spi_flash.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>43</TopLine>
-          <CurrentLine>47</CurrentLine>
         </Doc>
         <Doc>
           <Name>menu\menudef.h</Name>

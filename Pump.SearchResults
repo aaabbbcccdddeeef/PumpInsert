@@ -1,5 +1,17 @@
----- PumpSetStepMode Matches (4 in 2 files) ----
-Pump.c (source code\sourcecode):void PumpSetStepMode(u8 PumpSel, u32 SetBit)
-Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
-Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 1);//	工作方式控制 1=HALF,0=FULL
-Pump.h (source code\sourcecode):extern void PumpSetStepMode(u8 PumpSel, u32 SetBit);
+---- SPIFlash_WritePage Matches (16 in 3 files) ----
+Eeprom_flash.c (source code\sourcecode):        SPIFlash_WritePage(Flash_num, g_u8MoveTable, Page*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(Flash_num, flash_buf, (Page+255)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_CKS*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):        SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_SPI_FLASH_CKS*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_UI_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_UI_SETTING*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP1_SETTING*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP2_SETTING*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_TP_VALUE+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_TP_VALUE*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
+Spi_flash.c (source code\core\flash):void SPIFlash_WritePage(u32 cs,u8* pBuffer, u32 WritePage, u16 NumByteToWrite)
+Spi_flash.h (source code\core\flash):extern void SPIFlash_WritePage(u32 cs,u8* pBuffer, u32 WritePage,u16 NumByteToWrite);

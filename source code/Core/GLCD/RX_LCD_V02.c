@@ -989,6 +989,7 @@ void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transpe
     Write_Dir(0x05,0xA8);//????IC
     Write_Dir(0x22,0x80|(transperent<<6));//????IC
     Write_Dir(0x2E,Size);//??????16x16/??1
+    
     Text_Foreground_Color1(Color);//??????
 
     FontWrite_Position(x,y);//??????

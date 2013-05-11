@@ -74,6 +74,14 @@ extern void CTestLeakagePageStyle(void);
 extern void CSettingAccelerationPageStyle(void);
 extern void CSettingBalancePageStyle(void);
 extern void CSettingMicrometerPageStyle(void);
+extern void CSettingOpt1PageStyle(void);
+extern void CSettingOpt2PageStyle(void);
+extern void CSettingOpt3PageStyle(void);
+extern void CSettingOpt4PageStyle(void);
+extern void CSettingOpt1ShieldValue(void);
+extern void CSettingOpt2ShieldValue(void);
+extern void CSettingOpt3ShieldValue(void);
+extern void CSettingOpt4ShieldValue(void);
 #endif
 
 
