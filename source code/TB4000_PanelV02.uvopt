@@ -167,23 +167,6 @@
           <Name>-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>534</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>12192</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\TB4000_PanelV02\eeprom_flash\534</Expression>
-        </Bp>
-      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -225,6 +208,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>g_u8RunningPause</ItemText>
         </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TempPageIndex</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -241,6 +229,11 @@
           <count>2</count>
           <WinNumber>2</WinNumber>
           <ItemText>g_stOptSetting</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>g_stTPx</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -350,7 +343,7 @@
       <Focus>0</Focus>
       <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>49</TopLine>
+      <TopLine>61</TopLine>
       <CurrentLine>71</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\FLASH\spi_flash.c</PathWithFileName>
@@ -379,7 +372,7 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>50</TopLine>
-      <CurrentLine>52</CurrentLine>
+      <CurrentLine>59</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\SysTick\systick.c</PathWithFileName>
       <FilenameWithoutPath>systick.c</FilenameWithoutPath>
@@ -392,8 +385,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>8</TopLine>
-      <CurrentLine>16</CurrentLine>
+      <TopLine>59</TopLine>
+      <CurrentLine>78</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\TIMER\timer.c</PathWithFileName>
       <FilenameWithoutPath>timer.c</FilenameWithoutPath>
@@ -420,7 +413,7 @@
       <Focus>0</Focus>
       <ColumnNumber>50</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>105</TopLine>
+      <TopLine>110</TopLine>
       <CurrentLine>120</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\SPI\SPI.c</PathWithFileName>
@@ -448,8 +441,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>25</TopLine>
-      <CurrentLine>32</CurrentLine>
+      <TopLine>31</TopLine>
+      <CurrentLine>45</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\EINT\extint.c</PathWithFileName>
       <FilenameWithoutPath>extint.c</FilenameWithoutPath>
@@ -458,7 +451,7 @@
 
   <Group>
     <GroupName>Source Code</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -467,10 +460,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>45</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>113</TopLine>
-      <CurrentLine>132</CurrentLine>
+      <TopLine>114</TopLine>
+      <CurrentLine>125</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -481,7 +474,7 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>477</TopLine>
       <CurrentLine>477</CurrentLine>
@@ -509,10 +502,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>15</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>105</TopLine>
-      <CurrentLine>112</CurrentLine>
+      <TopLine>125</TopLine>
+      <CurrentLine>129</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\touchpad.c</PathWithFileName>
       <FilenameWithoutPath>touchpad.c</FilenameWithoutPath>
@@ -539,8 +532,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>310</TopLine>
-      <CurrentLine>319</CurrentLine>
+      <TopLine>385</TopLine>
+      <CurrentLine>400</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\pump.c</PathWithFileName>
       <FilenameWithoutPath>pump.c</FilenameWithoutPath>
@@ -574,8 +567,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>917</TopLine>
-      <CurrentLine>919</CurrentLine>
+      <TopLine>838</TopLine>
+      <CurrentLine>846</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -588,8 +581,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>2042</TopLine>
-      <CurrentLine>2051</CurrentLine>
+      <TopLine>1483</TopLine>
+      <CurrentLine>1491</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menutbl.c</PathWithFileName>
       <FilenameWithoutPath>menutbl.c</FilenameWithoutPath>
@@ -800,46 +793,76 @@
       <ActiveTab>5</ActiveTab>
       <Documents>
         <Doc>
+          <Name>.\SourceCode\main.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>114</TopLine>
+          <CurrentLine>125</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\SourceCode\system.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>67</TopLine>
+          <CurrentLine>77</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\SysTick\systick.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>50</TopLine>
+          <CurrentLine>59</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\SourceCode\touchpad.c</Name>
+          <ColumnNumber>15</ColumnNumber>
+          <TopLine>125</TopLine>
+          <CurrentLine>129</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\TIMER\timer.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>59</TopLine>
+          <CurrentLine>78</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\SourceCode\pump.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>385</TopLine>
+          <CurrentLine>400</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>.\Core\SPI\SPI.c</Name>
           <ColumnNumber>50</ColumnNumber>
-          <TopLine>105</TopLine>
+          <TopLine>110</TopLine>
           <CurrentLine>120</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\FLASH\spi_flash.c</Name>
           <ColumnNumber>34</ColumnNumber>
-          <TopLine>49</TopLine>
+          <TopLine>61</TopLine>
           <CurrentLine>71</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menutbl.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>2042</TopLine>
-          <CurrentLine>2051</CurrentLine>
+          <TopLine>1483</TopLine>
+          <CurrentLine>1491</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>917</TopLine>
-          <CurrentLine>919</CurrentLine>
+          <TopLine>838</TopLine>
+          <CurrentLine>846</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\eeprom_flash.c</Name>
-          <ColumnNumber>31</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>477</TopLine>
           <CurrentLine>477</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\SourceCode\main.c</Name>
-          <ColumnNumber>45</ColumnNumber>
-          <TopLine>113</TopLine>
-          <CurrentLine>132</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>.\Core\EINT\extint.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>25</TopLine>
-          <CurrentLine>32</CurrentLine>
+          <TopLine>31</TopLine>
+          <CurrentLine>45</CurrentLine>
         </Doc>
         <Doc>
           <Name>SourceCode\eeprom_default.h</Name>
@@ -866,18 +889,6 @@
           <CurrentLine>18</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\SourceCode\pump.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>310</TopLine>
-          <CurrentLine>319</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SourceCode\system.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>67</TopLine>
-          <CurrentLine>77</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>menu\menutbl.h</Name>
           <ColumnNumber>54</ColumnNumber>
           <TopLine>20</TopLine>
@@ -888,18 +899,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>700</TopLine>
           <CurrentLine>708</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\TIMER\timer.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>8</TopLine>
-          <CurrentLine>16</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SourceCode\touchpad.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>105</TopLine>
-          <CurrentLine>112</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menu.c</Name>
@@ -918,12 +917,6 @@
           <ColumnNumber>27</ColumnNumber>
           <TopLine>69</TopLine>
           <CurrentLine>77</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\SysTick\systick.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>50</TopLine>
-          <CurrentLine>52</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\compress.c</Name>

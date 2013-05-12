@@ -14,7 +14,8 @@
 #include "extint.h"
 #include "pump.h"
 #include "main.h"
-
+#include "menufunc.h"
+#include "RX_LCD_V02.h"
 
 volatile uint32_t eint0_counter;
 
@@ -32,20 +33,23 @@ void EINT0_IRQHandler (void)
   SC -> EXTINT = EINT0;		/* clear interrupt */
 		
   //eint0_counter++;
-  g_u8RunningPause=1;
-  //PumpReset(2);
- #if 0
-  if ( eint0_counter & 0x01 )	/* alternate the LED display */
-  {
-	GPIO2 -> FIOSET = 0x0000000F;	/* turn off P2.0~3 */	
-	GPIO2 -> FIOCLR = 0x000000F0;	/* turn on P2.4~7 */
-  }
-  else
-  {
-	GPIO2 -> FIOSET = 0x000000F0;	/* turn on P2.0~3 */	
-	GPIO2 -> FIOCLR = 0x0000000F;	/* turn off P2.4~7 */
-  }
-#endif
+    if(g_u8RunningPause==0)
+    {
+        if(ADC_X()>120)
+        {
+            g_u8RunningPause=1;
+            CDrawButton(15,220,100,255,1,1);
+            WriteString("ÔÝÍ£", 220, 225, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
+        }
+        else
+        {
+            g_u8RunningPause=1;
+            //PumpReset(2);
+            CDrawButton(15,220,100,255,1,1);
+            g_u8RunningStop=1;
+            WriteString("Í£Ö¹", 220, 225, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
+        }
+    }
 }
 
 /*****************************************************************************

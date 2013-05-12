@@ -31,6 +31,7 @@ typedef struct {
 
 typedef struct {
     u16 DebugPumpStep;   
+    u8 TestVol1;
     
 } StructUISetting;
 typedef struct {

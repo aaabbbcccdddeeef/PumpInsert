@@ -34,6 +34,14 @@ void SysTick_Handler(void)
     if(g_uiPowerkeyTick != 0)
         g_uiPowerkeyTick--;
 
+    if((g_u32WaitFlow1[g_u8RunningIndex]!=0)&&(g_u8FlowPumpOver==1))
+    {
+        if(--g_u32WaitFlow1[g_u8RunningIndex]==0)
+        {
+            GPIO0->FIOPIN &= ~(1 << 3);
+            g_u8FlowWaitOver=1;
+        }
+    }
 }
 /*****************************************************************************
 ** Function name:		Delay10ms

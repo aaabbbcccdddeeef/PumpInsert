@@ -982,6 +982,9 @@ void RXLCD_EditCurrent(void)
 }
 void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transperent )
 {
+    RXLCD_EditCurrent();
+    Active_Window(0,479,0,271);
+
     Size = Size<<6;
     Write_Dir(0x21,0x20);//??????
     Write_Dir(0x06,0x03);//??FLASH??
@@ -998,6 +1001,25 @@ void WriteString(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transpe
     Write_Dir(0x21,0x00);//?????
     Write_Dir(0x2F,0x00);//?????
 }
+void WriteString1(unsigned char *Str,u16 x, u16 y, u16 Color, u8 Size, u8 transperent )
+{
+    Size = Size<<6;
+    Write_Dir(0x21,0x20);//??????
+    Write_Dir(0x06,0x03);//??FLASH??
+    Write_Dir(0x2F,0x81);//????IC
+    Write_Dir(0x05,0xA8);//????IC
+    Write_Dir(0x22,0x80|(transperent<<6));//????IC
+    Write_Dir(0x2E,Size);//??????16x16/??1
+    
+    Text_Foreground_Color1(Color);//??????
+
+    FontWrite_Position(x,y);//??????
+    String(Str);
+
+    Write_Dir(0x21,0x00);//?????
+    Write_Dir(0x2F,0x00);//?????
+}
+
 void RXLCD_DrawLine(unsigned short XS,unsigned short YS,unsigned short XE ,unsigned short YE,unsigned short color)
 {
 Draw_Line(XS,XE,YS,YE);//»­¾ØÐÎ

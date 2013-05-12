@@ -13,7 +13,7 @@
 #define UI_CKS                                                   0x22
 #define PUMP1_CKS                                            0x32
 #define PUMP2_CKS                                            0x42
-#define OPT_CKS                                            0x52
+#define OPT_CKS                                            0x51
 #define TP_CKS                                                     0x74
 
 #define SPI_FLASH_CKS                                       0x93

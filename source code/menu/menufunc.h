@@ -10,6 +10,19 @@
 
 #define _LEVEL4_TITLE_x     15
 #define _LEVEL4_TITLE_y     18
+
+#define _LEVEL5_ITEM_1_x     15
+#define _LEVEL5_ITEM_1_y     55
+
+#define _LEVEL5_ITEM_2_x     15
+#define _LEVEL5_ITEM_2_y     80
+
+#define _LEVEL5_VALUE_1_x     120
+#define _LEVEL5_VALUE_1_y     55
+
+#define _LEVEL5_VALUE_2_x     120
+#define _LEVEL5_VALUE_2_y     80
+
 #ifdef __MENUFUNC__
 
 
@@ -30,6 +43,8 @@ extern void CDrawPageLevel5(void);
 
 extern void CDrawPrevPage(void);
 extern void CDrawPrevPage5(void);
+extern void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent);
+extern void CDrawButton(unsigned short x1, unsigned short y1, unsigned short x2, unsigned short y2, u8 Row, u8 col);
 
 extern void CDrawInputMenu(void);
 extern void CHideInputMenu(void);
@@ -37,6 +52,8 @@ extern void CGetInputBit(void);
 extern void CPopUpInputResult(void);
 extern void CInputBackSpace(void);
 extern void CDrawResultCurve(void);
+extern void CDrawBurninStatus(void);
+
 extern void CDebugOpt1Start(void);
 extern void CDebugOpt1PageStyle(void);
 extern void CDebugOpt1Stop(void);
@@ -68,6 +85,11 @@ extern void CTestValve2Reset(void);
 extern void CTestValve3Reset(void);
 extern void CTestValve4Reset(void);
 extern void CTestBurnInPageStyle(void);
+extern void CTestBurninSetVol(void);
+extern void CTestBruninContinue(void);
+
+extern void CTestBurninStatusPageStyle(void);
+
 extern void CTestWaterWeighPageStyle(void);
 extern void CTestBacklashPageStyle(void);
 extern void CTestLeakagePageStyle(void);

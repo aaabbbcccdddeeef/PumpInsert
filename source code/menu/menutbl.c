@@ -1460,7 +1460,7 @@ MenuItemType TestBurnInMenuItems[]=
         0xffff,               // variable max
         0  // Flags
     },
-    //1 1 Enter
+    //1 1 Exit
     { 
         407, 8, 462, 51,// x1,y1,x2,y2;
         407, 8,// x, y;
@@ -1487,37 +1487,74 @@ MenuItemType TestBurnInMenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        NULL,                   //u8* value
+        &g_stUISetting.TestVol1,                   //u8* value
         NULL,                   //u16* value
-        0xffff,               // variable max
+        0x00ff,               // variable max
         edit_line  // Flags
     },
-    //1 3 P
+    //1 3 Enter
     { 
-        130,220,215,255,// x1,y1,x2,y2;
-        90,0,// x, y;
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
         5, 6, // UnSelPic, SelPic;
-        0, //NextMenuPage;
+        TestBurnInStatusMenu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CDebugPump1RunPositive,			// DoBeforeExec
+        CDrawBurninStatus,			// ExecFunction
+        CTestBurninSetVol,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
         menu_level_4  // Flags
     },
-    //1 4 N
+};
+//==========================TestBurninStatusMenuItems============================================
+MenuItemType TestBurninStatusMenuItems[]=
+{
+    //1 0 NULL
     { 
-        265,220,350,255,// x1,y1,x2,y2;
-        0,0,// x, y;
-        5, 6, // UnSelPic, SelPic;
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBurninStatusPageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage5,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Start
+    { 
+        15,220,100,255,// x1,y1,x2,y2;
+        0,40,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CNull,			// ExecFunction
-        CDebugPump1RunNegative,			// DoBeforeExec
+        CTestBruninContinue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
@@ -3676,6 +3713,18 @@ MenuPageType tblMenus[]=
         3,// FatherItemNum;
         PoleCleanMenuItems, // MenuItems;
         sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        0 //   Flags;
+    },
+    //1 54 TestBurnInStatusMenu
+    { 
+        0, 0, 479, 271,// 	x1, y1, x2, y2;
+        0, 0,//x ,y
+        5,//PageLevel
+        19,//PicNum;
+        TestBurnInMenu,// PrevMenuPage;
+        0,// FatherItemNum;
+        TestBurninStatusMenuItems, // MenuItems;
+        sizeof(TestBurninStatusMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 4 SquareWaveMenu

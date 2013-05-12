@@ -533,7 +533,7 @@ void CDrawPageLevel5(void)
     MenuPageIndex = NextMenuPage;
 
     RXLCD_EditNext();
-    CutPicture(1,CurrentMenu.x1,0,CurrentMenu.x2,271,CurrentMenu.x1,0);//写入图层2
+    CutPicture(20,CurrentMenu.x1,0,CurrentMenu.x2,271,CurrentMenu.x1,0);//写入图层2
     RXLCD_ScrollWindow_Next(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,1);
 
 
@@ -759,7 +759,7 @@ void CGetInputBit(void)
 
             //if(g_u8NumberBit==0)
                 //FontWrite_Position(TempMenuItem.x1, TempMenuItem.y1-4);   //設定顯示位置
-            WriteString(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
+            WriteString1(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
             //Write_Command(0x02);
             //String(&g_t8InputNumber[g_u8NumberBit]);
             //Delay10ms(1);
@@ -802,7 +802,7 @@ void CInputBackSpace(void)
         Write_Dir(0x2E,0x80);//设置字符模式32x32/间距0
         Write_Dir(0x2F,0x81);//设置字符IC
         Write_Dir(0x22,0x40);//设置为通透模式
-        WriteString(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
+        WriteString1(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
         /*
         FontWrite_Position(TempMenuItem.x1, TempMenuItem.y1-4);   //設定顯示位置
         Write_Command(0x02);
@@ -841,9 +841,30 @@ void CDrawResultCurve(void)
         }
     }
 }
+void CDrawBurninStatus(void)
+{
+    CDrawPageLevel5();
+    /*
+    Write_Dir(0X90,0X00);//设定参数
+    Write_Dir(0X40,0x00);    
+    CCurveCompress(350, &test[0]);
+    for(i=0;i<300;i++)
+    {
+        if(i<299)
+        {
+            Text_Foreground_Color1(0xf800);//前景颜色设定
+            RXLCD_SetPixelIndex(i+29,t_u16CompressPoint[i]+37,0xff0f);
+            RXLCD_SetPixelIndex(i+1+29,t_u16CompressPoint[i+1]+37,0xff0f);
+            Draw_Line(i+29,i+1+29,t_u16CompressPoint[i]+36,t_u16CompressPoint[i+1]+37);//画线段
+            Write_Dir(0X90,0X80);//开始画 
+        }
+    }
+    */
+}
 void CDrawButton(unsigned short x1, unsigned short y1, unsigned short x2, unsigned short y2, u8 Row, u8 col)
 {
-    CutPicture(5, x1, y1, x2, y2, col*90, Row*35);
+    RXLCD_EditCurrent();
+    CutPicture(5, x1, y1, x2, y2, col*90, Row*40);
 }
 void CDrawIconDone(u8 Sel)
 {
@@ -923,7 +944,7 @@ void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 trans
     unsigned char* s = ac;
 
     CDispFloatFix(f, Fract, s);
-
+    
     WriteString(ac, x, y, Color, Size, transperent);
 }
 
@@ -999,7 +1020,7 @@ void CDebugPump1PageStyle(void)
 {
     WriteString("电机调试( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    RXLCD_DrawLine(240,147,400,149,color_black);
+    RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(130,220,215,255,0,1);
     CDrawButton(265,220,350,255,0,0);
 }
@@ -1020,7 +1041,7 @@ void CDebugPump2PageStyle(void)
 {
     WriteString("电机调试( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    RXLCD_DrawLine(240,147,400,149,color_black);
+    RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(130,220,215,255,0,1);
     CDrawButton(265,220,350,255,0,0);
 }
@@ -1075,6 +1096,39 @@ void CTestValve4Reset(void)
 void CTestBurnInPageStyle(void)
 {
     WriteString("老化测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("老化行程(ul):", 50, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stUISetting.TestVol1,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CTestBurninStatusPageStyle(void)
+{
+    RXLCD_EditCurrent();
+    WriteString("老化测试状态表", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("当前老化行程:", _LEVEL5_ITEM_1_x, _LEVEL5_ITEM_1_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDispFloatAt(g_stUISetting.TestVol1,0,_LEVEL5_VALUE_1_x,_LEVEL5_VALUE_1_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    WriteString("已运行次数:", _LEVEL5_ITEM_2_x, _LEVEL5_ITEM_2_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDispFloatAt(g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+
+    WriteString("提示: 点击暂停或停止后，将在本次老化结束后生效", 15, 200, DarkGreen, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDrawButton(15,220,100,255,1,0);
+    CDrawButton(380,220,465,255,1,2);
+}
+void CTestBurninSetVol(void)
+{
+    g_u32BurninCount=0;
+    g_u8RunningPause=0;
+}
+void CTestBruninContinue(void)
+{
+    WriteString("           ", 220, 225, color_white, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
+
+    g_u8RunningPause=0;    
+    if(g_u8RunningStop==1)
+    {
+        g_u8RunningStop=0;
+        g_u32BurninCount=0;
+    }
 }
 void CTestWaterWeighPageStyle(void)
 {

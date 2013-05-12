@@ -35,6 +35,8 @@ u8 nMaxEffClass = 0;  //×î´ó¿ÉÓÃÌ¨½×
 #define _nuL2Step(a)   g_stPumpSetting[a].nuL2Step
 #define _MinFreqFactor(a)   g_stPumpSetting[a].MinFreqFactor
 #define _MaxFreqFactor(a)   g_stPumpSetting[a].MaxFreqFactor
+#define _OPTIC_OFF(a)                   (1-g_stOptSetting[a].OptShieldLevel)
+#define _OPTIC_ON(a)                   g_stOptSetting[a].OptShieldLevel
 
 #define _STEP_H(a)    ((g_stPumpSetting[a].MaxFreqFactor-g_stPumpSetting[a].MinFreqFactor)/g_stPumpSetting[a].MaxStepCount)
 
@@ -217,8 +219,8 @@ u32 PumpGetOpticStatus(u8 OptSel)
 void PumpNormal(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //Ö¸¶¨·½ÏòÒÔÄ³¸ö¹Ì¶¨±¶ÆµÊýÔË¶¯
 {
     if (cntRun <= 0) return;
-    init_timer( 0, TIME_10MS_INTERVAL / Freq);
-    enable_timer(0);
+    init_timer( 1, TIME_10MS_INTERVAL / Freq);
+    enable_timer(1);
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
     PumpSetStepMode(PumpSel, 2);//	¹¤×÷·½Ê½¿ØÖÆ 1=HALF,0=FULL
@@ -228,7 +230,7 @@ void PumpNormal(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //Ö¸¶¨·½ÏòÒÔÄ³¸ö
     PumpNum[PumpSel - 1] = cntRun;
     while(PumpNum[PumpSel - 1]);
 
-    disable_timer(0);
+    disable_timer(1);
     PumpSetLowPowerMode(PumpSel, _LOW_PWR);
     PumpSetEnable(PumpSel, _PUMP_DISABLE);
 }
@@ -240,8 +242,8 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //ÒÔÄ³¸ö¹Ì¶¨±¶Æµ
 {
     if (cntRun <= 0)
         return;
-    init_timer( 0, TIME_10MS_INTERVAL / Freq );
-    enable_timer(0);
+    init_timer(1, TIME_10MS_INTERVAL / Freq );
+    enable_timer(1);
 
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
@@ -252,14 +254,14 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //ÒÔÄ³¸ö¹Ì¶¨±¶Æµ
     PumpNum[PumpSel - 1] = cntRun;
     while(PumpNum[PumpSel - 1])
     {
-        if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON)   //idex¹âñîÊä³ö²»ÕÚµ²µÆ²»ÁÁ
+        if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))   //idex¹âñîÊä³ö²»ÕÚµ²µÆ²»ÁÁ
         {
             //PumpStop(direction);//ÕâÀï¿Ï¶¨ÊÇºËÐÄ£¬¼±Í£
             break;
         }
     }
 
-    disable_timer(0);
+    disable_timer(1);
     PumpSetLowPowerMode(PumpSel, _LOW_PWR);
     PumpSetEnable(PumpSel, _PUMP_DISABLE);
 }
@@ -274,16 +276,16 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
         nMaxEffClass = _MaxStepCount(PumpSel-1);
         for(i = 0; i < nMaxEffClass; i++)
         {
-            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON)	 break;
+            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))	 break;
             PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1) , _MinFreqFactor(PumpSel-1) + (i * _STEP_H(PumpSel-1)));
         }
 
-        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON)
+        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
             PumpDetect(PumpSel, direction, cntRun - 2 * nMaxEffClass * _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1), _MaxFreqFactor(PumpSel-1));
 
         for(i = 1; i <= nMaxEffClass; i++)
         {
-            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON)
+            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
             PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1) , _MaxFreqFactor(PumpSel-1) - (i * _STEP_H(PumpSel-1)));
         }
@@ -292,7 +294,7 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
     else if (cntRun <= 2 * 1 * _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1)) //²»³¬¹ýµÚÒ»¸öÌ¨½×
     {
         nMaxEffClass = 1;
-        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON)
+        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
             PumpDetect(PumpSel, direction, cntRun, _MinFreqFactor(PumpSel-1));
 
     }
@@ -301,15 +303,15 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
         nMaxEffClass = ceil(cntRun * 1.0 / (2 * _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1))) - 1;
         for(i = 0; i < nMaxEffClass; i++)
         {
-            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON)
+            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
             PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1) , _MinFreqFactor(PumpSel-1) + (i * _STEP_H(PumpSel-1)));
         }
-        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON)
+        if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
             PumpDetect(PumpSel, direction, cntRun - 2 * nMaxEffClass * _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1), _MinFreqFactor(PumpSel-1) + nMaxEffClass);
         for(i = 1; i <= nMaxEffClass; i++)
         {
-            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON)
+            if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
             PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1) * _nStep2Pulse(PumpSel-1) , _MinFreqFactor(PumpSel-1) + nMaxEffClass - (i * _STEP_H(PumpSel-1)));
         }
@@ -371,7 +373,7 @@ void PumpReset(u8 PumpSel )
 
     //ÆäËûÆ½Ì¨reset
 
-    while(PumpGetOpticStatus(PumpSel) != _OPTIC_ON && maxTry < 21)
+    while(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1) && maxTry < 21)
     {
         PumpDetectRun(PumpSel, 1, 200);
         Delay10ms(50);

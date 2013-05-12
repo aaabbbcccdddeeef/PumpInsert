@@ -1,17 +1,11 @@
----- SPIFlash_WritePage Matches (16 in 3 files) ----
-Eeprom_flash.c (source code\sourcecode):        SPIFlash_WritePage(Flash_num, g_u8MoveTable, Page*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(Flash_num, flash_buf, (Page+255)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_CKS*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):        SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_SPI_FLASH_CKS*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_UI_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_UI_SETTING*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP1_SETTING*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP2_SETTING*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_TP_VALUE+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_TP_VALUE*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-Eeprom_flash.c (source code\sourcecode):    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
-Spi_flash.c (source code\core\flash):void SPIFlash_WritePage(u32 cs,u8* pBuffer, u32 WritePage, u16 NumByteToWrite)
-Spi_flash.h (source code\core\flash):extern void SPIFlash_WritePage(u32 cs,u8* pBuffer, u32 WritePage,u16 NumByteToWrite);
+---- CDispFloatAt Matches (10 in 3 files) ----
+Menufunc.c (source code\menu):void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent)
+Menufunc.c (source code\menu):    CDispFloatAt(g_stUISetting.TestVol1,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+Menufunc.c (source code\menu):    CDispFloatAt(g_stUISetting.TestVol1,0,_LEVEL5_VALUE_1_x,_LEVEL5_VALUE_1_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+Menufunc.c (source code\menu):    CDispFloatAt(g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[0].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[1].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[2].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[3].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+Menufunc.h (source code\menu):extern void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent);
+System.c (source code\sourcecode):    CDispFloatAt(++g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);

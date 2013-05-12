@@ -14,10 +14,12 @@
 // Global Variables
 //--------------------------------------------------
 #define _DEBUG_PUMP_STEP_DEF                              4000
+#define _SETTING_BURNIN_VOL_DEF                              10
 
 StructUISetting tEEPROM_UISetting_DEFAULT =
 {
     _DEBUG_PUMP_STEP_DEF,
+    _SETTING_BURNIN_VOL_DEF,
 };
 #define _TP_XMIN_DEF                                          32
 #define _TP_XMAX_DEF                                          244
@@ -47,7 +49,7 @@ StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
     _STEP2PULSE_DEF,                   
 };
 #define _DEBUG_OPT_LINE_DEF                              5
-#define _DEBUG_OPT_SHIELD_DEF                              0
+#define _DEBUG_OPT_SHIELD_DEF                              1
 
 StructOptSetting tEEPROM_OptSetting_DEFAULT =
 {

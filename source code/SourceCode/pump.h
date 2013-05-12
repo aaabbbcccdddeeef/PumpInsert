@@ -26,8 +26,6 @@
 #define _VALVE_ON                   1
 #define _VALVE_OFF                   0
 
-#define _OPTIC_OFF                   0
-#define _OPTIC_ON                   1
 
 #define _DIR_POS            0
 #define _DIR_NEG            1

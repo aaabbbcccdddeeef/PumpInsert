@@ -61,6 +61,18 @@ u8 g_u8DetectOptSelect = 0xff;
 u8 g_u8DetectOptStart = 0;
 u8 g_u32OptLevel = 0;
 u8 g_u8RunningPause = 0;
+u8 g_u8RunningStop=0;
+u32 g_u32BurninCount=0;
+u32 g_u32RunningFlow1[50];
+u32 g_u32RunningFlow2[50];
+u32 g_u32WaitFlow1[50];
+u32 g_u32WaitFlow2[50];
+u8 g_u8DirectionFlow1[50];
+u8 g_u8DirectionFlow2[50];
+u8 g_u8RunningIndex=0;
+u8 g_u8FlowPumpOver=0;
+u8 g_u8FlowWaitOver=0;
+u8 g_u8FlowCount=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -117,6 +129,19 @@ extern u8 g_u8DetectOptSelect;
 extern u8 g_u8DetectOptStart;
 extern u8 g_u32OptLevel;
 extern u8 g_u8RunningPause;
+extern u8 g_u8RunningStop;
+
+extern u32 g_u32BurninCount;
+extern u32 g_u32RunningFlow1[50];
+extern u32 g_u32RunningFlow2[50];
+extern u32 g_u32WaitFlow1[50];
+extern u32 g_u32WaitFlow2[50];
+extern u8 g_u8DirectionFlow1[50];
+extern u8 g_u8DirectionFlow2[50];
+extern u8 g_u8RunningIndex;
+extern u8 g_u8FlowPumpOver;
+extern u8 g_u8FlowWaitOver;
+extern u8 g_u8FlowCount;
 
 //--------------------------------------------------
 // Extern Function Prototypes

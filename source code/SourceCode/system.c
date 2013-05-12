@@ -74,8 +74,10 @@ void CBurnInEvent(void)
     if(g_u8RunningPause==0)
     {
 
-    PumpBurnIn(1, 100);
-        PumpBurnIn(2, 100);
+    PumpBurnIn(1, g_stUISetting.TestVol1);
+    CDispFloatAt(++g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+
+        //PumpBurnIn(2, 100);
     }
 }
 
