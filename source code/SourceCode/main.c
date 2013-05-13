@@ -87,14 +87,15 @@ void CDeviceInit(void)
     init_timer( 1, TIME_10MS_INTERVAL/50);
     disable_timer(1);
 
-    //init_timer( 2, TIME_10MS_INTERVAL/50);
-    //disable_timer(2);
+    init_timer( 2, TIME_10MS_INTERVAL/50);
+    disable_timer(2);
 
-    //init_timer( 3, TIME_10MS_INTERVAL/50);
-    //disable_timer(3);
+    init_timer( 3, TIME_10MS_INTERVAL/50);
+    enable_timer(3);
 
     GPIOInit();
-
+    
+    PumpInit();
     
     RXLCD_init();
     
@@ -110,7 +111,6 @@ void CDeviceInit(void)
     
     Layer1_Visible();
 
-    PumpInit();
         
     return;
 }

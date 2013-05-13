@@ -42,6 +42,7 @@ typedef struct {
     u8 nuL2Step;    
     u8 nStep2Pulse;     
     u8 MaxStepCount;
+    u8 StepMode;
 } StructPumpSetting;
 typedef struct {
     u8 OptLineNum;  

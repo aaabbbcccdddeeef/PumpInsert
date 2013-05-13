@@ -13,6 +13,7 @@
 #include "timer.h"
 #include "pump.h"
 #include "main.h"
+#include "eeprom_flash.h"
 volatile uint32_t PumpNum[3] = {0,0,0};
 /*****************************************************************************
 ** Function name:		delayMs
@@ -160,8 +161,6 @@ void TIMER3_IRQHandler (void)
 {  
   TIM3 ->IR = 1;			/* clear interrupt flag */
 
-
-
 }
 
 
@@ -291,6 +290,7 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
   }
   else if ( timer_num == 2 )
   {
+      SC->PCONP       |=  (1<<22);                
 	PumpNum[0] = 0;
 	TIM2 ->MR0 = TimerInterval;
 	TIM2 ->MCR = 3;				/* Interrupt and Reset on MR1 */
@@ -301,6 +301,7 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
   }
   else if ( timer_num == 3 )
   {
+        SC->PCONP       |=  (1<<23);                
 	PumpNum[1] = 0;
 	TIM3 ->MR0 = TimerInterval;
 	TIM3 ->MCR = 3;				/* Interrupt and Reset on MR1 */

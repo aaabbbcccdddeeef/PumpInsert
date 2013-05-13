@@ -11,10 +11,10 @@
 
 #define RTC_CKS                                                 0x12
 #define UI_CKS                                                   0x22
-#define PUMP1_CKS                                            0x32
-#define PUMP2_CKS                                            0x42
-#define OPT_CKS                                            0x51
-#define TP_CKS                                                     0x74
+#define PUMP1_CKS                                            0x31
+#define PUMP2_CKS                                            0x41
+#define OPT_CKS                                                 0x51
+#define TP_CKS                                                     0x71
 
 #define SPI_FLASH_CKS                                       0x93
 

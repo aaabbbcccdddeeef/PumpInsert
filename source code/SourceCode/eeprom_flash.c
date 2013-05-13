@@ -155,6 +155,7 @@ void CFlashStartupCheck(void)
     //g_uiAutoPowerOffCounter = AutoPowerOffTime[g_stUISetting.AutoPowerOff];
     //g_uiPanelStatus = 1;
     //Delay10ms(100);
+    //CFlashSavePump1Setting();
     return;
    
 }
@@ -334,7 +335,7 @@ void CFlashSavePump1Setting(void)
         flash_buf[5] = g_stPumpSetting[0].nuL2Step;
         flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
         flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
-
+        flash_buf[8] = g_stPumpSetting[0].StepMode;
     }
     else
     {
@@ -347,6 +348,7 @@ void CFlashSavePump1Setting(void)
         flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[0].nuL2Step;
         flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[0].nStep2Pulse;
         flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[0].MaxStepCount;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+8] = g_stPumpSetting[0].StepMode;
 
     }
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
@@ -366,6 +368,7 @@ void CFlashLoadPump1Setting(void)
     g_stPumpSetting[0].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
     g_stPumpSetting[0].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
     g_stPumpSetting[0].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
+    g_stPumpSetting[0].StepMode= flash_buf[(CELL_SIZE*g_u8CellLast)+8];
 
 }
 void CFlashLoadPump1SettingDefault(void)
@@ -380,6 +383,7 @@ void CFlashLoadPump1SettingDefault(void)
     flash_buf[5] = g_stPumpSetting[0].nuL2Step;
     flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
     flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
+    flash_buf[8] = g_stPumpSetting[0].StepMode;
 
     
     SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP1_SETTING*SECTOR_SIZE);
@@ -400,7 +404,7 @@ void CFlashSavePump2Setting(void)
         flash_buf[5] = g_stPumpSetting[1].nuL2Step;
         flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
         flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
-
+        flash_buf[8] = g_stPumpSetting[1].StepMode;
     }
     else
     {
@@ -413,6 +417,7 @@ void CFlashSavePump2Setting(void)
         flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[1].nuL2Step;
         flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[1].nStep2Pulse;
         flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[1].MaxStepCount;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+8] = g_stPumpSetting[1].StepMode;
 
     }
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
@@ -432,7 +437,7 @@ void CFlashLoadPump2Setting(void)
     g_stPumpSetting[1].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
     g_stPumpSetting[1].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
     g_stPumpSetting[1].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
-
+    g_stPumpSetting[1].StepMode= flash_buf[(CELL_SIZE*g_u8CellLast)+8];
 }
 void CFlashLoadPump2SettingDefault(void)
 {
@@ -446,6 +451,7 @@ void CFlashLoadPump2SettingDefault(void)
     flash_buf[5] = g_stPumpSetting[1].nuL2Step;
     flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
     flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
+    flash_buf[8] = g_stPumpSetting[1].StepMode;
     
     SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP2_SETTING*SECTOR_SIZE);
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP2_SETTING*PAGE_SIZE, PAGE_SIZE);

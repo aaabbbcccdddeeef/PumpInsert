@@ -1,11 +1,5 @@
----- CDispFloatAt Matches (10 in 3 files) ----
-Menufunc.c (source code\menu):void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent)
-Menufunc.c (source code\menu):    CDispFloatAt(g_stUISetting.TestVol1,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-Menufunc.c (source code\menu):    CDispFloatAt(g_stUISetting.TestVol1,0,_LEVEL5_VALUE_1_x,_LEVEL5_VALUE_1_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
-Menufunc.c (source code\menu):    CDispFloatAt(g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
-Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[0].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[1].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[2].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-Menufunc.c (source code\menu):    CDispFloatAt(g_stOptSetting[3].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-Menufunc.h (source code\menu):extern void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u8 transperent);
-System.c (source code\sourcecode):    CDispFloatAt(++g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+---- PumpSetStepMode Matches (4 in 2 files) ----
+Pump.c (source code\sourcecode):void PumpSetStepMode(u8 PumpSel, u32 SetBit)
+Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
+Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
+Pump.h (source code\sourcecode):extern void PumpSetStepMode(u8 PumpSel, u32 SetBit);

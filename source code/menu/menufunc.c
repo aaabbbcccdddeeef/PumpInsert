@@ -872,10 +872,12 @@ void CDrawIconDone(u8 Sel)
     CutPicture(19-(8*Sel), 410, 106, 454, 147, 410, 106);
 }
 #define   CharDot 0x2E;
+#define nLog2(x)        log(x)/log(2)
 const u32 Pow10[10] = {
   1 , 10, 100, 1000, 10000,
   100000, 1000000, 10000000, 100000000, 1000000000
 };
+const u8 tStepMode[4]={1,1,2,4};
 static int _Check_NegLong(signed long *pv, unsigned char**ps) 
 {
     if (*pv < 0) 
@@ -1194,22 +1196,59 @@ void CSettingOpt1ShieldValue(void)
 {
     CDrawIconDone(1);
     g_stOptSetting[0].OptShieldLevel = PumpGetOpticStatus(1);
-    //CFlashSaveUISetting();
+    CFlashSaveOptSetting(0);
 }
 void CSettingOpt2ShieldValue(void)
 {
     CDrawIconDone(1);
     g_stOptSetting[1].OptShieldLevel = PumpGetOpticStatus(2);
+    CFlashSaveOptSetting(1);
 }
 void CSettingOpt3ShieldValue(void)
 {
     CDrawIconDone(1);
     g_stOptSetting[2].OptShieldLevel = PumpGetOpticStatus(3);
+    CFlashSaveOptSetting(2);
 }
 void CSettingOpt4ShieldValue(void)
 {
     CDrawIconDone(1);
     g_stOptSetting[3].OptShieldLevel = PumpGetOpticStatus(4);
+    CFlashSaveOptSetting(3);
+}
+void CSettingDivider1PageStyle(void)
+{
+    WriteString("细分选项( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("细分数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stPumpSetting[0].nStep2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(1,2,4,16)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingDivider2PageStyle(void)
+{
+    WriteString("细分选项( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("细分数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stPumpSetting[1].nStep2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    WriteString("(1,2,4,16)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingDivider1Value(void)
+{
+    CDrawIconDone(1);
+    g_stPumpSetting[0].StepMode = nLog2(g_stPumpSetting[0].nStep2Pulse);
+    if(g_stPumpSetting[0].StepMode>3)
+        g_stPumpSetting[0].StepMode-=1;
+    CFlashSavePump1Setting();
+}
+void CSettingDivider2Value(void)
+{
+    CDrawIconDone(1);
+    g_stPumpSetting[1].StepMode = nLog2(g_stPumpSetting[1].nStep2Pulse);
+    if(g_stPumpSetting[1].StepMode>3)
+        g_stPumpSetting[1].StepMode-=1;
+    CFlashSavePump2Setting();
 }
 
 //******************************end of line***************************************

@@ -35,6 +35,7 @@ u8 nMaxEffClass = 0;  //最大可用台阶
 #define _nuL2Step(a)   g_stPumpSetting[a].nuL2Step
 #define _MinFreqFactor(a)   g_stPumpSetting[a].MinFreqFactor
 #define _MaxFreqFactor(a)   g_stPumpSetting[a].MaxFreqFactor
+#define _StepMode(a)            g_stPumpSetting[a].StepMode
 #define _OPTIC_OFF(a)                   (1-g_stOptSetting[a].OptShieldLevel)
 #define _OPTIC_ON(a)                   g_stOptSetting[a].OptShieldLevel
 
@@ -223,7 +224,7 @@ void PumpNormal(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //指定方向以某个
     enable_timer(1);
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
-    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
+    PumpSetStepMode(PumpSel, _StepMode(PumpSel-1));//	工作方式控制 1=HALF,0=FULL
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 
@@ -247,7 +248,7 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //以某个固定倍频
 
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
-    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
+    PumpSetStepMode(PumpSel, _StepMode(PumpSel-1));//	工作方式控制 1=HALF,0=FULL
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 

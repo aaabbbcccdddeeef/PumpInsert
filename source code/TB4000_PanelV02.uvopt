@@ -144,12 +144,12 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>JL2CM3</Key>
-          <Name>-U270676280 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO31 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
+          <Name>-U20100213 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO31 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=-1,-1,-1,-1,0)(261=-1,-1,-1,-1,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=210,250,726,727,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=192,97,624,590,0)(240=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=1085,326,1355,712,0)(261=821,318,1127,738,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=210,250,726,727,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=192,97,624,590,0)(240=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -212,6 +212,11 @@
           <count>8</count>
           <WinNumber>1</WinNumber>
           <ItemText>TempPageIndex</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>g_stPumpSetting</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -341,10 +346,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>34</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>61</TopLine>
-      <CurrentLine>71</CurrentLine>
+      <TopLine>26</TopLine>
+      <CurrentLine>38</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\FLASH\spi_flash.c</PathWithFileName>
       <FilenameWithoutPath>spi_flash.c</FilenameWithoutPath>
@@ -371,7 +376,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>50</TopLine>
+      <TopLine>51</TopLine>
       <CurrentLine>59</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\SysTick\systick.c</PathWithFileName>
@@ -385,8 +390,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>59</TopLine>
-      <CurrentLine>78</CurrentLine>
+      <TopLine>156</TopLine>
+      <CurrentLine>165</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\TIMER\timer.c</PathWithFileName>
       <FilenameWithoutPath>timer.c</FilenameWithoutPath>
@@ -411,10 +416,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>50</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>110</TopLine>
-      <CurrentLine>120</CurrentLine>
+      <TopLine>103</TopLine>
+      <CurrentLine>111</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\SPI\SPI.c</PathWithFileName>
       <FilenameWithoutPath>SPI.c</FilenameWithoutPath>
@@ -441,7 +446,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>31</TopLine>
+      <TopLine>37</TopLine>
       <CurrentLine>45</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\EINT\extint.c</PathWithFileName>
@@ -462,7 +467,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>114</TopLine>
+      <TopLine>115</TopLine>
       <CurrentLine>125</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
@@ -476,8 +481,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>477</TopLine>
-      <CurrentLine>477</CurrentLine>
+      <TopLine>128</TopLine>
+      <CurrentLine>138</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\eeprom_flash.c</PathWithFileName>
       <FilenameWithoutPath>eeprom_flash.c</FilenameWithoutPath>
@@ -532,7 +537,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>385</TopLine>
+      <TopLine>392</TopLine>
       <CurrentLine>400</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\pump.c</PathWithFileName>
@@ -546,7 +551,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>67</TopLine>
+      <TopLine>69</TopLine>
       <CurrentLine>77</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
@@ -567,8 +572,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>838</TopLine>
-      <CurrentLine>846</CurrentLine>
+      <TopLine>1222</TopLine>
+      <CurrentLine>1243</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -595,8 +600,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>120</TopLine>
-      <CurrentLine>127</CurrentLine>
+      <TopLine>123</TopLine>
+      <CurrentLine>132</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menu.c</PathWithFileName>
       <FilenameWithoutPath>menu.c</FilenameWithoutPath>
@@ -604,7 +609,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
     <TopLine>43</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -630,8 +635,8 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>4</TopLine>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
+    <TopLine>1</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -656,7 +661,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
     <TopLine>41</TopLine>
     <CurrentLine>45</CurrentLine>
     <Constant>0</Constant>
@@ -682,7 +687,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
     <TopLine>35</TopLine>
     <CurrentLine>43</CurrentLine>
     <Constant>0</Constant>
@@ -708,7 +713,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>20</TopLine>
     <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
@@ -734,7 +739,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
     <TopLine>143</TopLine>
     <CurrentLine>143</CurrentLine>
     <Constant>0</Constant>
@@ -760,7 +765,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
     <TopLine>57</TopLine>
     <CurrentLine>57</CurrentLine>
     <Constant>0</Constant>
@@ -790,24 +795,30 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>5</ActiveTab>
+      <ActiveTab>10</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\menu\menu.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>123</TopLine>
+          <CurrentLine>132</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\SourceCode\main.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>114</TopLine>
+          <TopLine>115</TopLine>
           <CurrentLine>125</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\system.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>67</TopLine>
+          <TopLine>69</TopLine>
           <CurrentLine>77</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\SysTick\systick.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>50</TopLine>
+          <TopLine>51</TopLine>
           <CurrentLine>59</CurrentLine>
         </Doc>
         <Doc>
@@ -819,26 +830,26 @@
         <Doc>
           <Name>.\Core\TIMER\timer.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>59</TopLine>
-          <CurrentLine>78</CurrentLine>
+          <TopLine>156</TopLine>
+          <CurrentLine>165</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\pump.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>385</TopLine>
+          <TopLine>392</TopLine>
           <CurrentLine>400</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\SPI\SPI.c</Name>
-          <ColumnNumber>50</ColumnNumber>
-          <TopLine>110</TopLine>
-          <CurrentLine>120</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>103</TopLine>
+          <CurrentLine>111</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\FLASH\spi_flash.c</Name>
-          <ColumnNumber>34</ColumnNumber>
-          <TopLine>61</TopLine>
-          <CurrentLine>71</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>26</TopLine>
+          <CurrentLine>38</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\menu\menutbl.c</Name>
@@ -849,19 +860,19 @@
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>838</TopLine>
-          <CurrentLine>846</CurrentLine>
+          <TopLine>1222</TopLine>
+          <CurrentLine>1243</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\eeprom_flash.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>477</TopLine>
-          <CurrentLine>477</CurrentLine>
+          <TopLine>128</TopLine>
+          <CurrentLine>138</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\EINT\extint.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>31</TopLine>
+          <TopLine>37</TopLine>
           <CurrentLine>45</CurrentLine>
         </Doc>
         <Doc>
@@ -871,7 +882,7 @@
           <CurrentLine>57</CurrentLine>
         </Doc>
         <Doc>
-          <Name>SourceCode\eeprom_flash.h</Name>
+          <Name>.\SourceCode\eeprom_flash.h</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>143</TopLine>
           <CurrentLine>143</CurrentLine>
@@ -901,12 +912,6 @@
           <CurrentLine>708</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\menu\menu.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>120</TopLine>
-          <CurrentLine>127</CurrentLine>
-        </Doc>
-        <Doc>
           <Name>SourceCode\include.h</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>35</TopLine>
@@ -933,7 +938,7 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>4</TopLine>
+          <TopLine>1</TopLine>
           <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>

@@ -38,6 +38,7 @@ StructTouchPoint tEEPROM_TouchPoint_DEFAULT =
 #define _FULL_STEP_PER_CLASS_DEF                                  1
 #define _NUL2STEP_DEF                            2
 #define _STEP2PULSE_DEF                                    2
+#define _STEPMODE                                       2
 
 StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
 {
@@ -46,7 +47,8 @@ StructPumpSetting tEEPROM_PumpSetting_DEFAULT =
     _MAX_FREQ_DEF,              
     _FULL_STEP_PER_CLASS_DEF,                         
     _NUL2STEP_DEF,                      
-    _STEP2PULSE_DEF,                   
+    _STEP2PULSE_DEF,                 
+    _STEPMODE,
 };
 #define _DEBUG_OPT_LINE_DEF                              5
 #define _DEBUG_OPT_SHIELD_DEF                              1
