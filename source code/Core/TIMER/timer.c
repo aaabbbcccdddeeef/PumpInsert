@@ -160,7 +160,11 @@ void TIMER2_IRQHandler (void)
 void TIMER3_IRQHandler (void)  
 {  
   TIM3 ->IR = 1;			/* clear interrupt flag */
-
+  if(PumpNum[1]!=0)
+    {
+         PumpNum[1]--;
+         GPIO0->FIOPIN ^= (1<<6);
+    }
 }
 
 

@@ -47,6 +47,8 @@ extern void CDispFloatAt(float f, char Fract,u16 x, u16 y, u16 Color, u8 Size, u
 extern void CDrawButton(unsigned short x1, unsigned short y1, unsigned short x2, unsigned short y2, u8 Row, u8 col);
 
 extern void CDrawInputMenu(void);
+extern void CDrawInputMenuMin(u8 InputLength);
+
 extern void CHideInputMenu(void);
 extern void CGetInputBit(void);
 extern void CPopUpInputResult(void);
@@ -93,7 +95,10 @@ extern void CTestBurninStatusPageStyle(void);
 extern void CTestWaterWeighPageStyle(void);
 extern void CTestBacklashPageStyle(void);
 extern void CTestLeakagePageStyle(void);
-extern void CSettingAccelerationPageStyle(void);
+extern void CSettingAcceleration1PageStyle(void);
+extern void CSettingAcceleration2PageStyle(void);
+extern void CSettingAcceleration1Value(void);
+extern void CSettingAcceleration2Value(void);
 extern void CSettingBalancePageStyle(void);
 extern void CSettingMicrometerPageStyle(void);
 extern void CSettingOpt1PageStyle(void);

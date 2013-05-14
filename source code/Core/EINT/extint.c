@@ -33,15 +33,15 @@ void EINT0_IRQHandler (void)
   SC -> EXTINT = EINT0;		/* clear interrupt */
 		
   //eint0_counter++;
-    if(g_u8RunningPause==0)
+    if((g_u8RunningPause==0))
     {
-        if(ADC_X()>120)
+        if(ADC_X()>180)
         {
             g_u8RunningPause=1;
             CDrawButton(15,220,100,255,1,1);
             WriteString("ÔÝÍ£", 220, 225, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
         }
-        else
+        else if(ADC_X()<60)
         {
             g_u8RunningPause=1;
             //PumpReset(2);
@@ -70,7 +70,8 @@ uint32_t EINTInit( void )
 						
 PINCON -> PINSEL4 |=0x00100000;
 
-  GPIOINT -> IO2IntEnF = 0x200;	/* Port2.10 is falling edge. */
+  GPIOINT -> IO2IntEnF = 0x000;	/* Port2.10 is falling edge. */
+  GPIOINT -> IO2IntEnR = 0x000;	/* Port2.10 is falling edge. */
   SC -> EXTMODE = EINT0_EDGE;	/* INT0 edge trigger */
   SC -> EXTPOLAR = 0;			/* INT0 is falling edge by default */
 
@@ -78,7 +79,27 @@ PINCON -> PINSEL4 |=0x00100000;
 
   return( TRUE );
 }
+uint32_t EINTStart( void )
+{
 
+  GPIOINT -> IO2IntEnF = 0x200;	/* Port2.10 is falling edge. */
+						
+//PINCON -> PINSEL4 |=0x00100000;
+
+
+  return( TRUE );
+}
+
+uint32_t EINTStop( void )
+{
+
+  GPIOINT -> IO2IntEnF = 0x000;	/* Port2.10 is falling edge. */
+						
+//PINCON -> PINSEL4 |=0x00100000;
+
+
+  return( TRUE );
+}
 /******************************************************************************
 **                            End Of File
 ******************************************************************************/

@@ -483,8 +483,8 @@ MenuItemType SettingMenuItems[]=
         27, 28, // UnSelPic, SelPic;
         SettingAccelerationMenu, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CDrawPageLevel4,			// ExecFunction
+        CDrawUnselMenuLevel2,			// UnselPicFunction
+        CDrawNextPage,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2007,6 +2007,59 @@ MenuItemType SettingDividerMenuItems[]=
     },
 
 };
+//==========================SettingAccelerationMenuItems============================================
+MenuItemType SettingAccelerationMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Acceleration1
+    { 
+        333, 175, 475, 203,// x1,y1,x2,y2;
+        333, 9,// x, y;
+        23, 24, // UnSelPic, SelPic;
+        SettingAcceleration1Menu, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPageLevel4,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Acceleration2
+    { 
+        333, 205, 475, 233,// x1,y1,x2,y2;
+        333, 39,// x, y;
+        23, 24, // UnSelPic, SelPic;
+        SettingAcceleration2Menu, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPageLevel4,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+
+};
 
 //==========================SettingOpt1MenuItems============================================
 MenuItemType SettingOpt1MenuItems[]=
@@ -2067,7 +2120,7 @@ MenuItemType SettingOpt1MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingOpt1ShieldValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2135,7 +2188,7 @@ MenuItemType SettingOpt2MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingOpt2ShieldValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2202,7 +2255,7 @@ MenuItemType SettingOpt3MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingOpt3ShieldValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2270,7 +2323,7 @@ MenuItemType SettingOpt4MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingOpt4ShieldValue,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2338,7 +2391,7 @@ MenuItemType SettingDivider1MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingDivider1Value,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2406,7 +2459,7 @@ MenuItemType SettingDivider2MenuItems[]=
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
+        CDrawPrevPage,			// ExecFunction
         CSettingDivider2Value,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
@@ -2415,8 +2468,8 @@ MenuItemType SettingDivider2MenuItems[]=
         menu_level_4  // Flags
     },
 };
-//==========================SettingAccelerationMenuItems============================================
-MenuItemType SettingAccelerationMenuItems[]=
+//==========================SettingAcceleration1MenuItems============================================
+MenuItemType SettingAcceleration1MenuItems[]=
 {
     //1 0 NULL
     { 
@@ -2428,7 +2481,7 @@ MenuItemType SettingAccelerationMenuItems[]=
         CNull_u8,			// UnselPicFunction
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
-        CSettingAccelerationPageStyle,			// DoAfterExec
+        CSettingAcceleration1PageStyle,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
@@ -2436,24 +2489,24 @@ MenuItemType SettingAccelerationMenuItems[]=
     },
     //1 1 Enter
     { 
-        407, 8, 462, 51,// x1,y1,x2,y2;
-        407, 8,// x, y;
-        19, 11, // UnSelPic, SelPic;
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
         CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CSettingAcceleration1Value,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
         0  // Flags
     },
-    //1 2 Pulse Number
+    //1 2 Freq1
     { 
-        240,120,400,146,// x1,y1,x2,y2;
-        240,120,// x, y;
+        33+(110*0),30+(27*0),74+(110*0),50+(27*0),// x1,y1,x2,y2;
+        33+(110*0),30+(27*0),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -2462,41 +2515,1309 @@ MenuItemType SettingAccelerationMenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[0],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*0),30+(27*0),128+(110*0),50+(27*0),// x1,y1,x2,y2;
+        87+(110*0),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[0],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*1),74+(110*0),50+(27*1),// x1,y1,x2,y2;
+        33+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[1],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
+        87+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[1],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*2),74+(110*0),50+(27*2),// x1,y1,x2,y2;
+        33+(110*0),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[2],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*2),128+(110*0),50+(27*2),// x1,y1,x2,y2;
+        87+(110*0),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[2],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*3),74+(110*0),50+(27*3),// x1,y1,x2,y2;
+        33+(110*0),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[3],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*3),128+(110*0),50+(27*3),// x1,y1,x2,y2;
+        87+(110*0),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[3],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*4),74+(110*0),50+(27*4),// x1,y1,x2,y2;
+        33+(110*0),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[4],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
+        87+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[4],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*1),30+(27*0),74+(110*1),50+(27*0),// x1,y1,x2,y2;
+        33+(110*1),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[5],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*1),30+(27*0),128+(110*1),50+(27*0),// x1,y1,x2,y2;
+        87+(110*1),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[5],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*1),74+(110*1),50+(27*1),// x1,y1,x2,y2;
+        33+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[6],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
+        87+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[6],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*2),74+(110*1),50+(27*2),// x1,y1,x2,y2;
+        33+(110*1),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[7],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*2),128+(110*1),50+(27*2),// x1,y1,x2,y2;
+        87+(110*1),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[7],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*3),74+(110*1),50+(27*3),// x1,y1,x2,y2;
+        33+(110*1),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[8],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*3),128+(110*1),50+(27*3),// x1,y1,x2,y2;
+        87+(110*1),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[8],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*4),74+(111*1),50+(27*4),// x1,y1,x2,y2;
+        33+(110*1),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[9],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
+        87+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[9],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*2),30+(27*0),74+(110*2),50+(27*0),// x1,y1,x2,y2;
+        33+(110*2),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[10],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*2),30+(27*0),128+(110*2),50+(27*0),// x1,y1,x2,y2;
+        87+(110*2),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[10],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*1),74+(110*2),50+(27*1),// x1,y1,x2,y2;
+        33+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[11],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
+        87+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[11],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*2),74+(110*2),50+(27*2),// x1,y1,x2,y2;
+        33+(110*2),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[12],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*2),128+(110*2),50+(27*2),// x1,y1,x2,y2;
+        87+(110*2),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[12],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*3),74+(110*2),50+(27*3),// x1,y1,x2,y2;
+        33+(110*2),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[13],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*3),128+(110*2),50+(27*3),// x1,y1,x2,y2;
+        87+(110*2),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[13],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*4),74+(110*2),50+(27*4),// x1,y1,x2,y2;
+        33+(110*2),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[14],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
+        87+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[14],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*3),30+(27*0),74+(110*3),50+(27*0),// x1,y1,x2,y2;
+        33+(110*3),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[15],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*3),30+(27*0),128+(110*3),50+(27*0),// x1,y1,x2,y2;
+        87+(110*3),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[15],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*1),74+(110*3),50+(27*1),// x1,y1,x2,y2;
+        33+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[16],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
+        87+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[16],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*2),74+(110*3),50+(27*2),// x1,y1,x2,y2;
+        33+(110*3),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[17],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*2),128+(110*3),50+(27*2),// x1,y1,x2,y2;
+        87+(110*3),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[17],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*3),74+(110*3),50+(27*3),// x1,y1,x2,y2;
+        33+(110*3),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[18],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*3),128+(110*3),50+(27*3),// x1,y1,x2,y2;
+        87+(110*3),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[18],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*4),74+(111*3),50+(27*4),// x1,y1,x2,y2;
+        33+(110*3),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[0].Freq[19],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
+        87+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[0].Step[19],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+};
+//==========================SettingAcceleration2MenuItems============================================
+MenuItemType SettingAcceleration2MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingAcceleration2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
-        edit_line  // Flags
+        0  // Flags
     },
-    //1 3 P
+    //1 1 Enter
     { 
-        130,220,215,255,// x1,y1,x2,y2;
-        90,0,// x, y;
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
         5, 6, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CDrawSelPicture,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CDebugPump1RunPositive,			// DoBeforeExec
+        CDrawPrevPage,			// ExecFunction
+        CSettingAcceleration2Value,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
-        menu_level_4  // Flags
+        0  // Flags
     },
-    //1 4 N
+    //1 2 Freq1
     { 
-        265,220,350,255,// x1,y1,x2,y2;
-        0,0,// x, y;
-        5, 6, // UnSelPic, SelPic;
+        33+(110*0),30+(27*0),74+(110*0),50+(27*0),// x1,y1,x2,y2;
+        33+(110*0),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
+        CNull,			// SelPicFunction
         CDrawUnselPicture,			// UnselPicFunction
         CNull,			// ExecFunction
-        CDebugPump1RunNegative,			// DoBeforeExec
+        CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        NULL,                   //u16* value
+        &g_stAccelerationSetting[1].Freq[0],                   //u16* value
         0xffff,               // variable max
-        menu_level_4  // Flags
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*0),30+(27*0),128+(110*0),50+(27*0),// x1,y1,x2,y2;
+        87+(110*0),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[0],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*1),74+(110*0),50+(27*1),// x1,y1,x2,y2;
+        33+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[1],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
+        87+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[1],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*2),74+(110*0),50+(27*2),// x1,y1,x2,y2;
+        33+(110*0),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[2],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*2),128+(110*0),50+(27*2),// x1,y1,x2,y2;
+        87+(110*0),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[2],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*3),74+(110*0),50+(27*3),// x1,y1,x2,y2;
+        33+(110*0),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[3],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*3),128+(110*0),50+(27*3),// x1,y1,x2,y2;
+        87+(110*0),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[3],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*0),30+(27*4),74+(110*0),50+(27*4),// x1,y1,x2,y2;
+        33+(110*0),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[4],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
+        87+(110*0),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[4],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*1),30+(27*0),74+(110*1),50+(27*0),// x1,y1,x2,y2;
+        33+(110*1),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[5],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*1),30+(27*0),128+(110*1),50+(27*0),// x1,y1,x2,y2;
+        87+(110*1),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[5],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*1),74+(110*1),50+(27*1),// x1,y1,x2,y2;
+        33+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[6],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
+        87+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[6],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*2),74+(110*1),50+(27*2),// x1,y1,x2,y2;
+        33+(110*1),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[7],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*2),128+(110*1),50+(27*2),// x1,y1,x2,y2;
+        87+(110*1),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[7],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*3),74+(110*1),50+(27*3),// x1,y1,x2,y2;
+        33+(110*1),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[8],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*3),128+(110*1),50+(27*3),// x1,y1,x2,y2;
+        87+(110*1),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[8],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*1),30+(27*4),74+(111*1),50+(27*4),// x1,y1,x2,y2;
+        33+(110*1),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[9],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
+        87+(110*1),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[9],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*2),30+(27*0),74+(110*2),50+(27*0),// x1,y1,x2,y2;
+        33+(110*2),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[10],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*2),30+(27*0),128+(110*2),50+(27*0),// x1,y1,x2,y2;
+        87+(110*2),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[10],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*1),74+(110*2),50+(27*1),// x1,y1,x2,y2;
+        33+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[11],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
+        87+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[11],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*2),74+(110*2),50+(27*2),// x1,y1,x2,y2;
+        33+(110*2),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[12],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*2),128+(110*2),50+(27*2),// x1,y1,x2,y2;
+        87+(110*2),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[12],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*3),74+(110*2),50+(27*3),// x1,y1,x2,y2;
+        33+(110*2),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[13],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*3),128+(110*2),50+(27*3),// x1,y1,x2,y2;
+        87+(110*2),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[13],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*2),30+(27*4),74+(110*2),50+(27*4),// x1,y1,x2,y2;
+        33+(110*2),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[14],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
+        87+(110*2),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[14],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq1
+    { 
+        33+(110*3),30+(27*0),74+(110*3),50+(27*0),// x1,y1,x2,y2;
+        33+(110*3),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[15],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step1
+    { 
+        87+(110*3),30+(27*0),128+(110*3),50+(27*0),// x1,y1,x2,y2;
+        87+(110*3),30+(27*0),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[15],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*1),74+(110*3),50+(27*1),// x1,y1,x2,y2;
+        33+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[16],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
+        87+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[16],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*2),74+(110*3),50+(27*2),// x1,y1,x2,y2;
+        33+(110*3),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[17],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*2),128+(110*3),50+(27*2),// x1,y1,x2,y2;
+        87+(110*3),30+(27*2),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[17],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*3),74+(110*3),50+(27*3),// x1,y1,x2,y2;
+        33+(110*3),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[18],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*3),128+(110*3),50+(27*3),// x1,y1,x2,y2;
+        87+(110*3),30+(27*3),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[18],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 2 Freq2
+    { 
+        33+(110*3),30+(27*4),74+(111*3),50+(27*4),// x1,y1,x2,y2;
+        33+(110*3),30+(27*4),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stAccelerationSetting[1].Freq[19],                   //u16* value
+        0xffff,               // variable max
+        edit_line_min  // Flags
+    },
+    //1 3 Step2
+    { 
+        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
+        87+(110*3),30+(27*1),// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        &g_stAccelerationSetting[1].Step[19],                   //u8* value
+        NULL,                   //u16* value
+        0x00ff,               // variable max
+        edit_line_min  // Flags
     },
 };
 
@@ -3450,10 +4771,10 @@ MenuPageType tblMenus[]=
     },
     //1 23 SettingAccelerationMenu
     { 
-        0, 0, 479, 271,// 	x1, y1, x2, y2;
-        0, 0,//x ,y
-        4,//PageLevel
-        19,//PicNum;
+        331, 172, 479, 236,// 	x1, y1, x2, y2;
+        331, 6,//x ,y
+        3,//PageLevel
+        23,//PicNum;
         SettingMenu,// PrevMenuPage;
         4,// FatherItemNum;
         SettingAccelerationMenuItems, // MenuItems;
@@ -3796,7 +5117,31 @@ MenuPageType tblMenus[]=
         sizeof(SettingDivider2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
-    //1 52 TestBurnInStatusMenu
+    //1 52 SettingAcceleration1Menu
+    { 
+        0, 0, 479, 271,// 	x1, y1, x2, y2;
+        0, 0,//x ,y
+        4,//PageLevel
+        13,//PicNum;
+        SettingMenu,// PrevMenuPage;
+        4,// FatherItemNum;
+        SettingAcceleration1MenuItems, // MenuItems;
+        sizeof(SettingAcceleration1MenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        0 //   Flags;
+    },
+    //1 53 SettingAcceleration2Menu
+    { 
+        0, 0, 479, 271,// 	x1, y1, x2, y2;
+        0, 0,//x ,y
+        4,//PageLevel
+        13,//PicNum;
+        SettingMenu,// PrevMenuPage;
+        4,// FatherItemNum;
+        SettingAcceleration2MenuItems, // MenuItems;
+        sizeof(SettingAcceleration2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        0 //   Flags;
+    },
+    //1 54 TestBurnInStatusMenu
     { 
         0, 0, 479, 271,// 	x1, y1, x2, y2;
         0, 0,//x ,y

@@ -42,11 +42,6 @@ void spi_init (void) {
   GPIO0->FIOPIN  |=  (1<<16);                 /* set P0.16 high (SSEL inactiv) */
   PINCON->PINSEL1 &= ~(3<<0);                 /* P0.16 SSEL (used as GPIO) */
 
-   /* SSEL is GPIO, output set to high. */
-  GPIO0->FIODIR  |=  (1<<19);                 /* P0.19 is output */
-  GPIO0->FIOPIN  |=  (1<<19);                 /* set P0.19 high (SSEL inactiv) */
-  PINCON->PINSEL1 &= ~(3<<6);                 /* P0.19 SSEL (used as GPIO) */
-
   /* SCK, MISO, MOSI are SSP pins. */
   PINCON->PINSEL0 &= ~(3UL<<30);              /* P0.15 cleared */
   PINCON->PINSEL0 |=  (2UL<<30);              /* P0.15 SCK0 */

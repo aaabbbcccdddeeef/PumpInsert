@@ -48,6 +48,13 @@ typedef struct {
     u8 OptLineNum;  
     u8 OptShieldLevel;
 } StructOptSetting;
+
+typedef struct {
+    u16 Freq[20];
+    u8 Step[20];
+    u8 StepNum;
+} StructAccelerationSetting;
+
 typedef struct {
     u16 xMin;
     u16 xMax;
@@ -59,4 +66,5 @@ extern StructUISetting g_stUISetting;
 extern StructTouchPoint g_stTouchPoint;
 extern StructPumpSetting g_stPumpSetting[2];
 extern StructOptSetting g_stOptSetting[4];
+extern StructAccelerationSetting g_stAccelerationSetting[2];
 

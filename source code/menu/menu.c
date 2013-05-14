@@ -97,6 +97,11 @@ void CUIHandler(void)
                     else
                     {
                         g_u8TPStatus=_TP_NONE;
+                        if((g_u8Inputing==1)&&(g_u32TP_U_y<160))
+                        {
+                            CPopUpInputResult();
+                            CurrentMenuItem.DoAfterExec();
+                        }
                     }
 
                 }
@@ -135,6 +140,9 @@ void CUIHandler(void)
                     {
                         case edit_line:
                             CDrawInputMenu();
+                            break;
+                        case edit_line_min:
+                            CDrawInputMenuMin(4);
                             break;
                         case input_num_button:
                             CurrentMenuItem.UnselPicFunction(MenuItemIndex);

@@ -13,6 +13,7 @@
 #define menu_level_1                    _BIT3
 #define menu_level_2                    _BIT4
 #define menu_level_4                    _BIT5
+#define edit_line_min                       _BIT6
 
 #define CurrentMenu		tblMenus[MenuPageIndex]
 #define PrevMenuPage		CurrentMenu.PrevPage

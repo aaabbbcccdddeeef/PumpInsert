@@ -58,6 +58,13 @@ StructOptSetting tEEPROM_OptSetting_DEFAULT =
     _DEBUG_OPT_LINE_DEF,
     _DEBUG_OPT_SHIELD_DEF,
 };
+
+StructAccelerationSetting tEEPROM_Acceleration_DEFAULT =
+{
+    12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+    20,
+};
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -69,6 +76,7 @@ extern StructUISetting tEEPROM_UISetting_DEFAULT;
 extern StructTouchPoint tEEPROM_TouchPoint_DEFAULT;
 extern StructPumpSetting tEEPROM_PumpSetting_DEFAULT;
 extern StructOptSetting tEEPROM_OptSetting_DEFAULT;
+extern StructAccelerationSetting tEEPROM_Acceleration_DEFAULT;
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

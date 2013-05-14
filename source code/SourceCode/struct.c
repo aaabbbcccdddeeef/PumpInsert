@@ -19,4 +19,5 @@ StructUISetting g_stUISetting;
 StructTouchPoint g_stTouchPoint;
 StructPumpSetting g_stPumpSetting[2];
 StructOptSetting g_stOptSetting[4];
+StructAccelerationSetting g_stAccelerationSetting[2];
 

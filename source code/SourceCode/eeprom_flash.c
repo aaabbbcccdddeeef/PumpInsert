@@ -55,12 +55,12 @@ void CFlashSaveIndex(u8 Flash_num, u32 Page, u32 Index)
     int i=0;
     int j=0;
     
-    if(Index == (2040-1))
+    if(Index == (SAVE_NUM_OF_SECTOR-1))
     {
         CFlashClearFlashMoveBuff();
         SPIFlash_Read(Flash_num, flash_buf, (Page+254)*PAGE_SIZE, PAGE_SIZE);
-        for(i=0;i<32;i++)
-            g_u8MoveTable[i]=flash_buf[224+i];
+        for(i=0;i<CELL_SIZE;i++)
+            g_u8MoveTable[i]=flash_buf[PAGE_SIZE-CELL_SIZE+i];
         SPIFlash_EraseSector(Flash_num, Page*PAGE_SIZE);
         SPIFlash_WritePage(Flash_num, g_u8MoveTable, Page*PAGE_SIZE, PAGE_SIZE);
         Index = 1;
@@ -70,7 +70,8 @@ void CFlashSaveIndex(u8 Flash_num, u32 Page, u32 Index)
         Index++;
     }
     CFlashClearFlashBuff();
-    for(i=0;i<(Index/8);i++) //最后一个page为index page，所以减1
+    //把写过的Index赋0
+    for(i=0;i<(Index/8);i++) 
     {
         for(j=0;j<8;j++)
         {
@@ -86,7 +87,7 @@ void CFlashSaveIndex(u8 Flash_num, u32 Page, u32 Index)
 }
 u32 CFlashLoadIndex(u8 Flash_num, u32 Page)
 {
-    u32 Index = 2039;
+    u32 Index = SAVE_NUM_OF_SECTOR-1;
     int i=0;
     int j=0;
     
@@ -116,8 +117,8 @@ void CFlashGetCell(u8 Flash_num, u32 Page)
     {
         g_u32PageLast = (g_u32CellIndex-1)/SAVE_NUM_OF_PAGE;
         g_u32PageNew= g_u32CellIndex/SAVE_NUM_OF_PAGE;
-        g_u8CellLast = (g_u32CellIndex-1)%8;
-        g_u8CellNew = g_u32CellIndex%8;
+        g_u8CellLast = (g_u32CellIndex-1)%SAVE_NUM_OF_PAGE;
+        g_u8CellNew = g_u32CellIndex%SAVE_NUM_OF_PAGE;
     }
 }
 void CFlashLoadCheckSum(void)
@@ -150,6 +151,8 @@ void CFlashStartupCheck(void)
     CFlashOptCheck(1);
     CFlashOptCheck(2);
     CFlashOptCheck(3);
+    CFlashAccelerationCheck(0);
+    CFlashAccelerationCheck(1);
     CFlashSaveCheckSum();
     //g_uiBacklightOffCounter = BacklightOffTime[g_stUISetting.BacklightOff];
     //g_uiAutoPowerOffCounter = AutoPowerOffTime[g_stUISetting.AutoPowerOff];
@@ -238,7 +241,18 @@ void CFlashOptCheck(u8 Index)
         CFlashLoadOptSetting(Index);
     }
 }
-
+void CFlashAccelerationCheck(u8 Index)
+{
+    if(CheckSumData[INDEX_ACCELERATION1_CKS+Index]!= ACCELERATION_CKS)
+    {
+        CFlashLoadAccelerationSettingDefault(Index);
+        CheckSumData[INDEX_ACCELERATION1_CKS+Index] = ACCELERATION_CKS;
+    }
+    else
+    {
+        CFlashLoadAccelerationSetting(Index);
+    }
+}
 void CFlashTPCheck(void)
 {
     if(CheckSumData[INDEX_TP_CKS]!= TP_CKS)
@@ -564,7 +578,72 @@ void CFlashLoadOptSettingDefault(u8 Index)
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
     CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM), 0);
 }
-
+void CFlashSaveAccelerationSetting(u8 Index)
+{
+    u8 i=0;
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM));
+    if(g_u8CellNew == 0)
+    {
+        CFlashClearFlashBuff();
+        for(i=0;i<20;i++)
+        {
+            flash_buf[2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
+            flash_buf[2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+        }
+        for(i=0;i<10;i++)
+            flash_buf[40+i] = g_stAccelerationSetting[Index].Step[i];
+        flash_buf[60] = g_stAccelerationSetting[Index].StepNum;
+    }
+    else
+    {
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        for(i=0;i<20;i++)
+        {
+            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
+            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+        }
+        for(i=0;i<20;i++)
+            flash_buf[(CELL_SIZE*g_u8CellNew)+40+i] = g_stAccelerationSetting[Index].Step[i];
+        flash_buf[(CELL_SIZE*g_u8CellNew)+60] = g_stAccelerationSetting[Index].StepNum;
+        
+    }
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM), g_u32CellIndex);
+}
+void CFlashLoadAccelerationSetting(u8 Index)
+{
+    u8 i=0;
+    u16 tempValue=0;
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM));
+    
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    for(i=0;i<20;i++)
+    {
+        tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+2*i+0];
+        g_stAccelerationSetting[Index].Freq[i] = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+2*i+1];
+    }
+    for(i=0;i<20;i++)
+        g_stAccelerationSetting[Index].Step[i] = flash_buf[(CELL_SIZE*g_u8CellLast)+40+i];
+    g_stAccelerationSetting[Index].StepNum = flash_buf[(CELL_SIZE*g_u8CellLast)+60];
+}
+void CFlashLoadAccelerationSettingDefault(u8 Index)
+{
+    u8 i=0;
+    g_stAccelerationSetting[Index] = tEEPROM_Acceleration_DEFAULT;
+    CFlashClearFlashBuff();
+    for(i=0;i<20;i++)
+    {
+        flash_buf[2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
+        flash_buf[2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+    }
+    for(i=0;i<20;i++)
+        flash_buf[40+i] = g_stAccelerationSetting[Index].Step[i];
+    flash_buf[60] = g_stAccelerationSetting[Index].StepNum;
+    
+    SPIFlash_EraseSector(_FLASH_NUM0, (SECTOR_ACCELERATION_SETTING+Index)*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM), 0);
+}
 
 //====================end of line==========================
 

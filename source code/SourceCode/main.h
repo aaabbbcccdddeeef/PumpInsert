@@ -47,6 +47,7 @@ u32 g_u32totalnum = 0;
 u16 t_u16CompressPoint[300];
 u8 g_t8InputNumber[8];
 u8 g_u8NumberBit = 0;
+u8 g_u8MaxInputLength=0;
 u32 g_u32InputResult = 0;
 u8 g_u8FontSettingFlag = 0;
 u8 g_u8DrawedItemIndex = 0;
@@ -73,6 +74,7 @@ u8 g_u8RunningIndex=0;
 u8 g_u8FlowPumpOver=0;
 u8 g_u8FlowWaitOver=0;
 u8 g_u8FlowCount=0;
+u8 g_u8Inputing=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -115,6 +117,8 @@ extern u32 g_u32totalnum;
 extern u16 t_u16CompressPoint[400];
 extern u8 g_t8InputNumber[10];
 extern u8 g_u8NumberBit;
+extern u8 g_u8MaxInputLength;
+
 extern u32 g_u32InputResult;
 extern u8 g_u8FontSettingFlag;
 extern u8 g_u8DrawedItemIndex;
@@ -142,6 +146,7 @@ extern u8 g_u8RunningIndex;
 extern u8 g_u8FlowPumpOver;
 extern u8 g_u8FlowWaitOver;
 extern u8 g_u8FlowCount;
+extern u8 g_u8Inputing;
 
 //--------------------------------------------------
 // Extern Function Prototypes

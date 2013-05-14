@@ -68,6 +68,8 @@ typedef enum
     SettingPump2Menu,
     SettingDivider1Menu,
     SettingDivider2Menu,
+    SettingAcceleration1Menu,
+    SettingAcceleration2Menu,
     TestBurnInStatusMenu,
     SquareWaveMenu,
     DifferentialPulseMenu,

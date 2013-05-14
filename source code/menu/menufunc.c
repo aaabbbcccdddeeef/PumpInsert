@@ -678,7 +678,7 @@ void CDrawInputMenu(void)
 
     for(i=0;i<8;i++)
         g_t8InputNumber[i]=0;
-
+    g_u32InputResult=0;
     BTE_MovePositive(g_u8LcdLayer, (1-g_u8LcdLayer), 0,0,479,271, 0,0);
     
     //*******************光标功能测试
@@ -700,7 +700,42 @@ void CDrawInputMenu(void)
     RXLCD_EditNext();
     displaypicture(CurrentMenu.PicNum);
     RXLCD_ScrollWindow_Up(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,10);
+    g_u8MaxInputLength=8;
+    g_u8Inputing=1;
+}
+void CDrawInputMenuMin(u8 InputLength)
+{
+    u8 i=0;
 
+    for(i=0;i<8;i++)
+        g_t8InputNumber[i]=0;
+    g_u32InputResult=0;
+    BTE_MovePositive(g_u8LcdLayer, (1-g_u8LcdLayer), 0,0,479,271, 0,0);
+    
+    //*******************光标功能测试
+    FontWrite_Position(CurrentMenuItem.x1, CurrentMenuItem.y1);
+    Write_Dir(0x40,0xe0);//设置文字模式光标
+    Write_Dir(0x2e,0x00);//设置文字模式光标
+    Text_Foreground_Color1(color_red);//前景颜色设定
+    Write_Dir(0x41,0x00);//关闭图形光标
+    Write_Dir(0x44,0x20);//光标闪烁周期
+    Write_Dir(0x4e,0x02);//光标大小
+    Write_Dir(0x4f,0x0f);//光标大小
+
+
+    CurrentMenuItem.UnselPicFunction(MenuItemIndex);
+    TempPageIndex = MenuPageIndex;
+    TempItemIndex = MenuItemIndex;
+    MenuPageIndex = InputMenu;
+    g_u8NumberBit=0;
+    RXLCD_EditNext();
+    displaypicture(CurrentMenu.PicNum);
+    RXLCD_ScrollWindow_Up(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,10);
+    if((TempMenuItem.VariableMaxValue==0x00ff)&&(InputLength>3))
+        g_u8MaxInputLength=3;
+    else
+        g_u8MaxInputLength=InputLength;
+    g_u8Inputing=1;
 }
 void CHideInputMenu(void)
 {
@@ -730,10 +765,11 @@ void CPopUpInputResult(void)
     Write_Dir(0x21,0x00);//复原寄存器
     Write_Dir(0x40,0x00);//复原寄存器
     MenuItemIndex=0;
+    g_u8Inputing=0;
 }
 void CGetInputBit(void)
 {
-    if(g_u8NumberBit<8)
+    if(g_u8NumberBit<g_u8MaxInputLength)
     {
         g_t8InputNumber[g_u8NumberBit] = 0x30 + MenuItemIndex%10;
         if(g_u8NumberBit>0)
@@ -759,7 +795,10 @@ void CGetInputBit(void)
 
             //if(g_u8NumberBit==0)
                 //FontWrite_Position(TempMenuItem.x1, TempMenuItem.y1-4);   //設定顯示位置
-            WriteString1(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
+            if(TempMenuItem.Flags == edit_line_min)    
+                WriteString1(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1, color_red, 0, 1);
+            else
+                WriteString1(g_t8InputNumber, TempMenuItem.x1, TempMenuItem.y1-4, color_black, 2, 1);
             //Write_Command(0x02);
             //String(&g_t8InputNumber[g_u8NumberBit]);
             //Delay10ms(1);
@@ -1022,13 +1061,15 @@ void CDebugPump1PageStyle(void)
 {
     WriteString("电机调试( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stUISetting.DebugPumpStep,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
+
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(130,220,215,255,0,1);
     CDrawButton(265,220,350,255,0,0);
 }
 void CDebugPump1RunPositive(void)
 {
-    PumpFreeRun(1,1,g_stUISetting.DebugPumpStep);
+    PumpDetectRun(1,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump1RunNegative(void)
 {
@@ -1043,6 +1084,7 @@ void CDebugPump2PageStyle(void)
 {
     WriteString("电机调试( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("运行脉冲数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stUISetting.DebugPumpStep,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(130,220,215,255,0,1);
     CDrawButton(265,220,350,255,0,0);
@@ -1102,6 +1144,7 @@ void CTestBurnInPageStyle(void)
     CDispFloatAt(g_stUISetting.TestVol1,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
+    EINTStop();
 }
 void CTestBurninStatusPageStyle(void)
 {
@@ -1115,6 +1158,7 @@ void CTestBurninStatusPageStyle(void)
     WriteString("提示: 点击暂停或停止后，将在本次老化结束后生效", 15, 200, DarkGreen, _FONT_SIZE_MIN,_TANSPERENT_ON);
     CDrawButton(15,220,100,255,1,0);
     CDrawButton(380,220,465,255,1,2);
+    EINTStart();
 }
 void CTestBurninSetVol(void)
 {
@@ -1144,9 +1188,55 @@ void CTestLeakagePageStyle(void)
 {
     WriteString("泄漏测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 }
-void CSettingAccelerationPageStyle(void)
+void CSettingAcceleration1PageStyle(void)
 {
-    WriteString("启止台阶设定", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    u8 i=0;
+    WriteString("启止台阶设定( 序号:1 )", _LEVEL4_TITLE_x, 230, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDrawButton(197,220,282,255,0,2);
+    for(i=0;i<20;i++)
+    {
+        CDispFloatAt(g_stAccelerationSetting[0].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stAccelerationSetting[0].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+    }
+}
+void CSettingAcceleration2PageStyle(void)
+{
+    u8 i=0;
+    WriteString("启止台阶设定( 序号:2 )", _LEVEL4_TITLE_x, 230, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDrawButton(197,220,282,255,0,2);
+    for(i=0;i<20;i++)
+    {
+        CDispFloatAt(g_stAccelerationSetting[1].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stAccelerationSetting[1].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+    }
+}
+void CSettingAcceleration1Value(void)
+{
+    u8 i=0;
+    for(i=19;i>0;i--)
+    {
+        if(g_stAccelerationSetting[0].Freq[i]!=0)
+            break;
+    }
+    g_stPumpSetting[0].MaxFreqFactor = g_stAccelerationSetting[0].Freq[i];
+    g_stPumpSetting[0].MinFreqFactor = g_stAccelerationSetting[0].Freq[0];
+    g_stAccelerationSetting[0].StepNum = i+1;
+    CFlashSaveAccelerationSetting(0);
+    CFlashSavePump1Setting();
+}
+void CSettingAcceleration2Value(void)
+{
+    u8 i=0;
+    for(i=19;i>0;i--)
+    {
+        if(g_stAccelerationSetting[1].Freq[i]!=0)
+            break;
+    }
+    g_stPumpSetting[1].MaxFreqFactor = g_stAccelerationSetting[1].Freq[i];
+    g_stPumpSetting[1].MinFreqFactor = g_stAccelerationSetting[1].Freq[0];
+    g_stAccelerationSetting[1].StepNum = i+1;
+    CFlashSaveAccelerationSetting(1);
+    CFlashSavePump2Setting();
 }
 void CSettingBalancePageStyle(void)
 {

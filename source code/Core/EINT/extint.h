@@ -28,6 +28,8 @@
 
 extern void EINT0_IRQHandler(void);
 extern uint32_t EINTInit( void );
+extern uint32_t EINTStart( void );
+extern uint32_t EINTStop( void );
 
 #endif /* end __EXTINT_H */
 /****************************************************************************

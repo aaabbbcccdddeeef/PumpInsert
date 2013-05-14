@@ -1,5 +1,12 @@
----- PumpSetStepMode Matches (4 in 2 files) ----
-Pump.c (source code\sourcecode):void PumpSetStepMode(u8 PumpSel, u32 SetBit)
-Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
-Pump.c (source code\sourcecode):    PumpSetStepMode(PumpSel, 2);//	工作方式控制 1=HALF,0=FULL
-Pump.h (source code\sourcecode):extern void PumpSetStepMode(u8 PumpSel, u32 SetBit);
+---- g_u8RunningPause Matches (11 in 6 files) ----
+Extint.c (source code\core\eint):    if((g_u8RunningPause==0))
+Extint.c (source code\core\eint):            g_u8RunningPause=1;
+Extint.c (source code\core\eint):            g_u8RunningPause=1;
+Main.c (source code\sourcecode):    g_u8RunningPause=1;
+Main.h (source code\sourcecode):u8 g_u8RunningPause = 0;
+Main.h (source code\sourcecode):extern u8 g_u8RunningPause;
+Menufunc.c (source code\menu):    g_u8RunningPause=0;
+Menufunc.c (source code\menu):    g_u8RunningPause=0;    
+System.c (source code\sourcecode):    if(g_u8RunningPause==0)
+Timer.c (source code\core\timer):    if(g_u8RunningPause==0)
+Timer.c (source code\core\timer):                g_u8RunningPause=1;

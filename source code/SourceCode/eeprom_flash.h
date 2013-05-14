@@ -14,6 +14,7 @@
 #define PUMP1_CKS                                            0x31
 #define PUMP2_CKS                                            0x41
 #define OPT_CKS                                                 0x51
+#define ACCELERATION_CKS                                0x62
 #define TP_CKS                                                     0x71
 
 #define SPI_FLASH_CKS                                       0x93
@@ -29,8 +30,9 @@
 #define INDEX_OPT2_CKS                                          6
 #define INDEX_OPT3_CKS                                          7
 #define INDEX_OPT4_CKS                                          8
-#define INDEX_CKS_NUM                                                   9
-
+#define INDEX_ACCELERATION1_CKS                              9
+#define INDEX_ACCELERATION2_CKS                              10
+#define INDEX_CKS_NUM                                                  11
 
 
 #define SECTOR_SIZE  0x10000
@@ -38,8 +40,9 @@
 #define PAGE_SIZE    0x100
 #define PAGE_NUM     0x100
 
-#define CELL_SIZE                                 32
+#define CELL_SIZE                                 64
 #define SAVE_NUM_OF_PAGE                (PAGE_SIZE/CELL_SIZE)  ////////代表每个page能存多少个区块
+#define SAVE_NUM_OF_SECTOR              (SAVE_NUM_OF_PAGE*(PAGE_NUM-1)) /////////代表每个sector能存多少个区块(最后一个page为存储区块数)
 
 
 #define SECTOR_TP_VALUE      0                                                                                             // 0
@@ -62,7 +65,9 @@
 #define PAGE_OPT_SETTING           (SECTOR_OPT_SETTING*PAGE_NUM)
 #define SECTOR_OPT_SETTING_NUM                               4    
 
-
+#define SECTOR_ACCELERATION_SETTING       7                         // 7
+#define PAGE_ACCELERATION_SETTING           (SECTOR_ACCELERATION_SETTING*PAGE_NUM)
+#define SECTOR_ACCELERATION_SETTING_NUM                               2    
 
 #define SECTOR_CKS                                                           62                         
 #define PAGE_CKS                          (SECTOR_CKS*PAGE_NUM)
@@ -101,6 +106,7 @@ void CFlashPump1Check(void);
 void CFlashPump2Check(void);
 void CFlashTPCheck(void);
 void CFlashOptCheck(u8 Index);
+void CFlashAccelerationCheck(u8 Index);
 
 void CFlashClearFlashBuff(void);
 void CFlashClearFlashMoveBuff(void);
@@ -120,6 +126,10 @@ void CFlashLoadPump2SettingDefault(void);
 void CFlashSaveOptSetting(u8 Index);
 void CFlashLoadOptSetting(u8 Index);
 void CFlashLoadOptSettingDefault(u8 Index);
+void CFlashSaveAccelerationSetting(u8 Index);
+void CFlashLoadAccelerationSetting(u8 Index);
+void CFlashLoadAccelerationSettingDefault(u8 Index);
+
 #else
 //--------------------------------------------------
 // Extern Global Variables
@@ -155,5 +165,8 @@ extern void CFlashLoadPump2SettingDefault(void);
 extern void CFlashSaveOptSetting(u8 Index);
 extern void CFlashLoadOptSetting(u8 Index);
 extern void CFlashLoadOptSettingDefault(u8 Index);
+extern void CFlashSaveAccelerationSetting(u8 Index);
+extern void CFlashLoadAccelerationSetting(u8 Index);
+extern void CFlashLoadAccelerationSettingDefault(u8 Index);
 #endif
 
