@@ -4,6 +4,11 @@
 #include "include.h"
 #define __TP__
 
+#define _TP_XMIN                                         32
+#define _TP_XMAX                                         244
+#define _TP_YMIN                                     25
+#define _TP_YMAX                                    231
+
 #define _TP_SAM_NUM            50
 #define _TP_DET_START         30
 #define _TP_DET_NUM             15
@@ -150,10 +155,10 @@ void CTPHandle(void)
                     sum+=g_stTPy[_TP_DET_START+i];
                 Tp_down_y=sum/_TP_DET_NUM;
 
-                Tp_down_x=abs(g_stTouchPoint.xMax-Tp_down_x);
-                g_u32TP_D_x = Tp_down_x*(4800000/(g_stTouchPoint.xMax-g_stTouchPoint.xMin))/10000;
-                Tp_down_y=abs(g_stTouchPoint.yMax-Tp_down_y);
-                g_u32TP_D_y = Tp_down_y*(2720000/(g_stTouchPoint.yMax-g_stTouchPoint.yMin))/10000;
+                Tp_down_x=abs(_TP_XMAX-Tp_down_x);
+                g_u32TP_D_x = Tp_down_x*(4800000/(_TP_XMAX-_TP_XMIN))/10000;
+                Tp_down_y=abs(_TP_YMAX-Tp_down_y);
+                g_u32TP_D_y = Tp_down_y*(2720000/(_TP_YMAX-_TP_YMIN))/10000;
                 if(g_u32TP_D_x>479)
                     g_u32TP_D_x=479;
                 if(g_u32TP_D_y>271)
@@ -170,13 +175,7 @@ void CTPHandle(void)
         {
             g_u8TPDown=0;
             g_u8TPUp=1;
-            //g_u8TPStatus = _TP_UP;
             TP_ClearBuff();
-            //g_u8TP_Done=0;
-            //Tp_up_x=abs(g_stTouchPoint.xMax-Tp_up_x);
-            //g_u32TP_U_x = Tp_up_x*(4800000/(g_stTouchPoint.xMax-g_stTouchPoint.xMin))/10000;
-            //Tp_up_y=abs(g_stTouchPoint.yMax-Tp_up_y);
-            //g_u32TP_U_y = Tp_up_y*(2720000/(g_stTouchPoint.yMax-g_stTouchPoint.yMin))/10000;
             g_u32TP_U_x=g_u32TP_D_x;
             g_u32TP_U_y=g_u32TP_D_y;
             g_u32TP_D_x=0;

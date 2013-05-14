@@ -2107,7 +2107,7 @@ MenuItemType SettingOpt1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stOptSetting[0].OptLineNum,                   //u8* value
+        &g_stOptSetting.OptLineNum[0],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2175,7 +2175,7 @@ MenuItemType SettingOpt2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stOptSetting[1].OptLineNum,                   //u8* value
+        &g_stOptSetting.OptLineNum[1],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2242,7 +2242,7 @@ MenuItemType SettingOpt3MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stOptSetting[2].OptLineNum,                   //u8* value
+        &g_stOptSetting.OptLineNum[2],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2310,7 +2310,7 @@ MenuItemType SettingOpt4MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stOptSetting[3].OptLineNum,                   //u8* value
+        &g_stOptSetting.OptLineNum[3],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2332,6 +2332,175 @@ MenuItemType SettingOpt4MenuItems[]=
         menu_level_4  // Flags
     },
 };
+//==========================SettingPump1MenuItems============================================
+MenuItemType SettingPump1MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingPump1PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,100,400,126,// x1,y1,x2,y2;
+        240,100,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stPumpSetting[0].SpecNum,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,140,400,166,// x1,y1,x2,y2;
+        240,140,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stPumpSetting[0].SerialNum,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CSettingPump1Value,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+//==========================SettingPump2MenuItems============================================
+MenuItemType SettingPump2MenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CSettingPump2PageStyle,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 1 Exit
+    { 
+        407, 8, 462, 51,// x1,y1,x2,y2;
+        407, 8,// x, y;
+        19, 11, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,100,400,126,// x1,y1,x2,y2;
+        240,100,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stPumpSetting[1].SpecNum,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 2 Line Number
+    { 
+        240,140,400,166,// x1,y1,x2,y2;
+        240,140,// x, y;
+        2, 2, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        &g_stPumpSetting[1].SerialNum,                   //u16* value
+        0xffff,               // variable max
+        edit_line  // Flags
+    },
+    //1 3 Enter
+    { 
+        197,220,282,255,// x1,y1,x2,y2;
+        180,0,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CDrawSelPicture,			// SelPicFunction
+        CDrawUnselPicture,			// UnselPicFunction
+        CDrawPrevPage,			// ExecFunction
+        CSettingPump2Value,			// DoBeforeExec
+        CNull,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+};
+
 //==========================SettingDivider1MenuItems============================================
 MenuItemType SettingDivider1MenuItems[]=
 {
@@ -2378,7 +2547,7 @@ MenuItemType SettingDivider1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stPumpSetting[0].nStep2Pulse,                   //u8* value
+        &g_stPumpSetting[0].Step2Pulse,                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2446,7 +2615,7 @@ MenuItemType SettingDivider2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stPumpSetting[1].nStep2Pulse,                   //u8* value
+        &g_stPumpSetting[1].Step2Pulse,                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line  // Flags
@@ -2515,7 +2684,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[0],                   //u16* value
+        &g_stPumpSetting[0].Freq[0],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2530,7 +2699,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[0],                   //u8* value
+        &g_stPumpSetting[0].Step[0],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2547,7 +2716,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[1],                   //u16* value
+        &g_stPumpSetting[0].Freq[1],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2562,7 +2731,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[1],                   //u8* value
+        &g_stPumpSetting[0].Step[1],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2579,7 +2748,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[2],                   //u16* value
+        &g_stPumpSetting[0].Freq[2],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2594,7 +2763,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[2],                   //u8* value
+        &g_stPumpSetting[0].Step[2],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2611,7 +2780,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[3],                   //u16* value
+        &g_stPumpSetting[0].Freq[3],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2626,7 +2795,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[3],                   //u8* value
+        &g_stPumpSetting[0].Step[3],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2643,7 +2812,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[4],                   //u16* value
+        &g_stPumpSetting[0].Freq[4],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2658,7 +2827,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[4],                   //u8* value
+        &g_stPumpSetting[0].Step[4],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2675,7 +2844,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[5],                   //u16* value
+        &g_stPumpSetting[0].Freq[5],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2690,7 +2859,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[5],                   //u8* value
+        &g_stPumpSetting[0].Step[5],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2707,7 +2876,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[6],                   //u16* value
+        &g_stPumpSetting[0].Freq[6],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2722,7 +2891,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[6],                   //u8* value
+        &g_stPumpSetting[0].Step[6],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2739,7 +2908,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[7],                   //u16* value
+        &g_stPumpSetting[0].Freq[7],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2754,7 +2923,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[7],                   //u8* value
+        &g_stPumpSetting[0].Step[7],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2771,7 +2940,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[8],                   //u16* value
+        &g_stPumpSetting[0].Freq[8],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2786,7 +2955,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[8],                   //u8* value
+        &g_stPumpSetting[0].Step[8],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2803,7 +2972,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[9],                   //u16* value
+        &g_stPumpSetting[0].Freq[9],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2818,7 +2987,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[9],                   //u8* value
+        &g_stPumpSetting[0].Step[9],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2835,7 +3004,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[10],                   //u16* value
+        &g_stPumpSetting[0].Freq[10],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2850,7 +3019,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[10],                   //u8* value
+        &g_stPumpSetting[0].Step[10],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2867,7 +3036,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[11],                   //u16* value
+        &g_stPumpSetting[0].Freq[11],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2882,7 +3051,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[11],                   //u8* value
+        &g_stPumpSetting[0].Step[11],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2899,7 +3068,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[12],                   //u16* value
+        &g_stPumpSetting[0].Freq[12],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2914,7 +3083,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[12],                   //u8* value
+        &g_stPumpSetting[0].Step[12],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2931,7 +3100,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[13],                   //u16* value
+        &g_stPumpSetting[0].Freq[13],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2946,7 +3115,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[13],                   //u8* value
+        &g_stPumpSetting[0].Step[13],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2963,7 +3132,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[14],                   //u16* value
+        &g_stPumpSetting[0].Freq[14],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -2978,7 +3147,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[14],                   //u8* value
+        &g_stPumpSetting[0].Step[14],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -2995,7 +3164,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[15],                   //u16* value
+        &g_stPumpSetting[0].Freq[15],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3010,7 +3179,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[15],                   //u8* value
+        &g_stPumpSetting[0].Step[15],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3027,7 +3196,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[16],                   //u16* value
+        &g_stPumpSetting[0].Freq[16],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3042,7 +3211,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[16],                   //u8* value
+        &g_stPumpSetting[0].Step[16],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3059,7 +3228,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[17],                   //u16* value
+        &g_stPumpSetting[0].Freq[17],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3074,7 +3243,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[17],                   //u8* value
+        &g_stPumpSetting[0].Step[17],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3091,7 +3260,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[18],                   //u16* value
+        &g_stPumpSetting[0].Freq[18],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3106,7 +3275,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[18],                   //u8* value
+        &g_stPumpSetting[0].Step[18],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3123,7 +3292,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[0].Freq[19],                   //u16* value
+        &g_stPumpSetting[0].Freq[19],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3138,7 +3307,7 @@ MenuItemType SettingAcceleration1MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[0].Step[19],                   //u8* value
+        &g_stPumpSetting[0].Step[19],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3191,7 +3360,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[0],                   //u16* value
+        &g_stPumpSetting[1].Freq[0],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3206,7 +3375,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[0],                   //u8* value
+        &g_stPumpSetting[1].Step[0],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3223,7 +3392,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[1],                   //u16* value
+        &g_stPumpSetting[1].Freq[1],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3238,7 +3407,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[1],                   //u8* value
+        &g_stPumpSetting[1].Step[1],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3255,7 +3424,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[2],                   //u16* value
+        &g_stPumpSetting[1].Freq[2],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3270,7 +3439,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[2],                   //u8* value
+        &g_stPumpSetting[1].Step[2],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3287,7 +3456,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[3],                   //u16* value
+        &g_stPumpSetting[1].Freq[3],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3302,7 +3471,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[3],                   //u8* value
+        &g_stPumpSetting[1].Step[3],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3319,7 +3488,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[4],                   //u16* value
+        &g_stPumpSetting[1].Freq[4],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3334,7 +3503,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[4],                   //u8* value
+        &g_stPumpSetting[1].Step[4],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3351,7 +3520,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[5],                   //u16* value
+        &g_stPumpSetting[1].Freq[5],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3366,7 +3535,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[5],                   //u8* value
+        &g_stPumpSetting[1].Step[5],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3383,7 +3552,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[6],                   //u16* value
+        &g_stPumpSetting[1].Freq[6],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3398,7 +3567,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[6],                   //u8* value
+        &g_stPumpSetting[1].Step[6],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3415,7 +3584,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[7],                   //u16* value
+        &g_stPumpSetting[1].Freq[7],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3430,7 +3599,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[7],                   //u8* value
+        &g_stPumpSetting[1].Step[7],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3447,7 +3616,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[8],                   //u16* value
+        &g_stPumpSetting[1].Freq[8],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3462,7 +3631,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[8],                   //u8* value
+        &g_stPumpSetting[1].Step[8],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3479,7 +3648,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[9],                   //u16* value
+        &g_stPumpSetting[1].Freq[9],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3494,7 +3663,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[9],                   //u8* value
+        &g_stPumpSetting[1].Step[9],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3511,7 +3680,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[10],                   //u16* value
+        &g_stPumpSetting[1].Freq[10],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3526,7 +3695,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[10],                   //u8* value
+        &g_stPumpSetting[1].Step[10],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3543,7 +3712,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[11],                   //u16* value
+        &g_stPumpSetting[1].Freq[11],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3558,7 +3727,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[11],                   //u8* value
+        &g_stPumpSetting[1].Step[11],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3575,7 +3744,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[12],                   //u16* value
+        &g_stPumpSetting[1].Freq[12],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3590,7 +3759,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[12],                   //u8* value
+        &g_stPumpSetting[1].Step[12],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3607,7 +3776,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[13],                   //u16* value
+        &g_stPumpSetting[1].Freq[13],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3622,7 +3791,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[13],                   //u8* value
+        &g_stPumpSetting[1].Step[13],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3639,7 +3808,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[14],                   //u16* value
+        &g_stPumpSetting[1].Freq[14],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3654,7 +3823,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[14],                   //u8* value
+        &g_stPumpSetting[1].Step[14],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3671,7 +3840,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[15],                   //u16* value
+        &g_stPumpSetting[1].Freq[15],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3686,7 +3855,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[15],                   //u8* value
+        &g_stPumpSetting[1].Step[15],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3703,7 +3872,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[16],                   //u16* value
+        &g_stPumpSetting[1].Freq[16],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3718,7 +3887,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[16],                   //u8* value
+        &g_stPumpSetting[1].Step[16],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3735,7 +3904,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[17],                   //u16* value
+        &g_stPumpSetting[1].Freq[17],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3750,7 +3919,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[17],                   //u8* value
+        &g_stPumpSetting[1].Step[17],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3767,7 +3936,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[18],                   //u16* value
+        &g_stPumpSetting[1].Freq[18],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3782,7 +3951,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[18],                   //u8* value
+        &g_stPumpSetting[1].Step[18],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3799,7 +3968,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
-        &g_stAccelerationSetting[1].Freq[19],                   //u16* value
+        &g_stPumpSetting[1].Freq[19],                   //u16* value
         0xffff,               // variable max
         edit_line_min  // Flags
     },
@@ -3814,7 +3983,7 @@ MenuItemType SettingAcceleration2MenuItems[]=
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
         CNull,			// DoAfterExec
-        &g_stAccelerationSetting[1].Step[19],                   //u8* value
+        &g_stPumpSetting[1].Step[19],                   //u8* value
         NULL,                   //u16* value
         0x00ff,               // variable max
         edit_line_min  // Flags
@@ -3991,59 +4160,6 @@ MenuItemType SettingMicrometerMenuItems[]=
     },
 };
 
-//==========================PoleActiveMenuItems============================================
-MenuItemType PoleActiveMenuItems[]=
-{
-    //1 0 NULL
-    { 
-        0, 0, 0, 0,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        1, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-    //1 6 Exit
-    { 
-        304, 35, 386, 69,// x1,y1,x2,y2;
-        304, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-    //1 7 Enter
-    { 
-        389, 35, 471, 69,// x1,y1,x2,y2;
-        389, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-};
-
 //==========================PoleCleanMenuItems============================================
 MenuItemType PoleCleanMenuItems[]=
 {
@@ -4095,185 +4211,6 @@ MenuItemType PoleCleanMenuItems[]=
         0xffff,               // variable max
         0  // Flags
     },
-};
-//==========================SquareWaveMenuItems============================================
-MenuItemType SquareWaveMenuItems[]=
-{
-    //1 0 NULL
-    { 
-        0, 0, 0, 0,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        1, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-    //1 13 Exit
-    { 
-        304, 35, 386, 69,// x1,y1,x2,y2;
-        304, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-    //1 14 Enter
-    { 
-        389, 35, 471, 69,// x1,y1,x2,y2;
-        389, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        SquareWaveTestMenu, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawResultCurve,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-};
-//==========================DifferentialPulseMenuItems============================================
-MenuItemType DifferentialPulseMenuItems[]=
-{
-    //1 0 NULL
-    { 
-        0, 0, 0, 0,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        1, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-
-    //1 14 Exit
-    { 
-        304, 35, 386, 69,// x1,y1,x2,y2;
-        304, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-    //1 15 Enter
-    { 
-        389, 35, 471, 69,// x1,y1,x2,y2;
-        389, 35,// x, y;
-        16, 11, // UnSelPic, SelPic;
-        DifferentialPulseTestMenu, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawResultCurve,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-};
-//==========================SquareWaveTestMenuItems============================================
-MenuItemType SquareWaveTestMenuItems[]=
-{
-    //1 0 NULL
-    { 
-        0, 0, 0, 0,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        1, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-
-    //1 1 Exit
-    { 
-        113, 228, 193, 260,// x1,y1,x2,y2;
-        305, 36,// x, y;
-        12, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage5,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    }
-};
-//==========================DifferentialPulseTestMenuItems============================================
-MenuItemType DifferentialPulseTestMenuItems[]=
-{
-    //1 0 NULL
-    { 
-        0, 0, 0, 0,// x1,y1,x2,y2;
-        0, 0,// x, y;
-        1, 1, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    },
-
-    //1 1 Exit
-    { 
-        113, 228, 193, 260,// x1,y1,x2,y2;
-        305, 36,// x, y;
-        12, 11, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CNull_u8,			// UnselPicFunction
-        CDrawPrevPage5,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        0  // Flags
-    }
 };
 
 //==========================PoleCleanMenuItems============================================
@@ -5077,8 +5014,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         2,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingPump1MenuItems, // MenuItems;
+        sizeof(SettingPump1MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 49 SettingPump2Menu
@@ -5089,8 +5026,8 @@ MenuPageType tblMenus[]=
         19,//PicNum;
         SettingMenu,// PrevMenuPage;
         2,// FatherItemNum;
-        PoleCleanMenuItems, // MenuItems;
-        sizeof(PoleCleanMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        SettingPump2MenuItems, // MenuItems;
+        sizeof(SettingPump2MenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 50 SettingDivider1Menu
@@ -5153,54 +5090,7 @@ MenuPageType tblMenus[]=
         sizeof(TestBurninStatusMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
-    //1 4 SquareWaveMenu
-    { 
-        0, 0, 479, 271,// 	x1, y1, x2, y2;
-        0, 0,//x ,y
-        4,//PageLevel
-        17,//PicNum;
-        DebugPumpMenu,// PrevMenuPage;
-        0,// FatherItemNum;
-        SquareWaveMenuItems, // MenuItems;
-        sizeof(SquareWaveMenuItems)/sizeof(MenuItemType), // MenuItemCount;
-        0 //   Flags;
-    },
-    //1 5 DifferentialPulseMenu
-    { 
-        0, 0, 479, 271,// 	x1, y1, x2, y2;
-        0, 0,//x ,y
-        4,//PageLevel
-        18,//PicNum;
-        DebugPumpMenu,// PrevMenuPage;
-        0,// FatherItemNum;
-        DifferentialPulseMenuItems, // MenuItems;
-        sizeof(DifferentialPulseMenuItems)/sizeof(MenuItemType), // MenuItemCount;
-        0 //   Flags;
-    },
-    //1 6 SquareWaveTestMenu
-    { 
-        0, 0, 479, 271,// 	x1, y1, x2, y2;
-        0, 0,//x ,y
-        5,//PageLevel
-        12,//PicNum;
-        SquareWaveMenu,// PrevMenuPage;
-        0,// FatherItemNum;
-        SquareWaveTestMenuItems, // MenuItems;
-        sizeof(SquareWaveTestMenuItems)/sizeof(MenuItemType), // MenuItemCount;
-        0 //   Flags;
-    },
-    //1 7 DifferentialPulseTestMenu
-    { 
-        0, 0, 479, 271,// 	x1, y1, x2, y2;
-        0, 0,//x ,y
-        5,//PageLevel
-        12,//PicNum;
-        DifferentialPulseMenu,// PrevMenuPage;
-        0,// FatherItemNum;
-        DifferentialPulseTestMenuItems, // MenuItems;
-        sizeof(DifferentialPulseTestMenuItems)/sizeof(MenuItemType), // MenuItemCount;
-        0 //   Flags;
-    },
+
     //1 0xFE InputMenu
     { 
         0, 170, 479, 271,// 	x1, y1, x2, y2;

@@ -402,7 +402,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>67</TopLine>
+      <TopLine>79</TopLine>
       <CurrentLine>89</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\TIMER\timer.c</PathWithFileName>
@@ -458,7 +458,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>25</TopLine>
+      <TopLine>26</TopLine>
       <CurrentLine>36</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\EINT\extint.c</PathWithFileName>
@@ -493,8 +493,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>598</TopLine>
-      <CurrentLine>607</CurrentLine>
+      <TopLine>448</TopLine>
+      <CurrentLine>468</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\eeprom_flash.c</PathWithFileName>
       <FilenameWithoutPath>eeprom_flash.c</FilenameWithoutPath>
@@ -519,10 +519,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>125</TopLine>
-      <CurrentLine>129</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>5</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\touchpad.c</PathWithFileName>
       <FilenameWithoutPath>touchpad.c</FilenameWithoutPath>
@@ -584,8 +584,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1142</TopLine>
-      <CurrentLine>1164</CurrentLine>
+      <TopLine>1313</TopLine>
+      <CurrentLine>1327</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -621,7 +621,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
     <TopLine>43</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -647,8 +647,8 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>1</TopLine>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
+    <TopLine>4</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -673,7 +673,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
     <TopLine>41</TopLine>
     <CurrentLine>45</CurrentLine>
     <Constant>0</Constant>
@@ -699,7 +699,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
     <TopLine>35</TopLine>
     <CurrentLine>43</CurrentLine>
     <Constant>0</Constant>
@@ -725,7 +725,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>20</TopLine>
     <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
@@ -751,7 +751,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
     <TopLine>143</TopLine>
     <CurrentLine>143</CurrentLine>
     <Constant>0</Constant>
@@ -777,9 +777,9 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
-    <TopLine>57</TopLine>
-    <CurrentLine>57</CurrentLine>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_default.h</PathWithFilename>
+    <TopLine>41</TopLine>
+    <CurrentLine>49</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -807,8 +807,32 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>12</ActiveTab>
+      <ActiveTab>8</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\menu\menufunc.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1313</TopLine>
+          <CurrentLine>1327</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>SourceCode\eeprom_default.h</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>41</TopLine>
+          <CurrentLine>49</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\SourceCode\eeprom_flash.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>448</TopLine>
+          <CurrentLine>468</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\EINT\extint.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>26</TopLine>
+          <CurrentLine>36</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\menu\menu.c</Name>
           <ColumnNumber>0</ColumnNumber>
@@ -835,14 +859,14 @@
         </Doc>
         <Doc>
           <Name>.\SourceCode\touchpad.c</Name>
-          <ColumnNumber>15</ColumnNumber>
-          <TopLine>125</TopLine>
-          <CurrentLine>129</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>5</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\TIMER\timer.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>67</TopLine>
+          <TopLine>79</TopLine>
           <CurrentLine>89</CurrentLine>
         </Doc>
         <Doc>
@@ -868,30 +892,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>1483</TopLine>
           <CurrentLine>1491</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\menu\menufunc.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1142</TopLine>
-          <CurrentLine>1164</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SourceCode\eeprom_flash.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>598</TopLine>
-          <CurrentLine>607</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\EINT\extint.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>25</TopLine>
-          <CurrentLine>36</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>SourceCode\eeprom_default.h</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>57</TopLine>
-          <CurrentLine>57</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\eeprom_flash.h</Name>
@@ -950,7 +950,7 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
+          <TopLine>4</TopLine>
           <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>

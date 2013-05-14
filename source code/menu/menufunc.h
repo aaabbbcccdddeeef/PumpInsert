@@ -109,6 +109,11 @@ extern void CSettingOpt1ShieldValue(void);
 extern void CSettingOpt2ShieldValue(void);
 extern void CSettingOpt3ShieldValue(void);
 extern void CSettingOpt4ShieldValue(void);
+extern void CSettingPump1PageStyle(void);
+extern void CSettingPump2PageStyle(void);
+
+extern void CSettingPump1Value(void);
+extern void CSettingPump2Value(void);
 extern void CSettingDivider1PageStyle(void);
 extern void CSettingDivider2PageStyle(void);
 extern void CSettingDivider1Value(void);

@@ -1,12 +1,3 @@
----- g_u8RunningPause Matches (11 in 6 files) ----
-Extint.c (source code\core\eint):    if((g_u8RunningPause==0))
-Extint.c (source code\core\eint):            g_u8RunningPause=1;
-Extint.c (source code\core\eint):            g_u8RunningPause=1;
-Main.c (source code\sourcecode):    g_u8RunningPause=1;
-Main.h (source code\sourcecode):u8 g_u8RunningPause = 0;
-Main.h (source code\sourcecode):extern u8 g_u8RunningPause;
-Menufunc.c (source code\menu):    g_u8RunningPause=0;
-Menufunc.c (source code\menu):    g_u8RunningPause=0;    
-System.c (source code\sourcecode):    if(g_u8RunningPause==0)
-Timer.c (source code\core\timer):    if(g_u8RunningPause==0)
-Timer.c (source code\core\timer):                g_u8RunningPause=1;
+---- SampleTestMenuItems Matches (2 in 1 files) ----
+Menutbl.h (source code\menu):MenuItemType SampleTestMenuItems[];
+Menutbl.h (source code\menu):extern MenuItemType SampleTestMenuItems[];

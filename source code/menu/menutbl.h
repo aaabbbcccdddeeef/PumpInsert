@@ -31,13 +31,11 @@
 
 #ifdef __MENUTBL__
 MenuItemType MainMenuItems[];
-MenuItemType PoleActiveMenuItems[];
 MenuItemType SampleTestMenuItems[];
 MenuItemType PoleCleanMenuItems[];
 MenuPageType tblMenus[];
 #else
 extern MenuItemType MainMenuItems[];
-extern MenuItemType PoleActiveMenuItems[];
 extern MenuItemType SampleTestMenuItems[];
 extern MenuItemType PoleCleanMenuItems[];
 extern MenuPageType tblMenus[];

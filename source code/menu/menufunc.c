@@ -660,7 +660,7 @@ void CDrawPrevPage5(void)
     //u8 j=1;
     
     RXLCD_EditNext();
-    CutPicture(1,0,0,479,271,0,0);//写入图层2
+    CutPicture(20,0,0,479,271,0,0);//写入图层2
     RXLCD_ScrollWindow_Prev(CurrentMenu.x1,CurrentMenu.y1,CurrentMenu.x2,CurrentMenu.y2,1);
 
     BTE_MovePositive(g_u8LcdLayer, 1-g_u8LcdLayer,0,0,479,271, 0,0);
@@ -1195,8 +1195,8 @@ void CSettingAcceleration1PageStyle(void)
     CDrawButton(197,220,282,255,0,2);
     for(i=0;i<20;i++)
     {
-        CDispFloatAt(g_stAccelerationSetting[0].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
-        CDispFloatAt(g_stAccelerationSetting[0].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stPumpSetting[0].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stPumpSetting[0].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
     }
 }
 void CSettingAcceleration2PageStyle(void)
@@ -1206,8 +1206,8 @@ void CSettingAcceleration2PageStyle(void)
     CDrawButton(197,220,282,255,0,2);
     for(i=0;i<20;i++)
     {
-        CDispFloatAt(g_stAccelerationSetting[1].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
-        CDispFloatAt(g_stAccelerationSetting[1].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stPumpSetting[1].Freq[i], 0, 33+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
+        CDispFloatAt(g_stPumpSetting[1].Step[i], 0, 87+(110*(i/5)), 32+(27*(i%5)), Black, _FONT_SIZE_MIN, _TANSPERENT_OFF);
     }
 }
 void CSettingAcceleration1Value(void)
@@ -1215,28 +1215,22 @@ void CSettingAcceleration1Value(void)
     u8 i=0;
     for(i=19;i>0;i--)
     {
-        if(g_stAccelerationSetting[0].Freq[i]!=0)
+        if(g_stPumpSetting[0].Freq[i]!=0)
             break;
     }
-    g_stPumpSetting[0].MaxFreqFactor = g_stAccelerationSetting[0].Freq[i];
-    g_stPumpSetting[0].MinFreqFactor = g_stAccelerationSetting[0].Freq[0];
-    g_stAccelerationSetting[0].StepNum = i+1;
-    CFlashSaveAccelerationSetting(0);
-    CFlashSavePump1Setting();
+    g_stPumpSetting[0].StepNum = i+1;
+    CFlashSavePumpSetting(0);
 }
 void CSettingAcceleration2Value(void)
 {
     u8 i=0;
     for(i=19;i>0;i--)
     {
-        if(g_stAccelerationSetting[1].Freq[i]!=0)
+        if(g_stPumpSetting[1].Freq[i]!=0)
             break;
     }
-    g_stPumpSetting[1].MaxFreqFactor = g_stAccelerationSetting[1].Freq[i];
-    g_stPumpSetting[1].MinFreqFactor = g_stAccelerationSetting[1].Freq[0];
-    g_stAccelerationSetting[1].StepNum = i+1;
-    CFlashSaveAccelerationSetting(1);
-    CFlashSavePump2Setting();
+    g_stPumpSetting[1].StepNum = i+1;
+    CFlashSavePumpSetting(1);
 }
 void CSettingBalancePageStyle(void)
 {
@@ -1250,7 +1244,7 @@ void CSettingOpt1PageStyle(void)
 {
     WriteString("光耦设定( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stOptSetting[0].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting.OptLineNum[0],0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1259,7 +1253,7 @@ void CSettingOpt2PageStyle(void)
 {
     WriteString("光耦设定( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stOptSetting[1].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting.OptLineNum[1],0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1268,7 +1262,7 @@ void CSettingOpt3PageStyle(void)
 {
     WriteString("光耦设定( 序号 : 3 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stOptSetting[2].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting.OptLineNum[2],0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1277,7 +1271,7 @@ void CSettingOpt4PageStyle(void)
 {
     WriteString("光耦设定( 序号 : 4 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("光耦线数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stOptSetting[3].OptLineNum,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stOptSetting.OptLineNum[3],0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(请在遮挡光耦后按下确定键)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1285,32 +1279,64 @@ void CSettingOpt4PageStyle(void)
 void CSettingOpt1ShieldValue(void)
 {
     CDrawIconDone(1);
-    g_stOptSetting[0].OptShieldLevel = PumpGetOpticStatus(1);
-    CFlashSaveOptSetting(0);
+    g_stOptSetting.OptShieldLevel[0] = PumpGetOpticStatus(1);
+    CFlashSaveOptSetting();
 }
 void CSettingOpt2ShieldValue(void)
 {
     CDrawIconDone(1);
-    g_stOptSetting[1].OptShieldLevel = PumpGetOpticStatus(2);
-    CFlashSaveOptSetting(1);
+    g_stOptSetting.OptShieldLevel[1] = PumpGetOpticStatus(2);
+    CFlashSaveOptSetting();
 }
 void CSettingOpt3ShieldValue(void)
 {
     CDrawIconDone(1);
-    g_stOptSetting[2].OptShieldLevel = PumpGetOpticStatus(3);
-    CFlashSaveOptSetting(2);
+    g_stOptSetting.OptShieldLevel[2] = PumpGetOpticStatus(3);
+    CFlashSaveOptSetting();
 }
 void CSettingOpt4ShieldValue(void)
 {
     CDrawIconDone(1);
-    g_stOptSetting[3].OptShieldLevel = PumpGetOpticStatus(4);
-    CFlashSaveOptSetting(3);
+    g_stOptSetting.OptShieldLevel[3] = PumpGetOpticStatus(4);
+    CFlashSaveOptSetting();
+}
+void CSettingPump1PageStyle(void)
+{
+    WriteString("泵信息( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("规格号:", 60, 100, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,127,400,128,color_black);
+    CDispFloatAt(g_stPumpSetting[0].SpecNum,0,240,96,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+
+    WriteString("序列号:", 60, 140, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,167,400,168,color_black);
+    CDispFloatAt(g_stPumpSetting[0].SerialNum,0,240,136,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingPump2PageStyle(void)
+{
+    WriteString("泵信息( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("规格号:", 60, 100, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,127,400,128,color_black);
+    CDispFloatAt(g_stPumpSetting[1].SpecNum,0,240,96,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+
+    WriteString("序列号:", 60, 140, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,167,400,168,color_black);
+    CDispFloatAt(g_stPumpSetting[1].SerialNum,0,240,136,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDrawButton(197,220,282,255,0,2);
+}
+void CSettingPump1Value(void)
+{
+    CFlashSavePumpSetting(0);
+}
+void CSettingPump2Value(void)
+{
+    CFlashSavePumpSetting(1);
 }
 void CSettingDivider1PageStyle(void)
 {
     WriteString("细分选项( 序号 : 1 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("细分数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stPumpSetting[0].nStep2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stPumpSetting[0].Step2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(1,2,4,16)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1319,7 +1345,7 @@ void CSettingDivider2PageStyle(void)
 {
     WriteString("细分选项( 序号 : 2 )", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("细分数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
-    CDispFloatAt(g_stPumpSetting[1].nStep2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stPumpSetting[1].Step2Pulse,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     WriteString("(1,2,4,16)", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y+33, 0x0010, 0 ,1);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
@@ -1327,18 +1353,18 @@ void CSettingDivider2PageStyle(void)
 void CSettingDivider1Value(void)
 {
     CDrawIconDone(1);
-    g_stPumpSetting[0].StepMode = nLog2(g_stPumpSetting[0].nStep2Pulse);
+    g_stPumpSetting[0].StepMode = nLog2(g_stPumpSetting[0].Step2Pulse);
     if(g_stPumpSetting[0].StepMode>3)
         g_stPumpSetting[0].StepMode-=1;
-    CFlashSavePump1Setting();
+    CFlashSavePumpSetting(0);
 }
 void CSettingDivider2Value(void)
 {
     CDrawIconDone(1);
-    g_stPumpSetting[1].StepMode = nLog2(g_stPumpSetting[1].nStep2Pulse);
+    g_stPumpSetting[1].StepMode = nLog2(g_stPumpSetting[1].Step2Pulse);
     if(g_stPumpSetting[1].StepMode>3)
         g_stPumpSetting[1].StepMode-=1;
-    CFlashSavePump2Setting();
+    CFlashSavePumpSetting(1);
 }
 
 //******************************end of line***************************************

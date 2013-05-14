@@ -11,28 +11,21 @@
 
 #define RTC_CKS                                                 0x12
 #define UI_CKS                                                   0x22
-#define PUMP1_CKS                                            0x31
-#define PUMP2_CKS                                            0x41
 #define OPT_CKS                                                 0x51
-#define ACCELERATION_CKS                                0x62
+#define PUMP_CKS                                                0x62
 #define TP_CKS                                                     0x71
 
-#define SPI_FLASH_CKS                                       0x93
+#define SPI_FLASH_CKS                                       0x91
 
 
 
 #define INDEX_RTC_CKS                                                   0
 #define INDEX_UI_CKS                                                     1
-#define INDEX_PUMP1_CKS                                       2
-#define INDEX_TP_CKS                                                    3
-#define INDEX_PUMP2_CKS                                       4
-#define INDEX_OPT1_CKS                                          5
-#define INDEX_OPT2_CKS                                          6
-#define INDEX_OPT3_CKS                                          7
-#define INDEX_OPT4_CKS                                          8
-#define INDEX_ACCELERATION1_CKS                              9
-#define INDEX_ACCELERATION2_CKS                              10
-#define INDEX_CKS_NUM                                                  11
+#define INDEX_TP_CKS                                                    2
+#define INDEX_OPT_CKS                                                   3
+#define INDEX_PUMP1_CKS                                             4
+#define INDEX_PUMP2_CKS                                             5
+#define INDEX_CKS_NUM                                                  6
 
 
 #define SECTOR_SIZE  0x10000
@@ -40,7 +33,7 @@
 #define PAGE_SIZE    0x100
 #define PAGE_NUM     0x100
 
-#define CELL_SIZE                                 64
+#define CELL_SIZE                                 128
 #define SAVE_NUM_OF_PAGE                (PAGE_SIZE/CELL_SIZE)  ////////代表每个page能存多少个区块
 #define SAVE_NUM_OF_SECTOR              (SAVE_NUM_OF_PAGE*(PAGE_NUM-1)) /////////代表每个sector能存多少个区块(最后一个page为存储区块数)
 
@@ -53,21 +46,13 @@
 #define PAGE_UI_SETTING           (SECTOR_UI_SETTING*PAGE_NUM)
 #define SECTOR_UI_SETTING_NUM                               1                
 
-#define SECTOR_PUMP1_SETTING       2                         // 2
-#define PAGE_PUMP1_SETTING           (SECTOR_PUMP1_SETTING*PAGE_NUM)
-#define SECTOR_PUMP1_SETTING_NUM                               1             
-
-#define SECTOR_PUMP2_SETTING       3                         // 3
-#define PAGE_PUMP2_SETTING           (SECTOR_PUMP2_SETTING*PAGE_NUM)
-#define SECTOR_PUMP2_SETTING_NUM                               1             
-
-#define SECTOR_OPT_SETTING       3                         // 3
+#define SECTOR_OPT_SETTING       2                         // 3
 #define PAGE_OPT_SETTING           (SECTOR_OPT_SETTING*PAGE_NUM)
-#define SECTOR_OPT_SETTING_NUM                               4    
+#define SECTOR_OPT_SETTING_NUM                               1    
 
-#define SECTOR_ACCELERATION_SETTING       7                         // 7
-#define PAGE_ACCELERATION_SETTING           (SECTOR_ACCELERATION_SETTING*PAGE_NUM)
-#define SECTOR_ACCELERATION_SETTING_NUM                               2    
+#define SECTOR_PUMP_SETTING       3                         // 7
+#define PAGE_PUMP_SETTING           (SECTOR_PUMP_SETTING*PAGE_NUM)
+#define SECTOR_PUMP_SETTING_NUM                               2    
 
 #define SECTOR_CKS                                                           62                         
 #define PAGE_CKS                          (SECTOR_CKS*PAGE_NUM)
@@ -102,11 +87,9 @@ void CFlashStartupCheck(void);
 void CFlashCheck(void);
 void CFlashRTCCheck(void);
 void CFlashUICheck(void);
-void CFlashPump1Check(void);
-void CFlashPump2Check(void);
 void CFlashTPCheck(void);
-void CFlashOptCheck(u8 Index);
-void CFlashAccelerationCheck(u8 Index);
+void CFlashOptCheck(void);
+void CFlashPumpCheck(u8 Index);
 
 void CFlashClearFlashBuff(void);
 void CFlashClearFlashMoveBuff(void);
@@ -117,18 +100,12 @@ void CFlashLoadUISettingDefault(void);
 void CFlashSaveTouchPoint(void);
 void CFlashLoadTouchPoint(void);
 void CFlashLoadTouchPointDefault(void);
-void CFlashSavePump1Setting(void);
-void CFlashLoadPump1Setting(void);
-void CFlashLoadPump1SettingDefault(void);
-void CFlashSavePump2Setting(void);
-void CFlashLoadPump2Setting(void);
-void CFlashLoadPump2SettingDefault(void);
-void CFlashSaveOptSetting(u8 Index);
-void CFlashLoadOptSetting(u8 Index);
-void CFlashLoadOptSettingDefault(u8 Index);
-void CFlashSaveAccelerationSetting(u8 Index);
-void CFlashLoadAccelerationSetting(u8 Index);
-void CFlashLoadAccelerationSettingDefault(u8 Index);
+void CFlashSaveOptSetting(void);
+void CFlashLoadOptSetting(void);
+void CFlashLoadOptSettingDefault(void);
+void CFlashSavePumpSetting(u8 Index);
+void CFlashLoadPumpSetting(u8 Index);
+void CFlashLoadPumpSettingDefault(u8 Index);
 
 #else
 //--------------------------------------------------
@@ -156,17 +133,11 @@ extern void CFlashLoadUISettingDefault(void);
 extern void CFlashSaveTouchPoint(void);
 extern void CFlashLoadTouchPoint(void);
 extern void CFlashLoadTouchPointDefault(void);
-extern void CFlashSavePump1Setting(void);
-extern void CFlashLoadPump1Setting(void);
-extern void CFlashLoadPump1SettingDefault(void);
-extern void CFlashSavePump2Setting(void);
-extern void CFlashLoadPump2Setting(void);
-extern void CFlashLoadPump2SettingDefault(void);
-extern void CFlashSaveOptSetting(u8 Index);
-extern void CFlashLoadOptSetting(u8 Index);
-extern void CFlashLoadOptSettingDefault(u8 Index);
-extern void CFlashSaveAccelerationSetting(u8 Index);
-extern void CFlashLoadAccelerationSetting(u8 Index);
-extern void CFlashLoadAccelerationSettingDefault(u8 Index);
+extern void CFlashSaveOptSetting(void);
+extern void CFlashLoadOptSetting(void);
+extern void CFlashLoadOptSettingDefault(void);
+extern void CFlashSavePumpSetting(u8 Index);
+extern void CFlashLoadPumpSetting(u8 Index);
+extern void CFlashLoadPumpSettingDefault(u8 Index);
 #endif
 

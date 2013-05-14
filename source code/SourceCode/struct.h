@@ -34,26 +34,23 @@ typedef struct {
     u8 TestVol1;
     
 } StructUISetting;
+
 typedef struct {
-    u16 nBackLash;
-    u8 MinFreqFactor;   
-    u8 MaxFreqFactor;     
-    u8 FullStepPerClass;    
-    u8 nuL2Step;    
-    u8 nStep2Pulse;     
-    u8 MaxStepCount;
-    u8 StepMode;
-} StructPumpSetting;
-typedef struct {
-    u8 OptLineNum;  
-    u8 OptShieldLevel;
+    u8 OptLineNum[4];  
+    u8 OptShieldLevel[4];
 } StructOptSetting;
 
 typedef struct {
     u16 Freq[20];
     u8 Step[20];
     u8 StepNum;
-} StructAccelerationSetting;
+    u16 BackLash;
+    u8 uL2Step;    
+    u8 Step2Pulse;     
+    u8 StepMode;
+    u16 SpecNum;
+    u16 SerialNum;
+} StructPumpSetting;
 
 typedef struct {
     u16 xMin;
@@ -64,7 +61,6 @@ typedef struct {
 
 extern StructUISetting g_stUISetting;
 extern StructTouchPoint g_stTouchPoint;
+extern StructOptSetting g_stOptSetting;
 extern StructPumpSetting g_stPumpSetting[2];
-extern StructOptSetting g_stOptSetting[4];
-extern StructAccelerationSetting g_stAccelerationSetting[2];
 

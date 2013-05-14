@@ -71,10 +71,7 @@ typedef enum
     SettingAcceleration1Menu,
     SettingAcceleration2Menu,
     TestBurnInStatusMenu,
-    SquareWaveMenu,
-    DifferentialPulseMenu,
-    SquareWaveTestMenu,
-    DifferentialPulseTestMenu,
+
     // user definition end
     InputMenu,
     MaxMenu

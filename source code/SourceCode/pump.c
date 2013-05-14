@@ -28,18 +28,18 @@
 ********************************************************/
 u8 nMaxEffClass = 0;  //最大可用台阶
 #define _ResetPulseNum   4000 
-#define _MaxStepCount(a)  g_stAccelerationSetting[a].StepNum//台阶数
-#define _FullStepPerClass(a)   g_stAccelerationSetting[a].Step  //每个台阶的整步数 ,加速度
-#define _nBackLash(a)   g_stPumpSetting[a].nBackLash
-#define _nStep2Pulse(a)   g_stPumpSetting[a].nStep2Pulse
-#define _nuL2Step(a)   g_stPumpSetting[a].nuL2Step
-#define _MinFreqFactor(a)   g_stPumpSetting[a].MinFreqFactor
-#define _MaxFreqFactor(a)   g_stPumpSetting[a].MaxFreqFactor
+#define _MaxStepCount(a)  g_stPumpSetting[a].StepNum//台阶数
+#define _FullStepPerClass(a)   g_stPumpSetting[a].Step  //每个台阶的整步数 ,加速度
+#define _nBackLash(a)   g_stPumpSetting[a].BackLash
+#define _nStep2Pulse(a)   g_stPumpSetting[a].Step2Pulse
+#define _nuL2Step(a)   g_stPumpSetting[a].uL2Step
+#define _MinFreqFactor(a)   g_stPumpSetting[a].Freq[0]
+#define _MaxFreqFactor(a)   (g_stPumpSetting[a].Freq[g_stPumpSetting[a].StepNum-1])
 #define _StepMode(a)            g_stPumpSetting[a].StepMode
-#define _OPTIC_OFF(a)                   (1-g_stOptSetting[a].OptShieldLevel)
-#define _OPTIC_ON(a)                   g_stOptSetting[a].OptShieldLevel
+#define _OPTIC_OFF(a)                   (1-g_stOptSetting.OptShieldLevel[a])
+#define _OPTIC_ON(a)                   g_stOptSetting.OptShieldLevel[a]
 
-#define _STEP_H(a)      g_stAccelerationSetting[a].Freq //((g_stPumpSetting[a].MaxFreqFactor-g_stPumpSetting[a].MinFreqFactor)/g_stPumpSetting[a].MaxStepCount)
+#define _STEP_H(a)      g_stPumpSetting[a].Freq
 
 
 void PumpInit(void)
@@ -272,7 +272,7 @@ u16 PumpStartStopSteps(u8 PumpSel,u8 StepNum)
     u16 TotalSteps=0;
     
     for(i=0;i<StepNum;i++)
-        TotalSteps+=g_stAccelerationSetting[PumpSel-1].Step[i];
+        TotalSteps+=g_stPumpSetting[PumpSel-1].Step[i];
 
     return (TotalSteps*2);
 }
@@ -283,9 +283,9 @@ u16 PumpGetMiddleStepIndex(u8 PumpSel, u16 cntRun)
 
     cntRun=ceil(cntRun * 1.0/(2* _nStep2Pulse(PumpSel-1)));
 
-    for(i=0;i<g_stAccelerationSetting[PumpSel-1].StepNum;i++)
+    for(i=0;i<g_stPumpSetting[PumpSel-1].StepNum;i++)
     {
-        sum+=g_stAccelerationSetting[PumpSel-1].Step[i];
+        sum+=g_stPumpSetting[PumpSel-1].Step[i];
         if(cntRun<=sum)
             break;
     }

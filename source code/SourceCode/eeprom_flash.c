@@ -144,21 +144,11 @@ void CFlashStartupCheck(void)
     CFlashLoadCheckSum();
     //CFlashRTCCheck();
     CFlashUICheck();
-    CFlashPump1Check();
-    CFlashPump2Check();
-    CFlashTPCheck();
-    CFlashOptCheck(0);
-    CFlashOptCheck(1);
-    CFlashOptCheck(2);
-    CFlashOptCheck(3);
-    CFlashAccelerationCheck(0);
-    CFlashAccelerationCheck(1);
+    //CFlashTPCheck();
+    CFlashOptCheck();
+    CFlashPumpCheck(0);
+    CFlashPumpCheck(1);
     CFlashSaveCheckSum();
-    //g_uiBacklightOffCounter = BacklightOffTime[g_stUISetting.BacklightOff];
-    //g_uiAutoPowerOffCounter = AutoPowerOffTime[g_stUISetting.AutoPowerOff];
-    //g_uiPanelStatus = 1;
-    //Delay10ms(100);
-    //CFlashSavePump1Setting();
     return;
    
 }
@@ -205,52 +195,28 @@ void CFlashUICheck(void)
         CFlashLoadUISetting();
     }
 }
-void CFlashPump1Check(void)
+void CFlashOptCheck(void)
 {
-    if(CheckSumData[INDEX_PUMP1_CKS]!= PUMP1_CKS)
+    if(CheckSumData[INDEX_OPT_CKS]!= OPT_CKS)
     {
-        CFlashLoadPump1SettingDefault();
-        CheckSumData[INDEX_PUMP1_CKS] = PUMP1_CKS;
+        CFlashLoadOptSettingDefault();
+        CheckSumData[INDEX_OPT_CKS] = OPT_CKS;
     }
     else
     {
-        CFlashLoadPump1Setting();
+        CFlashLoadOptSetting();
     }
 }
-void CFlashPump2Check(void)
+void CFlashPumpCheck(u8 Index)
 {
-    if(CheckSumData[INDEX_PUMP2_CKS]!= PUMP2_CKS)
+    if(CheckSumData[INDEX_PUMP1_CKS+Index]!= PUMP_CKS)
     {
-        CFlashLoadPump2SettingDefault();
-        CheckSumData[INDEX_PUMP2_CKS] = PUMP2_CKS;
+        CFlashLoadPumpSettingDefault(Index);
+        CheckSumData[INDEX_PUMP1_CKS+Index] = PUMP_CKS;
     }
     else
     {
-        CFlashLoadPump2Setting();
-    }
-}
-void CFlashOptCheck(u8 Index)
-{
-    if(CheckSumData[INDEX_OPT1_CKS+Index]!= OPT_CKS)
-    {
-        CFlashLoadOptSettingDefault(Index);
-        CheckSumData[INDEX_OPT1_CKS+Index] = OPT_CKS;
-    }
-    else
-    {
-        CFlashLoadOptSetting(Index);
-    }
-}
-void CFlashAccelerationCheck(u8 Index)
-{
-    if(CheckSumData[INDEX_ACCELERATION1_CKS+Index]!= ACCELERATION_CKS)
-    {
-        CFlashLoadAccelerationSettingDefault(Index);
-        CheckSumData[INDEX_ACCELERATION1_CKS+Index] = ACCELERATION_CKS;
-    }
-    else
-    {
-        CFlashLoadAccelerationSetting(Index);
+        CFlashLoadPumpSetting(Index);
     }
 }
 void CFlashTPCheck(void)
@@ -335,142 +301,6 @@ void CFlashLoadUISettingDefault(void)
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_UI_SETTING*PAGE_SIZE, PAGE_SIZE);
     CFlashSaveIndex(_FLASH_NUM0, PAGE_UI_SETTING, 0);
 }
-void CFlashSavePump1Setting(void)
-{
-    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP1_SETTING);
-    if(g_u8CellNew == 0)
-    {
-        CFlashClearFlashBuff();
-        flash_buf[0] = g_stPumpSetting[0].nBackLash>>8;
-        flash_buf[1] = g_stPumpSetting[0].nBackLash&0x00ff;
-        flash_buf[2] = g_stPumpSetting[0].MinFreqFactor;
-        flash_buf[3] = g_stPumpSetting[0].MaxFreqFactor;
-        flash_buf[4] = g_stPumpSetting[0].FullStepPerClass;
-        flash_buf[5] = g_stPumpSetting[0].nuL2Step;
-        flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
-        flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
-        flash_buf[8] = g_stPumpSetting[0].StepMode;
-    }
-    else
-    {
-        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stPumpSetting[0].nBackLash>>8;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stPumpSetting[0].nBackLash&0x00ff;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+2] = g_stPumpSetting[0].MinFreqFactor;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+3] = g_stPumpSetting[0].MaxFreqFactor;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+4] = g_stPumpSetting[0].FullStepPerClass;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[0].nuL2Step;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[0].nStep2Pulse;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[0].MaxStepCount;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+8] = g_stPumpSetting[0].StepMode;
-
-    }
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP1_SETTING, g_u32CellIndex);
-}
-void CFlashLoadPump1Setting(void)
-{
-    u16 tempValue=0;
-    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP1_SETTING);
-    
-    SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
-    g_stPumpSetting[0].nBackLash = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+1];
-    g_stPumpSetting[0].MinFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+2];
-    g_stPumpSetting[0].MaxFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+3];
-    g_stPumpSetting[0].FullStepPerClass = flash_buf[(CELL_SIZE*g_u8CellLast)+4];
-    g_stPumpSetting[0].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
-    g_stPumpSetting[0].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
-    g_stPumpSetting[0].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
-    g_stPumpSetting[0].StepMode= flash_buf[(CELL_SIZE*g_u8CellLast)+8];
-
-}
-void CFlashLoadPump1SettingDefault(void)
-{
-    g_stPumpSetting[0] = tEEPROM_PumpSetting_DEFAULT;
-    CFlashClearFlashBuff();
-    flash_buf[0] = g_stPumpSetting[0].nBackLash>>8;
-    flash_buf[1] = g_stPumpSetting[0].nBackLash&0x00ff;
-    flash_buf[2] = g_stPumpSetting[0].MinFreqFactor;
-    flash_buf[3] = g_stPumpSetting[0].MaxFreqFactor;
-    flash_buf[4] = g_stPumpSetting[0].FullStepPerClass;
-    flash_buf[5] = g_stPumpSetting[0].nuL2Step;
-    flash_buf[6] = g_stPumpSetting[0].nStep2Pulse;
-    flash_buf[7] = g_stPumpSetting[0].MaxStepCount;
-    flash_buf[8] = g_stPumpSetting[0].StepMode;
-
-    
-    SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP1_SETTING*SECTOR_SIZE);
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP1_SETTING*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP1_SETTING, 0);
-}
-void CFlashSavePump2Setting(void)
-{
-    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP2_SETTING);
-    if(g_u8CellNew == 0)
-    {
-        CFlashClearFlashBuff();
-        flash_buf[0] = g_stPumpSetting[1].nBackLash>>8;
-        flash_buf[1] = g_stPumpSetting[1].nBackLash&0x00ff;
-        flash_buf[2] = g_stPumpSetting[1].MinFreqFactor;
-        flash_buf[3] = g_stPumpSetting[1].MaxFreqFactor;
-        flash_buf[4] = g_stPumpSetting[1].FullStepPerClass;
-        flash_buf[5] = g_stPumpSetting[1].nuL2Step;
-        flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
-        flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
-        flash_buf[8] = g_stPumpSetting[1].StepMode;
-    }
-    else
-    {
-        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stPumpSetting[1].nBackLash>>8;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stPumpSetting[1].nBackLash&0x00ff;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+2] = g_stPumpSetting[1].MinFreqFactor;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+3] = g_stPumpSetting[1].MaxFreqFactor;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+4] = g_stPumpSetting[1].FullStepPerClass;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+5] = g_stPumpSetting[1].nuL2Step;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+6] = g_stPumpSetting[1].nStep2Pulse;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+7] = g_stPumpSetting[1].MaxStepCount;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+8] = g_stPumpSetting[1].StepMode;
-
-    }
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP2_SETTING, g_u32CellIndex);
-}
-void CFlashLoadPump2Setting(void)
-{
-    u16 tempValue=0;
-    CFlashGetCell(_FLASH_NUM0, PAGE_PUMP2_SETTING);
-    
-    SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP2_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
-    g_stPumpSetting[1].nBackLash = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+1];
-    g_stPumpSetting[1].MinFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+2];
-    g_stPumpSetting[1].MaxFreqFactor = flash_buf[(CELL_SIZE*g_u8CellLast)+3];
-    g_stPumpSetting[1].FullStepPerClass = flash_buf[(CELL_SIZE*g_u8CellLast)+4];
-    g_stPumpSetting[1].nuL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+5];
-    g_stPumpSetting[1].nStep2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+6];
-    g_stPumpSetting[1].MaxStepCount= flash_buf[(CELL_SIZE*g_u8CellLast)+7];
-    g_stPumpSetting[1].StepMode= flash_buf[(CELL_SIZE*g_u8CellLast)+8];
-}
-void CFlashLoadPump2SettingDefault(void)
-{
-    g_stPumpSetting[1] = tEEPROM_PumpSetting_DEFAULT;
-    CFlashClearFlashBuff();
-    flash_buf[0] = g_stPumpSetting[1].nBackLash>>8;
-    flash_buf[1] = g_stPumpSetting[1].nBackLash&0x00ff;
-    flash_buf[2] = g_stPumpSetting[1].MinFreqFactor;
-    flash_buf[3] = g_stPumpSetting[1].MaxFreqFactor;
-    flash_buf[4] = g_stPumpSetting[1].FullStepPerClass;
-    flash_buf[5] = g_stPumpSetting[1].nuL2Step;
-    flash_buf[6] = g_stPumpSetting[1].nStep2Pulse;
-    flash_buf[7] = g_stPumpSetting[1].MaxStepCount;
-    flash_buf[8] = g_stPumpSetting[1].StepMode;
-    
-    SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_PUMP2_SETTING*SECTOR_SIZE);
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_PUMP2_SETTING*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, PAGE_PUMP2_SETTING, 0);
-}
 void CFlashSaveTouchPoint(void)
 {
     CFlashGetCell(_FLASH_NUM0, PAGE_TP_VALUE);
@@ -538,111 +368,164 @@ void CFlashLoadTouchPointDefault(void)
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_TP_VALUE*PAGE_SIZE, PAGE_SIZE);
     CFlashSaveIndex(_FLASH_NUM0, PAGE_TP_VALUE, 0);
 }
-void CFlashSaveOptSetting(u8 Index)
-{
-    CFlashGetCell(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM));
-    if(g_u8CellNew == 0)
-    {
-        CFlashClearFlashBuff();
-        flash_buf[0] = g_stOptSetting[Index].OptLineNum;
-        flash_buf[1] = g_stOptSetting[Index].OptShieldLevel;
-    }
-    else
-    {
-        SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-        flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stOptSetting[Index].OptLineNum;
-        flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stOptSetting[Index].OptShieldLevel;
-
-    }
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM), g_u32CellIndex);
-}
-void CFlashLoadOptSetting(u8 Index)
-{
-    CFlashGetCell(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM));
-    
-    SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_OPT_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
-    g_stOptSetting[Index].OptLineNum = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
-    g_stOptSetting[Index].OptShieldLevel = flash_buf[(CELL_SIZE*g_u8CellLast)+1];
-
-}
-void CFlashLoadOptSettingDefault(u8 Index)
-{
-    g_stOptSetting[Index] = tEEPROM_OptSetting_DEFAULT;
-    CFlashClearFlashBuff();
-    flash_buf[0] = g_stOptSetting[Index].OptLineNum;
-    flash_buf[1] = g_stOptSetting[Index].OptShieldLevel;
-
-    
-    SPIFlash_EraseSector(_FLASH_NUM0, (SECTOR_OPT_SETTING+Index)*SECTOR_SIZE);
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_OPT_SETTING+Index)*PAGE_NUM), 0);
-}
-void CFlashSaveAccelerationSetting(u8 Index)
+void CFlashSaveOptSetting(void)
 {
     u8 i=0;
-    CFlashGetCell(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM));
+    
+    CFlashGetCell(_FLASH_NUM0, (PAGE_OPT_SETTING*PAGE_NUM));
+    if(g_u8CellNew == 0)
+    {
+        CFlashClearFlashBuff();
+        for(i=0;i<4;i++)
+        {
+            flash_buf[0+i] = g_stOptSetting.OptLineNum[i];
+            flash_buf[4+i] = g_stOptSetting.OptShieldLevel[i];
+        }
+    }
+    else
+    {
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, ((PAGE_OPT_SETTING*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        for(i=0;i<4;i++)
+        {
+            flash_buf[(CELL_SIZE*g_u8CellNew)+0+i] = g_stOptSetting.OptLineNum[i];
+            flash_buf[(CELL_SIZE*g_u8CellNew)+4+i] = g_stOptSetting.OptShieldLevel[i];
+        }
+
+    }
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((PAGE_OPT_SETTING*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, (PAGE_OPT_SETTING*PAGE_NUM), g_u32CellIndex);
+}
+void CFlashLoadOptSetting(void)
+{
+    u8 i=0;
+    
+    CFlashGetCell(_FLASH_NUM0, (PAGE_OPT_SETTING*PAGE_NUM));
+    
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, ((PAGE_OPT_SETTING*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    for(i=0;i<4;i++)
+    {
+        g_stOptSetting.OptLineNum[i] = flash_buf[(CELL_SIZE*g_u8CellLast)+0+i];
+        g_stOptSetting.OptShieldLevel[i] = flash_buf[(CELL_SIZE*g_u8CellLast)+4+i];
+    }
+
+}
+void CFlashLoadOptSettingDefault(void)
+{
+    u8 i=0;
+    g_stOptSetting = tEEPROM_OptSetting_DEFAULT;
+    CFlashClearFlashBuff();
+    for(i=0;i<4;i++)
+    {
+        flash_buf[0+i] = g_stOptSetting.OptLineNum[i];
+        flash_buf[4+i] = g_stOptSetting.OptShieldLevel[i];
+    }
+
+    
+    SPIFlash_EraseSector(_FLASH_NUM0, PAGE_OPT_SETTING*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_OPT_SETTING*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, (PAGE_OPT_SETTING*PAGE_NUM), 0);
+}
+void CFlashSavePumpSetting(u8 Index)
+{
+    u8 i=0;
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_PUMP_SETTING+Index)*PAGE_NUM));
     if(g_u8CellNew == 0)
     {
         CFlashClearFlashBuff();
         for(i=0;i<20;i++)
         {
-            flash_buf[2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
-            flash_buf[2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+            flash_buf[2*i+0] = g_stPumpSetting[Index].Freq[i]>>8;
+            flash_buf[2*i+1] = g_stPumpSetting[Index].Freq[i]&0x00ff;
         }
         for(i=0;i<10;i++)
-            flash_buf[40+i] = g_stAccelerationSetting[Index].Step[i];
-        flash_buf[60] = g_stAccelerationSetting[Index].StepNum;
+            flash_buf[40+i] = g_stPumpSetting[Index].Step[i];
+        flash_buf[60] = g_stPumpSetting[Index].StepNum;
+        flash_buf[61] = g_stPumpSetting[Index].BackLash>>8;
+        flash_buf[62] = g_stPumpSetting[Index].BackLash&0x00ff;
+        flash_buf[63] = g_stPumpSetting[Index].uL2Step;
+        flash_buf[64] = g_stPumpSetting[Index].Step2Pulse;
+        flash_buf[65] = g_stPumpSetting[Index].StepMode;
+        flash_buf[66] = g_stPumpSetting[Index].SpecNum>>8;
+        flash_buf[67] = g_stPumpSetting[Index].SpecNum&0x00ff;
+        flash_buf[68] = g_stPumpSetting[Index].SerialNum>>8;
+        flash_buf[69] = g_stPumpSetting[Index].SerialNum&0x00ff;
     }
     else
     {
-        SPIFlash_Read(_FLASH_NUM0, flash_buf, (PAGE_PUMP1_SETTING+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+        SPIFlash_Read(_FLASH_NUM0, flash_buf, ((SECTOR_PUMP_SETTING+Index)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
         for(i=0;i<20;i++)
         {
-            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
-            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+0] = g_stPumpSetting[Index].Freq[i]>>8;
+            flash_buf[(CELL_SIZE*g_u8CellNew)+2*i+1] = g_stPumpSetting[Index].Freq[i]&0x00ff;
         }
         for(i=0;i<20;i++)
-            flash_buf[(CELL_SIZE*g_u8CellNew)+40+i] = g_stAccelerationSetting[Index].Step[i];
-        flash_buf[(CELL_SIZE*g_u8CellNew)+60] = g_stAccelerationSetting[Index].StepNum;
+            flash_buf[(CELL_SIZE*g_u8CellNew)+40+i] = g_stPumpSetting[Index].Step[i];
+        flash_buf[(CELL_SIZE*g_u8CellNew)+60] = g_stPumpSetting[Index].StepNum;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+61] = g_stPumpSetting[Index].BackLash>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+62] = g_stPumpSetting[Index].BackLash&0x00ff;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+63] = g_stPumpSetting[Index].uL2Step;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+64] = g_stPumpSetting[Index].Step2Pulse;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+65] = g_stPumpSetting[Index].StepMode;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+66] = g_stPumpSetting[Index].SpecNum>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+67] = g_stPumpSetting[Index].SpecNum&0x00ff;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+68] = g_stPumpSetting[Index].SerialNum>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+69] = g_stPumpSetting[Index].SerialNum&0x00ff;
         
     }
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM), g_u32CellIndex);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (((SECTOR_PUMP_SETTING+Index)*PAGE_NUM)+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_PUMP_SETTING+Index)*PAGE_NUM), g_u32CellIndex);
 }
-void CFlashLoadAccelerationSetting(u8 Index)
+void CFlashLoadPumpSetting(u8 Index)
 {
     u8 i=0;
     u16 tempValue=0;
-    CFlashGetCell(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM));
+    CFlashGetCell(_FLASH_NUM0, ((SECTOR_PUMP_SETTING+Index)*PAGE_NUM));
     
-    SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
+    SPIFlash_Read(_FLASH_NUM0, flash_buf, (((SECTOR_PUMP_SETTING+Index)*PAGE_NUM)+g_u32PageLast)*PAGE_SIZE, PAGE_SIZE);
     for(i=0;i<20;i++)
     {
         tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+2*i+0];
-        g_stAccelerationSetting[Index].Freq[i] = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+2*i+1];
+        g_stPumpSetting[Index].Freq[i] = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+2*i+1];
     }
     for(i=0;i<20;i++)
-        g_stAccelerationSetting[Index].Step[i] = flash_buf[(CELL_SIZE*g_u8CellLast)+40+i];
-    g_stAccelerationSetting[Index].StepNum = flash_buf[(CELL_SIZE*g_u8CellLast)+60];
+        g_stPumpSetting[Index].Step[i] = flash_buf[(CELL_SIZE*g_u8CellLast)+40+i];
+    g_stPumpSetting[Index].StepNum = flash_buf[(CELL_SIZE*g_u8CellLast)+60];
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+61];
+    g_stPumpSetting[Index].BackLash = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+62];
+    g_stPumpSetting[Index].uL2Step = flash_buf[(CELL_SIZE*g_u8CellLast)+63];
+    g_stPumpSetting[Index].Step2Pulse = flash_buf[(CELL_SIZE*g_u8CellLast)+64];
+    g_stPumpSetting[Index].StepMode= flash_buf[(CELL_SIZE*g_u8CellLast)+65];
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+66];
+    g_stPumpSetting[Index].SpecNum= (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+67];
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+68];
+    g_stPumpSetting[Index].SerialNum = (tempValue<<8)|flash_buf[(CELL_SIZE*g_u8CellLast)+69];
 }
-void CFlashLoadAccelerationSettingDefault(u8 Index)
+void CFlashLoadPumpSettingDefault(u8 Index)
 {
     u8 i=0;
-    g_stAccelerationSetting[Index] = tEEPROM_Acceleration_DEFAULT;
+    g_stPumpSetting[Index] = tEEPROM_PUMP_DEFAULT;
     CFlashClearFlashBuff();
     for(i=0;i<20;i++)
     {
-        flash_buf[2*i+0] = g_stAccelerationSetting[Index].Freq[i]>>8;
-        flash_buf[2*i+1] = g_stAccelerationSetting[Index].Freq[i]&0x00ff;
+        flash_buf[2*i+0] = g_stPumpSetting[Index].Freq[i]>>8;
+        flash_buf[2*i+1] = g_stPumpSetting[Index].Freq[i]&0x00ff;
     }
     for(i=0;i<20;i++)
-        flash_buf[40+i] = g_stAccelerationSetting[Index].Step[i];
-    flash_buf[60] = g_stAccelerationSetting[Index].StepNum;
+        flash_buf[40+i] = g_stPumpSetting[Index].Step[i];
+    flash_buf[60] = g_stPumpSetting[Index].StepNum;
+    flash_buf[61] = g_stPumpSetting[Index].BackLash>>8;
+    flash_buf[62] = g_stPumpSetting[Index].BackLash&0x00ff;
+    flash_buf[63] = g_stPumpSetting[Index].uL2Step;
+    flash_buf[64] = g_stPumpSetting[Index].Step2Pulse;
+    flash_buf[65] = g_stPumpSetting[Index].StepMode;
+    flash_buf[66] = g_stPumpSetting[Index].SpecNum>>8;
+    flash_buf[67] = g_stPumpSetting[Index].SpecNum&0x00ff;
+    flash_buf[68] = g_stPumpSetting[Index].SerialNum>>8;
+    flash_buf[69] = g_stPumpSetting[Index].SerialNum&0x00ff;
     
-    SPIFlash_EraseSector(_FLASH_NUM0, (SECTOR_ACCELERATION_SETTING+Index)*SECTOR_SIZE);
-    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
-    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_ACCELERATION_SETTING+Index)*PAGE_NUM), 0);
+    SPIFlash_EraseSector(_FLASH_NUM0, (SECTOR_PUMP_SETTING+Index)*SECTOR_SIZE);
+    SPIFlash_WritePage(_FLASH_NUM0, flash_buf, ((SECTOR_PUMP_SETTING+Index)*PAGE_NUM)*PAGE_SIZE, PAGE_SIZE);
+    CFlashSaveIndex(_FLASH_NUM0, ((SECTOR_PUMP_SETTING+Index)*PAGE_NUM), 0);
 }
 
 //====================end of line==========================
