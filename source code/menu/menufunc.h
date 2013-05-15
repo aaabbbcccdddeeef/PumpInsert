@@ -16,13 +16,18 @@
 
 #define _LEVEL5_ITEM_2_x     15
 #define _LEVEL5_ITEM_2_y     80
+
+#define _LEVEL5_ITEM_3_x     15
+#define _LEVEL5_ITEM_3_y     105
 
-#define _LEVEL5_VALUE_1_x     120
+#define _LEVEL5_VALUE_1_x     150
 #define _LEVEL5_VALUE_1_y     55
 
-#define _LEVEL5_VALUE_2_x     120
+#define _LEVEL5_VALUE_2_x     150
 #define _LEVEL5_VALUE_2_y     80
 
+#define _LEVEL5_VALUE_3_x     150
+#define _LEVEL5_VALUE_3_y     105
 #ifdef __MENUFUNC__
 
 
@@ -88,8 +93,10 @@ extern void CTestValve3Reset(void);
 extern void CTestValve4Reset(void);
 extern void CTestBurnInPageStyle(void);
 extern void CTestBurninSetVol(void);
-extern void CTestBruninContinue(void);
-
+extern void CTestBurninContinue1(void);
+extern void CTestBurninContinue2(void);
+extern void CTestBurninStop1(void);
+extern void CTestBurninStop2(void);
 extern void CTestBurninStatusPageStyle(void);
 
 extern void CTestWaterWeighPageStyle(void);

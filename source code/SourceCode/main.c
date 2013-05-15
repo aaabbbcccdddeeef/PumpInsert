@@ -23,10 +23,19 @@ void GPIOInit(void)
 void CMainUserInitial(void)
 {
     u8 i=0;
-    for(i=0;i<21;i++)
+    for(i=0;i<23;i++)
     {
         g_t8MenuStack[i][0]=0;
         g_t8MenuStack[i][1]=0;
+    }
+    for(i=0;i<50;i++)
+    {
+        g_u32RunningFlow1[i]=0;
+        g_u32WaitFlow1[i]=0;
+        g_u8DirectionFlow1[i]=0;
+        g_u32RunningFlow2[i]=0;
+        g_u32WaitFlow2[i]=0;
+        g_u8DirectionFlow2[i]=0;
     }
     g_u8StackTop=0;
     g_u8CurrentPageLevel = 0;
@@ -41,14 +50,17 @@ void CMainUserInitial(void)
     g_u8TPDown=0;
     g_u8TPUp=0;
 
-    PumpNum[0]=0;
-    PumpNum[1]=0;
+    PumpCount[0]=0;
+    PumpCount[1]=0;
     nMaxEffClass=0;    //最大可用台阶
 
     g_u8DetectOptSelect=0xff;
     g_u8DetectOptStart=0;
     g_u32OptLevel=0xff;
     g_u8RunningPause=1;
+    g_u8RunningStart1=0;
+    g_u8FlowCount1=0;
+    g_u32FlowWaitCount1=0;
 }
 void CDisplayLogo(void)
 {
@@ -87,11 +99,11 @@ void CDeviceInit(void)
     init_timer( 1, TIME_10MS_INTERVAL/50);
     disable_timer(1);
 
-    init_timer( 2, TIME_10MS_INTERVAL/50);
-    disable_timer(2);
+    init_timer( 2, TIME_10MS_INTERVAL);
+    enable_timer(2);
 
-    init_timer( 3, TIME_10MS_INTERVAL/500);
-    disable_timer(3);
+    init_timer( 3, TIME_10MS_INTERVAL);
+    enable_timer(3);
 
     GPIOInit();
     
@@ -99,7 +111,7 @@ void CDeviceInit(void)
     
     RXLCD_init();
     
-    EINTInit();
+    //EINTInit();
     
     CDisplayLogo();
 

@@ -24,6 +24,8 @@ void CSystemEventHandler(void)
 {
     CMonitorOptEvent(g_u8DetectOptSelect);
     CBurnInEvent();
+    CFlow1Event();
+    CFlow2Event();
 }
 
 void CMonitorOptEvent(u8 OptSel)
@@ -71,14 +73,89 @@ void CMonitorOptEvent(u8 OptSel)
 }
 void CBurnInEvent(void)
 {
-    if(g_u8RunningPause==0)
+    if(g_u8RunningStart1==1)
     {
 
-    PumpBurnIn(1, g_stUISetting.TestVol1);
-    CDispFloatAt(++g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+    //PumpBurnIn(1, g_stUISetting.TestVol1);
+    //CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
 
         //PumpBurnIn(2, 100);
     }
 }
+void CFlow1Event(void)
+{
+        if(g_u8RunningStart1==1)
+    {
+        if((PumpCount[0]==0)&&(g_u8FlowWaitOver1==1)&&(g_u8RunningIndex1<g_u8FlowCount1))
+        {
+            if(g_u8RunningIndex1%2==0)
+            {
+                PumpSetEnable(1, _PUMP_ENABLE);
+                PumpSetLowPowerMode(1, _NORMAL_PWR);
+                PumpSetStepMode(1, g_stPumpSetting[0].StepMode);
+                PumpSetDirection(1, g_u8DirectionFlow1[g_u8RunningIndex1/2]);
+                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                PumpCount[0]= g_u32RunningFlow1[g_u8RunningIndex1/2];
+            }
+            else
+            {
+                PumpSetEnable(1, _PUMP_DISABLE);
+                PumpSetLowPowerMode(1, _LOW_PWR);
+                g_u8FlowWaitOver1=0;
+                g_u32FlowWaitCount1 = g_u32WaitFlow1[(g_u8RunningIndex1-1)/2];
+                if(g_u32FlowWaitCount1==0)
+                    g_u8FlowWaitOver1=1;
+                g_u8RunningIndex1++;
+            }
+
+        }
+        else if((g_u8RunningIndex1==g_u8FlowCount1)&&(g_u8FlowWaitOver1==1))
+        {
+            g_u8RunningIndex1=0;
+            //g_u8RunningStart1=0;
+            //g_u8FlowCount1=0;
+            CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        }
+    }
+}
+void CFlow2Event(void)
+{
+    if(g_u8RunningStart2==1)
+    {
+        if((PumpCount[1]==0)&&(g_u8FlowWaitOver2==1)&&(g_u8RunningIndex2<g_u8FlowCount2))
+        {
+            if(g_u8RunningIndex2%2==0)
+            {
+                PumpSetEnable(2, _PUMP_ENABLE);
+                PumpSetLowPowerMode(2, _NORMAL_PWR);
+                PumpSetStepMode(2, g_stPumpSetting[1].StepMode);
+                PumpSetDirection(2, g_u8DirectionFlow2[g_u8RunningIndex2/2]);
+                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                PumpCount[1]= g_u32RunningFlow2[g_u8RunningIndex2/2];
+            }
+            else
+            {
+                PumpSetEnable(2, _PUMP_DISABLE);
+                PumpSetLowPowerMode(2, _LOW_PWR);
+                g_u8FlowWaitOver2=0;
+                g_u32FlowWaitCount2 = g_u32WaitFlow2[(g_u8RunningIndex2-1)/2];
+                if(g_u32FlowWaitCount2==0)
+                    g_u8FlowWaitOver2=1;
+                g_u8RunningIndex2++;
+            }
+
+        }
+        else if((g_u8RunningIndex2==g_u8FlowCount2)&&(g_u8FlowWaitOver2==1))
+        {
+            g_u8RunningIndex2=0;
+            //g_u8RunningStart2=0;
+            //g_u8FlowCount2=0;
+            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        }
+    }
+}
+
 
 

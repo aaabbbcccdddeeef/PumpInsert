@@ -29,6 +29,7 @@ void Delay10ms(uint32_t time);
 extern volatile u32 g_ui10msTick;
 extern volatile u32 g_uiPowerkeyTick;
 extern volatile u32 g_uiTpUpTick;
+
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

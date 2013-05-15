@@ -1548,14 +1548,62 @@ MenuItemType TestBurninStatusMenuItems[]=
     //1 2 Start
     { 
         15,220,100,255,// x1,y1,x2,y2;
-        0,40,// x, y;
+        90,40,// x, y;
         5, 6, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
+        CNull_u8,			// UnselPicFunction
         CNull,			// ExecFunction
-        CTestBruninContinue,			// DoBeforeExec
-        CNull,			// DoAfterExec
+        CNull,			// DoBeforeExec
+        CTestBurninContinue1,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 2 Start
+    { 
+        120,220,205,255,// x1,y1,x2,y2;
+        180,40,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBurninStop1,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 2 Start
+    { 
+        275,220,360,255,// x1,y1,x2,y2;
+        90,40,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBurninContinue2,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        menu_level_4  // Flags
+    },
+    //1 2 Start
+    { 
+        380,220,465,255,// x1,y1,x2,y2;
+        180,40,// x, y;
+        5, 6, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CTestBurninStop2,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
@@ -2818,8 +2866,8 @@ MenuItemType SettingAcceleration1MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
-        87+(110*0),30+(27*1),// x, y;
+        87+(110*0),30+(27*4),128+(110*0),50+(27*4),// x1,y1,x2,y2;
+        87+(110*0),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -2978,8 +3026,8 @@ MenuItemType SettingAcceleration1MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
-        87+(110*1),30+(27*1),// x, y;
+        87+(110*1),30+(27*4),128+(110*1),50+(27*4),// x1,y1,x2,y2;
+        87+(110*1),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3138,8 +3186,8 @@ MenuItemType SettingAcceleration1MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
-        87+(110*2),30+(27*1),// x, y;
+        87+(110*2),30+(27*4),128+(110*2),50+(27*4),// x1,y1,x2,y2;
+        87+(110*2),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3298,8 +3346,8 @@ MenuItemType SettingAcceleration1MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
-        87+(110*3),30+(27*1),// x, y;
+        87+(110*3),30+(27*4),128+(110*3),50+(27*4),// x1,y1,x2,y2;
+        87+(110*3),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3494,8 +3542,8 @@ MenuItemType SettingAcceleration2MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*0),30+(27*1),128+(110*0),50+(27*1),// x1,y1,x2,y2;
-        87+(110*0),30+(27*1),// x, y;
+        87+(110*0),30+(27*4),128+(110*0),50+(27*4),// x1,y1,x2,y2;
+        87+(110*0),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3654,8 +3702,8 @@ MenuItemType SettingAcceleration2MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*1),30+(27*1),128+(110*1),50+(27*1),// x1,y1,x2,y2;
-        87+(110*1),30+(27*1),// x, y;
+        87+(110*1),30+(27*4),128+(110*1),50+(27*4),// x1,y1,x2,y2;
+        87+(110*1),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3814,8 +3862,8 @@ MenuItemType SettingAcceleration2MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*2),30+(27*1),128+(110*2),50+(27*1),// x1,y1,x2,y2;
-        87+(110*2),30+(27*1),// x, y;
+        87+(110*2),30+(27*4),128+(110*2),50+(27*4),// x1,y1,x2,y2;
+        87+(110*2),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction
@@ -3974,8 +4022,8 @@ MenuItemType SettingAcceleration2MenuItems[]=
     },
     //1 3 Step2
     { 
-        87+(110*3),30+(27*1),128+(110*3),50+(27*1),// x1,y1,x2,y2;
-        87+(110*3),30+(27*1),// x, y;
+        87+(110*3),30+(27*4),128+(110*3),50+(27*4),// x1,y1,x2,y2;
+        87+(110*3),30+(27*4),// x, y;
         2, 2, // UnSelPic, SelPic;
         0, //NextMenuPage;
         CNull,			// SelPicFunction

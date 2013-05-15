@@ -13,6 +13,11 @@
 #ifdef __SYSTEM__
 void CMonitorOptEvent(u8 OptSel);
 void CBurnInEvent(void);
+void CFlow1Event(void);
+void CFlow2Event(void);
+
+
+
 #else
 extern void CSystemEventHandler(void);
 

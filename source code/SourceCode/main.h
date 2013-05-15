@@ -63,18 +63,28 @@ u8 g_u8DetectOptStart = 0;
 u8 g_u32OptLevel = 0;
 u8 g_u8RunningPause = 0;
 u8 g_u8RunningStop=0;
-u32 g_u32BurninCount=0;
-u32 g_u32RunningFlow1[50];
-u32 g_u32RunningFlow2[50];
-u32 g_u32WaitFlow1[50];
-u32 g_u32WaitFlow2[50];
-u8 g_u8DirectionFlow1[50];
-u8 g_u8DirectionFlow2[50];
-u8 g_u8RunningIndex=0;
-u8 g_u8FlowPumpOver=0;
-u8 g_u8FlowWaitOver=0;
-u8 g_u8FlowCount=0;
 u8 g_u8Inputing=0;
+
+
+volatile u32 g_u32BurninCount1=0;
+volatile u32 g_u32RunningFlow1[50];
+volatile u32 g_u32WaitFlow1[50];
+volatile u8 g_u8DirectionFlow1[50];
+volatile u8 g_u8RunningIndex1=0;
+volatile u8 g_u8FlowWaitOver1=0;
+volatile u8 g_u8FlowCount1=0;
+volatile u8 g_u8RunningStart1=0;
+volatile u32 g_u32FlowWaitCount1=0;
+
+volatile u32 g_u32BurninCount2=0;
+volatile u32 g_u32RunningFlow2[50];
+volatile u32 g_u32WaitFlow2[50];
+volatile u8 g_u8DirectionFlow2[50];
+volatile u8 g_u8RunningIndex2=0;
+volatile u8 g_u8FlowWaitOver2=0;
+volatile u8 g_u8FlowCount2=0;
+volatile u8 g_u8RunningStart2=0;
+volatile u32 g_u32FlowWaitCount2=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -134,20 +144,27 @@ extern u8 g_u8DetectOptStart;
 extern u8 g_u32OptLevel;
 extern u8 g_u8RunningPause;
 extern u8 g_u8RunningStop;
-
-extern u32 g_u32BurninCount;
-extern u32 g_u32RunningFlow1[50];
-extern u32 g_u32RunningFlow2[50];
-extern u32 g_u32WaitFlow1[50];
-extern u32 g_u32WaitFlow2[50];
-extern u8 g_u8DirectionFlow1[50];
-extern u8 g_u8DirectionFlow2[50];
-extern u8 g_u8RunningIndex;
-extern u8 g_u8FlowPumpOver;
-extern u8 g_u8FlowWaitOver;
-extern u8 g_u8FlowCount;
 extern u8 g_u8Inputing;
 
+extern volatile u32 g_u32BurninCount1;
+extern volatile u32 g_u32RunningFlow1[50];
+extern volatile u32 g_u32WaitFlow1[50];
+extern volatile u8 g_u8DirectionFlow1[50];
+extern volatile u8 g_u8RunningIndex1;
+extern volatile u8 g_u8FlowWaitOver1;
+extern volatile u8 g_u8FlowCount1;
+extern volatile u8 g_u8RunningStart1;
+extern volatile u32 g_u32FlowWaitCount1;
+
+extern volatile u32 g_u32BurninCount2;
+extern volatile u32 g_u32RunningFlow2[50];
+extern volatile u32 g_u32WaitFlow2[50];
+extern volatile u8 g_u8DirectionFlow2[50];
+extern volatile u8 g_u8RunningIndex2;
+extern volatile u8 g_u8FlowWaitOver2;
+extern volatile u8 g_u8FlowCount2;
+extern volatile u8 g_u8RunningStart2;
+extern volatile u32 g_u32FlowWaitCount2;
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

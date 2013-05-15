@@ -1069,7 +1069,7 @@ void CDebugPump1PageStyle(void)
 }
 void CDebugPump1RunPositive(void)
 {
-    PumpDetectRun(1,1,g_stUISetting.DebugPumpStep);
+    PumpFreeRun(1,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump1RunNegative(void)
 {
@@ -1091,11 +1091,11 @@ void CDebugPump2PageStyle(void)
 }
 void CDebugPump2RunPositive(void)
 {
-    PumpDetectRun(2,1,g_stUISetting.DebugPumpStep);
+    PumpFreeRun(2,1,g_stUISetting.DebugPumpStep);
 }
 void CDebugPump2RunNegative(void)
 {
-    PumpDetectRun(2,0,g_stUISetting.DebugPumpStep);
+    PumpFreeRun(2,0,g_stUISetting.DebugPumpStep);
 }
 void CDebugValve1PageStyle(void)
 {
@@ -1144,7 +1144,6 @@ void CTestBurnInPageStyle(void)
     CDispFloatAt(g_stUISetting.TestVol1,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
     RXLCD_DrawLine(240,147,400,148,color_black);
     CDrawButton(197,220,282,255,0,2);
-    EINTStop();
 }
 void CTestBurninStatusPageStyle(void)
 {
@@ -1152,28 +1151,118 @@ void CTestBurninStatusPageStyle(void)
     WriteString("老化测试状态表", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
     WriteString("当前老化行程:", _LEVEL5_ITEM_1_x, _LEVEL5_ITEM_1_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
     CDispFloatAt(g_stUISetting.TestVol1,0,_LEVEL5_VALUE_1_x,_LEVEL5_VALUE_1_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
-    WriteString("已运行次数:", _LEVEL5_ITEM_2_x, _LEVEL5_ITEM_2_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
-    CDispFloatAt(g_u32BurninCount,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+    WriteString("已运行次数(泵 1):", _LEVEL5_ITEM_2_x, _LEVEL5_ITEM_2_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDispFloatAt(g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+    WriteString("已运行次数(泵 2):", _LEVEL5_ITEM_3_x, _LEVEL5_ITEM_3_y, color_black, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    CDispFloatAt(g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
 
-    WriteString("提示: 点击暂停或停止后，将在本次老化结束后生效", 15, 200, DarkGreen, _FONT_SIZE_MIN,_TANSPERENT_ON);
+    //WriteString("提示: 点击暂停或停止后，将放弃本次老化立即生效", 15, 200, DarkGreen, _FONT_SIZE_MIN,_TANSPERENT_ON);
     CDrawButton(15,220,100,255,1,0);
+    CDrawButton(120,220,205,255,1,2);
+
+    CDrawButton(275,220,360,255,1,0);
     CDrawButton(380,220,465,255,1,2);
-    EINTStart();
 }
 void CTestBurninSetVol(void)
 {
-    g_u32BurninCount=0;
-    g_u8RunningPause=0;
-}
-void CTestBruninContinue(void)
-{
-    WriteString("           ", 220, 225, color_white, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
 
-    g_u8RunningPause=0;    
-    if(g_u8RunningStop==1)
+    g_u32BurninCount1=0;
+    g_u8FlowWaitOver1=1;
+    g_u8RunningIndex1=0;
+    g_u32RunningFlow1[0]=64000;
+    g_u32RunningFlow1[1]=64000;
+    g_u32WaitFlow1[0]=1;
+    g_u32WaitFlow1[1]=1;
+    g_u8DirectionFlow1[0]=1;
+    g_u8DirectionFlow1[1]=0;
+    g_u8FlowCount1=4;
+    enable_timer(0);
+    g_u8RunningStart1=1;
+
+    g_u32BurninCount2=0;
+    g_u8FlowWaitOver2=1;
+    g_u8RunningIndex2=0;
+    g_u32RunningFlow2[0]=64000;
+    g_u32RunningFlow2[1]=64000;
+    g_u32WaitFlow2[0]=1;
+    g_u32WaitFlow2[1]=1;
+    g_u8DirectionFlow2[0]=1;
+    g_u8DirectionFlow2[1]=0;
+    g_u8FlowCount2=4;
+    enable_timer(1);
+    g_u8RunningStart2=1;
+
+}
+void CTestBurninContinue1(void)
+{
+    if(g_u8RunningStart1==1)
     {
-        g_u8RunningStop=0;
-        g_u32BurninCount=0;
+        PumpCount[0]=0;
+        PumpSetEnable(1, _PUMP_DISABLE);
+        PumpSetLowPowerMode(1, _LOW_PWR);
+        g_u32FlowWaitCount1=0;
+        g_u8RunningStart1=0;
+        g_u8RunningIndex1=0;
+        g_u8FlowWaitOver1=1;
+        CDrawButton(15,220,100,255,1,1);
+    }
+    else
+    {
+        CDrawButton(15,220,100,255,1,0);
+        g_u8RunningStart1=1;
+    }
+}
+void CTestBurninContinue2(void)
+{
+    if(g_u8RunningStart2==1)
+    {
+        PumpCount[1]=0;
+        PumpSetEnable(2, _PUMP_DISABLE);
+        PumpSetLowPowerMode(2, _LOW_PWR);
+        g_u32FlowWaitCount2=0;
+        g_u8RunningStart2=0;
+        g_u8RunningIndex2=0;
+        g_u8FlowWaitOver2=1;
+        CDrawButton(275,220,360,255,1,1);
+    }
+    else
+    {
+        CDrawButton(275,220,360,255,1,0);
+        g_u8RunningStart2=1;
+    }
+}
+void CTestBurninStop1(void)
+{
+    if(g_u8RunningStart1==1)
+    {
+        PumpCount[0]=0;
+        PumpSetEnable(1, _PUMP_DISABLE);
+        PumpSetLowPowerMode(1, _LOW_PWR);
+        g_u32FlowWaitCount1=0;
+        g_u8RunningStart1=0;
+        g_u8RunningIndex1=0;
+        g_u8FlowWaitOver1=1;
+        g_u32BurninCount1=0;
+        WriteString("              ", _LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_white, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        CDispFloatAt(g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        CDrawButton(15,220,100,255,1,1);
+    }
+}
+void CTestBurninStop2(void)
+{
+    if(g_u8RunningStart2==1)
+    {
+        PumpCount[1]=0;
+        PumpSetEnable(2, _PUMP_DISABLE);
+        PumpSetLowPowerMode(2, _LOW_PWR);
+        g_u32FlowWaitCount2=0;
+        g_u8RunningStart2=0;
+        g_u8RunningIndex2=0;
+        g_u8FlowWaitOver2=1;
+        g_u32BurninCount2=0;
+        WriteString("              ", _LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_white, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        CDispFloatAt(g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+        CDrawButton(275,220,360,255,1,1);
     }
 }
 void CTestWaterWeighPageStyle(void)

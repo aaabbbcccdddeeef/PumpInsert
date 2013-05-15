@@ -31,25 +31,6 @@ volatile uint32_t eint0_counter;
 void EINT0_IRQHandler (void) 
 {
   SC -> EXTINT = EINT0;		/* clear interrupt */
-		
-  //eint0_counter++;
-    if((g_u8RunningPause==0))
-    {
-        if(ADC_X()>180)
-        {
-            g_u8RunningPause=1;
-            CDrawButton(15,220,100,255,1,1);
-            WriteString("ÔÝÍ£", 220, 225, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
-        }
-        else if(ADC_X()<60)
-        {
-            g_u8RunningPause=1;
-            //PumpReset(2);
-            CDrawButton(15,220,100,255,1,1);
-            g_u8RunningStop=1;
-            WriteString("Í£Ö¹", 220, 225, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_OFF);
-        }
-    }
 }
 
 /*****************************************************************************

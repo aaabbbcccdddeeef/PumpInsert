@@ -47,6 +47,9 @@ void PumpInit(void)
     GPIO0->FIODIR &= 0x00000000;
     GPIO0->FIODIR |= 0x07800fff;
     GPIO0->FIOSET |= 0x07800fff;
+
+    //PumpSetEnable(2, _PUMP_ENABLE);
+    //PumpSetLowPowerMode(2, _NORMAL_PWR);
 }
 void PumpSetEnable(u8 PumpSel, u32 enable)
 {
@@ -220,18 +223,18 @@ u32 PumpGetOpticStatus(u8 OptSel)
 void PumpNormal(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //指定方向以某个固定倍频数运动
 {
     if (cntRun <= 0) return;
-    init_timer( 1, TIME_10MS_INTERVAL / Freq);
+    init_timer( (PumpSel-1), TIME_10MS_INTERVAL / Freq);
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
     PumpSetStepMode(PumpSel, _StepMode(PumpSel-1));//	工作方式控制 1=HALF,0=FULL
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 
-    PumpNum[PumpSel - 1] = cntRun;
-    enable_timer(1);
-    while(PumpNum[PumpSel - 1]);
+    PumpCount[PumpSel - 1] = cntRun;
+    enable_timer((PumpSel-1));
+    while(PumpCount[PumpSel - 1]);
 
-    disable_timer(1);
+    disable_timer((PumpSel-1));
     PumpSetLowPowerMode(PumpSel, _LOW_PWR);
     PumpSetEnable(PumpSel, _PUMP_DISABLE);
 }
@@ -243,7 +246,7 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //以某个固定倍频
 {
     if (cntRun <= 0)
         return;
-    init_timer(1, TIME_10MS_INTERVAL / Freq );
+    init_timer((PumpSel-1), TIME_10MS_INTERVAL / Freq );
 
     PumpSetEnable(PumpSel, _PUMP_ENABLE);
     PumpSetLowPowerMode(PumpSel, _NORMAL_PWR);
@@ -251,9 +254,9 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //以某个固定倍频
     PumpSetDirection(PumpSel, 1 - direction);
     PumpSetClkLow(PumpSel);// 脉冲控制位
 
-    PumpNum[PumpSel - 1] = cntRun;
-    enable_timer(1);
-    while(PumpNum[PumpSel - 1])
+    PumpCount[PumpSel - 1] = cntRun;
+    enable_timer((PumpSel-1));
+    while(PumpCount[PumpSel - 1])
     {
         if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))   //idex光耦输出不遮挡灯不亮
         {
@@ -262,7 +265,7 @@ void PumpDetect(u8 PumpSel, u8 direction, u16 cntRun, u16 Freq) //以某个固定倍频
         }
     }
 
-    disable_timer(1);
+    disable_timer((PumpSel-1));
     PumpSetLowPowerMode(PumpSel, _LOW_PWR);
     PumpSetEnable(PumpSel, _PUMP_DISABLE);
 }
@@ -412,6 +415,7 @@ void PumpReset(u8 PumpSel )
 
 void PumpBurnIn(u8 PumpSel, u8 VolTest)
 {
+/*
     PumpReset(PumpSel);
     Delay10ms(100);
     //DelayMeasure(6); //1，复位称重
@@ -427,6 +431,12 @@ void PumpBurnIn(u8 PumpSel, u8 VolTest)
     PumpOut(PumpSel, VolTest * _nuL2Step(PumpSel-1) * _nStep2Pulse(PumpSel-1));
     Delay10ms(100); //无背隙排出
     Delay10ms(100); //5，排液称重
+    */
+    PumpFreeRun(1, 0, 64000);
+ Delay10ms(1);
+ PumpFreeRun(1, 1, 64000);
+ Delay10ms(1);
+
 }
 /*-------------------------end of line--------------------------------*/
 

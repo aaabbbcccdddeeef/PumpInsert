@@ -14,7 +14,8 @@
 #include "pump.h"
 #include "main.h"
 #include "eeprom_flash.h"
-volatile uint32_t PumpNum[3] = {0,0,0};
+
+volatile uint32_t PumpCount[2]={0,0};
 /*****************************************************************************
 ** Function name:		delayMs
 **
@@ -57,42 +58,11 @@ void Delay1ms(uint32_t delayInMs)
 void TIMER0_IRQHandler (void) 
 {  
     TIM0 ->IR = 1;			/* clear interrupt flag */
-
-    if(g_u8RunningPause==0)
+    if(PumpCount[0]!=0)
     {
-        if((g_u32RunningFlow1[g_u8RunningIndex]!=0)&&(g_u8FlowWaitOver==1)&&(g_u8FlowPumpOver==0))
-        {
-            GPIO0->FIOPIN ^= (1<<2);
-            if(--g_u32RunningFlow1[g_u8RunningIndex]==0)
-            {
-                GPIO0->FIOPIN |= 1 << 3;;//PumpSetLowPowerMode(1, _LOW_PWR);
-                g_u8FlowPumpOver=1;
-                if(g_u32WaitFlow1[g_u8RunningIndex]!=0)
-                    g_u8FlowWaitOver=0;
-            }
-        }
-        else
-        {
-            if(((g_u8RunningIndex+1)<g_u8FlowCount)&&(g_u8FlowPumpOver==1)&&(g_u8FlowWaitOver==1))
-            {
-                g_u8RunningIndex++;
-                if(g_u8DirectionFlow1[g_u8RunningIndex]== _DIR_POS)
-                    GPIO0->FIOPIN &= ~(1 << 1);
-                else if(g_u8DirectionFlow1[g_u8RunningIndex] == _DIR_NEG)
-                    GPIO0->FIOPIN |= 1 << 1;
-                g_u8FlowPumpOver=0;
-                
-            }
-            else if(((g_u8RunningIndex+1)==g_u8FlowCount)&&(g_u8FlowPumpOver==1)&&(g_u8FlowWaitOver==1))
-            {
-                GPIO0->FIOPIN |= 1 << 0;;//PumpSetEnable(1, _PUMP_DISABLE);
-                g_u8RunningPause=1;
-            }
-            else
-            {
-                GPIO0->FIOPIN |= 1 << 0;;//PumpSetEnable(1, _PUMP_DISABLE);
-            }
-        }
+         if(--PumpCount[0]==0)
+            g_u8RunningIndex1++;
+         GPIO0->FIOPIN ^= (1<<2);
     }
 
 }
@@ -111,18 +81,12 @@ void TIMER1_IRQHandler (void)
 {  
   TIM1 ->IR = 1;			/* clear interrupt flag */
 
-    if(PumpNum[0]!=0)
+  if(PumpCount[1]!=0)
     {
-         PumpNum[0]--;
-         GPIO0->FIOPIN ^= (1<<2);
-    }
-    /*
-    if(PumpNum[1]!=0)
-    {
-         PumpNum[1]--;
+         if(--PumpCount[1]==0)
+            g_u8RunningIndex2++;
          GPIO0->FIOPIN ^= (1<<6);
     }
-*/
 }
 
 
@@ -138,11 +102,6 @@ void TIMER1_IRQHandler (void)
 void TIMER2_IRQHandler (void)  
 {  
   TIM2 ->IR = 1;			/* clear interrupt flag */
-    if(PumpNum[0]!=0)
-    {
-         PumpNum[0]--;
-         GPIO0->FIOPIN ^= (1<<2);
-    }
 
 
 }
@@ -160,11 +119,6 @@ void TIMER2_IRQHandler (void)
 void TIMER3_IRQHandler (void)  
 {  
   TIM3 ->IR = 1;			/* clear interrupt flag */
-  if(PumpNum[1]!=0)
-    {
-         PumpNum[1]--;
-         GPIO0->FIOPIN ^= (1<<6);
-    }
 }
 
 
@@ -274,7 +228,6 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
 
   if ( timer_num == 0 )
   {
-	PumpNum[0] = 0;
 	TIM0 ->MR0 = TimerInterval;
 	TIM0 ->MCR = 3;				/* Interrupt and Reset on MR0 */
 
@@ -284,7 +237,6 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
   }
   else if ( timer_num == 1 )
   {
-	PumpNum[1] = 0;
 	TIM1 ->MR0 = TimerInterval;
 	TIM1 ->MCR = 3;				/* Interrupt and Reset on MR1 */
 
@@ -295,7 +247,6 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
   else if ( timer_num == 2 )
   {
       SC->PCONP       |=  (1<<22);                
-	PumpNum[0] = 0;
 	TIM2 ->MR0 = TimerInterval;
 	TIM2 ->MCR = 3;				/* Interrupt and Reset on MR1 */
 
@@ -306,7 +257,6 @@ uint32_t init_timer ( uint8_t timer_num, uint32_t TimerInterval )
   else if ( timer_num == 3 )
   {
         SC->PCONP       |=  (1<<23);                
-	PumpNum[1] = 0;
 	TIM3 ->MR0 = TimerInterval;
 	TIM3 ->MCR = 3;				/* Interrupt and Reset on MR1 */
 
