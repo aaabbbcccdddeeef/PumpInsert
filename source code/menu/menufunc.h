@@ -98,6 +98,7 @@ extern void CTestBurninContinue2(void);
 extern void CTestBurninStop1(void);
 extern void CTestBurninStop2(void);
 extern void CTestBurninStatusPageStyle(void);
+extern void CTestExitBurninStatus(void);
 
 extern void CTestWaterWeighPageStyle(void);
 extern void CTestBacklashPageStyle(void);

@@ -1265,6 +1265,38 @@ void CTestBurninStop2(void)
         CDrawButton(275,220,360,255,1,1);
     }
 }
+void CTestExitBurninStatus(void)
+{
+    u8 i=0;
+
+    g_u8RunningStart1=0;
+    g_u8RunningStart2=0;
+    PumpCount[0]=0;
+    PumpCount[1]=0;
+    Delay10ms(1);
+    PumpSetEnable(1, _PUMP_DISABLE);
+    PumpSetLowPowerMode(1, _LOW_PWR);
+    PumpSetEnable(2, _PUMP_DISABLE);
+    PumpSetLowPowerMode(2, _LOW_PWR);
+
+    g_u32FlowWaitCount1=0;
+    g_u8RunningIndex1=0;
+    g_u8FlowWaitOver1=1;
+    g_u32BurninCount1=0;
+    g_u32FlowWaitCount2=0;
+    g_u8RunningIndex2=0;
+    g_u8FlowWaitOver2=1;
+    g_u32BurninCount2=0;
+    for(i=0;i<50;i++)
+    {
+        g_u32RunningFlow1[i]=0;
+        g_u32WaitFlow1[i]=0;
+        g_u8DirectionFlow1[i]=0;
+        g_u32RunningFlow2[i]=0;
+        g_u32WaitFlow2[i]=0;
+        g_u8DirectionFlow2[i]=0;
+    }
+}
 void CTestWaterWeighPageStyle(void)
 {
     WriteString("³ÆË®²âÊÔ", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);

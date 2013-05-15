@@ -1538,7 +1538,7 @@ MenuItemType TestBurninStatusMenuItems[]=
         CDrawSelPicture,			// SelPicFunction
         CNull_u8,			// UnselPicFunction
         CDrawPrevPage5,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CTestExitBurninStatus,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
