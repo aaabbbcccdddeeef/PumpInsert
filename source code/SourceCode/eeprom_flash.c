@@ -437,7 +437,7 @@ void CFlashSavePumpSetting(u8 Index)
             flash_buf[2*i+0] = g_stPumpSetting[Index].Freq[i]>>8;
             flash_buf[2*i+1] = g_stPumpSetting[Index].Freq[i]&0x00ff;
         }
-        for(i=0;i<10;i++)
+        for(i=0;i<20;i++)
             flash_buf[40+i] = g_stPumpSetting[Index].Step[i];
         flash_buf[60] = g_stPumpSetting[Index].StepNum;
         flash_buf[61] = g_stPumpSetting[Index].BackLash>>8;

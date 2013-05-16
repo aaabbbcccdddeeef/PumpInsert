@@ -90,7 +90,7 @@ void CFlow1Event(void)
         {
             if(g_u8RunningIndex1%2==0)
             {
-                TIM0 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow1[g_u8RunningIndex1/2];
+                //TIM0 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow1[g_u8RunningIndex1/2];
                 PumpSetEnable(1, _PUMP_ENABLE);
                 PumpSetLowPowerMode(1, _NORMAL_PWR);
                 PumpSetStepMode(1, g_stPumpSetting[0].StepMode);
