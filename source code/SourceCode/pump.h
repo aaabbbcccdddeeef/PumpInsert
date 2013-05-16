@@ -38,6 +38,10 @@
 #define _STEP_MODE_QUARTER          2
 #define _STEP_MODE_SIXTEENTH       3
 
+#define LenOfScheme1            2
+#define LenOfScheme2            2
+
+
 extern u8 nMaxEffClass;
 
 extern void PumpInit(void);
@@ -58,6 +62,9 @@ extern void PumpReset(u8 PumpSel );
 extern void PumpTest(void);
 extern void PumpBurnIn(u8 PumpSel, u8 VolTest);
 extern u32 PumpGetOpticStatus(u8 OptSel);
+extern void Pump1ReloadScheme(u8 FlowIndex);
+extern void Pump2ReloadScheme(u8 FlowIndex);
+
 #endif
 
 

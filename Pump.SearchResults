@@ -1,18 +1,8 @@
----- PumpSetEnable Matches (17 in 4 files) ----
-Menufunc.c (source code\menu):        PumpSetEnable(1, _PUMP_DISABLE);
-Menufunc.c (source code\menu):        PumpSetEnable(2, _PUMP_DISABLE);
-Menufunc.c (source code\menu):        PumpSetEnable(1, _PUMP_DISABLE);
-Menufunc.c (source code\menu):        PumpSetEnable(2, _PUMP_DISABLE);
-Menufunc.c (source code\menu):    PumpSetEnable(1, _PUMP_DISABLE);
-Menufunc.c (source code\menu):    PumpSetEnable(2, _PUMP_DISABLE);
-Pump.c (source code\sourcecode):    //PumpSetEnable(2, _PUMP_ENABLE);
-Pump.c (source code\sourcecode):void PumpSetEnable(u8 PumpSel, u32 enable)
-Pump.c (source code\sourcecode):    PumpSetEnable(PumpSel, _PUMP_ENABLE);
-Pump.c (source code\sourcecode):    PumpSetEnable(PumpSel, _PUMP_DISABLE);
-Pump.c (source code\sourcecode):    PumpSetEnable(PumpSel, _PUMP_ENABLE);
-Pump.c (source code\sourcecode):    PumpSetEnable(PumpSel, _PUMP_DISABLE);
-Pump.h (source code\sourcecode):extern void PumpSetEnable(u8 PumpSel, u32 enable);
-System.c (source code\sourcecode):                PumpSetEnable(1, _PUMP_ENABLE);
-System.c (source code\sourcecode):                PumpSetEnable(1, _PUMP_DISABLE);
-System.c (source code\sourcecode):                PumpSetEnable(2, _PUMP_ENABLE);
-System.c (source code\sourcecode):                PumpSetEnable(2, _PUMP_DISABLE);
+---- g_u8SchemeIndex1 Matches (7 in 3 files) ----
+Main.h (source code\sourcecode):u8 g_u8SchemeIndex1=0;
+Main.h (source code\sourcecode):extern u8 g_u8SchemeIndex1;
+Menufunc.c (source code\menu):    g_u8SchemeIndex1=0;
+Menufunc.c (source code\menu):    Pump1ReloadScheme(g_u8SchemeIndex1);
+System.c (source code\sourcecode):            if(++g_u8SchemeIndex1==LenOfScheme1)
+System.c (source code\sourcecode):                g_u8SchemeIndex1=0;
+System.c (source code\sourcecode):            Pump1ReloadScheme(g_u8SchemeIndex1);

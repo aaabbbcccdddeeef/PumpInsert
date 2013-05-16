@@ -1165,7 +1165,7 @@ void CTestBurninStatusPageStyle(void)
 }
 void CTestBurninSetVol(void)
 {
-
+/*
     g_u32BurninCount1=0;
     g_u8FlowWaitOver1=1;
     g_u8RunningIndex1=0;
@@ -1176,9 +1176,19 @@ void CTestBurninSetVol(void)
     g_u8DirectionFlow1[0]=1;
     g_u8DirectionFlow1[1]=0;
     g_u8FlowCount1=4;
+    */
+    g_u32BurninCount1=0;
+    g_u8SchemeIndex1=0;
+    Pump1ReloadScheme(g_u8SchemeIndex1);
     enable_timer(0);
     g_u8RunningStart1=1;
 
+    g_u32BurninCount2=0;
+    g_u8SchemeIndex2=0;
+    Pump1ReloadScheme(g_u8SchemeIndex2);
+    enable_timer(1);
+    g_u8RunningStart2=1;
+/*
     g_u32BurninCount2=0;
     g_u8FlowWaitOver2=1;
     g_u8RunningIndex2=0;
@@ -1191,7 +1201,7 @@ void CTestBurninSetVol(void)
     g_u8FlowCount2=4;
     enable_timer(1);
     g_u8RunningStart2=1;
-
+*/
 }
 void CTestBurninContinue1(void)
 {

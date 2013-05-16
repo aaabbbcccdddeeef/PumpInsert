@@ -90,6 +90,7 @@ void CFlow1Event(void)
         {
             if(g_u8RunningIndex1%2==0)
             {
+                TIM0 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow1[g_u8RunningIndex1/2];
                 PumpSetEnable(1, _PUMP_ENABLE);
                 PumpSetLowPowerMode(1, _NORMAL_PWR);
                 PumpSetStepMode(1, g_stPumpSetting[0].StepMode);
@@ -112,10 +113,17 @@ void CFlow1Event(void)
         }
         else if((g_u8RunningIndex1==g_u8FlowCount1)&&(g_u8FlowWaitOver1==1))
         {
-            g_u8RunningIndex1=0;
+            //g_u8RunningIndex1=0;
             //g_u8RunningStart1=0;
-            //g_u8FlowCount1=0;
+            
+            if(++g_u8SchemeIndex1==LenOfScheme1)
+            {
+                g_u8SchemeIndex1=0;
             CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+            }
+            Pump1ReloadScheme(g_u8SchemeIndex1);
+
+            //g_u8FlowCount1=0;
         }
     }
 }
@@ -127,6 +135,7 @@ void CFlow2Event(void)
         {
             if(g_u8RunningIndex2%2==0)
             {
+                TIM1 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow2[g_u8RunningIndex2/2];
                 PumpSetEnable(2, _PUMP_ENABLE);
                 PumpSetLowPowerMode(2, _NORMAL_PWR);
                 PumpSetStepMode(2, g_stPumpSetting[1].StepMode);
@@ -149,10 +158,15 @@ void CFlow2Event(void)
         }
         else if((g_u8RunningIndex2==g_u8FlowCount2)&&(g_u8FlowWaitOver2==1))
         {
-            g_u8RunningIndex2=0;
+            //g_u8RunningIndex2=0;
             //g_u8RunningStart2=0;
             //g_u8FlowCount2=0;
-            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+            if(++g_u8SchemeIndex2==LenOfScheme2)
+            {
+                g_u8SchemeIndex2=0;
+            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+            }
+            Pump2ReloadScheme(g_u8SchemeIndex2);
         }
     }
 }

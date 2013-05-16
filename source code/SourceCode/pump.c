@@ -23,6 +23,7 @@
 #include "math.h"
 #include "systick.h"
 #include "struct.h"
+#include "main.h"
 /********************************************************
                        加减速参数
 ********************************************************/
@@ -42,14 +43,17 @@ u8 nMaxEffClass = 0;  //最大可用台阶
 #define _STEP_H(a)      g_stPumpSetting[a].Freq
 
 
+
 void PumpInit(void)
 {
     GPIO0->FIODIR &= 0x00000000;
     GPIO0->FIODIR |= 0x07800fff;
     GPIO0->FIOSET |= 0x07800fff;
-
-    //PumpSetEnable(2, _PUMP_ENABLE);
-    //PumpSetLowPowerMode(2, _NORMAL_PWR);
+    
+    PumpSetEnable(1, _PUMP_DISABLE);
+    PumpSetLowPowerMode(1, _LOW_PWR);
+    PumpSetEnable(2, _PUMP_DISABLE);
+    PumpSetLowPowerMode(2, _LOW_PWR);
 }
 void PumpSetEnable(u8 PumpSel, u32 enable)
 {
@@ -437,6 +441,194 @@ void PumpBurnIn(u8 PumpSel, u8 VolTest)
  PumpFreeRun(1, 1, 64000);
  Delay10ms(1);
 
+}
+u32 Scheme1[LenOfScheme1][3]=
+{
+    //PulseNum,Delay,Direction
+        {64000,100,1},
+        {64000,100,0},
+};
+u32 Scheme2[LenOfScheme2][3]=
+{
+    //PulseNum,Delay,Direction
+        {64000,100,1},
+        {64000,100,0},
+};
+void Pump1ReloadScheme(u8 FlowIndex)
+{
+    u8 i=0;
+    u8 j=0;
+    u8 MaxEffClass=0;
+
+
+    PumpCount[0]=0;
+    Delay10ms(1);
+    PumpSetEnable(1, _PUMP_DISABLE);
+    PumpSetLowPowerMode(1, _LOW_PWR);
+
+    g_u32FlowWaitCount1=0;
+    g_u8RunningIndex1=0;
+    g_u8FlowWaitOver1=1;
+    //g_u32BurninCount1=0;
+    for(i=0;i<50;i++)
+    {
+        g_u32RunningFlow1[i]=0;
+        g_u32WaitFlow1[i]=0;
+        g_u8DirectionFlow1[i]=0;
+    }
+
+    if (Scheme1[FlowIndex][0] > PumpStartStopSteps(1,_MaxStepCount(0)) * _nStep2Pulse(0)) //超过加减速脉冲数
+    {
+        //--------起步台阶--------
+        for(i=0;i<_MaxStepCount(0);i++)
+        {
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i];
+            g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
+            g_u32WaitFlow1[i]=0;
+            g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
+        }
+        //--------匀速阶段--------
+        g_u32RunningFlow1[i]=Scheme1[FlowIndex][0] - PumpStartStopSteps(1,_MaxStepCount(0)) * _nStep2Pulse(0);
+        g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[_MaxStepCount(0)-1];
+        g_u32WaitFlow1[i]=0;
+        g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
+        i++;
+        //--------减速台阶--------
+        for(j=0;j<_MaxStepCount(0);j++)
+        {
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[_MaxStepCount(0)-1-j];
+            g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[_MaxStepCount(0)-1-j];
+            g_u32WaitFlow1[i+j]=0;
+            g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
+        }
+        g_u32WaitFlow1[i+j-1]=Scheme1[FlowIndex][1];//最后一步设置延迟
+        g_u8FlowCount1 = (_MaxStepCount(0)+1+_MaxStepCount(0))*2;
+    
+    }
+    else if (Scheme1[FlowIndex][0] <= 2 *  _FullStepPerClass(0)[0] * _nStep2Pulse(0)) //不超过第一个台阶
+    {
+        g_u32RunningFlow1[0]=Scheme1[FlowIndex][0];
+        g_u16FreqFlow1[0]=g_stPumpSetting[0].Freq[0];
+        g_u32WaitFlow1[0]=Scheme1[FlowIndex][1];
+        g_u8DirectionFlow1[0]=Scheme1[FlowIndex][2];
+        g_u8FlowCount1=2;
+    }
+    else
+    {
+        MaxEffClass = PumpGetMiddleStepIndex(1, Scheme1[FlowIndex][0]);
+        //--------起步台阶--------
+        for(i = 0; i < MaxEffClass; i++)
+        {
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i];
+            g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
+            g_u32WaitFlow1[i]=0;
+            g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
+        }
+        //--------匀速阶段--------
+        g_u32RunningFlow1[i]=Scheme1[FlowIndex][0] - PumpStartStopSteps(1,MaxEffClass) * _nStep2Pulse(0);
+        g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[MaxEffClass];
+        g_u32WaitFlow1[i]=0;
+        g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
+        i++;
+        //--------减速台阶--------
+        for(j=0;j<MaxEffClass;j++)
+        {
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[MaxEffClass-j];
+            g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[MaxEffClass-j];
+            g_u32WaitFlow1[i+j]=0;
+            g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
+        }
+        g_u32WaitFlow1[i+j-1]=Scheme1[FlowIndex][1];//最后一步设置延迟
+        g_u8FlowCount1 = (MaxEffClass+1+MaxEffClass)*2;
+    }
+}
+void Pump2ReloadScheme(u8 FlowIndex)
+{
+    u8 i=0;
+    u8 j=0;
+    u8 MaxEffClass=0;
+
+
+    PumpCount[1]=0;
+    Delay10ms(1);
+    PumpSetEnable(2, _PUMP_DISABLE);
+    PumpSetLowPowerMode(2, _LOW_PWR);
+
+    g_u32FlowWaitCount2=0;
+    g_u8RunningIndex2=0;
+    g_u8FlowWaitOver2=1;
+    //g_u32BurninCount1=0;
+    for(i=0;i<50;i++)
+    {
+        g_u32RunningFlow2[i]=0;
+        g_u32WaitFlow2[i]=0;
+        g_u8DirectionFlow2[i]=0;
+    }
+
+    if (Scheme2[FlowIndex][0] > PumpStartStopSteps(2,_MaxStepCount(1)) * _nStep2Pulse(1)) //超过加减速脉冲数
+    {
+        //--------起步台阶--------
+        for(i=0;i<_MaxStepCount(1);i++)
+        {
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i];
+            g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
+            g_u32WaitFlow2[i]=0;
+            g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
+        }
+        //--------匀速阶段--------
+        g_u32RunningFlow2[i]=Scheme2[FlowIndex][0] - PumpStartStopSteps(2,_MaxStepCount(1)) * _nStep2Pulse(1);
+        g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[_MaxStepCount(1)-1];
+        g_u32WaitFlow2[i]=0;
+        g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
+        i++;
+        //--------减速台阶--------
+        for(j=0;j<_MaxStepCount(1);j++)
+        {
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[_MaxStepCount(1)-1-j];
+            g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[_MaxStepCount(1)-1-j];
+            g_u32WaitFlow2[i+j]=0;
+            g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];
+        }
+        g_u32WaitFlow2[i+j-1]=Scheme2[FlowIndex][1];//最后一步设置延迟
+        g_u8FlowCount2 = (_MaxStepCount(1)+1+_MaxStepCount(1))*2;
+    
+    }
+    else if (Scheme2[FlowIndex][0] <= 2 *  _FullStepPerClass(1)[0] * _nStep2Pulse(1)) //不超过第一个台阶
+    {
+        g_u32RunningFlow2[0]=Scheme2[FlowIndex][0];
+        g_u16FreqFlow2[0]=g_stPumpSetting[1].Freq[0];
+        g_u32WaitFlow2[0]=Scheme2[FlowIndex][1];
+        g_u8DirectionFlow2[0]=Scheme2[FlowIndex][2];
+        g_u8FlowCount2=2;
+    }
+    else
+    {
+        MaxEffClass = PumpGetMiddleStepIndex(2, Scheme2[FlowIndex][0]);
+        //--------起步台阶--------
+        for(i = 0; i < MaxEffClass; i++)
+        {
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i];
+            g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
+            g_u32WaitFlow2[i]=0;
+            g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
+        }
+        //--------匀速阶段--------
+        g_u32RunningFlow2[i]=Scheme2[FlowIndex][0] - PumpStartStopSteps(2,MaxEffClass) * _nStep2Pulse(1);
+        g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[MaxEffClass];
+        g_u32WaitFlow2[i]=0;
+        g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
+        i++;
+        //--------减速台阶--------
+        for(j=0;j<MaxEffClass;j++)
+        {
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[MaxEffClass-j];
+            g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[MaxEffClass-j];
+            g_u32WaitFlow2[i+j]=0;
+            g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];
+        }
+        g_u32WaitFlow2[i+j-1]=Scheme2[FlowIndex][1];//最后一步设置延迟
+        g_u8FlowCount2 = (MaxEffClass+1+MaxEffClass)*2;
+    }
 }
 /*-------------------------end of line--------------------------------*/
 
