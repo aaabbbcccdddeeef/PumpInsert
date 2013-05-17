@@ -93,18 +93,19 @@ void CFlow1Event(void)
                 TIM0 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow1[g_u8RunningIndex1/2];
                 reset_timer(0);
                 enable_timer(0);
-                PumpSetEnable(1, _PUMP_ENABLE);
-                PumpSetLowPowerMode(1, _NORMAL_PWR);
-                PumpSetStepMode(1, g_stPumpSetting[0].StepMode);
-                PumpSetDirection(1, g_u8DirectionFlow1[g_u8RunningIndex1/2]);
-                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
-                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                if(g_u8RunningIndex1==0)
+                {
+                    PumpSetEnable(1, _PUMP_ENABLE);
+                    PumpSetLowPowerMode(1, _NORMAL_PWR);
+                    PumpSetStepMode(1, g_stPumpSetting[0].StepMode);
+                    PumpSetDirection(1, g_u8DirectionFlow1[g_u8RunningIndex1/2]);
+                    __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                    __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                }
                 PumpCount[0]= g_u32RunningFlow1[g_u8RunningIndex1/2];
             }
             else
             {
-                PumpSetEnable(1, _PUMP_DISABLE);
-                PumpSetLowPowerMode(1, _LOW_PWR);
                 g_u8FlowWaitOver1=0;
                 g_u32FlowWaitCount1 = g_u32WaitFlow1[(g_u8RunningIndex1-1)/2];
                 if(g_u32FlowWaitCount1==0)
@@ -117,7 +118,8 @@ void CFlow1Event(void)
         {
             //g_u8RunningIndex1=0;
             //g_u8RunningStart1=0;
-            
+            PumpSetEnable(1, _PUMP_DISABLE);
+            PumpSetLowPowerMode(1, _LOW_PWR);
             if(++g_u8SchemeIndex1==LenOfScheme1)
             {
                 g_u8SchemeIndex1=0;
@@ -140,18 +142,19 @@ void CFlow2Event(void)
                 TIM1 ->MR0 = TIME_10MS_INTERVAL/g_u16FreqFlow2[g_u8RunningIndex2/2];
                 reset_timer(1);
                 enable_timer(1);
-                PumpSetEnable(2, _PUMP_ENABLE);
-                PumpSetLowPowerMode(2, _NORMAL_PWR);
-                PumpSetStepMode(2, g_stPumpSetting[1].StepMode);
-                PumpSetDirection(2, g_u8DirectionFlow2[g_u8RunningIndex2/2]);
-                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
-                __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                if(g_u8RunningIndex2==0)
+                {
+                    PumpSetEnable(2, _PUMP_ENABLE);
+                    PumpSetLowPowerMode(2, _NORMAL_PWR);
+                    PumpSetStepMode(2, g_stPumpSetting[1].StepMode);
+                    PumpSetDirection(2, g_u8DirectionFlow2[g_u8RunningIndex2/2]);
+                    __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                    __nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();__nop();
+                }
                 PumpCount[1]= g_u32RunningFlow2[g_u8RunningIndex2/2];
             }
             else
             {
-                PumpSetEnable(2, _PUMP_DISABLE);
-                PumpSetLowPowerMode(2, _LOW_PWR);
                 g_u8FlowWaitOver2=0;
                 g_u32FlowWaitCount2 = g_u32WaitFlow2[(g_u8RunningIndex2-1)/2];
                 if(g_u32FlowWaitCount2==0)
@@ -165,6 +168,8 @@ void CFlow2Event(void)
             //g_u8RunningIndex2=0;
             //g_u8RunningStart2=0;
             //g_u8FlowCount2=0;
+            PumpSetEnable(2, _PUMP_DISABLE);
+            PumpSetLowPowerMode(2, _LOW_PWR);
             if(++g_u8SchemeIndex2==LenOfScheme2)
             {
                 g_u8SchemeIndex2=0;

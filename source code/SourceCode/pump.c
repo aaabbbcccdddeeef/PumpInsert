@@ -482,7 +482,7 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------起步台阶--------
         for(i=0;i<_MaxStepCount(0);i++)
         {
-            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i];
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0);
             g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
             g_u32WaitFlow1[i]=0;
             g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
@@ -496,7 +496,7 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------减速台阶--------
         for(j=0;j<_MaxStepCount(0);j++)
         {
-            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[_MaxStepCount(0)-1-j];
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[_MaxStepCount(0)-1-j]* _nStep2Pulse(0);
             g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[_MaxStepCount(0)-1-j];
             g_u32WaitFlow1[i+j]=0;
             g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
@@ -519,7 +519,7 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------起步台阶--------
         for(i = 0; i < MaxEffClass; i++)
         {
-            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i];
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0);
             g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
             g_u32WaitFlow1[i]=0;
             g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
@@ -533,7 +533,7 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------减速台阶--------
         for(j=0;j<MaxEffClass;j++)
         {
-            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[MaxEffClass-j];
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[MaxEffClass-j]* _nStep2Pulse(0);
             g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[MaxEffClass-j];
             g_u32WaitFlow1[i+j]=0;
             g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
@@ -570,7 +570,7 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------起步台阶--------
         for(i=0;i<_MaxStepCount(1);i++)
         {
-            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i];
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0);
             g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
             g_u32WaitFlow2[i]=0;
             g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
@@ -584,7 +584,7 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------减速台阶--------
         for(j=0;j<_MaxStepCount(1);j++)
         {
-            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[_MaxStepCount(1)-1-j];
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[_MaxStepCount(1)-1-j]* _nStep2Pulse(0);
             g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[_MaxStepCount(1)-1-j];
             g_u32WaitFlow2[i+j]=0;
             g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];
@@ -607,7 +607,7 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------起步台阶--------
         for(i = 0; i < MaxEffClass; i++)
         {
-            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i];
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0);
             g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
             g_u32WaitFlow2[i]=0;
             g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
@@ -621,7 +621,7 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------减速台阶--------
         for(j=0;j<MaxEffClass;j++)
         {
-            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[MaxEffClass-j];
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[MaxEffClass-j]* _nStep2Pulse(0);
             g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[MaxEffClass-j];
             g_u32WaitFlow2[i+j]=0;
             g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];

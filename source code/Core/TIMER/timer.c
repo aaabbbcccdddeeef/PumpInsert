@@ -14,6 +14,7 @@
 #include "pump.h"
 #include "main.h"
 #include "eeprom_flash.h"
+#include "struct.h"
 
 volatile uint32_t PumpCount[2]={0,0};
 /*****************************************************************************
@@ -57,7 +58,13 @@ void Delay1ms(uint32_t delayInMs)
 ******************************************************************************/
 void TIMER0_IRQHandler (void) 
 {  
+    uint32_t optS =  GPIO0->FIOPIN & (1 << 19);
     TIM0 ->IR = 1;			/* clear interrupt flag */
+    if(((optS>>19)==g_stOptSetting.OptShieldLevel[0])&&((GPIO0->FIOPIN & (1 << 1))==0))
+    {
+            PumpCount[0]=0;
+            g_u8RunningIndex1=g_u8FlowCount1;
+    }
     if(PumpCount[0]!=0)
     {
          if(--PumpCount[0]==0)
@@ -79,8 +86,15 @@ void TIMER0_IRQHandler (void)
 ******************************************************************************/
 void TIMER1_IRQHandler (void)  
 {  
+    uint32_t optS =  GPIO0->FIOPIN & (1 << 20);
+
   TIM1 ->IR = 1;			/* clear interrupt flag */
 
+    if(((optS>>20)==g_stOptSetting.OptShieldLevel[1])&&((GPIO0->FIOPIN & (1 << 5))==0))
+    {
+            PumpCount[1]=0;
+            g_u8RunningIndex2=g_u8FlowCount2;
+    }
   if(PumpCount[1]!=0)
     {
          if(--PumpCount[1]==0)
