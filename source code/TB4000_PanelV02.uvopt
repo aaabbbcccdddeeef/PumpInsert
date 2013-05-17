@@ -149,7 +149,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=1010,326,1280,712,0)(261=821,318,1127,738,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=210,250,726,727,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=192,97,624,590,0)(240=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=1010,326,1280,712,0)(261=821,318,1127,738,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=904,249,1420,726,1)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=192,97,624,590,0)(240=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -167,38 +167,6 @@
           <Name>-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>118</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>19622</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\TB4000_PanelV02\system\118</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>536</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>18988</Address>
-          <ByteObject>0</ByteObject>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\TB4000_PanelV02\pump\536</Expression>
-        </Bp>
-      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -471,7 +439,7 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>130</TopLine>
-      <CurrentLine>137</CurrentLine>
+      <CurrentLine>131</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -540,7 +508,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>525</TopLine>
+      <TopLine>527</TopLine>
       <CurrentLine>535</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\pump.c</PathWithFileName>
@@ -554,8 +522,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>108</TopLine>
-      <CurrentLine>118</CurrentLine>
+      <TopLine>86</TopLine>
+      <CurrentLine>96</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
       <FilenameWithoutPath>system.c</FilenameWithoutPath>
@@ -612,7 +580,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
     <TopLine>35</TopLine>
     <CurrentLine>43</CurrentLine>
     <Constant>0</Constant>
@@ -638,7 +606,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>20</TopLine>
     <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
@@ -664,7 +632,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
     <TopLine>143</TopLine>
     <CurrentLine>143</CurrentLine>
     <Constant>0</Constant>
@@ -690,7 +658,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\Core\SysTick\systick.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\Core\SysTick\systick.h</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>1</CurrentLine>
     <Constant>0</Constant>
@@ -716,7 +684,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
     <TopLine>43</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -742,8 +710,8 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>4</TopLine>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
+    <TopLine>1</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -768,7 +736,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
+    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
     <TopLine>41</TopLine>
     <CurrentLine>45</CurrentLine>
     <Constant>0</Constant>
@@ -798,7 +766,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>1</ActiveTab>
+      <ActiveTab>6</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\menu\menufunc.c</Name>
@@ -809,7 +777,7 @@
         <Doc>
           <Name>.\SourceCode\pump.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>525</TopLine>
+          <TopLine>527</TopLine>
           <CurrentLine>535</CurrentLine>
         </Doc>
         <Doc>
@@ -827,7 +795,7 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>4</TopLine>
+          <TopLine>1</TopLine>
           <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>
@@ -840,13 +808,13 @@
           <Name>.\SourceCode\main.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>130</TopLine>
-          <CurrentLine>137</CurrentLine>
+          <CurrentLine>131</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\system.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>108</TopLine>
-          <CurrentLine>118</CurrentLine>
+          <TopLine>86</TopLine>
+          <CurrentLine>96</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\TIMER\timer.c</Name>
