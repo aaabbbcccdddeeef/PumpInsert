@@ -375,7 +375,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>52</TopLine>
+      <TopLine>53</TopLine>
       <CurrentLine>63</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\TIMER\timer.c</PathWithFileName>
@@ -520,10 +520,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>50</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>88</TopLine>
-      <CurrentLine>96</CurrentLine>
+      <CurrentLine>107</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
       <FilenameWithoutPath>system.c</FilenameWithoutPath>
@@ -580,7 +580,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\include.h</PathWithFilename>
     <TopLine>35</TopLine>
     <CurrentLine>43</CurrentLine>
     <Constant>0</Constant>
@@ -606,7 +606,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menutbl.h</PathWithFilename>
     <TopLine>20</TopLine>
     <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
@@ -632,7 +632,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\eeprom_flash.h</PathWithFilename>
     <TopLine>143</TopLine>
     <CurrentLine>143</CurrentLine>
     <Constant>0</Constant>
@@ -658,7 +658,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\Core\SysTick\systick.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\Core\SysTick\systick.h</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>1</CurrentLine>
     <Constant>0</Constant>
@@ -684,7 +684,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menudef.h</PathWithFilename>
     <TopLine>43</TopLine>
     <CurrentLine>47</CurrentLine>
     <Constant>0</Constant>
@@ -710,8 +710,8 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>1</TopLine>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
+    <TopLine>4</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -736,7 +736,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\admin\Documents\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
+    <PathWithFilename>E:\GitHub\PumpInsert\source code\SourceCode\power.h</PathWithFilename>
     <TopLine>41</TopLine>
     <CurrentLine>45</CurrentLine>
     <Constant>0</Constant>
@@ -766,8 +766,20 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>8</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\SourceCode\system.c</Name>
+          <ColumnNumber>50</ColumnNumber>
+          <TopLine>88</TopLine>
+          <CurrentLine>107</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\TIMER\timer.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>53</TopLine>
+          <CurrentLine>63</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
@@ -795,7 +807,7 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
+          <TopLine>4</TopLine>
           <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>
@@ -809,18 +821,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>130</TopLine>
           <CurrentLine>137</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SourceCode\system.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>88</TopLine>
-          <CurrentLine>96</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\TIMER\timer.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>52</TopLine>
-          <CurrentLine>63</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\SysTick\systick.h</Name>

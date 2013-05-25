@@ -445,8 +445,8 @@ void PumpBurnIn(u8 PumpSel, u8 VolTest)
 u32 Scheme1[LenOfScheme1][3]=
 {
     //PulseNum,Delay,Direction
-        {4000,100,1},
-        {4000,100,0},
+        {40000,100,1},
+        {40000,100,0},
 };
 u32 Scheme2[LenOfScheme2][3]=
 {

@@ -1185,7 +1185,7 @@ void CTestBurninSetVol(void)
 
     g_u32BurninCount2=0;
     g_u8SchemeIndex2=0;
-    Pump1ReloadScheme(g_u8SchemeIndex2);
+    Pump2ReloadScheme(g_u8SchemeIndex2);
     enable_timer(1);
     g_u8RunningStart2=1;
 /*

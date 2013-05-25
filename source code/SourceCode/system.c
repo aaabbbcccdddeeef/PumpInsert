@@ -84,7 +84,7 @@ void CBurnInEvent(void)
 }
 void CFlow1Event(void)
 {
-        if(g_u8RunningStart1==1)
+    if(g_u8RunningStart1==1)
     {
         if((PumpCount[0]==0)&&(g_u8FlowWaitOver1==1)&&(g_u8RunningIndex1<g_u8FlowCount1))
         {
@@ -125,6 +125,7 @@ void CFlow1Event(void)
                 g_u8SchemeIndex1=0;
             CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
             }
+            disable_timer(0);
             Pump1ReloadScheme(g_u8SchemeIndex1);
 
             //g_u8FlowCount1=0;
@@ -173,8 +174,9 @@ void CFlow2Event(void)
             if(++g_u8SchemeIndex2==LenOfScheme2)
             {
                 g_u8SchemeIndex2=0;
-            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
             }
+            disable_timer(1);
             Pump2ReloadScheme(g_u8SchemeIndex2);
         }
     }
