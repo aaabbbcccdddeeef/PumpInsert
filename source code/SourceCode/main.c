@@ -61,6 +61,7 @@ void CMainUserInitial(void)
     g_u8RunningStart1=0;
     g_u8FlowCount1=0;
     g_u32FlowWaitCount1=0;
+    g_u8Opt2FunctionEn=1;
 }
 void CDisplayLogo(void)
 {

@@ -89,7 +89,7 @@ volatile u8 g_u8FlowCount2=0;
 volatile u8 g_u8RunningStart2=0;
 volatile u32 g_u32FlowWaitCount2=0;
 u8 g_u8SchemeIndex2=0;
-
+u8 g_u8Opt2FunctionEn=1;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -175,6 +175,8 @@ extern volatile u8 g_u8FlowCount2;
 extern volatile u8 g_u8RunningStart2;
 extern volatile u32 g_u32FlowWaitCount2;
 extern u8 g_u8SchemeIndex2;
+extern u8 g_u8Opt2FunctionEn;
+
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

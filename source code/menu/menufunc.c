@@ -1310,6 +1310,16 @@ void CTestExitBurninStatus(void)
 void CTestWaterWeighPageStyle(void)
 {
     WriteString("称水测试", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("流动圈数:", 60, 120, color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    CDispFloatAt(g_stUISetting.WaterWeigh,0,240,116,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
+    RXLCD_DrawLine(240,147,400,148,color_black);
+    CDrawButton(197,220,282,255,0,2);
+    PumpDetectRun(1, 1, 4000); 
+
+}
+void CTestWaterWeighSetVol(void)
+{
+    PumpWaterWeighTest(g_stUISetting.WaterWeigh);
 }
 void CTestBacklashPageStyle(void)
 {

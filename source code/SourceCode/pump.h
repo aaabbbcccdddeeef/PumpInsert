@@ -64,6 +64,7 @@ extern void PumpBurnIn(u8 PumpSel, u8 VolTest);
 extern u32 PumpGetOpticStatus(u8 OptSel);
 extern void Pump1ReloadScheme(u8 FlowIndex);
 extern void Pump2ReloadScheme(u8 FlowIndex);
+extern void PumpWaterWeighTest(u16 value);
 
 #endif
 

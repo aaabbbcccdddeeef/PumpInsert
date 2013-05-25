@@ -101,6 +101,8 @@ extern void CTestBurninStatusPageStyle(void);
 extern void CTestExitBurninStatus(void);
 
 extern void CTestWaterWeighPageStyle(void);
+extern void CTestWaterWeighSetVol(void);
+
 extern void CTestBacklashPageStyle(void);
 extern void CTestLeakagePageStyle(void);
 extern void CSettingAcceleration1PageStyle(void);

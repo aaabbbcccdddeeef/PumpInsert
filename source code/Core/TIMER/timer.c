@@ -90,7 +90,7 @@ void TIMER1_IRQHandler (void)
 
   TIM1 ->IR = 1;			/* clear interrupt flag */
 
-    if(((optS>>20)==g_stOptSetting.OptShieldLevel[1])&&((GPIO0->FIOPIN & (1 << 5))==0))
+    if(((optS>>20)==g_stOptSetting.OptShieldLevel[1])&&((GPIO0->FIOPIN & (1 << 5))==0)&&g_u8Opt2FunctionEn)
     {
             PumpCount[1]=0;
             g_u8RunningIndex2=g_u8FlowCount2;

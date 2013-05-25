@@ -358,6 +358,8 @@ void PumpFreeRun(u8 PumpSel, u8 direction, u16 cntRun) //≤ªπ‹π‚ÒÓ–≈∫≈£¨∞¥∑ΩœÚ∫Õ¬
 
     u16 i;
     if (cntRun <= 0) return;
+    g_u8Opt2FunctionEn=0;
+
     if (cntRun > PumpStartStopSteps(PumpSel,_MaxStepCount(PumpSel-1)) * _nStep2Pulse(PumpSel-1)) //≥¨π˝º”ºıÀŸ¬ˆ≥Â ˝
     {
         nMaxEffClass = _MaxStepCount(PumpSel-1);
@@ -382,7 +384,7 @@ void PumpFreeRun(u8 PumpSel, u8 direction, u16 cntRun) //≤ªπ‹π‚ÒÓ–≈∫≈£¨∞¥∑ΩœÚ∫Õ¬
         for(i = _MaxStepCount(PumpSel-1); i >0; i--)
             PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i-1]);
     }
-
+    g_u8Opt2FunctionEn=1;
 }
 
 void PumpIn( u8 PumpSel, u16  cntRun)
@@ -629,6 +631,14 @@ void Pump2ReloadScheme(u8 FlowIndex)
         g_u32WaitFlow2[i+j-1]=Scheme2[FlowIndex][1];//◊Ó∫Û“ª≤Ω…Ë÷√—”≥Ÿ
         g_u8FlowCount2 = (MaxEffClass+1+MaxEffClass)*2;
     }
+}
+
+
+void PumpWaterWeighTest(u16 value)
+{
+    PumpDetectRun(1, 1, 64000 + _nBackLash(0)); //Delay50us(65000);
+    Delay10ms(50);
+    PumpFreeRun(2, 1, value + _nBackLash(0)); //Delay50us(65000);
 }
 /*-------------------------end of line--------------------------------*/
 

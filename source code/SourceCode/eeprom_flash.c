@@ -266,6 +266,8 @@ void CFlashSaveUISetting(void)
         flash_buf[0] = g_stUISetting.DebugPumpStep>>8;
         flash_buf[1] = g_stUISetting.DebugPumpStep&0x00ff;
         flash_buf[2] = g_stUISetting.TestVol1;
+        flash_buf[3] = g_stUISetting.WaterWeigh>>8;
+        flash_buf[4] = g_stUISetting.WaterWeigh&0x00ff;
     }
     else
     {
@@ -273,6 +275,8 @@ void CFlashSaveUISetting(void)
         flash_buf[(CELL_SIZE*g_u8CellNew)+0] = g_stUISetting.DebugPumpStep>>8;
         flash_buf[(CELL_SIZE*g_u8CellNew)+1] = g_stUISetting.DebugPumpStep&0x00ff;
         flash_buf[(CELL_SIZE*g_u8CellNew)+2] = g_stUISetting.TestVol1;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+3] = g_stUISetting.WaterWeigh>>8;
+        flash_buf[(CELL_SIZE*g_u8CellNew)+4] = g_stUISetting.WaterWeigh&0x00ff;
 
     }
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, (PAGE_UI_SETTING+g_u32PageNew)*PAGE_SIZE, PAGE_SIZE);
@@ -287,6 +291,8 @@ void CFlashLoadUISetting(void)
     tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+0];
     g_stUISetting.DebugPumpStep = (tempValue<<8|flash_buf[(CELL_SIZE*g_u8CellLast)+1]);
     g_stUISetting.TestVol1 = flash_buf[(CELL_SIZE*g_u8CellLast)+2];
+    tempValue = flash_buf[(CELL_SIZE*g_u8CellLast)+3];
+    g_stUISetting.WaterWeigh= (tempValue<<8|flash_buf[(CELL_SIZE*g_u8CellLast)+4]);
 
 }
 void CFlashLoadUISettingDefault(void)
@@ -296,6 +302,8 @@ void CFlashLoadUISettingDefault(void)
     flash_buf[0] = g_stUISetting.DebugPumpStep>>8;
     flash_buf[1] = g_stUISetting.DebugPumpStep&0x00ff;
     flash_buf[2] = g_stUISetting.TestVol1;
+    flash_buf[3] = g_stUISetting.WaterWeigh>>8;
+    flash_buf[4] = g_stUISetting.WaterWeigh&0x00ff;
     
     SPIFlash_EraseSector(_FLASH_NUM0, SECTOR_UI_SETTING*SECTOR_SIZE);
     SPIFlash_WritePage(_FLASH_NUM0, flash_buf, PAGE_UI_SETTING*PAGE_SIZE, PAGE_SIZE);

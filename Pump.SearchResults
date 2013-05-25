@@ -1,8 +1,4 @@
----- disable_timer Matches (7 in 4 files) ----
-Main.c (sourcecode):    disable_timer(0);
-Main.c (sourcecode):    disable_timer(1);
-Pump.c (sourcecode):    disable_timer((PumpSel-1));
-Pump.c (sourcecode):    disable_timer((PumpSel-1));
-Timer.c (core\timer):** Function name:		disable_timer
-Timer.c (core\timer):void disable_timer( uint8_t timer_num )
-Timer.h (core\timer):extern void disable_timer( uint8_t timer_num );
+---- CTestWaterWeighPageStyle Matches (3 in 3 files) ----
+Menufunc.c (menu):void CTestWaterWeighPageStyle(void)
+Menufunc.h (menu):extern void CTestWaterWeighPageStyle(void);
+Menutbl.c (menu):        CTestWaterWeighPageStyle,			// DoAfterExec

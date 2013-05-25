@@ -32,7 +32,7 @@ typedef struct {
 typedef struct {
     u16 DebugPumpStep;   
     u8 TestVol1;
-    
+    u16 WaterWeigh;
 } StructUISetting;
 
 typedef struct {

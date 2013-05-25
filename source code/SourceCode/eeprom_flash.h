@@ -10,7 +10,7 @@
 ******************************************************************************/
 
 #define RTC_CKS                                                 0x12
-#define UI_CKS                                                   0x22
+#define UI_CKS                                                   0x23
 #define OPT_CKS                                                 0x51
 #define PUMP_CKS                                                0x61
 #define TP_CKS                                                     0x71

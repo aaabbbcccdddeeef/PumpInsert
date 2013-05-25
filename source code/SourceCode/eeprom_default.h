@@ -15,11 +15,13 @@
 //--------------------------------------------------
 #define _DEBUG_PUMP_STEP_DEF                              4000
 #define _SETTING_BURNIN_VOL_DEF                              10
+#define _UI_WATER_WEIGH                                         100
 
 StructUISetting tEEPROM_UISetting_DEFAULT =
 {
     _DEBUG_PUMP_STEP_DEF,
     _SETTING_BURNIN_VOL_DEF,
+    _UI_WATER_WEIGH,
 };
 #define _TP_XMIN_DEF                                          32
 #define _TP_XMAX_DEF                                          244
