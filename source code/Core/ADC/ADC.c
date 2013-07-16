@@ -17,6 +17,8 @@
  *          V1.00 Initial Version
  *----------------------------------------------------------------------------*/
 
+#define __ADC_H
+
 #include <LPC17xx.H>                             /* LPC17xx definitions */
 #include "ADC.h"
 
@@ -25,23 +27,23 @@
  *----------------------------------------------------------------------------*/
 void ADC_init (void) {
 
-  PINCON->PINSEL1 &= ~(3<<14);                   /* P0.23 is GPIO */
-  PINCON->PINSEL1 |=  (1<<14);                   /* P0.23 is AD0.0 */
+  //PINCON->PINSEL1 &= ~(3<<14);                   /* P0.23 is GPIO */
+  //PINCON->PINSEL1 |=  (1<<14);                   /* P0.23 is AD0.0 */
 
-  PINCON->PINSEL1 &= ~(3<<16);                   /* P0.24 is GPIO */
-  PINCON->PINSEL1 |=  (1<<16);                   /* P0.24 is AD0.1 */
+  //PINCON->PINSEL1 &= ~(3<<16);                   /* P0.24 is GPIO */
+  //PINCON->PINSEL1 |=  (1<<16);                   /* P0.24 is AD0.1 */
 
-  PINCON->PINSEL1 &= ~(3<<18);                   /* P0.25 is GPIO */
-  PINCON->PINSEL1 |=  (1<<18);                   /* P0.25 is AD0.2 */
+  //PINCON->PINSEL1 &= ~(3<<18);                   /* P0.25 is GPIO */
+  //PINCON->PINSEL1 |=  (1<<18);                   /* P0.25 is AD0.2 */
 
   //PINCON->PINSEL1 &= ~(3<<20);                   /* P0.26 is GPIO */
   //PINCON->PINSEL1 |=  (1<<20);                   /* P0.26 is AD0.3 */
 
-  PINCON->PINSEL0 &= ~(3<<6);                   /* P0.3 is GPIO */
-  PINCON->PINSEL0 |=  (1<<7);                   /* P0.3 is AD0.6 */
+  //PINCON->PINSEL0 &= ~(3<<6);                   /* P0.3 is GPIO */
+  //PINCON->PINSEL0 |=  (1<<7);                   /* P0.3 is AD0.6 */
 
 
-  PINCON->PINSEL3 |= 0xc0000000;                   /* P1.31 is AD0.5 */
+  PINCON->PINSEL3 |= 0xf0000000;                   /*P1.30 is AD0.4 P1.31 is AD0.5 */
   
   SC->PCONP       |=  (1<<12);                   /* Enable power to ADC block */
 
@@ -271,6 +273,18 @@ u32 ADC12_Get (void)
 /*----------------------------------------------------------------------------
   get converted ADC value
  *----------------------------------------------------------------------------*/
+uint32_t ADC4_getCnv (void) {
+  uint32_t adGdr;
+//  uint32_t adDr2;
+
+  while (!(ADC->ADDR4 & (1UL<<31)));             /* Wait for Conversion end */
+  adGdr = ADC->ADDR4;
+  return((adGdr >> 4) & ADC_VALUE_MAX);          /* read converted value */
+}
+
+/*----------------------------------------------------------------------------
+  get converted ADC value
+ *----------------------------------------------------------------------------*/
 uint32_t ADC5_getCnv (void) {
   uint32_t adGdr;
 //  uint32_t adDr2;
@@ -285,12 +299,56 @@ uint32_t ADC5_getCnv (void) {
 /*------------------------------------------------------------------------------
   read a converted value from the Analog/Digital converter
  *------------------------------------------------------------------------------*/
+unsigned int ADC4_Get (void)
+{
+  unsigned int val;
+
+  ADC_startCnv();                                 /* start A/D conversion */
+  val = ADC4_getCnv();                    
+  ADC_stopCnv();                                  /* stop A/D conversion */
+	
+  return (val);
+}
+
+/*------------------------------------------------------------------------------
+  read a converted value from the Analog/Digital converter
+ *------------------------------------------------------------------------------*/
 unsigned int ADC5_Get (void)
 {
   unsigned int val;
 
   ADC_startCnv();                                 /* start A/D conversion */
   val = ADC5_getCnv();                    
+  ADC_stopCnv();                                  /* stop A/D conversion */
+	
+  return (val);
+}
+
+/*------------------------------------------------------------------------------
+  read a converted value from the Analog/Digital converter
+ *------------------------------------------------------------------------------*/
+ uint32_t ADC45_getCnv (void) {
+  uint32_t adGdr1;
+  uint32_t adGdr2;
+
+  while (!(ADC->ADDR5 & (1UL<<31)));             /* Wait for Conversion end */
+  adGdr1 = ADC->ADDR4;
+  adGdr2 = ADC->ADDR5;
+  adGdr1 = (adGdr1 >> 4) & ADC_VALUE_MAX;
+  adGdr2 = (adGdr2 >> 4) & ADC_VALUE_MAX;
+  adGdr1 = (adGdr1<<16)|adGdr2;
+  return adGdr1;          /* read converted value */
+}
+
+u32 ADC45_Get (void)
+{
+  u32 val;
+  //u32 Temp;
+
+  ADC_startCnv();                                 /* start A/D conversion */
+  val = ADC45_getCnv();                    
+  //Temp = ADC1_getCnv();
+  //val = (val<<16)|Temp;
   ADC_stopCnv();                                  /* stop A/D conversion */
 	
   return (val);

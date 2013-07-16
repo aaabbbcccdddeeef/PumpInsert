@@ -15,7 +15,8 @@
 volatile u32 g_ui10msTick = 0; 
 volatile u32 g_uiPowerkeyTick = 0;
 volatile u32 g_uiTpUpTick=0;
-
+volatile u32 g_uiPump1LostTimeout=0;
+volatile u32 g_uiPump2LostTimeout=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -29,7 +30,8 @@ void Delay10ms(uint32_t time);
 extern volatile u32 g_ui10msTick;
 extern volatile u32 g_uiPowerkeyTick;
 extern volatile u32 g_uiTpUpTick;
-
+extern volatile u32 g_uiPump1LostTimeout;
+extern volatile u32 g_uiPump2LostTimeout;
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

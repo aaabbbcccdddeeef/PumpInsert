@@ -105,6 +105,8 @@ extern void CTestWaterWeighSetVol(void);
 
 extern void CTestBacklashPageStyle(void);
 extern void CTestLeakagePageStyle(void);
+extern void CTestLeakageStop(void);
+
 extern void CSettingAcceleration1PageStyle(void);
 extern void CSettingAcceleration2PageStyle(void);
 extern void CSettingAcceleration1Value(void);
@@ -128,6 +130,9 @@ extern void CSettingDivider1PageStyle(void);
 extern void CSettingDivider2PageStyle(void);
 extern void CSettingDivider1Value(void);
 extern void CSettingDivider2Value(void);
+
+extern void CInfoShow(void);
+
 #endif
 
 

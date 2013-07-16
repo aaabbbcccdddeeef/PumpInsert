@@ -8,7 +8,7 @@
  *   2009.05.23  ver 1.00    Prelimnary version, first Release
  *
 ******************************************************************************/
-#define _FW_VAERSION                                        "0.2.2.25"
+#define _FW_VAERSION                                        "0.1.1.01"
 #define _DEBUG_MODE                                         0//TRUE
 #define _DEBUG_NO_LCD                                      0
 #define _POWER_ON_LOGO                                   TRUE//FALSE

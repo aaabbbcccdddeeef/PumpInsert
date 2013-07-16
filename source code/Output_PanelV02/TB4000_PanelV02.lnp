@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\output_panelv02\startup_lpc17xx.o" ".\output_panelv02\system_lpc17xx.o" ".\output_panelv02\core_cm3.o" ".\output_panelv02\spi_flash.o" ".\output_panelv02\rx_lcd_v02.o" ".\output_panelv02\systick.o" ".\output_panelv02\timer.o" ".\output_panelv02\uart.o" ".\output_panelv02\spi.o" ".\output_panelv02\rtc.o" ".\output_panelv02\adc.o" ".\output_panelv02\main.o" ".\output_panelv02\eeprom_flash.o" ".\output_panelv02\struct.o" ".\output_panelv02\touchpad.o" ".\output_panelv02\compress.o" ".\output_panelv02\pump.o" ".\output_panelv02\system.o" ".\output_panelv02\menufunc.o" ".\output_panelv02\menutbl.o" ".\output_panelv02\menu.o" --library_type=microlib --strict --scatter ".\Output_PanelV02\TB4000_PanelV02.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Output_PanelV02\TB4000_PanelV02.map" -o ".\Output_PanelV02\TB4000_PanelV02.axf"

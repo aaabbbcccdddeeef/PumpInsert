@@ -15,7 +15,8 @@
 #include "main.h"
 #include "eeprom_flash.h"
 #include "struct.h"
-
+#include "systick.h"
+#include "system.h"
 volatile uint32_t PumpCount[2]={0,0};
 /*****************************************************************************
 ** Function name:		delayMs
@@ -64,6 +65,7 @@ void TIMER0_IRQHandler (void)
     {
             PumpCount[0]=0;
             g_u8RunningIndex1=g_u8FlowCount1;
+
     }
     if(PumpCount[0]!=0)
     {
@@ -115,8 +117,17 @@ void TIMER1_IRQHandler (void)
 ******************************************************************************/
 void TIMER2_IRQHandler (void)  
 {  
-  TIM2 ->IR = 1;			/* clear interrupt flag */
+	uint32_t optS =  GPIO0->FIOPIN & (1 << 19);
+	TIM2 ->IR = 1;			/* clear interrupt flag */
+    if((optS>>19)==g_stOptSetting.OptShieldLevel[0])
+    {
+        g_u32OptCoverCount1++;
 
+    }
+	else
+	{
+        g_u32OptCoverCount1=0;
+	}
 
 }
 
@@ -132,7 +143,17 @@ void TIMER2_IRQHandler (void)
 ******************************************************************************/
 void TIMER3_IRQHandler (void)  
 {  
-  TIM3 ->IR = 1;			/* clear interrupt flag */
+	uint32_t optS =  GPIO0->FIOPIN & (1 << 20);
+	TIM3 ->IR = 1;			/* clear interrupt flag */
+
+    if((optS>>20)==g_stOptSetting.OptShieldLevel[1])
+    {
+		g_u32OptCoverCount2++;
+    }
+	else
+	{
+		g_u32OptCoverCount2=0;
+	}
 }
 
 

@@ -526,6 +526,27 @@ MenuItemType SettingMenuItems[]=
     },
 };
 
+//==========================InfoMenuItems============================================
+MenuItemType InfoMenuItems[]=
+{
+    //1 0 NULL
+    { 
+        0, 0, 0, 0,// x1,y1,x2,y2;
+        0, 0,// x, y;
+        1, 1, // UnSelPic, SelPic;
+        0, //NextMenuPage;
+        CNull,			// SelPicFunction
+        CNull_u8,			// UnselPicFunction
+        CNull,			// ExecFunction
+        CNull,			// DoBeforeExec
+        CInfoShow,			// DoAfterExec
+        NULL,                   //u8* value
+        NULL,                   //u16* value
+        0xffff,               // variable max
+        0  // Flags
+    },
+};
+
 //==========================AboutMenuItems============================================
 MenuItemType AboutMenuItems[]=
 {
@@ -1793,61 +1814,14 @@ MenuItemType TestLeakageMenuItems[]=
         CDrawSelPicture,			// SelPicFunction
         CNull_u8,			// UnselPicFunction
         CDrawPrevPage,			// ExecFunction
-        CNull,			// DoBeforeExec
+        CTestLeakageStop,			// DoBeforeExec
         CNull,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max
         0  // Flags
     },
-    //1 2 Pulse Number
-    { 
-        240,120,400,146,// x1,y1,x2,y2;
-        240,120,// x, y;
-        2, 2, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CNull,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        edit_line  // Flags
-    },
-    //1 3 P
-    { 
-        130,220,215,255,// x1,y1,x2,y2;
-        90,0,// x, y;
-        5, 6, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CDebugPump1RunPositive,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        menu_level_4  // Flags
-    },
-    //1 4 N
-    { 
-        265,220,350,255,// x1,y1,x2,y2;
-        0,0,// x, y;
-        5, 6, // UnSelPic, SelPic;
-        0, //NextMenuPage;
-        CDrawSelPicture,			// SelPicFunction
-        CDrawUnselPicture,			// UnselPicFunction
-        CNull,			// ExecFunction
-        CDebugPump1RunNegative,			// DoBeforeExec
-        CNull,			// DoAfterExec
-        NULL,                   //u8* value
-        NULL,                   //u16* value
-        0xffff,               // variable max
-        menu_level_4  // Flags
-    },
+
 };
 
 //==========================SettingOptMenuItems============================================
@@ -4542,8 +4516,8 @@ MenuPageType tblMenus[]=
         1,//PicNum;
         0,// PrevMenuPage;
         5,// FatherItemNum;
-        AboutMenuItems, // MenuItems;
-        sizeof(AboutMenuItems)/sizeof(MenuItemType), // MenuItemCount;
+        InfoMenuItems, // MenuItems;
+        sizeof(InfoMenuItems)/sizeof(MenuItemType), // MenuItemCount;
         0 //   Flags;
     },
     //1 7 WarningMenu

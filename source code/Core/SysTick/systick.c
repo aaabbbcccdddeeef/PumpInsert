@@ -34,6 +34,28 @@ void SysTick_Handler(void)
     if(g_uiPowerkeyTick != 0)
         g_uiPowerkeyTick--;
 
+	if(g_uiPump1LostTimeout != 0)
+        g_uiPump1LostTimeout--;
+	else
+	{
+		if((g_u8Pump1Lost==0)&&(g_u8BurnInFlag==1))
+			g_u8Pump1Lost=1;
+	}
+
+	if(((g_u8Pump1Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount1>50))
+		g_u8Pump1Lost=1;
+
+	if(g_uiPump2LostTimeout != 0)
+        g_uiPump2LostTimeout--;
+	else
+	{
+		if((g_u8Pump2Lost==0)&&(g_u8BurnInFlag==1))
+			g_u8Pump2Lost=1;
+	}
+
+	if(((g_u8Pump2Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount2>50))
+			g_u8Pump2Lost=1;
+
     if((g_u32FlowWaitCount1!=0)&&(g_u8FlowWaitOver1==0))
     {
         if(--g_u32FlowWaitCount1==0)

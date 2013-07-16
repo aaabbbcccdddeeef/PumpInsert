@@ -144,12 +144,12 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>JL2CM3</Key>
-          <Name>-U20100213 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO27 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
+          <Name>-U270676280 -O14 -S0 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO27 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=1010,326,1280,712,0)(261=821,318,1127,738,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=904,249,1420,726,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=192,97,624,590,0)(240=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(350=464,223,703,466,0)(250=-1,-1,-1,-1,0)(270=128,160,320,290,0)(313=-1,-1,-1,-1,0)(291=-1,-1,-1,-1,0)(302=-1,-1,-1,-1,0)(110=-1,-1,-1,-1,0)(113=-1,-1,-1,-1,0)(320=-1,-1,-1,-1,0)(210=-1,-1,-1,-1,0)(330=135,116,506,732,0)(332=150,185,738,358,0)(333=-1,-1,-1,-1,0)(334=-1,-1,-1,-1,0)(335=-1,-1,-1,-1,0)(336=-1,-1,-1,-1,0)(345=150,185,738,354,0)(346=-1,-1,-1,-1,0)(381=-1,-1,-1,-1,0)(382=-1,-1,-1,-1,0)(383=-1,-1,-1,-1,0)(384=-1,-1,-1,-1,0)(197=-1,-1,-1,-1,0)(198=-1,-1,-1,-1,0)(191=-1,-1,-1,-1,0)(192=-1,-1,-1,-1,0)(180=1010,326,1280,712,0)(261=821,318,1127,738,0)(262=-1,-1,-1,-1,0)(231=-1,-1,-1,-1,0)(232=-1,-1,-1,-1,0)(233=-1,-1,-1,-1,0)(121=764,249,1280,726,0)(122=-1,-1,-1,-1,0)(123=-1,-1,-1,-1,0)(124=-1,-1,-1,-1,0)(170=-1,-1,-1,-1,0)(142=-1,-1,-1,-1,0)(150=-1,-1,-1,-1,0)(400=-1,-1,-1,-1,0)(370=-1,-1,-1,-1,0)(160=-1,-1,-1,-1,0)(280=487,178,919,671,0)(240=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -167,6 +167,23 @@
           <Name>-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>1181</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>37544</Address>
+          <ByteObject>0</ByteObject>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename></Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\TB4000_PanelV02\menufunc\1181</Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -308,7 +325,7 @@
 
   <Group>
     <GroupName>Core Code</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -347,8 +364,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>700</TopLine>
-      <CurrentLine>708</CurrentLine>
+      <TopLine>729</TopLine>
+      <CurrentLine>736</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Core\GLCD\RX_LCD_V02.c</PathWithFileName>
       <FilenameWithoutPath>RX_LCD_V02.c</FilenameWithoutPath>
@@ -423,11 +440,25 @@
       <PathWithFileName>.\Core\RTC\rtc.c</PathWithFileName>
       <FilenameWithoutPath>rtc.c</FilenameWithoutPath>
     </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>83</TopLine>
+      <CurrentLine>90</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Core\ADC\ADC.c</PathWithFileName>
+      <FilenameWithoutPath>ADC.c</FilenameWithoutPath>
+    </File>
   </Group>
 
   <Group>
     <GroupName>Source Code</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -439,7 +470,7 @@
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>130</TopLine>
-      <CurrentLine>137</CurrentLine>
+      <CurrentLine>144</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -520,10 +551,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>76</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>97</TopLine>
-      <CurrentLine>104</CurrentLine>
+      <TopLine>122</TopLine>
+      <CurrentLine>130</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SourceCode\system.c</PathWithFileName>
       <FilenameWithoutPath>system.c</FilenameWithoutPath>
@@ -543,8 +574,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1172</TopLine>
-      <CurrentLine>1172</CurrentLine>
+      <TopLine>1170</TopLine>
+      <CurrentLine>1183</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\menu\menufunc.c</PathWithFileName>
       <FilenameWithoutPath>menufunc.c</FilenameWithoutPath>
@@ -711,7 +742,7 @@
 
   <AlienFiles>
     <PathWithFilename>E:\GitHub\PumpInsert\source code\menu\menu.h</PathWithFilename>
-    <TopLine>4</TopLine>
+    <TopLine>1</TopLine>
     <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
@@ -769,10 +800,22 @@
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
+          <Name>.\Core\GLCD\RX_LCD_V02.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>729</TopLine>
+          <CurrentLine>736</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Core\ADC\ADC.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>83</TopLine>
+          <CurrentLine>90</CurrentLine>
+        </Doc>
+        <Doc>
           <Name>.\SourceCode\system.c</Name>
-          <ColumnNumber>76</ColumnNumber>
-          <TopLine>97</TopLine>
-          <CurrentLine>104</CurrentLine>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>122</TopLine>
+          <CurrentLine>130</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\TIMER\timer.c</Name>
@@ -783,8 +826,8 @@
         <Doc>
           <Name>.\menu\menufunc.c</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>1172</TopLine>
-          <CurrentLine>1172</CurrentLine>
+          <TopLine>1170</TopLine>
+          <CurrentLine>1183</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SourceCode\pump.c</Name>
@@ -807,7 +850,7 @@
         <Doc>
           <Name>.\menu\menu.h</Name>
           <ColumnNumber>0</ColumnNumber>
-          <TopLine>4</TopLine>
+          <TopLine>1</TopLine>
           <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>
@@ -820,7 +863,7 @@
           <Name>.\SourceCode\main.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>130</TopLine>
-          <CurrentLine>137</CurrentLine>
+          <CurrentLine>144</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Core\SysTick\systick.h</Name>
@@ -881,12 +924,6 @@
           <ColumnNumber>0</ColumnNumber>
           <TopLine>20</TopLine>
           <CurrentLine>28</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Core\GLCD\RX_LCD_V02.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>700</TopLine>
-          <CurrentLine>708</CurrentLine>
         </Doc>
         <Doc>
           <Name>SourceCode\include.h</Name>

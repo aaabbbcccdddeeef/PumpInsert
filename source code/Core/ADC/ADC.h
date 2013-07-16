@@ -17,11 +17,10 @@
  *          V1.00 Initial Version
  *----------------------------------------------------------------------------*/
 
-#ifndef __ADC_H
-#define __ADC_H
+#ifdef __ADC_H
 
 #define ADC_VALUE_MAX 0xFFF
-
+#else
 
 extern void     ADC_init    (void);
 extern void     ADC_startCnv(void);
@@ -37,6 +36,7 @@ extern uint32_t ADC3_getCnv (void);
 extern unsigned int ADC3_Get (void);
 extern unsigned int ADC23_Get (void);
 extern u32 ADC12_Get (void);
+extern unsigned int ADC4_Get (void);
 extern unsigned int ADC5_Get (void);
 extern u32 ADC56_Get (void);
 #endif

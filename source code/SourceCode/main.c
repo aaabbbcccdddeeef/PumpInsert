@@ -68,6 +68,8 @@ void CMainUserInitial(void)
 	g_u8Pump1Lost=0;
 	g_u8Lost2SaveFlag=0;
 	g_u8Pump2Lost=0;
+
+    g_u8HTTestStart=0;
 }
 void CDisplayLogo(void)
 {
@@ -117,7 +119,7 @@ void CDeviceInit(void)
     PumpInit();
     
     RXLCD_init();
-    
+
     //EINTInit();
     
     CDisplayLogo();
@@ -129,7 +131,7 @@ void CDeviceInit(void)
     CFlashLCDFrame();
     
     Layer1_Visible();
-
+    ADC_init();
         
     return;
 }

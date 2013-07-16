@@ -446,6 +446,11 @@
               <FileType>1</FileType>
               <FilePath>.\Core\RTC\rtc.c</FilePath>
             </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Core\ADC\ADC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -20,6 +20,7 @@ void CFlow1Event(void);
 void CFlow2Event(void);
 void CPump1LostEvent(void);
 void CPump2LostEvent(void);
+void CHTEvent(void);
 
 
 #else

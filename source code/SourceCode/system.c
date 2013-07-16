@@ -28,6 +28,7 @@ void CSystemEventHandler(void)
     CFlow2Event();
 	CPump1LostEvent();
 	CPump2LostEvent();
+    CHTEvent();
 }
 
 void CMonitorOptEvent(u8 OptSel)
@@ -208,5 +209,15 @@ void CPump2LostEvent(void)
 		g_u8Lost2SaveFlag=1;
 		g_u32LostCount2++;
 	}
+}
+void CHTEvent(void)
+{
+    if(g_u8HTTestStart==1)
+    {
+        WriteString("Êª¶È", 120, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+        WriteString("ÎÂ¶È", 260, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+        CDispFloatAt(1111, 0, 120, 140, 0x0000, 1, 1);
+        CDispFloatAt(2222, 0, 260, 140, 0x0000, 1, 1);
+    }
 }
 
