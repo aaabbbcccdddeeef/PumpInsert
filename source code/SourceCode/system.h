@@ -11,15 +11,20 @@
 
 
 #ifdef __SYSTEM__
+u8 g_u8Lost1SaveFlag=0;
+u8 g_u8Lost2SaveFlag=0;
+
 void CMonitorOptEvent(u8 OptSel);
 void CBurnInEvent(void);
 void CFlow1Event(void);
 void CFlow2Event(void);
-
+void CPump1LostEvent(void);
+void CPump2LostEvent(void);
 
 
 #else
 extern void CSystemEventHandler(void);
-
+extern u8 g_u8Lost1SaveFlag;
+extern u8 g_u8Lost2SaveFlag;
 #endif
 

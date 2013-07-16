@@ -1,4 +1,7 @@
----- CTestWaterWeighPageStyle Matches (3 in 3 files) ----
-Menufunc.c (menu):void CTestWaterWeighPageStyle(void)
-Menufunc.h (menu):extern void CTestWaterWeighPageStyle(void);
-Menutbl.c (menu):        CTestWaterWeighPageStyle,			// DoAfterExec
+---- g_u8Opt2FunctionEn Matches (6 in 4 files) ----
+Main.c (sourcecode):    g_u8Opt2FunctionEn=1;
+Main.h (sourcecode):u8 g_u8Opt2FunctionEn=1;
+Main.h (sourcecode):extern u8 g_u8Opt2FunctionEn;
+Pump.c (sourcecode):    g_u8Opt2FunctionEn=0;
+Pump.c (sourcecode):    g_u8Opt2FunctionEn=1;
+Timer.c (core\timer):    if(((optS>>20)==g_stOptSetting.OptShieldLevel[1])&&((GPIO0->FIOPIN & (1 << 5))==0)&&g_u8Opt2FunctionEn)

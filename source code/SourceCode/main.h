@@ -64,7 +64,13 @@ u8 g_u32OptLevel = 0;
 u8 g_u8RunningPause = 0;
 u8 g_u8RunningStop=0;
 u8 g_u8Inputing=0;
-
+u8 g_u8Pump1Lost=0;
+u8 g_u8Pump2Lost=0;
+u8 g_u8BurnInFlag=0;
+u32 g_u32LostCount1=0;
+u32 g_u32LostCount2=0;
+u32 g_u32OptCoverCount1=0;
+u32 g_u32OptCoverCount2=0;
 
 volatile u32 g_u32BurninCount1=0;
 volatile u32 g_u32RunningFlow1[50];
@@ -150,6 +156,13 @@ extern u8 g_u32OptLevel;
 extern u8 g_u8RunningPause;
 extern u8 g_u8RunningStop;
 extern u8 g_u8Inputing;
+extern u8 g_u8Pump1Lost;
+extern u8 g_u8Pump2Lost;
+extern u8 g_u8BurnInFlag;
+extern u32 g_u32LostCount1;
+extern u32 g_u32LostCount2;
+extern u32 g_u32OptCoverCount1;
+extern u32 g_u32OptCoverCount2;
 
 extern volatile u32 g_u32BurninCount1;
 extern volatile u32 g_u32RunningFlow1[50];

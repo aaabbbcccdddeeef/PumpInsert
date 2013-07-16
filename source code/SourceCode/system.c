@@ -26,6 +26,8 @@ void CSystemEventHandler(void)
     CBurnInEvent();
     CFlow1Event();
     CFlow2Event();
+	CPump1LostEvent();
+	CPump2LostEvent();
 }
 
 void CMonitorOptEvent(u8 OptSel)
@@ -123,7 +125,12 @@ void CFlow1Event(void)
             if(++g_u8SchemeIndex1==LenOfScheme1)
             {
                 g_u8SchemeIndex1=0;
-            CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+	            CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+				CDispFloatAt(g_u32LostCount1,0,20,120,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
+				g_uiPump1LostTimeout=300;
+				g_u8Pump1Lost=0;
+				g_u8Lost1SaveFlag=0;
+
             }
             disable_timer(0);
             Pump1ReloadScheme(g_u8SchemeIndex1);
@@ -174,13 +181,32 @@ void CFlow2Event(void)
             if(++g_u8SchemeIndex2==LenOfScheme2)
             {
                 g_u8SchemeIndex2=0;
-            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+	            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
+				CDispFloatAt(g_u32LostCount2,0,20,160,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
+				g_uiPump2LostTimeout=500;
+				g_u8Pump2Lost=0;
+				g_u8Lost2SaveFlag=0;
+
             }
             disable_timer(1);
             Pump2ReloadScheme(g_u8SchemeIndex2);
         }
     }
 }
-
-
+void CPump1LostEvent(void)
+{
+	if((g_u8Lost1SaveFlag==0)&&(g_u8Pump1Lost==1))
+	{
+		g_u8Lost1SaveFlag=1;
+		g_u32LostCount1++;
+	}
+}
+void CPump2LostEvent(void)
+{
+	if((g_u8Lost2SaveFlag==0)&&(g_u8Pump2Lost==1))
+	{
+		g_u8Lost2SaveFlag=1;
+		g_u32LostCount2++;
+	}
+}
 

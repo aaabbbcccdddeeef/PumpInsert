@@ -1177,6 +1177,9 @@ void CTestBurninSetVol(void)
     g_u8DirectionFlow1[1]=0;
     g_u8FlowCount1=4;
     */
+    //PumpReset(1);
+	//PumpReset(2);
+	
     g_u32BurninCount1=0;
     g_u8SchemeIndex1=0;
     Pump1ReloadScheme(g_u8SchemeIndex1);
@@ -1188,6 +1191,10 @@ void CTestBurninSetVol(void)
     Pump2ReloadScheme(g_u8SchemeIndex2);
     enable_timer(1);
     g_u8RunningStart2=1;
+
+	g_u8BurnInFlag=1;
+	g_uiPump1LostTimeout=500;
+	g_uiPump2LostTimeout=500;
 /*
     g_u32BurninCount2=0;
     g_u8FlowWaitOver2=1;
@@ -1214,6 +1221,7 @@ void CTestBurninContinue1(void)
         g_u8RunningStart1=0;
         g_u8RunningIndex1=0;
         g_u8FlowWaitOver1=1;
+		g_u8BurnInFlag=0;
         CDrawButton(15,220,100,255,1,1);
     }
     else
@@ -1233,6 +1241,7 @@ void CTestBurninContinue2(void)
         g_u8RunningStart2=0;
         g_u8RunningIndex2=0;
         g_u8FlowWaitOver2=1;
+		g_u8BurnInFlag=0;
         CDrawButton(275,220,360,255,1,1);
     }
     else
@@ -1253,6 +1262,8 @@ void CTestBurninStop1(void)
         g_u8RunningIndex1=0;
         g_u8FlowWaitOver1=1;
         g_u32BurninCount1=0;
+		g_u8BurnInFlag=0;
+		g_u32LostCount1=0;
         WriteString("              ", _LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_white, _FONT_SIZE_MIN,_TANSPERENT_OFF);
         CDispFloatAt(g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
         CDrawButton(15,220,100,255,1,1);
@@ -1270,6 +1281,8 @@ void CTestBurninStop2(void)
         g_u8RunningIndex2=0;
         g_u8FlowWaitOver2=1;
         g_u32BurninCount2=0;
+		g_u8BurnInFlag=0;
+		g_u32LostCount2=0;
         WriteString("              ", _LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_white, _FONT_SIZE_MIN,_TANSPERENT_OFF);
         CDispFloatAt(g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
         CDrawButton(275,220,360,255,1,1);
@@ -1289,6 +1302,9 @@ void CTestExitBurninStatus(void)
     PumpSetEnable(2, _PUMP_DISABLE);
     PumpSetLowPowerMode(2, _LOW_PWR);
 
+	g_u8BurnInFlag=0;
+	g_u32LostCount1=0;
+	g_u32LostCount2=0;
     g_u32FlowWaitCount1=0;
     g_u8RunningIndex1=0;
     g_u8FlowWaitOver1=1;
@@ -1452,6 +1468,7 @@ void CSettingPump1PageStyle(void)
     RXLCD_DrawLine(240,167,400,168,color_black);
     CDispFloatAt(g_stPumpSetting[0].SerialNum,0,240,136,color_black, _FONT_SIZE_MAX,_TANSPERENT_ON);
     CDrawButton(197,220,282,255,0,2);
+
 }
 void CSettingPump2PageStyle(void)
 {

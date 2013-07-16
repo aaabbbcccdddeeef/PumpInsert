@@ -62,6 +62,12 @@ void CMainUserInitial(void)
     g_u8FlowCount1=0;
     g_u32FlowWaitCount1=0;
     g_u8Opt2FunctionEn=1;
+
+	g_u8BurnInFlag=0;
+	g_u8Lost1SaveFlag=0;
+	g_u8Pump1Lost=0;
+	g_u8Lost2SaveFlag=0;
+	g_u8Pump2Lost=0;
 }
 void CDisplayLogo(void)
 {

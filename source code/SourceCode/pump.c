@@ -28,7 +28,7 @@
                        ¼Ó¼õËÙ²ÎÊý
 ********************************************************/
 u8 nMaxEffClass = 0;  //×î´ó¿ÉÓÃÌ¨½×
-#define _ResetPulseNum   4000 
+#define _ResetPulseNum   10000 
 #define _MaxStepCount(a)  g_stPumpSetting[a].StepNum//Ì¨½×Êý
 #define _FullStepPerClass(a)   g_stPumpSetting[a].Step  //Ã¿¸öÌ¨½×µÄÕû²½Êý ,¼ÓËÙ¶È
 #define _nBackLash(a)   g_stPumpSetting[a].BackLash
@@ -311,17 +311,17 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
         for(i = 0; i < nMaxEffClass; i++)
         {
             if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))	 break;
-            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i]);
+            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i]);
         }
 
         if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
-            PumpDetect(PumpSel, direction, cntRun - PumpStartStopSteps(PumpSel,_MaxStepCount(PumpSel-1)) * _nStep2Pulse(PumpSel-1), _STEP_H(PumpSel-1)[_MaxStepCount(PumpSel-1)-1]);
+            PumpDetect(PumpSel, direction, (cntRun - PumpStartStopSteps(PumpSel,_MaxStepCount(PumpSel-1)) * _nStep2Pulse(PumpSel-1))*2, _STEP_H(PumpSel-1)[_MaxStepCount(PumpSel-1)-1]);
 
         for(i = _MaxStepCount(PumpSel-1); i >0; i--)
         {
             if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
-            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i-1]);
+            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i-1]);
         }
 
     }
@@ -329,7 +329,7 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
     {
         nMaxEffClass = 1;
         if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
-            PumpDetect(PumpSel, direction, cntRun, _STEP_H(PumpSel-1)[0]);
+            PumpDetect(PumpSel, direction, cntRun*2, _STEP_H(PumpSel-1)[0]);
     }
     else
     {
@@ -338,15 +338,15 @@ void PumpDetectRun(u8 PumpSel, u8 direction, u16 cntRun) //¼ì²â¹âñîÐÅºÅ£¬°´·½Ïòº
         {
             if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
-            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i]);
+            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i]);
         }
         if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
-            PumpDetect(PumpSel, direction, cntRun - PumpStartStopSteps(PumpSel,nMaxEffClass) * _nStep2Pulse(PumpSel-1), _STEP_H(PumpSel-1)[nMaxEffClass]);
+            PumpDetect(PumpSel, direction, (cntRun - PumpStartStopSteps(PumpSel,nMaxEffClass) * _nStep2Pulse(PumpSel-1))*2, _STEP_H(PumpSel-1)[nMaxEffClass]);
         for(i = _MaxStepCount(PumpSel-1); i >0; i--)
         {
             if(PumpGetOpticStatus(PumpSel) == _OPTIC_ON(PumpSel-1))
                 break;
-            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i-1]);
+            PumpDetect(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i-1]);
         }
 
     }
@@ -364,25 +364,25 @@ void PumpFreeRun(u8 PumpSel, u8 direction, u16 cntRun) //²»¹Ü¹âñîÐÅºÅ£¬°´·½ÏòºÍÂ
     {
         nMaxEffClass = _MaxStepCount(PumpSel-1);
         for(i = 0; i < nMaxEffClass; i++)
-            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i]);
-        PumpNormal(PumpSel, direction, cntRun - PumpStartStopSteps(PumpSel,_MaxStepCount(PumpSel-1)) * _nStep2Pulse(PumpSel-1), _STEP_H(PumpSel-1)[_MaxStepCount(PumpSel-1)-1]);
+            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i]);
+        PumpNormal(PumpSel, direction, (cntRun - PumpStartStopSteps(PumpSel,_MaxStepCount(PumpSel-1)) * _nStep2Pulse(PumpSel-1))*2, _STEP_H(PumpSel-1)[_MaxStepCount(PumpSel-1)-1]);
         for(i = _MaxStepCount(PumpSel-1); i >0; i--)
-            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i-1]);
+            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i-1]);
     }
     else if (cntRun <= 2 * 1 * _FullStepPerClass(PumpSel-1)[0] * _nStep2Pulse(PumpSel-1)) //²»³¬¹ýµÚÒ»¸öÌ¨½×
     {
         nMaxEffClass = 1;
-        PumpNormal(PumpSel, direction, cntRun, _STEP_H(PumpSel-1)[0]);
+        PumpNormal(PumpSel, direction, cntRun*2, _STEP_H(PumpSel-1)[0]);
     }
     else
     {
         nMaxEffClass = PumpGetMiddleStepIndex(PumpSel, cntRun);
         for(i = 0; i < nMaxEffClass; i++)
-            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i]);
+            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i]);
         if(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1))
-            PumpNormal(PumpSel, direction, cntRun - PumpStartStopSteps(PumpSel,nMaxEffClass) * _nStep2Pulse(PumpSel-1), _STEP_H(PumpSel-1)[nMaxEffClass]);
+            PumpNormal(PumpSel, direction, (cntRun - PumpStartStopSteps(PumpSel,nMaxEffClass) * _nStep2Pulse(PumpSel-1))*2, _STEP_H(PumpSel-1)[nMaxEffClass]);
         for(i = _MaxStepCount(PumpSel-1); i >0; i--)
-            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) , _STEP_H(PumpSel-1)[i-1]);
+            PumpNormal(PumpSel, direction, _FullStepPerClass(PumpSel-1)[i-1] * _nStep2Pulse(PumpSel-1) *2, _STEP_H(PumpSel-1)[i-1]);
     }
     g_u8Opt2FunctionEn=1;
 }
@@ -408,13 +408,13 @@ void PumpReset(u8 PumpSel )
 
     while(PumpGetOpticStatus(PumpSel) != _OPTIC_ON(PumpSel-1) && maxTry < 21)
     {
-        PumpDetectRun(PumpSel, 1, 200);
-        Delay10ms(50);
+        PumpDetectRun(PumpSel, 1, 1000);
+        Delay10ms(10);
         maxTry++;
     }
     //PumpIn(uint cntRun)(MaxPulseNum-1000);Delay50us(65000);//Ò»°ã±Ã
     PumpIn(PumpSel, _ResetPulseNum);
-    Delay10ms(50);//pul±Ã¼ÓÉÏdtµç»ú
+    Delay10ms(1);//pul±Ã¼ÓÉÏdtµç»ú
     PumpDetectRun(PumpSel, 1, _ResetPulseNum + _nBackLash(PumpSel-1)); //Delay50us(65000);
 
 }
@@ -447,14 +447,14 @@ void PumpBurnIn(u8 PumpSel, u8 VolTest)
 u32 Scheme1[LenOfScheme1][3]=
 {
     //PulseNum,Delay,Direction
-        {40000,100,1},
-        {40000,100,0},
+        {30000,100,0},
+        {10000,100,1},
 };
 u32 Scheme2[LenOfScheme2][3]=
 {
     //PulseNum,Delay,Direction
-        {64000,100,1},
-        {64000,100,0},
+        {30000,100,0},
+        {20000,100,1},
 };
 void Pump1ReloadScheme(u8 FlowIndex)
 {
@@ -484,13 +484,13 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------Æð²½Ì¨½×--------
         for(i=0;i<_MaxStepCount(0);i++)
         {
-            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0);
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0)*2;
             g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
             g_u32WaitFlow1[i]=0;
             g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
         }
         //--------ÔÈËÙ½×¶Î--------
-        g_u32RunningFlow1[i]=Scheme1[FlowIndex][0] - PumpStartStopSteps(1,_MaxStepCount(0)) * _nStep2Pulse(0);
+        g_u32RunningFlow1[i]=(Scheme1[FlowIndex][0] - PumpStartStopSteps(1,_MaxStepCount(0)) * _nStep2Pulse(0))*2;
         g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[_MaxStepCount(0)-1];
         g_u32WaitFlow1[i]=0;
         g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
@@ -498,18 +498,18 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------¼õËÙÌ¨½×--------
         for(j=0;j<_MaxStepCount(0);j++)
         {
-            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[_MaxStepCount(0)-1-j]* _nStep2Pulse(0);
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[_MaxStepCount(0)-1-j]* _nStep2Pulse(0)*2;
             g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[_MaxStepCount(0)-1-j];
             g_u32WaitFlow1[i+j]=0;
             g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
         }
         g_u32WaitFlow1[i+j-1]=Scheme1[FlowIndex][1];//×îºóÒ»²½ÉèÖÃÑÓ³Ù
-        g_u8FlowCount1 = (_MaxStepCount(0)+1+_MaxStepCount(0))*2;
+        g_u8FlowCount1 = (_MaxStepCount(0)+1+_MaxStepCount(0))*2;//³ËÒÔ2ÊÇÒòÎªÃ¿¸ö²½Öè¶¼·ÖÎªRUNºÍWAIT
     
     }
     else if (Scheme1[FlowIndex][0] <= 2 *  _FullStepPerClass(0)[0] * _nStep2Pulse(0)) //²»³¬¹ýµÚÒ»¸öÌ¨½×
     {
-        g_u32RunningFlow1[0]=Scheme1[FlowIndex][0];
+        g_u32RunningFlow1[0]=Scheme1[FlowIndex][0]*2;
         g_u16FreqFlow1[0]=g_stPumpSetting[0].Freq[0];
         g_u32WaitFlow1[0]=Scheme1[FlowIndex][1];
         g_u8DirectionFlow1[0]=Scheme1[FlowIndex][2];
@@ -521,13 +521,13 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------Æð²½Ì¨½×--------
         for(i = 0; i < MaxEffClass; i++)
         {
-            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0);
+            g_u32RunningFlow1[i]=g_stPumpSetting[0].Step[i]* _nStep2Pulse(0)*2;
             g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[i];
             g_u32WaitFlow1[i]=0;
             g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
         }
         //--------ÔÈËÙ½×¶Î--------
-        g_u32RunningFlow1[i]=Scheme1[FlowIndex][0] - PumpStartStopSteps(1,MaxEffClass) * _nStep2Pulse(0);
+        g_u32RunningFlow1[i]=(Scheme1[FlowIndex][0] - PumpStartStopSteps(1,MaxEffClass) * _nStep2Pulse(0))*2;
         g_u16FreqFlow1[i]=g_stPumpSetting[0].Freq[MaxEffClass];
         g_u32WaitFlow1[i]=0;
         g_u8DirectionFlow1[i]=Scheme1[FlowIndex][2];
@@ -535,13 +535,13 @@ void Pump1ReloadScheme(u8 FlowIndex)
         //--------¼õËÙÌ¨½×--------
         for(j=0;j<MaxEffClass;j++)
         {
-            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[MaxEffClass-j]* _nStep2Pulse(0);
+            g_u32RunningFlow1[i+j]=g_stPumpSetting[0].Step[MaxEffClass-j]* _nStep2Pulse(0)*2;
             g_u16FreqFlow1[i+j]=g_stPumpSetting[0].Freq[MaxEffClass-j];
             g_u32WaitFlow1[i+j]=0;
             g_u8DirectionFlow1[i+j]=Scheme1[FlowIndex][2];
         }
         g_u32WaitFlow1[i+j-1]=Scheme1[FlowIndex][1];//×îºóÒ»²½ÉèÖÃÑÓ³Ù
-        g_u8FlowCount1 = (MaxEffClass+1+MaxEffClass)*2;
+        g_u8FlowCount1 = (MaxEffClass+1+MaxEffClass)*2;//³ËÒÔ2ÊÇÒòÎªÃ¿¸ö²½Öè¶¼·ÖÎªRUNºÍWAIT
     }
 }
 void Pump2ReloadScheme(u8 FlowIndex)
@@ -572,13 +572,13 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------Æð²½Ì¨½×--------
         for(i=0;i<_MaxStepCount(1);i++)
         {
-            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0);
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0)*2;
             g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
             g_u32WaitFlow2[i]=0;
             g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
         }
         //--------ÔÈËÙ½×¶Î--------
-        g_u32RunningFlow2[i]=Scheme2[FlowIndex][0] - PumpStartStopSteps(2,_MaxStepCount(1)) * _nStep2Pulse(1);
+        g_u32RunningFlow2[i]=(Scheme2[FlowIndex][0] - PumpStartStopSteps(2,_MaxStepCount(1)) * _nStep2Pulse(1))*2;
         g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[_MaxStepCount(1)-1];
         g_u32WaitFlow2[i]=0;
         g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
@@ -586,18 +586,18 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------¼õËÙÌ¨½×--------
         for(j=0;j<_MaxStepCount(1);j++)
         {
-            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[_MaxStepCount(1)-1-j]* _nStep2Pulse(0);
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[_MaxStepCount(1)-1-j]* _nStep2Pulse(0)*2;
             g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[_MaxStepCount(1)-1-j];
             g_u32WaitFlow2[i+j]=0;
             g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];
         }
         g_u32WaitFlow2[i+j-1]=Scheme2[FlowIndex][1];//×îºóÒ»²½ÉèÖÃÑÓ³Ù
-        g_u8FlowCount2 = (_MaxStepCount(1)+1+_MaxStepCount(1))*2;
+        g_u8FlowCount2 = (_MaxStepCount(1)+1+_MaxStepCount(1))*2;//³ËÒÔ2ÊÇÒòÎªÃ¿¸ö²½Öè¶¼·ÖÎªRUNºÍWAIT
     
     }
     else if (Scheme2[FlowIndex][0] <= 2 *  _FullStepPerClass(1)[0] * _nStep2Pulse(1)) //²»³¬¹ýµÚÒ»¸öÌ¨½×
     {
-        g_u32RunningFlow2[0]=Scheme2[FlowIndex][0];
+        g_u32RunningFlow2[0]=Scheme2[FlowIndex][0]*2;
         g_u16FreqFlow2[0]=g_stPumpSetting[1].Freq[0];
         g_u32WaitFlow2[0]=Scheme2[FlowIndex][1];
         g_u8DirectionFlow2[0]=Scheme2[FlowIndex][2];
@@ -609,13 +609,13 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------Æð²½Ì¨½×--------
         for(i = 0; i < MaxEffClass; i++)
         {
-            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0);
+            g_u32RunningFlow2[i]=g_stPumpSetting[1].Step[i]* _nStep2Pulse(0)*2;
             g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[i];
             g_u32WaitFlow2[i]=0;
             g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
         }
         //--------ÔÈËÙ½×¶Î--------
-        g_u32RunningFlow2[i]=Scheme2[FlowIndex][0] - PumpStartStopSteps(2,MaxEffClass) * _nStep2Pulse(1);
+        g_u32RunningFlow2[i]=(Scheme2[FlowIndex][0] - PumpStartStopSteps(2,MaxEffClass) * _nStep2Pulse(1))*2;
         g_u16FreqFlow2[i]=g_stPumpSetting[1].Freq[MaxEffClass];
         g_u32WaitFlow2[i]=0;
         g_u8DirectionFlow2[i]=Scheme2[FlowIndex][2];
@@ -623,13 +623,13 @@ void Pump2ReloadScheme(u8 FlowIndex)
         //--------¼õËÙÌ¨½×--------
         for(j=0;j<MaxEffClass;j++)
         {
-            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[MaxEffClass-j]* _nStep2Pulse(0);
+            g_u32RunningFlow2[i+j]=g_stPumpSetting[1].Step[MaxEffClass-j]* _nStep2Pulse(0)*2;
             g_u16FreqFlow2[i+j]=g_stPumpSetting[1].Freq[MaxEffClass-j];
             g_u32WaitFlow2[i+j]=0;
             g_u8DirectionFlow2[i+j]=Scheme2[FlowIndex][2];
         }
         g_u32WaitFlow2[i+j-1]=Scheme2[FlowIndex][1];//×îºóÒ»²½ÉèÖÃÑÓ³Ù
-        g_u8FlowCount2 = (MaxEffClass+1+MaxEffClass)*2;
+        g_u8FlowCount2 = (MaxEffClass+1+MaxEffClass)*2;//³ËÒÔ2ÊÇÒòÎªÃ¿¸ö²½Öè¶¼·ÖÎªRUNºÍWAIT
     }
 }
 
