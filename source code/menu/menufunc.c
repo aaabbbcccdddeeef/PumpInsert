@@ -508,11 +508,12 @@ void CInputBackSpace(void)
 }
 void CDrawResultCurve(void)
 {
-    u16 i=0;
+    //u16 i=0;
     CDrawPageLevel5();
     Write_Dir(0X90,0X00);//设定参数
     Write_Dir(0X40,0x00);    
     //CCurveCompress(350, &test[0]);
+    /*
     for(i=0;i<300;i++)
     {
         if(i<299)
@@ -524,6 +525,7 @@ void CDrawResultCurve(void)
             Write_Dir(0X90,0X80);//开始画 
         }
     }
+    */
 }
 void CDrawBurninStatus(void)
 {
@@ -993,6 +995,7 @@ void CTestLeakagePageStyle(void)
     WriteString("温度", 260, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
 
     g_u8HTTestStart=1;
+    g_u16HTnumber=0;
 }
 void CTestLeakageStop(void)
 {

@@ -477,11 +477,6 @@
               <FilePath>.\SourceCode\touchpad.c</FilePath>
             </File>
             <File>
-              <FileName>compress.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SourceCode\compress.c</FilePath>
-            </File>
-            <File>
               <FileName>pump.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SourceCode\pump.c</FilePath>

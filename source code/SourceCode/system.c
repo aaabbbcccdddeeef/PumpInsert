@@ -212,36 +212,39 @@ void CPump2LostEvent(void)
 }
 void CHTEvent(void)
 {
-    u16 i=0;
     u16 ad_H=0;
     u16 ad_T=0;
     u32 TempValue=0;
-    u32 sumH=0;
-    u32 sumT=0;
     float Hvalue=0;
     float Tvalue=0;
+    u8 SampleDone=0;
     
 
     
     if((g_u8HTTestStart==1)&&(g_uiHTsampleCounter==0))
     {
-        sumH = 0;
-        sumT = 0;
-        for(i=0;i<1000;i++)
+        if(g_u16HTnumber==10)
         {
-            TempValue = ADC45_Get();
-            ad_H = TempValue>>16;
-            ad_T = TempValue&0x0000ffff;
-            sumH += ad_H;
-            sumT += ad_T;
+            g_u16HTnumber=0;
+            SampleDone=1;
         }
-        ad_H = sumH/1000;
-        ad_T = sumT/1000;
+        
+        TempValue = ADC45_Get();
+        g_u16Hvalues[g_u16HTnumber++] = TempValue>>16;
+        g_u16Tvalues[g_u16HTnumber++] = TempValue&0x0000ffff;
+
+        g_uiHTsampleCounter = 50;
+    }
+
+    if(SampleDone==1)
+    {
+        ad_H = CSystemMedianFilter(10,&g_u16Hvalues[0]);
+        ad_T = CSystemMedianFilter(10,&g_u16Tvalues[0]);
         Hvalue = (float)ad_H*3.3/4095/0.03;
         Tvalue = (float)ad_T*3.3/4095/0.01;
-        g_uiHTsampleCounter = 100;
         CDispFloatAt(Hvalue, 1, 120, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
         CDispFloatAt(Tvalue, 1, 260, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
     }
+    
 }
 

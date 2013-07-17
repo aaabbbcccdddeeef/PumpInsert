@@ -44,7 +44,7 @@ u8 g_u8TPUp = 0;
 u8 g_u8TPStatus = 0;
 u16 g_u16TPSamIndex = 0;
 u32 g_u32totalnum = 0;
-u16 t_u16CompressPoint[300];
+//u16 t_u16CompressPoint[300];
 u8 g_t8InputNumber[8];
 u8 g_u8NumberBit = 0;
 u8 g_u8MaxInputLength=0;
@@ -97,6 +97,9 @@ volatile u32 g_u32FlowWaitCount2=0;
 u8 g_u8SchemeIndex2=0;
 u8 g_u8Opt2FunctionEn=1;
 u8 g_u8HTTestStart=0;
+u16 g_u16Hvalues[10];
+u16 g_u16Tvalues[10];
+u16 g_u16HTnumber=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -136,7 +139,7 @@ extern u8 g_u8TPUp;
 extern u8 g_u8TPStatus;
 extern u16 g_u16TPSamIndex;
 extern u32 g_u32totalnum;
-extern u16 t_u16CompressPoint[400];
+//extern u16 t_u16CompressPoint[400];
 extern u8 g_t8InputNumber[10];
 extern u8 g_u8NumberBit;
 extern u8 g_u8MaxInputLength;
@@ -191,6 +194,9 @@ extern volatile u32 g_u32FlowWaitCount2;
 extern u8 g_u8SchemeIndex2;
 extern u8 g_u8Opt2FunctionEn;
 extern u8 g_u8HTTestStart;
+extern u16 g_u16Hvalues[10];
+extern u16 g_u16Tvalues[10];
+extern u16 g_u16HTnumber;
 
 
 //--------------------------------------------------
