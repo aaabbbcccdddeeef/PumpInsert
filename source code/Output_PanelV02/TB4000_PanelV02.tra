@@ -30,7 +30,7 @@
 ### ADS-LD Output File: '.\Output_PanelV02\TB4000_PanelV02.axf'
 ### ADS-LD Command File: '.\Output_PanelV02\TB4000_PanelV02.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\Output_PanelV02\TB4000_PanelV02.lnp', Handle=0x00000D98
+### Creating CmdFile '.\Output_PanelV02\TB4000_PanelV02.lnp', Handle=0x000005E4
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\Output_PanelV02\TB4000_PanelV02.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

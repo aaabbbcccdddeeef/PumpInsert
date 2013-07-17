@@ -17,6 +17,7 @@ volatile u32 g_uiPowerkeyTick = 0;
 volatile u32 g_uiTpUpTick=0;
 volatile u32 g_uiPump1LostTimeout=0;
 volatile u32 g_uiPump2LostTimeout=0;
+volatile u32 g_uiHTsampleCounter=0;
 //--------------------------------------------------
 // Function Prototypes
 //--------------------------------------------------
@@ -32,6 +33,8 @@ extern volatile u32 g_uiPowerkeyTick;
 extern volatile u32 g_uiTpUpTick;
 extern volatile u32 g_uiPump1LostTimeout;
 extern volatile u32 g_uiPump2LostTimeout;
+extern volatile u32 g_uiHTsampleCounter;
+
 //--------------------------------------------------
 // Extern Function Prototypes
 //--------------------------------------------------

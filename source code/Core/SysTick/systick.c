@@ -28,6 +28,10 @@
 *****************************************************************************/
 void SysTick_Handler(void)
 {    
+
+    if(g_uiHTsampleCounter != 0)
+        g_uiHTsampleCounter--;
+        
     if(g_ui10msTick != 0)
         g_ui10msTick--;
     

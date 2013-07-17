@@ -989,6 +989,9 @@ void CTestBacklashPageStyle(void)
 void CTestLeakagePageStyle(void)
 {
     WriteString("Ð¹Â©²âÊÔ", _LEVEL4_TITLE_x, _LEVEL4_TITLE_y, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("Êª¶È", 120, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+    WriteString("ÎÂ¶È", 260, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
+
     g_u8HTTestStart=1;
 }
 void CTestLeakageStop(void)

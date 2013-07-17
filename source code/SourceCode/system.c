@@ -212,12 +212,36 @@ void CPump2LostEvent(void)
 }
 void CHTEvent(void)
 {
-    if(g_u8HTTestStart==1)
+    u16 i=0;
+    u16 ad_H=0;
+    u16 ad_T=0;
+    u32 TempValue=0;
+    u32 sumH=0;
+    u32 sumT=0;
+    float Hvalue=0;
+    float Tvalue=0;
+    
+
+    
+    if((g_u8HTTestStart==1)&&(g_uiHTsampleCounter==0))
     {
-        WriteString("Êª¶È", 120, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
-        WriteString("ÎÂ¶È", 260, 90, color_black, _FONT_SIZE_NORMAL,_TANSPERENT_ON);
-        CDispFloatAt(1111, 0, 120, 140, 0x0000, 1, 1);
-        CDispFloatAt(2222, 0, 260, 140, 0x0000, 1, 1);
+        sumH = 0;
+        sumT = 0;
+        for(i=0;i<1000;i++)
+        {
+            TempValue = ADC45_Get();
+            ad_H = TempValue>>16;
+            ad_T = TempValue&0x0000ffff;
+            sumH += ad_H;
+            sumT += ad_T;
+        }
+        ad_H = sumH/1000;
+        ad_T = sumT/1000;
+        Hvalue = (float)ad_H*3.3/4095/0.03;
+        Tvalue = (float)ad_T*3.3/4095/0.01;
+        g_uiHTsampleCounter = 100;
+        CDispFloatAt(Hvalue, 1, 120, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
+        CDispFloatAt(Tvalue, 1, 260, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
     }
 }
 

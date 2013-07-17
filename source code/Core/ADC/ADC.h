@@ -38,5 +38,7 @@ extern unsigned int ADC23_Get (void);
 extern u32 ADC12_Get (void);
 extern unsigned int ADC4_Get (void);
 extern unsigned int ADC5_Get (void);
+extern u32 ADC45_Get (void);
+
 extern u32 ADC56_Get (void);
 #endif
