@@ -1183,13 +1183,7 @@ void CSettingDivider2Value(void)
 
 void CInfoShow(void)
 {
-   // u16 Tvalue = 0;
-    //u16 Hvalue = 0;
-    
-    //Tvalue = ADC0_Get();
-    //Hvalue = ADC1_Get();
-    
-
+    WriteString(_FW_VAERSION,400,240,color_white, _FONT_SIZE_MIN,_TANSPERENT_ON);
 }
 //******************************end of line***************************************
 

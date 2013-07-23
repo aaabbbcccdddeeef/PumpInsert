@@ -560,7 +560,7 @@ MenuItemType AboutMenuItems[]=
         CNull_u8,			// UnselPicFunction
         CNull,			// ExecFunction
         CNull,			// DoBeforeExec
-        CNull,			// DoAfterExec
+        CInfoShow,			// DoAfterExec
         NULL,                   //u8* value
         NULL,                   //u16* value
         0xffff,               // variable max

@@ -1,5 +1,4 @@
----- CSystemMedianFilter Matches (4 in 2 files) ----
-System.c (sourcecode):u16 CSystemMedianFilter(u16 ArrSize, u16 *Arr)
-System.c (sourcecode):        ad_H = CSystemMedianFilter(10,&g_u16Hvalues[0]);
-System.c (sourcecode):        ad_T = CSystemMedianFilter(10,&g_u16Tvalues[0]);
-Touchpad.c (sourcecode):u16 CSystemMedianFilter(u16 ArrSize, u16 *Arr)
+---- CInfoShow Matches (3 in 3 files) ----
+Menufunc.c (menu):void CInfoShow(void)
+Menufunc.h (menu):extern void CInfoShow(void);
+Menutbl.c (menu):        CInfoShow,			// DoAfterExec
