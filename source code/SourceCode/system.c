@@ -128,7 +128,7 @@ void CFlow1Event(void)
                 g_u8SchemeIndex1=0;
 	            CDispFloatAt(++g_u32BurninCount1,0,_LEVEL5_VALUE_2_x,_LEVEL5_VALUE_2_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
 				CDispFloatAt(g_u32LostCount1,0,20,120,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
-				g_uiPump1LostTimeout=300;
+				g_uiPump1LostTimeout=500; //3sec¸ÄÎª5Ãë, 20130723
 				g_u8Pump1Lost=0;
 				g_u8Lost1SaveFlag=0;
 
@@ -184,7 +184,7 @@ void CFlow2Event(void)
                 g_u8SchemeIndex2=0;
 	            CDispFloatAt(++g_u32BurninCount2,0,_LEVEL5_VALUE_3_x,_LEVEL5_VALUE_3_y,color_black, _FONT_SIZE_MIN,_TANSPERENT_OFF);
 				CDispFloatAt(g_u32LostCount2,0,20,160,color_black, _FONT_SIZE_MAX,_TANSPERENT_OFF);
-				g_uiPump2LostTimeout=500;
+				g_uiPump2LostTimeout=500; //5sec, 20130723
 				g_u8Pump2Lost=0;
 				g_u8Lost2SaveFlag=0;
 

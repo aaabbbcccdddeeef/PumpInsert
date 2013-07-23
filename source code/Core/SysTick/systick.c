@@ -46,7 +46,7 @@ void SysTick_Handler(void)
 			g_u8Pump1Lost=1;
 	}
 
-	if(((g_u8Pump1Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount1>50))
+	if(((g_u8Pump1Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount1>50)) //500msec 20130723
 		g_u8Pump1Lost=1;
 
 	if(g_uiPump2LostTimeout != 0)
@@ -57,7 +57,7 @@ void SysTick_Handler(void)
 			g_u8Pump2Lost=1;
 	}
 
-	if(((g_u8Pump2Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount2>50))
+	if(((g_u8Pump2Lost==0)&&(g_u8BurnInFlag==1))&&(g_u32OptCoverCount2>50)) //500msec 20130723
 			g_u8Pump2Lost=1;
 
     if((g_u32FlowWaitCount1!=0)&&(g_u8FlowWaitOver1==0))
