@@ -36,6 +36,8 @@ extern volatile uint32_t UART3Count;
 
 uint32_t UARTInit( uint32_t portNum, uint32_t Baudrate );
 
+void UARTSend( uint32_t portNum, uint8_t *BufferPtr, uint32_t Length );
+
 
 #endif /* end __UART_H */
 /*****************************************************************************

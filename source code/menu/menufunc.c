@@ -996,6 +996,10 @@ void CTestLeakagePageStyle(void)
 
     g_u8HTTestStart=1;
     g_u16HTnumber=0;
+
+	pid_init(&HumPID, 5.2,0.77,0.18);
+	hobj=70;
+
 }
 void CTestLeakageStop(void)
 {

@@ -19,4 +19,5 @@ StructUISetting g_stUISetting;
 StructTouchPoint g_stTouchPoint;
 StructOptSetting g_stOptSetting;
 StructPumpSetting g_stPumpSetting[2];
+StructPID HumPID;
 

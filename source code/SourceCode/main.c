@@ -132,7 +132,8 @@ void CDeviceInit(void)
     
     Layer1_Visible();
     ADC_init();
-        
+
+	UARTInit(3,9600);
     return;
 }
 void delay(unsigned int nCount)	

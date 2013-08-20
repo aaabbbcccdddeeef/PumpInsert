@@ -244,6 +244,9 @@ void CHTEvent(void)
         Tvalue = (float)ad_T*3.3/4095/0.01;
         CDispFloatAt(Hvalue, 1, 120, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
         CDispFloatAt(Tvalue, 1, 260, 140, color_black, _FONT_SIZE_NORMAL, _TANSPERENT_OFF);
+
+		if(HumidityMonitor(Hvalue)==1)
+			PumpFreeRun(1,g_u8HumDirect,g_u16HumResult);
     }
     
 }

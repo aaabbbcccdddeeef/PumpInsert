@@ -121,7 +121,7 @@ void TIMER2_IRQHandler (void)
 	TIM2 ->IR = 1;			/* clear interrupt flag */
     if((optS>>19)==g_stOptSetting.OptShieldLevel[0])
     {
-        g_u32OptCoverCount1++;
+        g_u32OptCoverCount1++;//stay in opt area, 201307023
 
     }
 	else

@@ -59,8 +59,17 @@ typedef struct {
     u16 yMax;
 } StructTouchPoint;
 
+typedef struct{
+	float pgain;
+	float igain;
+	float dgain;
+	float e[3];
+	float result;
+}StructPID;
+
 extern StructUISetting g_stUISetting;
 extern StructTouchPoint g_stTouchPoint;
 extern StructOptSetting g_stOptSetting;
 extern StructPumpSetting g_stPumpSetting[2];
+extern StructPID HumPID;
 
